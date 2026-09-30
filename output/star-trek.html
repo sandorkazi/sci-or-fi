@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Star Trek: Sci vs Fi by season</title>
+<style>
+:root {
+  --bg: #fcfcfb;
+  --card: #ffffff;
+  --text: #0b0b0b;
+  --text-secondary: #52514e;
+  --text-muted: #898781;
+  --border: rgba(11,11,11,0.10);
+  --grid: #e1e0d9;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #17171a;
+    --card: #202024;
+    --text: #f0efec;
+    --text-secondary: #c3c2b7;
+    --text-muted: #898781;
+    --border: rgba(255,255,255,0.10);
+    --grid: #2c2c2a;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #17171a;
+  --card: #202024;
+  --text: #f0efec;
+  --text-secondary: #c3c2b7;
+  --text-muted: #898781;
+  --border: rgba(255,255,255,0.10);
+  --grid: #2c2c2a;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  padding: 24px 16px 40px;
+}
+.wrap { max-width: 980px; margin: 0 auto; }
+h1 { font-size: 20px; font-weight: 500; margin: 0 0 4px; }
+p.sub { font-size: 14px; color: var(--text-secondary); margin: 0 0 20px; line-height: 1.5; }
+.layout { display: flex; gap: 20px; flex-wrap: wrap; align-items: flex-start; }
+.chart-card {
+  flex: 1 1 560px;
+  background: var(--card);
+  border: 0.5px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+}
+.chart-container { position: relative; width: 100%; height: 460px; }
+.series-buttons-head { display: flex; justify-content: space-between; align-items: center; margin: 14px 0 8px; }
+.series-buttons-label { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; }
+.series-buttons { display: flex; flex-wrap: wrap; gap: 6px; }
+.series-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  padding: 6px 10px 6px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  cursor: pointer;
+  transition: opacity 0.12s ease;
+}
+.series-btn:hover { background: var(--bg); }
+.series-btn .dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+.series-btn.off { opacity: 0.4; }
+.series-btn.off .dot { background: var(--text-muted) !important; }
+.side {
+  flex: 0 0 320px;
+  min-width: 260px;
+}
+.stat-row { display: flex; gap: 10px; margin-bottom: 12px; }
+.stat-card {
+  flex: 1;
+  background: var(--card);
+  border-radius: 8px;
+  padding: 12px;
+  border: 0.5px solid var(--border);
+}
+.stat-label { font-size: 12px; color: var(--text-muted); margin: 0 0 4px; }
+.stat-value { font-size: 20px; font-weight: 500; margin: 0; }
+.age-filter {
+  background: var(--card);
+  border: 0.5px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-bottom: 12px;
+}
+.age-filter-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+.age-filter-label { font-size: 13px; font-weight: 500; color: var(--text); }
+.age-filter-value { font-size: 13px; color: var(--text-secondary); font-variant-numeric: tabular-nums; }
+.age-filter input[type="range"] {
+  width: 100%;
+  accent-color: #D85A30;
+  direction: rtl; /* flips the track so "All ages" (max value) sits on the left */
+}
+.age-filter-note { font-size: 11px; color: var(--text-muted); margin: 8px 0 0; line-height: 1.5; }
+.series-buttons-actions { display: flex; gap: 8px; }
+button.ctrl {
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 0.5px solid var(--border);
+  background: var(--card);
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+button.ctrl:hover { background: var(--bg); }
+.note { font-size: 12px; color: var(--text-muted); margin-top: 14px; line-height: 1.6; }
+.rubric {
+  background: var(--card);
+  border: 0.5px solid var(--border);
+  border-radius: 12px;
+  padding: 4px 16px 16px;
+  margin-bottom: 20px;
+}
+.rubric summary {
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 12px 0;
+  color: var(--text);
+  list-style: none;
+}
+.rubric summary::-webkit-details-marker { display: none; }
+.rubric summary::before { content: '▸ '; color: var(--text-muted); }
+.rubric[open] summary::before { content: '▾ '; }
+.rubric-grid { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 6px; }
+.rubric-col { flex: 1 1 260px; min-width: 220px; }
+.rubric-col h3 { font-size: 13px; font-weight: 600; margin: 0 0 4px; color: var(--text); }
+.rubric-def { font-size: 12px; color: var(--text-secondary); margin: 0 0 8px; line-height: 1.5; }
+.rubric-col ul { margin: 0; padding-left: 18px; font-size: 12px; color: var(--text-secondary); line-height: 1.7; }
+.rubric-unc { font-size: 12px; color: var(--text-muted); line-height: 1.6; margin: 14px 0 0; padding-top: 12px; border-top: 0.5px solid var(--border); }
+.outliers {
+  background: var(--card);
+  border: 0.5px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 20px;
+}
+.outliers h3 { font-size: 13px; font-weight: 600; margin: 0 0 10px; color: var(--text); }
+.outliers dl { margin: 0; }
+.outliers dt { font-size: 12.5px; font-weight: 600; color: var(--text); margin-top: 10px; }
+.outliers dt:first-child { margin-top: 0; }
+.outliers dd { font-size: 12.5px; color: var(--text-secondary); margin: 2px 0 0; line-height: 1.6; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Star Trek series: Sci vs Fi, season by season</h1>
+  <p class="sub">Sci and Fi are scored independently against fixed rubrics, never as trade-offs: Sci is how much a season's plots hinge on solving an internally-consistent scientific/engineering problem; Fi is how much it leans on god-like power, prophecy, or reality-bending storytelling. A season can score high, low, or anything on both at once. Each blob's <em>size</em> is uncertainty, not data &mdash; bigger means less confidence, from a thin episode sample or from episode-to-episode swings within the season. The solid line traces a series' seasons in order; a dashed line connects the larger average marker to season 1, so it's easy to find where each series starts. A small jitter keeps seasons with identical or near-identical scores from stacking exactly on top of each other. Hover a blob for the season's exact scores, uncertainty, and the reasoning behind them.</p>
+
+  <details class="rubric" open>
+    <summary>Scoring criteria</summary>
+    <div class="rubric-grid">
+      <div class="rubric-col">
+        <h3>Sci &mdash; scientific/engineering rigor</h3>
+        <p class="rubric-def">How much a season's plots hinge on solving an internally-consistent scientific or engineering problem, regardless of what else is happening.</p>
+        <ul>
+          <li><strong>0&ndash;2</strong> &mdash; science is set dressing only</li>
+          <li><strong>3&ndash;4</strong> &mdash; occasional technical-problem episode among mostly non-technical plots</li>
+          <li><strong>5&ndash;6</strong> &mdash; roughly a third to half of episodes turn on a scientific/engineering puzzle</li>
+          <li><strong>7&ndash;8</strong> &mdash; most episodes are structured as a technical procedural</li>
+          <li><strong>9&ndash;10</strong> &mdash; nearly every episode's core engine is rigorous problem-solving</li>
+        </ul>
+      </div>
+      <div class="rubric-col">
+        <h3>Fi &mdash; myth, magic, reality-bending</h3>
+        <p class="rubric-def">How much a season features god-like beings, prophecy, magic-equivalent power, or reality/format-bending storytelling.</p>
+        <ul>
+          <li><strong>0&ndash;2</strong> &mdash; fully grounded, no mythic or reality-bending material</li>
+          <li><strong>3&ndash;4</strong> &mdash; one isolated mythic entity or format-bender in an otherwise grounded season</li>
+          <li><strong>5&ndash;6</strong> &mdash; a recurring mythic thread present in a minority of episodes</li>
+          <li><strong>7&ndash;8</strong> &mdash; mythic/reality-bending material is a frequent, defining feature</li>
+          <li><strong>9&ndash;10</strong> &mdash; myth or fantasy is the season's primary engine</li>
+        </ul>
+      </div>
+    </div>
+    <p class="rubric-unc"><strong>Uncertainty</strong> (shown as blob size) comes from two independent sources per axis: thin data (short seasons, anthologies, a single film, or a season that aired after my reliable knowledge window) and within-season swings (one outlier episode against an otherwise consistent season). Sci and Fi carry their own uncertainty separately &mdash; a season can be confident on one axis and shaky on the other.</p>
+  </details>
+
+  <div class="layout">
+    <div class="chart-card">
+      <div class="chart-container">
+        <canvas id="trekChart" role="img" aria-label="Scatter chart plotting each season of every Star Trek series on Sci (x-axis, 0-10) versus Fi (y-axis, 0-10)"></canvas>
+      </div>
+      <div class="series-buttons-head">
+        <span class="series-buttons-label">Series</span>
+        <div class="series-buttons-actions">
+          <button class="ctrl" id="showAll">Show all</button>
+          <button class="ctrl" id="hideAll">Hide all</button>
+          <button class="ctrl" id="invertSelection">Invert selection</button>
+        </div>
+      </div>
+      <div class="series-buttons" id="seriesButtons"></div>
+    </div>
+    <div class="side">
+      <div class="stat-row">
+        <div class="stat-card">
+          <p class="stat-label">Avg Sci variance (within-series)</p>
+          <p class="stat-value" id="avgSciVar">&ndash;</p>
+        </div>
+        <div class="stat-card">
+          <p class="stat-label">Avg Fi variance (within-series)</p>
+          <p class="stat-value" id="avgFiVar">&ndash;</p>
+        </div>
+      </div>
+      <div class="age-filter">
+        <div class="age-filter-head">
+          <span class="age-filter-label">Age filter</span>
+          <span class="age-filter-value" id="ageValue">All ages</span>
+        </div>
+        <input type="range" id="ageSlider" min="6" max="18" step="1" value="18">
+        <p class="age-filter-note">Hides series generally advised for an older audience than the value set. Drag left for "All ages"; drag right to tighten the threshold. Ratings are approximate, drawn from general parental-guide consensus, not an official classification.</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="note">Variance (above) is the population variance of a series' own season-level Sci and Fi scores &mdash; how much that series' tone wobbled season to season. Blob size is a different thing: per-season uncertainty, reflecting thin episode samples (anthologies, single-season shows, Section 31's one film) and within-season swings (one outlier episode against an otherwise consistent season). Sci and Fi carry their own uncertainty independently &mdash; a season can be confident on one axis and shaky on the other.</p>
+
+  <div class="outliers">
+    <h3>Notable outliers &mdash; seasons far from their own series' average</h3>
+    <dl>
+      <dt>Discovery season 4 (Sci 8, Fi 4) vs. the rest of Discovery (~Sci 5, Fi 7)</dt>
+      <dd>Every other Discovery season is built around a techno-mystical macguffin (spore drive, Red Angel, Progenitor tech) treated with reverence rather than rigor. Season 4's DMA arc breaks that pattern: it's a single anomaly investigated methodically across the whole season, resolved through actual mathematics and first-contact protocol rather than a mystical reveal. It's the one Discovery season built like a classic hard-sci-fi procedural instead of a myth wearing a sci-fi costume &mdash; hence the jump to the show's highest Sci and lowest Fi, both with unusually low uncertainty.</dd>
+
+      <dt>Strange New Worlds season 4 (Sci 2, Fi 8) vs. seasons 1&ndash;3 (~Sci 6, Fi 6)</dt>
+      <dd>Seasons 1&ndash;3 kept a fairly steady "alien of the week" problem-solving format with occasional format experiments. Season 4 abandons that format itself &mdash; noir, puppets, hallucinations, a literal dinosaur apocalypse, a space baby &mdash; so the drop isn't one bad science episode, it's the season declining to be science-driven as a structural choice.</dd>
+
+      <dt>Picard season 2 (Sci 3, Fi 8) vs. seasons 1 and 3 (~Sci 5, Fi 6)</dt>
+      <dd>Q rewriting the timeline and stranding the crew in an alternate 2024 removes the show's usual technical throughline almost entirely for a season; seasons 1 and 3 both keep at least one technical threat (synth ethics, Borg-assimilated fleet) running alongside the melodrama.</dd>
+
+      <dt>DS9 season 7 (Sci 3, Fi 8) vs. seasons 1&ndash;2 (Sci 4, Fi 6)</dt>
+      <dd>This is a gradual drift rather than a single jump &mdash; the Dominion War pulls the show away from science steadily across seasons 5&ndash;7, and the finale's fulfillment of Sisko's prophecy as the Emissary is the endpoint of that drift, not an isolated spike.</dd>
+    </dl>
+  </div>
+
+  </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const seriesData = [
+  { name: 'The Original Series', short: 'TOS', color: '#378ADD', ageRating: 10, seasons: [
+    {s:1, sci:6, sciUnc:0.5, fi:6, fiUnc:0.5, reason: `"Balance of Terror" gives tactical engineering rigor, while "The Squire of Gothos" introduces a god-tier trickster.`},
+    {s:2, sci:6, sciUnc:0.5, fi:6, fiUnc:0.6, reason: `"The Doomsday Machine" is hard engineering peril; "Who Mourns for Adonais?" is literally a Greek god.`},
+    {s:3, sci:4, sciUnc:0.7, fi:6, fiUnc:0.6, reason: `Reduced-budget season leans on absurd pseudo-science ("Spock's Brain") while "The Empath" keeps god-testing-humanity plots going.`}
+  ]},
+  { name: 'The Animated Series', short: 'TAS', color: '#85B7EB', ageRating: 7, seasons: [
+    {s:1, sci:5, sciUnc:0.7, fi:7, fiUnc:0.8, reason: `"The Magicks of Megas-Tu" is overt sorcery/Lucifer myth; only 16 episodes total.`},
+    {s:2, sci:4, sciUnc:1.0, fi:6, fiUnc:1.0, reason: `Just 6 episodes this season — a thin sample.`}
+  ]},
+  { name: 'The Next Generation', short: 'TNG', color: '#D85A30', ageRating: 10, seasons: [
+    {s:1, sci:6, sciUnc:0.5, fi:5, fiUnc:0.5, reason: `Q's trial framework in "Encounter at Farpoint" against an otherwise procedural rest of the season.`},
+    {s:2, sci:6, sciUnc:0.5, fi:5, fiUnc:0.5, reason: `"Q Who" pairs the Borg (technical dread) with Q (myth) in one episode.`},
+    {s:3, sci:7, sciUnc:0.4, fi:4, fiUnc:0.4, reason: `"The Best of Both Worlds" keeps the Borg grounded in technology, not myth — a strong, consistent season.`},
+    {s:4, sci:7, sciUnc:0.4, fi:4, fiUnc:0.4, reason: `Steady season with few mythic outings.`},
+    {s:5, sci:8, sciUnc:0.4, fi:4, fiUnc:0.5, reason: `"Darmok" (linguistics) and "The Inner Light" (an alien probe, not a supernatural force) both stay grounded despite the emotional weight.`},
+    {s:6, sci:8, sciUnc:0.4, fi:6, fiUnc:0.7, reason: `"Tapestry" (Q rewrites Picard's past) and "Rightful Heir" (a Klingon messiah) spike Fi against an otherwise technical season.`},
+    {s:7, sci:7, sciUnc:0.5, fi:6, fiUnc:0.7, reason: `The finale's Q-trial in "All Good Things..." plus the outlier ghost-romance episode "Sub Rosa".`}
+  ]},
+  { name: 'Deep Space Nine', short: 'DS9', color: '#F0997B', ageRating: 14, seasons: [
+    {s:1, sci:4, sciUnc:0.5, fi:6, fiUnc:0.5, reason: `The wormhole Prophets are introduced immediately in "Emissary"; otherwise station politics.`},
+    {s:2, sci:4, sciUnc:0.5, fi:6, fiUnc:0.5, reason: `Same balance of politics and recurring Prophet mythology.`},
+    {s:3, sci:5, sciUnc:0.5, fi:6, fiUnc:0.5, reason: `The Defiant is introduced — more technical, tactical combat.`},
+    {s:4, sci:5, sciUnc:0.5, fi:6, fiUnc:0.5, reason: `Worf's arrival and Klingon politics, with a steady mythic presence.`},
+    {s:5, sci:4, sciUnc:0.5, fi:6, fiUnc:0.5, reason: `Dominion War buildup pulls focus away from science toward military plotting.`},
+    {s:6, sci:3, sciUnc:0.5, fi:7, fiUnc:0.5, reason: `Pah-wraith-possessed Dukat becomes an overt evil-mythic antagonist.`},
+    {s:7, sci:3, sciUnc:0.4, fi:8, fiUnc:0.4, reason: `The finale explicitly resolves Sisko's prophesied Emissary destiny in the Fire Caves — consistently mythic, hence low uncertainty despite the high score.`}
+  ]},
+  { name: 'Voyager', short: 'VOY', color: '#1D9E75', ageRating: 14, seasons: [
+    {s:1, sci:8, sciUnc:0.4, fi:4, fiUnc:0.4, reason: `Season built almost entirely on technical survival problem-solving in the Delta Quadrant.`},
+    {s:2, sci:7, sciUnc:0.5, fi:4, fiUnc:0.7, reason: `"Threshold"'s widely-mocked hyper-evolution plot is a rigor outlier that drags on the Sci confidence.`},
+    {s:3, sci:7, sciUnc:0.4, fi:5, fiUnc:0.5, reason: `Fluidic-space physics against Species 8472, plus "Distant Origin"'s evolutionary-science plot.`},
+    {s:4, sci:8, sciUnc:0.4, fi:6, fiUnc:0.5, reason: `Borg technology is heavy on hard science, but the Collective's hive-mind carries real mythic dread in "Scorpion".`},
+    {s:5, sci:7, sciUnc:0.4, fi:5, fiUnc:0.5, reason: `Steady continuation of the established mix.`},
+    {s:6, sci:6, sciUnc:0.5, fi:6, fiUnc:0.7, reason: `"Barge of the Dead" — a literal vision of the Klingon afterlife — spikes myth against an otherwise technical baseline.`},
+    {s:7, sci:6, sciUnc:0.5, fi:6, fiUnc:0.5, reason: `The time-travel finale "Endgame" blends both dimensions on the way out.`}
+  ]},
+  { name: 'Enterprise', short: 'ENT', color: '#5DCAA5', ageRating: 13, seasons: [
+    {s:1, sci:8, sciUnc:0.4, fi:2, fiUnc:0.4, reason: `Grounded first-warp-5-ship engineering stories; almost no mysticism.`},
+    {s:2, sci:7, sciUnc:0.4, fi:3, fiUnc:0.4, reason: `Similar engineering-forward tone continues.`},
+    {s:3, sci:7, sciUnc:0.5, fi:4, fiUnc:0.5, reason: `The Xindi war arc, with mild Temporal Cold War mysticism running underneath.`},
+    {s:4, sci:6, sciUnc:0.5, fi:5, fiUnc:0.5, reason: `Mirror Universe and Vulcan-katra arcs raise the myth content somewhat.`}
+  ]},
+  { name: 'Discovery', short: 'DIS', color: '#D4537E', ageRating: 16, seasons: [
+    {s:1, sci:6, sciUnc:0.6, fi:7, fiUnc:0.7, reason: `The spore drive is techno-mystical (fungus-network space travel), and the Mirror Universe arc is straight fantasy trope.`},
+    {s:2, sci:5, sciUnc:0.6, fi:7, fiUnc:0.6, reason: `The Red Angel and the sentient AI Control both lean numinous before their eventual sci-fi reveals.`},
+    {s:3, sci:6, sciUnc:0.6, fi:6, fiUnc:0.6, reason: `The dilithium/Burn mystery is genuine scientific detective work; the abrupt far-future setting adds uncertainty.`},
+    {s:4, sci:8, sciUnc:0.4, fi:4, fiUnc:0.4, reason: `The DMA arc is unusually rigorous hard-sci-fi — first contact achieved through mathematics — the series' clearest outlier: its most technical, least mythic season by a wide margin, driven by one tightly-plotted anomaly-of-the-season structure rather than the format-hopping typical of the rest of the show.`},
+    {s:5, sci:4, sciUnc:0.5, fi:7, fiUnc:0.5, reason: `The Progenitor treasure hunt is macguffin-mystical from episode to episode.`}
+  ]},
+  { name: 'Short Treks', short: 'ST', color: '#ED93B1', ageRating: 13, seasons: [
+    {s:1, sci:5, sciUnc:1.0, fi:5, fiUnc:1.0, reason: `Only 4 shorts, ranging from hard-sci "Runaway" to the elegiac, myth-adjacent "Calypso".`},
+    {s:2, sci:4, sciUnc:0.9, fi:6, fiUnc:0.9, reason: `"The Girl Who Made the Stars" is explicitly framed as an oral folktale.`}
+  ]},
+  { name: 'Picard', short: 'PIC', color: '#7F77DD', ageRating: 16, seasons: [
+    {s:1, sci:5, sciUnc:0.6, fi:6, fiUnc:0.6, reason: `Synth-consciousness ethics sit alongside heavy found-family melodrama.`},
+    {s:2, sci:3, sciUnc:0.5, fi:8, fiUnc:0.5, reason: `Q sends the crew into an alternate timeline — consistently myth-driven throughout, the show's most fantastical season and an outlier against its own S1/S3.`},
+    {s:3, sci:5, sciUnc:0.6, fi:6, fiUnc:0.6, reason: `The Borg-assimilated-fleet threat is technical, but the tone is heavily nostalgic TNG fan-service.`}
+  ]},
+  { name: 'Lower Decks', short: 'LD', color: '#AFA9EC', ageRating: 13, seasons: [
+    {s:1, sci:4, sciUnc:0.6, fi:7, fiUnc:0.6, reason: `Holodeck-malfunction and anomaly-of-the-week parody, the show's steady baseline tone.`},
+    {s:2, sci:4, sciUnc:0.6, fi:7, fiUnc:0.6, reason: `Consistent with season 1's balance of parody and lore-deep references.`},
+    {s:3, sci:4, sciUnc:0.6, fi:7, fiUnc:0.6, reason: `Same established mix continues.`},
+    {s:4, sci:3, sciUnc:0.6, fi:8, fiUnc:0.6, reason: `"Twovix" and denser crossover episodes push further into parody.`},
+    {s:5, sci:3, sciUnc:0.6, fi:8, fiUnc:0.6, reason: `Multiverse-heavy series finale leans hardest into absurdity.`}
+  ]},
+  { name: 'Prodigy', short: 'PRO', color: '#BA7517', ageRating: 7, seasons: [
+    {s:1, sci:5, sciUnc:0.5, fi:6, fiUnc:0.5, reason: `Protostar systems troubleshooting sits alongside Zero, a non-corporeal, quasi-mystical being.`},
+    {s:2, sci:4, sciUnc:0.6, fi:7, fiUnc:0.6, reason: `Time travel and Living Construct lore lean further mystical.`}
+  ]},
+  { name: 'Strange New Worlds', short: 'SNW', color: '#EF9F27', ageRating: 12, seasons: [
+    {s:1, sci:6, sciUnc:0.5, fi:5, fiUnc:0.5, reason: `Steady "alien of the week" problem-solving in the classic TOS mold.`},
+    {s:2, sci:6, sciUnc:0.4, fi:6, fiUnc:0.9, reason: `The "Subspace Rhapsody" musical is a single huge Fi outlier against an otherwise consistent season — hence low Sci uncertainty but high Fi uncertainty.`},
+    {s:3, sci:5, sciUnc:0.5, fi:6, fiUnc:0.6, reason: `A courtroom episode and an animated crossover broaden the season's tone.`},
+    {s:4, sci:2, sciUnc:0.6, fi:8, fiUnc:0.5, reason: `Per your read: noir, puppets, musical-adjacent, hallucinations, dinosaurs, a space baby, and barely one hand-wavy science episode — an outlier for the show, its most fantastical, least science-driven season by a wide margin.`}
+  ]},
+  { name: 'Section 31', short: 'S31', color: '#E24B4A', ageRating: 16, seasons: [
+    {s:1, sci:2, sciUnc:1.0, fi:4, fiUnc:1.0, reason: `A single 88-minute film built around a bioweapon/heist plot — an inherently thin sample.`}
+  ]},
+  { name: 'Starfleet Academy', short: 'SFA', color: '#888780', ageRating: 12, seasons: [
+    {s:1, sci:3, sciUnc:0.9, fi:4, fiUnc:0.9, reason: `Aired Jan–Mar 2026, after my reliable knowledge window — reflects the general premise (academy drama, post-Burn setting) rather than confirmed episode detail; the least-confident point in the set.`}
+  ]}
+];
+
+function variance(arr) {
+  if (arr.length < 2) return null;
+  const mean = arr.reduce((a,b) => a+b, 0) / arr.length;
+  const sq = arr.reduce((a,b) => a + (b-mean)*(b-mean), 0) / arr.length;
+  return sq;
+}
+function mean(arr) { return arr.reduce((a,b)=>a+b,0) / arr.length; }
+
+seriesData.forEach(sr => {
+  sr.sciVar = variance(sr.seasons.map(x => x.sci));
+  sr.fiVar = variance(sr.seasons.map(x => x.fi));
+  sr.sciMean = mean(sr.seasons.map(x => x.sci));
+  sr.fiMean = mean(sr.seasons.map(x => x.fi));
+});
+
+const withVar = seriesData.filter(s => s.sciVar !== null);
+document.getElementById('avgSciVar').textContent = (withVar.reduce((a,s)=>a+s.sciVar,0)/withVar.length).toFixed(2);
+document.getElementById('avgFiVar').textContent = (withVar.reduce((a,s)=>a+s.fiVar,0)/withVar.length).toFixed(2);
+
+const allSci = seriesData.flatMap(sr => sr.seasons.map(x => x.sci));
+const allFi = seriesData.flatMap(sr => sr.seasons.map(x => x.fi));
+const xAxisMin = 1;
+const xAxisMax = 10;
+const yAxisMin = 1;
+const yAxisMax = 10;
+
+const themeMode = document.documentElement.dataset.mode;
+const isDark = themeMode ? themeMode === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+const textColor = isDark ? '#c3c2b7' : '#52514e';
+const gridColor = isDark ? '#2c2c2a' : '#e1e0d9';
+
+function hexToRgba(hex, alpha) {
+  const r = parseInt(hex.slice(1,3),16), g = parseInt(hex.slice(3,5),16), b = parseInt(hex.slice(5,7),16);
+  return `rgba(${r},${g},${b},${alpha})`;
+}
+function hexParts(hex) {
+  return { r: parseInt(hex.slice(1,3),16), g: parseInt(hex.slice(3,5),16), b: parseInt(hex.slice(5,7),16) };
+}
+
+// A soft radial-gradient sprite standing in for a "Gaussian" blob. Chart.js scales
+// this image to fit each point's radius, so one sprite per series color is reused
+// for every season of that series; only the radius differs per point.
+function makeGaussianSprite(hex) {
+  const size = 128;
+  const canvas = document.createElement('canvas');
+  canvas.width = size; canvas.height = size;
+  const ctx = canvas.getContext('2d');
+  const { r, g, b } = hexParts(hex);
+  const grad = ctx.createRadialGradient(size/2, size/2, 0, size/2, size/2, size/2);
+  grad.addColorStop(0, `rgba(${r},${g},${b},0.28)`);
+  grad.addColorStop(0.45, `rgba(${r},${g},${b},0.14)`);
+  grad.addColorStop(1, `rgba(${r},${g},${b},0)`);
+  ctx.fillStyle = grad;
+  ctx.beginPath();
+  ctx.arc(size/2, size/2, size/2, 0, Math.PI*2);
+  ctx.fill();
+  return canvas;
+}
+
+// Radius in px from a season's combined (Sci+Fi) uncertainty: more uncertain = larger blob.
+const RADIUS_BASE = 5, RADIUS_SCALE = 7;
+function radiusFromUnc(sciUnc, fiUnc) {
+  return RADIUS_BASE + ((sciUnc + fiUnc) / 2) * RADIUS_SCALE;
+}
+
+// Deterministic jitter so seasons that land on identical or near-identical scores
+// don't sit fully on top of each other. Stable across reloads, not re-randomized.
+function jitter(seed) {
+  const v = Math.sin(seed * 12.9898) * 43758.5453;
+  const frac = v - Math.floor(v);
+  return (frac - 0.5) * 0.6; // +/- 0.3 units
+}
+
+function buildDatasets() {
+  const datasets = [];
+  seriesData.forEach((sr, si) => {
+    const sprite = makeGaussianSprite(sr.color);
+    const points = sr.seasons.map((x, i) => ({
+      x: x.sci + jitter(si * 37 + i * 7 + 1),
+      y: x.fi + jitter(si * 37 + i * 7 + 2),
+      origX: x.sci, sciUnc: x.sciUnc,
+      origY: x.fi, fiUnc: x.fiUnc,
+      season: x.s, reason: x.reason
+    }));
+    datasets.push({
+      label: sr.name + ' (seasons)',
+      _seriesShort: sr.short,
+      _kind: 'seasons',
+      data: points,
+      showLine: true,
+      tension: 0.25,
+      fill: false,
+      borderColor: hexToRgba(sr.color, 0.45),
+      borderWidth: 1.25,
+      pointStyle: sr.seasons.map(() => sprite),
+      pointRadius: sr.seasons.map(x => radiusFromUnc(x.sciUnc, x.fiUnc)),
+      pointHoverRadius: sr.seasons.map(x => radiusFromUnc(x.sciUnc, x.fiUnc) + 3)
+    });
+    // A small solid core dot on top of each halo, marking the precise score while
+    // A dashed connector from the average marker to season 1, so S1 is easy to
+    // spot at a glance. No visible points of its own, and excluded from hit
+    // testing so it doesn't produce its own tooltip.
+    datasets.push({
+      label: sr.name + ' (avg link)',
+      _seriesShort: sr.short,
+      _kind: 'avg-link',
+      data: [
+        {x: sr.sciMean, y: sr.fiMean},
+        {x: points[0].x, y: points[0].y}
+      ],
+      showLine: true,
+      borderColor: hexToRgba(sr.color, 0.55),
+      borderWidth: 1.25,
+      borderDash: [4, 3],
+      fill: false,
+      pointRadius: 0,
+      pointHoverRadius: 0,
+      pointHitRadius: 0
+    });
+    // the translucent halo around it communicates uncertainty. Excluded from hit
+    // testing so hovering still reports the halo's (fuller) tooltip, not this one.
+    datasets.push({
+      label: sr.name + ' (core)',
+      _seriesShort: sr.short,
+      _kind: 'core',
+      data: points,
+      showLine: false,
+      pointStyle: 'circle',
+      backgroundColor: sr.color,
+      borderColor: isDark ? 'rgba(23,23,26,0.6)' : 'rgba(255,255,255,0.6)',
+      borderWidth: 1,
+      pointRadius: 2.5,
+      pointHoverRadius: 2.5,
+      pointHitRadius: 0
+    });
+    datasets.push({
+      label: sr.name + ' (avg)',
+      _seriesShort: sr.short,
+      _kind: 'avg',
+      data: [{x: sr.sciMean, y: sr.fiMean, origX: sr.sciMean, origY: sr.fiMean}],
+      backgroundColor: sr.color,
+      borderColor: isDark ? '#17171a' : '#ffffff',
+      borderWidth: 2,
+      pointRadius: 7,
+      pointHoverRadius: 9,
+      pointStyle: 'circle'
+    });
+  });
+  return datasets;
+}
+
+// Simple word-wrap so tooltip reasoning renders as multiple short lines instead
+// of one unreadable long line (Chart.js tooltips don't auto-wrap text).
+function wrapText(text, maxChars) {
+  const words = text.split(' ');
+  const lines = [];
+  let line = '';
+  words.forEach(w => {
+    if ((line + ' ' + w).trim().length > maxChars) {
+      lines.push(line.trim());
+      line = w;
+    } else {
+      line = (line + ' ' + w).trim();
+    }
+  });
+  if (line) lines.push(line);
+  return lines;
+}
+
+const chart = new Chart(document.getElementById('trekChart'), {
+  type: 'scatter',
+  data: { datasets: buildDatasets() },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    layout: { padding: 16 },
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          title: (items) => {
+            const ds = items[0].dataset;
+            return ds.label.replace(' (seasons)','').replace(' (avg)','');
+          },
+          label: (ctx) => {
+            const ds = ctx.dataset;
+            if (ds._kind === 'avg') {
+              return `Average: Sci ${ctx.raw.origX.toFixed(1)}, Fi ${ctx.raw.origY.toFixed(1)}`;
+            }
+            return `Season ${ctx.raw.season}: Sci ${ctx.raw.origX} \u00b1 ${ctx.raw.sciUnc.toFixed(1)}, Fi ${ctx.raw.origY} \u00b1 ${ctx.raw.fiUnc.toFixed(1)}`;
+          },
+          afterLabel: (ctx) => {
+            const ds = ctx.dataset;
+            if (ds._kind === 'avg' || !ctx.raw.reason) return undefined;
+            return wrapText(ctx.raw.reason, 42);
+          }
+        }
+      }
+    },
+    scales: {
+      x: {
+        min: xAxisMin, max: xAxisMax,
+        title: { display: true, text: 'Sci (hard science, exploration rigor)', color: textColor },
+        ticks: { color: textColor },
+        grid: { color: gridColor }
+      },
+      y: {
+        min: yAxisMin, max: yAxisMax,
+        title: { display: true, text: 'Fi (myth, fantasy, melodrama)', color: textColor },
+        ticks: { color: textColor },
+        grid: { color: gridColor }
+      }
+    }
+  }
+});
+
+const visible = {};
+seriesData.forEach(sr => { visible[sr.short] = true; });
+let ageLimit = 18;
+
+function isAgeAllowed(sr) {
+  return sr.ageRating <= ageLimit;
+}
+
+function applyVisibility() {
+  chart.data.datasets.forEach((ds, i) => {
+    const sr = seriesData.find(s => s.short === ds._seriesShort);
+    const on = visible[ds._seriesShort] && isAgeAllowed(sr);
+    chart.getDatasetMeta(i).hidden = !on;
+  });
+  chart.update();
+}
+
+document.getElementById('showAll').addEventListener('click', () => {
+  seriesData.forEach(sr => visible[sr.short] = true);
+  applyVisibility(); renderButtons();
+});
+document.getElementById('hideAll').addEventListener('click', () => {
+  seriesData.forEach(sr => visible[sr.short] = false);
+  applyVisibility(); renderButtons();
+});
+
+const ageSlider = document.getElementById('ageSlider');
+const ageValueEl = document.getElementById('ageValue');
+function updateAgeLabel() {
+  ageValueEl.textContent = ageLimit >= 18 ? 'All ages' : `${ageLimit}+`;
+}
+ageSlider.addEventListener('input', () => {
+  ageLimit = parseInt(ageSlider.value, 10);
+  updateAgeLabel();
+  applyVisibility();
+  renderButtons();
+});
+updateAgeLabel();
+
+function renderButtons() {
+  const el = document.getElementById('seriesButtons');
+  el.innerHTML = '';
+  seriesData.forEach(sr => {
+    const ageFiltered = !isAgeAllowed(sr);
+    const btn = document.createElement('button');
+    btn.className = 'series-btn' + (!visible[sr.short] || ageFiltered ? ' off' : '');
+    const varText = sr.sciVar === null
+      ? 'single season, no variance'
+      : `Sci var ${sr.sciVar.toFixed(2)}, Fi var ${sr.fiVar.toFixed(2)}`;
+    const seasonText = `${sr.seasons.length} season${sr.seasons.length > 1 ? 's' : ''}`;
+    btn.title = `${sr.name} (${sr.ageRating}+) \u00b7 ${seasonText} \u00b7 ${varText}`
+      + (ageFiltered ? ' \u2014 hidden by age filter' : '');
+    btn.innerHTML = `<span class="dot" style="background:${sr.color}"></span>${sr.short}`;
+    btn.addEventListener('click', () => {
+      visible[sr.short] = !visible[sr.short];
+      applyVisibility();
+      renderButtons();
+    });
+    el.appendChild(btn);
+  });
+}
+
+document.getElementById('invertSelection').addEventListener('click', () => {
+  seriesData.forEach(sr => { visible[sr.short] = !visible[sr.short]; });
+  applyVisibility();
+  renderButtons();
+});
+
+renderButtons();
+</script>
+</body>
+</html>
