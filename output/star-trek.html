@@ -73,6 +73,12 @@ code{font-size:.92em;background:rgba(127,127,127,.14);padding:1px 4px;border-rad
         <label class="chip" id="baselineChip"><input type="checkbox" id="baselineToggle" checked style="accent-color:var(--accent)"> show baseline-v1 (hand-scored whole-season integers)</label>
         <p class="muted" style="margin:10px 0 0">Overlay of <code>baseline-v1</code> — the original whole-season hand-scored integers, frozen before the redesign. Shown as crosses so the gap between a single reader's holistic integer and the measured episode aggregate is visible.</p>
       </div>
+      <div class="card" style="margin-top:12px">
+        <label class="chip"><input type="checkbox" id="zoomToggle" style="accent-color:var(--accent)"> zoom to data</label>
+        <p class="muted" style="margin:10px 0 0">Off by default: the full 0&ndash;10 scale makes it plain how little of it the
+        measured scores occupy. Zooming rescales the axes to the visible points, which exaggerates small gaps &mdash; read it
+        alongside the confidence intervals, never on its own.</p>
+      </div>
     </div>
   </div>
 
@@ -81,7 +87,7 @@ code{font-size:.92em;background:rgba(127,127,127,.14);padding:1px 4px;border-rad
 
   <details open>
     <summary>Rubric, uncertainty and provenance</summary>
-    <div class='rubric-grid'><div><h3>Sci - scientific / engineering rigour</h3><p>How much an episode's text turns on technical, scientific or engineering vocabulary, as opposed to being set dressing.</p><ul><li><code>technical-lexicon-density</code> — coder <em>lexicon</em>, 57 terms, weight 1.0, saturates at 20.0</li></ul></div><div><h3>Fi - myth / magic / reality-bending</h3><p>How much an episode's text turns on god-like power, prophecy, magic-equivalent action or reality-breaking storytelling.</p><ul><li><code>mythic-lexicon-density</code> — coder <em>lexicon</em>, 59 terms, weight 1.0, saturates at 9.0</li><li><code>numinous-entity</code> — coder <em>entity</em>, curated entity list (franchise:entities), weight 1.0, saturates at 6.0</li></ul></div></div><p class='muted'>Saturation values are calibrated on the reference corpus (Star Trek: TOS, 79 episodes) as the 95th percentile of episode-level density, so a season scoring 10 is a genuine corpus-tail outlier rather than a saturation artefact. Raw densities are always published alongside scores.</p><p class='muted'><strong>Uncertainty.</strong> ci95-mean: 95% CI of the episode-level mean (z=1.96), inflated ×1.5 below 5 episodes. Measured from the episode distribution, never asserted.</p><p class='muted'><strong>Not yet coded</strong> (rubric-v2, needs a judgement coder rather than a lexicon): <code>resolution-mechanism</code>, <code>methodological-framing</code>, <code>internal-consistency</code>, <code>pseudoscience-handwave</code>, <code>prophecy-driven-plot</code>, <code>magic-equivalent-action</code>, <code>reality-or-format-bending</code>, <code>literal-afterlife</code>, <code>absurdist-tonal-break</code></p>
+    <div class='rubric-grid'><div><h3>Sci - scientific / engineering rigour</h3><p>How much an episode's text turns on technical, scientific or engineering vocabulary, as opposed to being set dressing.</p><ul><li><code>technical-lexicon-density</code> — coder <em>lexicon</em>, 57 terms, weight 1.0, saturates at 20.0</li></ul></div><div><h3>Fi - myth / magic / reality-bending</h3><p>How much an episode's text turns on god-like power, prophecy, magic-equivalent action or reality-breaking storytelling.</p><ul><li><code>mythic-lexicon-density</code> — coder <em>lexicon</em>, 59 terms, weight 1.0, saturates at 9.0</li><li><code>numinous-entity</code> — coder <em>entity</em>, curated entity list (franchise:entities), weight 1.0, saturates at 6.0</li></ul></div></div><p class='muted'>Saturation values are calibrated on the reference corpus (Star Trek: TOS, 79 episodes) as the 95th percentile of episode-level density, so a season scoring 10 is a genuine corpus-tail outlier rather than a saturation artefact. Raw densities are always published alongside scores.</p><p class='muted'><strong>Uncertainty.</strong> ci95-mean: 95% CI of the episode-level mean (z=1.96), inflated ×1.5 below 5 episodes. Measured from the episode distribution, never asserted.</p><p class='muted'><strong>Not yet coded</strong> (rubric-v3, needs a judgement coder rather than a lexicon): <code>resolution-mechanism</code>, <code>methodological-framing</code>, <code>internal-consistency</code>, <code>pseudoscience-handwave</code>, <code>prophecy-driven-plot</code>, <code>magic-equivalent-action</code>, <code>reality-or-format-bending</code>, <code>literal-afterlife</code>, <code>absurdist-tonal-break</code></p>
     <h2 style="margin-top:20px">Sources in this scope</h2>
     <table class='prov'><thead><tr><th>source</th><th>category</th><th>what it gives</th><th>licence</th><th></th></tr></thead><tbody><tr><td><code>tvmaze</code></td><td>plot-summary</td><td>summary</td><td>TVmaze API, free, attribution required</td><td><a href='https://www.tvmaze.com/api'>source</a></td></tr><tr><td><code>wikipedia</code></td><td>plot-summary</td><td>plot-section</td><td>CC BY-SA 4.0</td><td><a href='https://en.wikipedia.org'>source</a></td></tr></tbody></table><p class='muted'>snapshot <code>2026-10-18</code> · rubric <code>rubric-v2</code> · scope <code>50675113c0c0</code> · generated <code>2026-10-17T23:04:29+00:00</code>. Only derived counts are stored in the repository; source prose is cached outside it. Attribution for every source is above.</p>
   </details>
@@ -94,10 +100,12 @@ code{font-size:.92em;background:rgba(127,127,127,.14);padding:1px 4px;border-rad
 const DATA = {"franchise":"star-trek","franchiseName":"Star Trek","snapshotDate":"2026-10-18","rubricVersion":"rubric-v2","scope":{"categories":["plot-summary"],"sources":["tvmaze","wikipedia"],"series":["tos"]},"scopeHash":"50675113c0c0","generatedAt":"2026-10-17T23:04:29+00:00","coverageGaps":[],"series":[{"id":"tos","name":"Star Trek: The Original Series","short":"TOS","color":"#378ADD","ageRating":10,"seasons":[{"season":1,"year":1966,"yearEnd":1967,"episodeCount":29,"sci":{"perSource":{"tvmaze":{"n":29,"mean":1.864,"density":3.954,"ci95":1.102},"wikipedia":{"n":29,"mean":3.73,"density":7.547,"ci95":1.101}},"year":null,"n":58,"mean":2.797,"density":5.75,"ci95":0.779},"fi":{"perSource":{"tvmaze":{"n":29,"mean":1.379,"density":0.639,"ci95":0.96},"wikipedia":{"n":29,"mean":1.46,"density":0.876,"ci95":0.78}},"year":null,"n":58,"mean":1.419,"density":0.758,"ci95":0.618}},{"season":2,"year":1967,"yearEnd":1968,"episodeCount":26,"sci":{"perSource":{"tvmaze":{"n":26,"mean":2.237,"density":4.87,"ci95":1.368},"wikipedia":{"n":26,"mean":3.421,"density":6.914,"ci95":1.158}},"year":null,"n":52,"mean":2.829,"density":5.892,"ci95":0.896},"fi":{"perSource":{"tvmaze":{"n":26,"mean":1.151,"density":1.11,"ci95":0.987},"wikipedia":{"n":26,"mean":2.008,"density":1.828,"ci95":1.103}},"year":null,"n":52,"mean":1.579,"density":1.469,"ci95":0.74}},{"season":3,"year":1968,"yearEnd":1969,"episodeCount":24,"sci":{"perSource":{"tvmaze":{"n":24,"mean":1.092,"density":2.219,"ci95":1.195},"wikipedia":{"n":24,"mean":2.772,"density":6.087,"ci95":0.947}},"year":null,"n":48,"mean":1.932,"density":4.153,"ci95":0.762},"fi":{"perSource":{"tvmaze":{"n":24,"mean":0.417,"density":0.0,"ci95":0.565},"wikipedia":{"n":24,"mean":2.33,"density":2.386,"ci95":1.192}},"year":null,"n":48,"mean":1.373,"density":1.193,"ci95":0.66}}]}]};
 const RUBRIC = {"version":"rubric-v2","description":"Lexicon measurement layer plus a curated named-entity coder on the Fi axis. Supersedes rubric-v1, which could not see mythic content: plot summaries name gods rather than describing them with mythic vocabulary.","scale":{"min":0,"max":10,"mapping":"per sub-signal: frac = min(1, value / saturation); axis score = max * sum(weight * frac) / sum(weight)","notes":"Saturation values are calibrated on the reference corpus (Star Trek: TOS, 79 episodes) as the 95th percentile of episode-level density, so a season scoring 10 is a genuine corpus-tail outlier rather than a saturation artefact. Raw densities are always published alongside scores."},"axes":{"sci":{"label":"Sci - scientific / engineering rigour","definition":"How much an episode's text turns on technical, scientific or engineering vocabulary, as opposed to being set dressing.","subsignals":[{"id":"technical-lexicon-density","coder":"lexicon","weight":1.0,"saturation":20.0,"calibration":"p95 of episode-level density across the reference corpus (n=146 measurements)","patterns":["sensor","scanner","scan","detector","probe","telemetry","diagnostic","analysis","analyze","instrument","experiment","hypothesis","theory","calculation","measurement","equation","formula","physics","chemistry","biology","biological","astronomy","geology","engineer","engineering","repair","circuit","component","computer","program","subroutine","algorithm","database","radiation","frequency","modulation","subspace","tachyon","particle","warp","dilithium","antimatter","reactor","plasma","orbit","gravity","gravitational","magnetic","atmosphere","temperature","pressure","virus","bacteria","vaccine","transporter","phase","polarity"]}]},"fi":{"label":"Fi - myth / magic / reality-bending","definition":"How much an episode's text turns on god-like power, prophecy, magic-equivalent action or reality-breaking storytelling.","subsignals":[{"id":"mythic-lexicon-density","coder":"lexicon","weight":1.0,"saturation":9.0,"calibration":"p95 of episode-level density across the reference corpus","patterns":["god","gods","goddess","deity","divine","worship","worshipper","prayer","temple","altar","ritual","sacred","holy","prophet","prophecy","prophesy","messiah","oracle","destiny","fate","immortal","immortality","eternal","soul","spirit","spirits","ghost","afterlife","heaven","hell","demon","devil","angel","magic","magical","sorcery","witch","wizard","spell","curse","supernatural","miracle","myth","mythical","legend","psychic","telepath","telepathy","telekinetic","psionic","possess","possession","reincarnation","resurrection","cult","transcendent","omnipotent","illusion","hallucination"]},{"id":"numinous-entity","coder":"entity","weight":1.0,"saturation":6.0,"calibration":"mentions per 1000 words of curated god-like / reality-bending entities","entitySource":"franchise:entities","notes":"Added in rubric-v2 precisely because rubric-v1's Fi lexicon was silent on episodes whose mythic content is nominal."}]}},"uncertainty":{"method":"ci95-mean","z":1.96,"thinSampleBelow":5,"thinSampleInflation":1.5,"notes":"ci95 = z * stdev(episode scores) / sqrt(n), inflated when n is below thinSampleBelow. Measured from the episode distribution, never asserted by hand."},"reserved":{"notes":"Judgement sub-signals that require a coding coder (human or LLM) rather than a lexicon. Declared now so rubric-v3 is an extension, not a rewrite.","sci":["resolution-mechanism","methodological-framing","internal-consistency","pseudoscience-handwave"],"fi":["prophecy-driven-plot","magic-equivalent-action","reality-or-format-bending","literal-afterlife","absurdist-tonal-break"]},"scope":{"categories":["plot-summary"],"sources":["tvmaze","wikipedia"]}};
 const BASELINE = {"label":"baseline-v1 (hand-scored whole-season integers)","ref":"git tag baseline-v1 (dd7f4d7)","series":[{"id":"tos","short":"TOS","seasons":[{"season":1,"sci":6,"fi":6},{"season":2,"sci":6,"fi":6},{"season":3,"sci":4,"fi":6}]}]};
+const CARD = (getComputedStyle(document.documentElement).getPropertyValue('--card') || '#fff').trim();
 
 const selected = new Set(DATA.scope.sources);
 const on = new Set(DATA.series.map(s => s.id));
 let showBaseline = true;
+let zoom = false;
 
 function combine(season, axis) {
   const per = (season[axis] && season[axis].perSource) || {};
@@ -126,8 +134,8 @@ function build() {
                  meta: { s, season, sci, fi } });
     }
     datasets.push({ label: s.short, data: pts, backgroundColor: s.color + 'd9',
-                    borderColor: s.color, borderWidth: 1, hidden: !on.has(s.id),
-                    hoverBorderWidth: 2 });
+                    borderColor: CARD, borderWidth: 1.5, hidden: !on.has(s.id),
+                    hoverBorderColor: s.color, hoverBorderWidth: 2 });
   }
   if (showBaseline && BASELINE) {
     for (const b of BASELINE.series) {
@@ -157,20 +165,51 @@ const tip = {
   }
 };
 
+function visibleValues() {
+  const xs = [], ys = [];
+  for (const s of DATA.series) {
+    if (!on.has(s.id)) continue;
+    for (const season of s.seasons) {
+      const sci = combine(season, 'sci'), fi = combine(season, 'fi');
+      if (!sci || !fi) continue;
+      xs.push(sci.mean); ys.push(fi.mean);
+    }
+  }
+  if (showBaseline && BASELINE) {
+    for (const b of BASELINE.series) {
+      if (!on.has(b.id)) continue;
+      for (const x of b.seasons) { xs.push(x.sci); ys.push(x.fi); }
+    }
+  }
+  return { xs, ys };
+}
+function fitRange(values) {
+  if (!values.length) return [0, 10];
+  const lo = Math.min(...values), hi = Math.max(...values);
+  const pad = Math.max(0.4, (hi - lo) * 0.3);
+  return [Math.max(0, Math.floor((lo - pad) * 2) / 2), Math.min(10, Math.ceil((hi + pad) * 2) / 2)];
+}
 function draw() {
-  const datasets = build();
-  const ctx = document.getElementById('chart');
-  chart = new Chart(ctx, {
+  if (chart) chart.destroy();
+  const { xs, ys } = visibleValues();
+  const xr = zoom ? fitRange(xs) : [0, 10];
+  const yr = zoom ? fitRange(ys) : [0, 10];
+  const styles = getComputedStyle(document.documentElement);
+  const grid = styles.getPropertyValue('--grid');
+  const text2 = (styles.getPropertyValue('--text2') || '#52514e').trim();
+  chart = new Chart(document.getElementById('chart'), {
     type: 'bubble',
-    data: { datasets },
+    data: { datasets: build() },
     options: {
       responsive: true, maintainAspectRatio: false,
-      animation: { duration: 250 },
+      animation: false,
       scales: {
-        x: { min: 0, max: 10, title: { display: true, text: 'Sci — scientific / engineering rigour' },
-             grid: { color: getComputedStyle(document.body).getPropertyValue('--grid') } },
-        y: { min: 0, max: 10, title: { display: true, text: 'Fi — myth / magic / reality-bending' },
-             grid: { color: getComputedStyle(document.body).getPropertyValue('--grid') } }
+        x: { min: xr[0], max: xr[1], grid: { color: grid },
+             ticks: { color: text2 },
+             title: { display: true, text: 'Sci — scientific / engineering rigour', color: text2 } },
+        y: { min: yr[0], max: yr[1], grid: { color: grid },
+             ticks: { color: text2 },
+             title: { display: true, text: 'Fi — myth / magic / reality-bending', color: text2 } }
       },
       plugins: { legend: { display: false }, tooltip: tip }
     }
@@ -229,6 +268,7 @@ function refresh() { chips(); draw(); table(); }
 document.getElementById('all').onclick = () => { DATA.series.forEach(s => on.add(s.id)); refresh(); };
 document.getElementById('none').onclick = () => { on.clear(); refresh(); };
 document.getElementById('baselineToggle').onchange = e => { showBaseline = e.target.checked; refresh(); };
+document.getElementById('zoomToggle').onchange = e => { zoom = e.target.checked; refresh(); };
 refresh();
 </script>
 </body>

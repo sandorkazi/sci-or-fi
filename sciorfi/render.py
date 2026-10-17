@@ -76,7 +76,7 @@ def _rubric_html(rubric: dict) -> str:
         f"<p class='muted'><strong>Uncertainty.</strong> {unc['method']}: "
         f"95% CI of the episode-level mean (z={unc['z']}), inflated ×{unc['thinSampleInflation']} "
         f"below {unc['thinSampleBelow']} episodes. Measured from the episode distribution, never asserted.</p>"
-        f"<p class='muted'><strong>Not yet coded</strong> (rubric-v2, needs a judgement coder rather than a "
+        f"<p class='muted'><strong>Not yet coded</strong> (rubric-v3, needs a judgement coder rather than a "
         f"lexicon): {reserved_list}</p>"
     )
 
@@ -176,6 +176,12 @@ code{font-size:.92em;background:rgba(127,127,127,.14);padding:1px 4px;border-rad
         <label class="chip" id="baselineChip"><input type="checkbox" id="baselineToggle" checked style="accent-color:var(--accent)"> show __BASELINE_LABEL__</label>
         <p class="muted" style="margin:10px 0 0">__BASELINE_NOTE__</p>
       </div>
+      <div class="card" style="margin-top:12px">
+        <label class="chip"><input type="checkbox" id="zoomToggle" style="accent-color:var(--accent)"> zoom to data</label>
+        <p class="muted" style="margin:10px 0 0">Off by default: the full 0&ndash;10 scale makes it plain how little of it the
+        measured scores occupy. Zooming rescales the axes to the visible points, which exaggerates small gaps &mdash; read it
+        alongside the confidence intervals, never on its own.</p>
+      </div>
     </div>
   </div>
 
@@ -197,10 +203,12 @@ code{font-size:.92em;background:rgba(127,127,127,.14);padding:1px 4px;border-rad
 const DATA = __DATA__;
 const RUBRIC = __RUBRIC_JS__;
 const BASELINE = __BASELINE__;
+const CARD = (getComputedStyle(document.documentElement).getPropertyValue('--card') || '#fff').trim();
 
 const selected = new Set(DATA.scope.sources);
 const on = new Set(DATA.series.map(s => s.id));
 let showBaseline = true;
+let zoom = false;
 
 function combine(season, axis) {
   const per = (season[axis] && season[axis].perSource) || {};
@@ -229,8 +237,8 @@ function build() {
                  meta: { s, season, sci, fi } });
     }
     datasets.push({ label: s.short, data: pts, backgroundColor: s.color + 'd9',
-                    borderColor: s.color, borderWidth: 1, hidden: !on.has(s.id),
-                    hoverBorderWidth: 2 });
+                    borderColor: CARD, borderWidth: 1.5, hidden: !on.has(s.id),
+                    hoverBorderColor: s.color, hoverBorderWidth: 2 });
   }
   if (showBaseline && BASELINE) {
     for (const b of BASELINE.series) {
@@ -260,20 +268,51 @@ const tip = {
   }
 };
 
+function visibleValues() {
+  const xs = [], ys = [];
+  for (const s of DATA.series) {
+    if (!on.has(s.id)) continue;
+    for (const season of s.seasons) {
+      const sci = combine(season, 'sci'), fi = combine(season, 'fi');
+      if (!sci || !fi) continue;
+      xs.push(sci.mean); ys.push(fi.mean);
+    }
+  }
+  if (showBaseline && BASELINE) {
+    for (const b of BASELINE.series) {
+      if (!on.has(b.id)) continue;
+      for (const x of b.seasons) { xs.push(x.sci); ys.push(x.fi); }
+    }
+  }
+  return { xs, ys };
+}
+function fitRange(values) {
+  if (!values.length) return [0, 10];
+  const lo = Math.min(...values), hi = Math.max(...values);
+  const pad = Math.max(0.4, (hi - lo) * 0.3);
+  return [Math.max(0, Math.floor((lo - pad) * 2) / 2), Math.min(10, Math.ceil((hi + pad) * 2) / 2)];
+}
 function draw() {
-  const datasets = build();
-  const ctx = document.getElementById('chart');
-  chart = new Chart(ctx, {
+  if (chart) chart.destroy();
+  const { xs, ys } = visibleValues();
+  const xr = zoom ? fitRange(xs) : [0, 10];
+  const yr = zoom ? fitRange(ys) : [0, 10];
+  const styles = getComputedStyle(document.documentElement);
+  const grid = styles.getPropertyValue('--grid');
+  const text2 = (styles.getPropertyValue('--text2') || '#52514e').trim();
+  chart = new Chart(document.getElementById('chart'), {
     type: 'bubble',
-    data: { datasets },
+    data: { datasets: build() },
     options: {
       responsive: true, maintainAspectRatio: false,
-      animation: { duration: 250 },
+      animation: false,
       scales: {
-        x: { min: 0, max: 10, title: { display: true, text: 'Sci — scientific / engineering rigour' },
-             grid: { color: getComputedStyle(document.body).getPropertyValue('--grid') } },
-        y: { min: 0, max: 10, title: { display: true, text: 'Fi — myth / magic / reality-bending' },
-             grid: { color: getComputedStyle(document.body).getPropertyValue('--grid') } }
+        x: { min: xr[0], max: xr[1], grid: { color: grid },
+             ticks: { color: text2 },
+             title: { display: true, text: 'Sci — scientific / engineering rigour', color: text2 } },
+        y: { min: yr[0], max: yr[1], grid: { color: grid },
+             ticks: { color: text2 },
+             title: { display: true, text: 'Fi — myth / magic / reality-bending', color: text2 } }
       },
       plugins: { legend: { display: false }, tooltip: tip }
     }
@@ -332,6 +371,7 @@ function refresh() { chips(); draw(); table(); }
 document.getElementById('all').onclick = () => { DATA.series.forEach(s => on.add(s.id)); refresh(); };
 document.getElementById('none').onclick = () => { on.clear(); refresh(); };
 document.getElementById('baselineToggle').onchange = e => { showBaseline = e.target.checked; refresh(); };
+document.getElementById('zoomToggle').onchange = e => { zoom = e.target.checked; refresh(); };
 refresh();
 </script>
 </body>
