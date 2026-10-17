@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Episode",
+  "description": "One row of a franchise snapshot. Facts and identifiers only, never source prose.",
+  "type": "object",
+  "required": ["id", "series", "season", "episode", "title", "year"],
+  "properties": {
+    "id": { "type": "string", "description": "<franchise>:<series>:S##E##" },
+    "series": { "type": "string" },
+    "season": { "type": "integer", "minimum": 1 },
+    "episode": { "type": "integer", "minimum": 1 },
+    "title": { "type": "string" },
+    "airDate": { "type": "string" },
+    "year": { "type": "integer" },
+    "sourceIds": { "type": "object" },
+    "texts": { "type": "object", "description": "In-memory only; removed before publication" }
+  }
+}

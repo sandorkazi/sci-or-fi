@@ -158,18 +158,71 @@ score = f( franchise, snapshotDate, scope, rubricVersion )
   missing blobs). The remote already held commit `dd7f4d7`; the working tree was verified
   byte-identical to `origin/main`, the repo was restored from `origin/main`, and `baseline-v1`
   was tagged. No work was lost.
-- **P1 — one franchise, one series, thin vertical slice.** Schemas, one adapter (Wikidata +
-  one wiki), the TOS signal+coding path, the render step. Proves the whole pipeline end to end on
-  the series that already exists, so old and new can be compared directly.
-- **P2 — full Star Trek + measured uncertainty.** All Star Trek series, transcript and ratings
-  categories, scope switching, sharpened visuals.
+- **P1 — one franchise, one series, thin vertical slice (done).** Schemas, adapters, the episode
+  signal path, scoring and render, end to end on Star Trek: TOS. Wikidata was dropped from this
+  slice: its Query Service was rate-limiting to 1 request/minute during an active outage, which is
+  itself a design lesson — adapters must degrade gracefully and snapshots must be committed so the
+  pipeline reproduces without the network. See "P1 status" below.
+- **P2 — full Star Trek + a stronger instrument.** All Star Trek series, transcript and ratings
+  categories, scope switching, sharper visuals.
 - **P3 — second franchise.** Add a non-Star-Trek franchise to prove the framework is generic and
   the franchise hierarchy works with more than one branch.
 - **P4 — validation and publish.** Drift checks, attribution footer, merge to `main` so Pages
   deploys.
 
+## P1 status — thin vertical slice, done
+
+Built and run end to end on Star Trek: TOS: 79 episodes, 2 sources, 316 measurements, rubric-v2.
+
+**What works.** Dependency-free Python pipeline (`ingest → signals → score → render → validate`);
+dated snapshots that carry facts and identifiers only; signals as the atomic unit of evidence;
+scoring as a *mapping* over stored measurements, so re-scoring under a different rubric needs no
+re-extraction; a published page that recomputes live as you toggle the source scope; and
+validator gates for schema, ranges, episode-number contiguity, coverage, a licensing check, and
+determinism.
+
+**Measured result (rubric-v2, scope = tvmaze + wikipedia):**
+
+| season | years | eps | Sci | Fi |
+|---|---|---|---|---|
+| TOS S1 | 1966–1967 | 29 | 2.80 ± 0.78 | 1.42 ± 0.62 |
+| TOS S2 | 1967–1968 | 26 | 2.83 ± 0.90 | 1.58 ± 0.74 |
+| TOS S3 | 1968–1969 | 24 | 1.93 ± 0.76 | 1.37 ± 0.66 |
+
+Scores are continuous, uncertainty is measured from the episode distribution, and the axes come
+from disjoint inputs so nothing pulls `sci` toward `fi`. Against baseline-v1's `6/6`, `6/6`, `4/6`,
+three things stand out.
+
+**Finding 1 — the Fi lexicon was blind, and that is now visible.** `rubric-v1` (lexicon only) scored
+Fi at 0.83 / 1.30 / 0.94 with a median episode density of exactly **0**. Plot summaries do not
+describe gods with mythic vocabulary; they *name* them ("Apollo", "Trelane"). Scraping vocabulary
+alone therefore cannot see the Fi axis. `rubric-v2` adds a curated entity coder, which lifts Fi to
+1.42 / 1.58 / 1.37 — and, because the entity list is a versioned, diffable file rather than a
+number, the judgement is reviewable. Sci is unchanged between v1 and v2, as it should be.
+
+**Finding 2 — at season level, TOS is statistically indistinguishable on this instrument.** The
+95% intervals overlap for every pair of seasons on both axes. Baseline-v1's `6/6/6/6/4/6` asserted
+season-level differences that this evidence does not support. That is the redesign working as
+intended: it refuses to over-claim.
+
+**Finding 3 — the answer depends on which source you trust.** With TVmaze summaries alone, S3 Sci is
+**1.09 ± 1.20**; with Wikipedia plot sections alone it is **2.77 ± 0.95**. Same episodes, same
+rubric, different source, materially different conclusion — and the confidence intervals widen when
+only one source is in scope. Source-choice sensitivity is not a footnote here; it is the finding.
+
+**Known limits of this slice.** Median source text is only ~115 words per summary, so per-episode
+measurements are noisy and the seasons are close together — the next quality jump is transcripts
+(thousands of words per episode) rather than more rubric tuning. And a lexicon measures
+*vocabulary*, which is a proxy for, not a definition of, rigour: the judgement sub-signals
+(`resolution-mechanism`, `internal-consistency`, …) remain reserved for `rubric-v3` with a real
+coding coder.
+
 ## Open decisions
 
-1. Pipeline language (Python for pandas/SPARQL vs Node for a single-language stack).
-2. Which franchise to add at P3 (drives adapter work: Wookieepedia, Expanse wiki, …).
-3. Whether P1 should be the full signal pipeline or a lighter LLM-coded episode rubric first.
+1. **Next franchise:** Doctor Who (chosen) — needs a `franchise.json`, an entity list, and a source
+   binding; no pipeline changes.
+2. **Transcript source** for P2: OpenSubtitles via OPUS (ODC-BY) vs a franchise transcript wiki —
+   this is the highest-value quality improvement available.
+3. **Judgement coder** for `rubric-v3`: LLM-coded episode coding against a published codebook, human
+   spot-checks, per-episode confidence. This is what turns the reserved sub-signals into scores.
+

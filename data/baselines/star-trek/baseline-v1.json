@@ -1,0 +1,15 @@
+{
+  "label": "baseline-v1 (hand-scored whole-season integers)",
+  "ref": "git tag baseline-v1 (dd7f4d7)",
+  "series": [
+    {
+      "id": "tos",
+      "short": "TOS",
+      "seasons": [
+        { "season": 1, "sci": 6, "fi": 6 },
+        { "season": 2, "sci": 6, "fi": 6 },
+        { "season": 3, "sci": 4, "fi": 6 }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+[project]
+name = "sci-or-fi"
+version = "0.1.0"
+description = "Source-scoped, multi-franchise Sci-vs-Fi analysis of TV series"
+requires-python = ">=3.11"
+# Deliberately dependency-free: the pipeline runs on the standard library so it
+# reproduces anywhere without a virtualenv. See docs/redesign.md.
+dependencies = []
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["sciorfi"]

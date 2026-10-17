@@ -1,0 +1,29 @@
+{
+  "franchise": "star-trek",
+  "description": "Curated god-like, reality-bending or magic-equivalent entities, by series. This is a judgement list and is deliberately explicit: it is reviewed, versioned and diffable, unlike a number buried in a score.",
+  "curatedBy": "hand-curated for the rubric-v2 entity coder",
+  "entities": [
+    { "name": "Trelane", "axis": "fi", "series": "tos", "kind": "god-like trickster", "terms": ["Trelane"] },
+    { "name": "Apollo", "axis": "fi", "series": "tos", "kind": "god presenting as deity", "terms": ["Apollo"] },
+    { "name": "Vaal", "axis": "fi", "series": "tos", "kind": "object of worship", "terms": ["Vaal"] },
+    { "name": "Landru", "axis": "fi", "series": "tos", "kind": "object of worship", "terms": ["Landru"] },
+    { "name": "Organians", "axis": "fi", "series": "tos", "kind": "non-corporeal super-beings", "terms": ["Organian", "Organians"] },
+    { "name": "Gary Mitchell", "axis": "fi", "series": "tos", "kind": "ascended god-like human", "terms": ["Gary Mitchell"] },
+    { "name": "Thasians", "axis": "fi", "series": "tos", "kind": "non-corporeal power-granting beings", "terms": ["Thasian", "Thasians"] },
+    { "name": "Metrons", "axis": "fi", "series": "tos", "kind": "super-beings staging judgement", "terms": ["Metron", "Metrons"] },
+    { "name": "Providers", "axis": "fi", "series": "tos", "kind": "beings worshipped as gods", "terms": ["Providers"] },
+    { "name": "the Companion", "axis": "fi", "series": "tos", "kind": "non-corporeal being", "terms": ["the Companion"] },
+    { "name": "Platonians", "axis": "fi", "series": "tos", "kind": "psychokinetic powers", "terms": ["Platonian", "Platonians", "Parmen"] },
+    { "name": "Melkotians", "axis": "fi", "series": "tos", "kind": "illusion-casting judgement", "terms": ["Melkot", "Melkotians"] },
+    { "name": "Excalbians", "axis": "fi", "series": "tos", "kind": "reality-staging beings", "terms": ["Excalbian", "Excalbians"] },
+    { "name": "Flint", "axis": "fi", "series": "tos", "kind": "immortal", "terms": ["Flint"] },
+    { "name": "Redjac", "axis": "fi", "series": "tos", "kind": "disembodied entity", "terms": ["Redjac"] },
+    { "name": "Zetar", "axis": "fi", "series": "tos", "kind": "non-corporeal entity", "terms": ["Zetar"] },
+    { "name": "Preservers", "axis": "fi", "series": "tos", "kind": "unseen god-like benefactors", "terms": ["Preservers"] },
+    { "name": "Sargon", "axis": "fi", "series": "tos", "kind": "disembodied god-like mind", "terms": ["Sargon"] },
+    { "name": "Vians", "axis": "fi", "series": "tos", "kind": "beings testing humanity", "terms": ["Vian", "Vians"] },
+    { "name": "Guardian of Forever", "axis": "fi", "series": "tos", "kind": "reality-bending artefact", "terms": ["Guardian of Forever"] },
+    { "name": "Kollos", "axis": "fi", "series": "tos", "kind": "mind-bending non-corporeal being", "terms": ["Kollos"] },
+    { "name": "Nexus", "axis": "fi", "series": "tos", "kind": "illusion / wish-fulfilment reality", "terms": ["Nexus"] }
+  ]
+}

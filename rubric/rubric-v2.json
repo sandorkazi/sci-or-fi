@@ -1,0 +1,85 @@
+{
+  "version": "rubric-v2",
+  "description": "Lexicon measurement layer plus a curated named-entity coder on the Fi axis. Supersedes rubric-v1, which could not see mythic content: plot summaries name gods rather than describing them with mythic vocabulary.",
+  "scale": {
+    "min": 0,
+    "max": 10,
+    "mapping": "per sub-signal: frac = min(1, value / saturation); axis score = max * sum(weight * frac) / sum(weight)",
+    "notes": "Saturation values are calibrated on the reference corpus (Star Trek: TOS, 79 episodes) as the 95th percentile of episode-level density, so a season scoring 10 is a genuine corpus-tail outlier rather than a saturation artefact. Raw densities are always published alongside scores."
+  },
+  "axes": {
+    "sci": {
+      "label": "Sci - scientific / engineering rigour",
+      "definition": "How much an episode's text turns on technical, scientific or engineering vocabulary, as opposed to being set dressing.",
+      "subsignals": [
+        {
+          "id": "technical-lexicon-density",
+          "coder": "lexicon",
+          "weight": 1.0,
+          "saturation": 20.0,
+          "calibration": "p95 of episode-level density across the reference corpus (n=146 measurements)",
+          "patterns": [
+            "sensor", "scanner", "scan", "detector", "probe", "telemetry", "diagnostic",
+            "analysis", "analyze", "instrument", "experiment", "hypothesis", "theory",
+            "calculation", "measurement", "equation", "formula", "physics", "chemistry",
+            "biology", "biological", "astronomy", "geology", "engineer", "engineering",
+            "repair", "circuit", "component", "computer", "program", "subroutine",
+            "algorithm", "database", "radiation", "frequency", "modulation", "subspace",
+            "tachyon", "particle", "warp", "dilithium", "antimatter", "reactor", "plasma",
+            "orbit", "gravity", "gravitational", "magnetic", "atmosphere", "temperature",
+            "pressure", "virus", "bacteria", "vaccine", "transporter", "phase", "polarity"
+          ]
+        }
+      ]
+    },
+    "fi": {
+      "label": "Fi - myth / magic / reality-bending",
+      "definition": "How much an episode's text turns on god-like power, prophecy, magic-equivalent action or reality-breaking storytelling.",
+      "subsignals": [
+        {
+          "id": "mythic-lexicon-density",
+          "coder": "lexicon",
+          "weight": 1.0,
+          "saturation": 9.0,
+          "calibration": "p95 of episode-level density across the reference corpus",
+          "patterns": [
+            "god", "gods", "goddess", "deity", "divine", "worship", "worshipper", "prayer",
+            "temple", "altar", "ritual", "sacred", "holy", "prophet", "prophecy", "prophesy",
+            "messiah", "oracle", "destiny", "fate", "immortal", "immortality", "eternal",
+            "soul", "spirit", "spirits", "ghost", "afterlife", "heaven", "hell", "demon",
+            "devil", "angel", "magic", "magical", "sorcery", "witch", "wizard", "spell",
+            "curse", "supernatural", "miracle", "myth", "mythical", "legend", "psychic",
+            "telepath", "telepathy", "telekinetic", "psionic", "possess", "possession",
+            "reincarnation", "resurrection", "cult", "transcendent", "omnipotent",
+            "illusion", "hallucination"
+          ]
+        },
+        {
+          "id": "numinous-entity",
+          "coder": "entity",
+          "weight": 1.0,
+          "saturation": 6.0,
+          "calibration": "mentions per 1000 words of curated god-like / reality-bending entities",
+          "entitySource": "franchise:entities",
+          "notes": "Added in rubric-v2 precisely because rubric-v1's Fi lexicon was silent on episodes whose mythic content is nominal."
+        }
+      ]
+    }
+  },
+  "uncertainty": {
+    "method": "ci95-mean",
+    "z": 1.96,
+    "thinSampleBelow": 5,
+    "thinSampleInflation": 1.5,
+    "notes": "ci95 = z * stdev(episode scores) / sqrt(n), inflated when n is below thinSampleBelow. Measured from the episode distribution, never asserted by hand."
+  },
+  "reserved": {
+    "notes": "Judgement sub-signals that require a coding coder (human or LLM) rather than a lexicon. Declared now so rubric-v3 is an extension, not a rewrite.",
+    "sci": ["resolution-mechanism", "methodological-framing", "internal-consistency", "pseudoscience-handwave"],
+    "fi": ["prophecy-driven-plot", "magic-equivalent-action", "reality-or-format-bending", "literal-afterlife", "absurdist-tonal-break"]
+  },
+  "scope": {
+    "categories": ["plot-summary"],
+    "sources": ["tvmaze", "wikipedia"]
+  }
+}

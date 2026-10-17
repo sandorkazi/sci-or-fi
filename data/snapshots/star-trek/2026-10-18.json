@@ -1,0 +1,963 @@
+{
+  "franchise": "star-trek",
+  "snapshotDate": "2026-10-18",
+  "provenance": [
+    {
+      "source": "tvmaze",
+      "series": "tos",
+      "id": 490,
+      "episodes": 79
+    }
+  ],
+  "episodeCount": 79,
+  "episodes": [
+    {
+      "id": "star-trek:tos:S01E01",
+      "series": "tos",
+      "season": 1,
+      "episode": 1,
+      "title": "The Man Trap",
+      "airDate": "1966-09-08",
+      "year": 1966,
+      "sourceIds": {
+        "tvmaze": 44377
+      }
+    },
+    {
+      "id": "star-trek:tos:S01E02",
+      "series": "tos",
+      "season": 1,
+      "episode": 2,
+      "title": "Charlie X",
+      "airDate": "1966-09-15",
+      "year": 1966,
+      "sourceIds": {
+        "tvmaze": 44378
+      }
+    },
+    {
+      "id": "star-trek:tos:S01E03",
+      "series": "tos",
+      "season": 1,
+      "episode": 3,
+      "title": "Where No Man Has Gone Before",
+      "airDate": "1966-09-22",
+      "year": 1966,
+      "sourceIds": {
+        "tvmaze": 44379
+      }
+    },
+    {
+      "id": "star-trek:tos:S01E04",
+      "series": "tos",
+      "season": 1,
+      "episode": 4,
+      "title": "The Naked Time",
+      "airDate": "1966-09-29",
+      "year": 1966,
+      "sourceIds": {
+        "tvmaze": 44380
+      }
+    },
+    {
+      "id": "star-trek:tos:S01E05",
+      "series": "tos",
+      "season": 1,
+      "episode": 5,
+      "title": "The Enemy Within",
+      "airDate": "1966-10-06",
+      "year": 1966,
+      "sourceIds": {
+        "tvmaze": 44381
+      }
+    },
+    {
+      "id": "star-trek:tos:S01E06",
+      "series": "tos",
+      "season": 1,
+      "episode": 6,
+      "title": "Mudd's Women",
+      "airDate": "1966-10-13",
+      "year": 1966,
+      "sourceIds": {
+        "tvmaze": 44382
+      }
+    },
+    {
+      "id": "star-trek:tos:S01E07",
+      "series": "tos",
+      "season": 1,
+      "episode": 7,
+      "title": "What Are Little Girls Made of?",
+      "airDate": "1966-10-20",
+      "year": 1966,
+      "sourceIds": {
+        "tvmaze": 44383
+      }
+    },
+    {
+      "id": "star-trek:tos:S01E08",
+      "series": "tos",
+      "season": 1,
+      "episode": 8,
+      "title": "Miri",
+      "airDate": "1966-10-27",
+      "year": 1966,
+      "sourceIds": {
+        "tvmaze": 44384
+      }
+    },
+    {
+      "id": "star-trek:tos:S01E09",
+      "series": "tos",
+      "season": 1,
+      "episode": 9,
+      "title": "Dagger of the Mind",
+      "airDate": "1966-11-03",
+      "year": 1966,
+      "sourceIds": {
+        "tvmaze": 44385
+      }
+    },
+    {
+      "id": "star-trek:tos:S01E10",
+      "series": "tos",
+      "season": 1,
+      "episode": 10,
+      "title": "The Corbomite Maneuver",
+      "airDate": "1966-11-10",
+      "year": 1966,
+      "sourceIds": {
+        "tvmaze": 44386
+      }
+    },
+    {
+      "id": "star-trek:tos:S01E11",
+      "series": "tos",
+      "season": 1,
+      "episode": 11,
+      "title": "The Menagerie Part I",
+      "airDate": "1966-11-17",
+      "year": 1966,
+      "sourceIds": {
+        "tvmaze": 44387
+      }
+    },
+    {
+      "id": "star-trek:tos:S01E12",
+      "series": "tos",
+      "season": 1,
+      "episode": 12,
+      "title": "The Menagerie Part II",
+      "airDate": "1966-11-24",
+      "year": 1966,
+      "sourceIds": {
+        "tvmaze": 44388
+      }
+    },
+    {
+      "id": "star-trek:tos:S01E13",
+      "series": "tos",
+      "season": 1,
+      "episode": 13,
+      "title": "The Conscience of the King",
+      "airDate": "1966-12-08",
+      "year": 1966,
+      "sourceIds": {
+        "tvmaze": 44389
+      }
+    },
+    {
+      "id": "star-trek:tos:S01E14",
+      "series": "tos",
+      "season": 1,
+      "episode": 14,
+      "title": "Balance of Terror",
+      "airDate": "1966-12-15",
+      "year": 1966,
+      "sourceIds": {
+        "tvmaze": 44390
+      }
+    },
+    {
+      "id": "star-trek:tos:S01E15",
+      "series": "tos",
+      "season": 1,
+      "episode": 15,
+      "title": "Shore Leave",
+      "airDate": "1966-12-29",
+      "year": 1966,
+      "sourceIds": {
+        "tvmaze": 44391
+      }
+    },
+    {
+      "id": "star-trek:tos:S01E16",
+      "series": "tos",
+      "season": 1,
+      "episode": 16,
+      "title": "The Galileo Seven",
+      "airDate": "1967-01-05",
+      "year": 1967,
+      "sourceIds": {
+        "tvmaze": 44392
+      }
+    },
+    {
+      "id": "star-trek:tos:S01E17",
+      "series": "tos",
+      "season": 1,
+      "episode": 17,
+      "title": "The Squire of Gothos",
+      "airDate": "1967-01-12",
+      "year": 1967,
+      "sourceIds": {
+        "tvmaze": 44393
+      }
+    },
+    {
+      "id": "star-trek:tos:S01E18",
+      "series": "tos",
+      "season": 1,
+      "episode": 18,
+      "title": "Arena",
+      "airDate": "1967-01-19",
+      "year": 1967,
+      "sourceIds": {
+        "tvmaze": 44394
+      }
+    },
+    {
+      "id": "star-trek:tos:S01E19",
+      "series": "tos",
+      "season": 1,
+      "episode": 19,
+      "title": "Tomorrow Is Yesterday",
+      "airDate": "1967-01-26",
+      "year": 1967,
+      "sourceIds": {
+        "tvmaze": 44395
+      }
+    },
+    {
+      "id": "star-trek:tos:S01E20",
+      "series": "tos",
+      "season": 1,
+      "episode": 20,
+      "title": "Court Martial",
+      "airDate": "1967-02-02",
+      "year": 1967,
+      "sourceIds": {
+        "tvmaze": 44396
+      }
+    },
+    {
+      "id": "star-trek:tos:S01E21",
+      "series": "tos",
+      "season": 1,
+      "episode": 21,
+      "title": "The Return of the Archons",
+      "airDate": "1967-02-09",
+      "year": 1967,
+      "sourceIds": {
+        "tvmaze": 44397
+      }
+    },
+    {
+      "id": "star-trek:tos:S01E22",
+      "series": "tos",
+      "season": 1,
+      "episode": 22,
+      "title": "Space Seed",
+      "airDate": "1967-02-16",
+      "year": 1967,
+      "sourceIds": {
+        "tvmaze": 44398
+      }
+    },
+    {
+      "id": "star-trek:tos:S01E23",
+      "series": "tos",
+      "season": 1,
+      "episode": 23,
+      "title": "A Taste of Armageddon",
+      "airDate": "1967-02-23",
+      "year": 1967,
+      "sourceIds": {
+        "tvmaze": 44399
+      }
+    },
+    {
+      "id": "star-trek:tos:S01E24",
+      "series": "tos",
+      "season": 1,
+      "episode": 24,
+      "title": "This Side of Paradise",
+      "airDate": "1967-03-02",
+      "year": 1967,
+      "sourceIds": {
+        "tvmaze": 44400
+      }
+    },
+    {
+      "id": "star-trek:tos:S01E25",
+      "series": "tos",
+      "season": 1,
+      "episode": 25,
+      "title": "The Devil in the Dark",
+      "airDate": "1967-03-09",
+      "year": 1967,
+      "sourceIds": {
+        "tvmaze": 44401
+      }
+    },
+    {
+      "id": "star-trek:tos:S01E26",
+      "series": "tos",
+      "season": 1,
+      "episode": 26,
+      "title": "Errand of Mercy",
+      "airDate": "1967-03-23",
+      "year": 1967,
+      "sourceIds": {
+        "tvmaze": 44402
+      }
+    },
+    {
+      "id": "star-trek:tos:S01E27",
+      "series": "tos",
+      "season": 1,
+      "episode": 27,
+      "title": "The Alternative Factor",
+      "airDate": "1967-03-30",
+      "year": 1967,
+      "sourceIds": {
+        "tvmaze": 44403
+      }
+    },
+    {
+      "id": "star-trek:tos:S01E28",
+      "series": "tos",
+      "season": 1,
+      "episode": 28,
+      "title": "The City on the Edge of Forever",
+      "airDate": "1967-04-06",
+      "year": 1967,
+      "sourceIds": {
+        "tvmaze": 44404
+      }
+    },
+    {
+      "id": "star-trek:tos:S01E29",
+      "series": "tos",
+      "season": 1,
+      "episode": 29,
+      "title": "Operation: Annihilate!",
+      "airDate": "1967-04-13",
+      "year": 1967,
+      "sourceIds": {
+        "tvmaze": 44405
+      }
+    },
+    {
+      "id": "star-trek:tos:S02E01",
+      "series": "tos",
+      "season": 2,
+      "episode": 1,
+      "title": "Amok Time",
+      "airDate": "1967-09-15",
+      "year": 1967,
+      "sourceIds": {
+        "tvmaze": 44406
+      }
+    },
+    {
+      "id": "star-trek:tos:S02E02",
+      "series": "tos",
+      "season": 2,
+      "episode": 2,
+      "title": "Who Mourns for Adonais?",
+      "airDate": "1967-09-22",
+      "year": 1967,
+      "sourceIds": {
+        "tvmaze": 44407
+      }
+    },
+    {
+      "id": "star-trek:tos:S02E03",
+      "series": "tos",
+      "season": 2,
+      "episode": 3,
+      "title": "The Changeling",
+      "airDate": "1967-09-29",
+      "year": 1967,
+      "sourceIds": {
+        "tvmaze": 44408
+      }
+    },
+    {
+      "id": "star-trek:tos:S02E04",
+      "series": "tos",
+      "season": 2,
+      "episode": 4,
+      "title": "Mirror, Mirror",
+      "airDate": "1967-10-06",
+      "year": 1967,
+      "sourceIds": {
+        "tvmaze": 44409
+      }
+    },
+    {
+      "id": "star-trek:tos:S02E05",
+      "series": "tos",
+      "season": 2,
+      "episode": 5,
+      "title": "The Apple",
+      "airDate": "1967-10-13",
+      "year": 1967,
+      "sourceIds": {
+        "tvmaze": 44410
+      }
+    },
+    {
+      "id": "star-trek:tos:S02E06",
+      "series": "tos",
+      "season": 2,
+      "episode": 6,
+      "title": "The Doomsday Machine",
+      "airDate": "1967-10-20",
+      "year": 1967,
+      "sourceIds": {
+        "tvmaze": 44411
+      }
+    },
+    {
+      "id": "star-trek:tos:S02E07",
+      "series": "tos",
+      "season": 2,
+      "episode": 7,
+      "title": "Catspaw",
+      "airDate": "1967-10-27",
+      "year": 1967,
+      "sourceIds": {
+        "tvmaze": 44412
+      }
+    },
+    {
+      "id": "star-trek:tos:S02E08",
+      "series": "tos",
+      "season": 2,
+      "episode": 8,
+      "title": "I, Mudd",
+      "airDate": "1967-11-03",
+      "year": 1967,
+      "sourceIds": {
+        "tvmaze": 44413
+      }
+    },
+    {
+      "id": "star-trek:tos:S02E09",
+      "series": "tos",
+      "season": 2,
+      "episode": 9,
+      "title": "Metamorphosis",
+      "airDate": "1967-11-10",
+      "year": 1967,
+      "sourceIds": {
+        "tvmaze": 44414
+      }
+    },
+    {
+      "id": "star-trek:tos:S02E10",
+      "series": "tos",
+      "season": 2,
+      "episode": 10,
+      "title": "Journey to Babel",
+      "airDate": "1967-11-17",
+      "year": 1967,
+      "sourceIds": {
+        "tvmaze": 44415
+      }
+    },
+    {
+      "id": "star-trek:tos:S02E11",
+      "series": "tos",
+      "season": 2,
+      "episode": 11,
+      "title": "Friday's Child",
+      "airDate": "1967-12-01",
+      "year": 1967,
+      "sourceIds": {
+        "tvmaze": 44416
+      }
+    },
+    {
+      "id": "star-trek:tos:S02E12",
+      "series": "tos",
+      "season": 2,
+      "episode": 12,
+      "title": "The Deadly Years",
+      "airDate": "1967-12-08",
+      "year": 1967,
+      "sourceIds": {
+        "tvmaze": 44417
+      }
+    },
+    {
+      "id": "star-trek:tos:S02E13",
+      "series": "tos",
+      "season": 2,
+      "episode": 13,
+      "title": "Obsession",
+      "airDate": "1967-12-15",
+      "year": 1967,
+      "sourceIds": {
+        "tvmaze": 44418
+      }
+    },
+    {
+      "id": "star-trek:tos:S02E14",
+      "series": "tos",
+      "season": 2,
+      "episode": 14,
+      "title": "Wolf in the Fold",
+      "airDate": "1967-12-22",
+      "year": 1967,
+      "sourceIds": {
+        "tvmaze": 44419
+      }
+    },
+    {
+      "id": "star-trek:tos:S02E15",
+      "series": "tos",
+      "season": 2,
+      "episode": 15,
+      "title": "The Trouble with Tribbles",
+      "airDate": "1967-12-29",
+      "year": 1967,
+      "sourceIds": {
+        "tvmaze": 44420
+      }
+    },
+    {
+      "id": "star-trek:tos:S02E16",
+      "series": "tos",
+      "season": 2,
+      "episode": 16,
+      "title": "The Gamesters of Triskelion",
+      "airDate": "1968-01-05",
+      "year": 1968,
+      "sourceIds": {
+        "tvmaze": 44421
+      }
+    },
+    {
+      "id": "star-trek:tos:S02E17",
+      "series": "tos",
+      "season": 2,
+      "episode": 17,
+      "title": "A Piece of the Action",
+      "airDate": "1968-01-12",
+      "year": 1968,
+      "sourceIds": {
+        "tvmaze": 44422
+      }
+    },
+    {
+      "id": "star-trek:tos:S02E18",
+      "series": "tos",
+      "season": 2,
+      "episode": 18,
+      "title": "The Immunity Syndrome",
+      "airDate": "1968-01-19",
+      "year": 1968,
+      "sourceIds": {
+        "tvmaze": 44423
+      }
+    },
+    {
+      "id": "star-trek:tos:S02E19",
+      "series": "tos",
+      "season": 2,
+      "episode": 19,
+      "title": "A Private Little War",
+      "airDate": "1968-02-02",
+      "year": 1968,
+      "sourceIds": {
+        "tvmaze": 44424
+      }
+    },
+    {
+      "id": "star-trek:tos:S02E20",
+      "series": "tos",
+      "season": 2,
+      "episode": 20,
+      "title": "Return to Tomorrow",
+      "airDate": "1968-02-09",
+      "year": 1968,
+      "sourceIds": {
+        "tvmaze": 44425
+      }
+    },
+    {
+      "id": "star-trek:tos:S02E21",
+      "series": "tos",
+      "season": 2,
+      "episode": 21,
+      "title": "Patterns of Force",
+      "airDate": "1968-02-16",
+      "year": 1968,
+      "sourceIds": {
+        "tvmaze": 44426
+      }
+    },
+    {
+      "id": "star-trek:tos:S02E22",
+      "series": "tos",
+      "season": 2,
+      "episode": 22,
+      "title": "By Any Other Name",
+      "airDate": "1968-02-23",
+      "year": 1968,
+      "sourceIds": {
+        "tvmaze": 44427
+      }
+    },
+    {
+      "id": "star-trek:tos:S02E23",
+      "series": "tos",
+      "season": 2,
+      "episode": 23,
+      "title": "The Omega Glory",
+      "airDate": "1968-03-01",
+      "year": 1968,
+      "sourceIds": {
+        "tvmaze": 44428
+      }
+    },
+    {
+      "id": "star-trek:tos:S02E24",
+      "series": "tos",
+      "season": 2,
+      "episode": 24,
+      "title": "The Ultimate Computer",
+      "airDate": "1968-03-08",
+      "year": 1968,
+      "sourceIds": {
+        "tvmaze": 44429
+      }
+    },
+    {
+      "id": "star-trek:tos:S02E25",
+      "series": "tos",
+      "season": 2,
+      "episode": 25,
+      "title": "Bread and Circuses",
+      "airDate": "1968-03-15",
+      "year": 1968,
+      "sourceIds": {
+        "tvmaze": 44430
+      }
+    },
+    {
+      "id": "star-trek:tos:S02E26",
+      "series": "tos",
+      "season": 2,
+      "episode": 26,
+      "title": "Assignment: Earth",
+      "airDate": "1968-03-29",
+      "year": 1968,
+      "sourceIds": {
+        "tvmaze": 44431
+      }
+    },
+    {
+      "id": "star-trek:tos:S03E01",
+      "series": "tos",
+      "season": 3,
+      "episode": 1,
+      "title": "Spock's Brain",
+      "airDate": "1968-09-20",
+      "year": 1968,
+      "sourceIds": {
+        "tvmaze": 44432
+      }
+    },
+    {
+      "id": "star-trek:tos:S03E02",
+      "series": "tos",
+      "season": 3,
+      "episode": 2,
+      "title": "The Enterprise Incident",
+      "airDate": "1968-09-27",
+      "year": 1968,
+      "sourceIds": {
+        "tvmaze": 44433
+      }
+    },
+    {
+      "id": "star-trek:tos:S03E03",
+      "series": "tos",
+      "season": 3,
+      "episode": 3,
+      "title": "The Paradise Syndrome",
+      "airDate": "1968-10-04",
+      "year": 1968,
+      "sourceIds": {
+        "tvmaze": 44434
+      }
+    },
+    {
+      "id": "star-trek:tos:S03E04",
+      "series": "tos",
+      "season": 3,
+      "episode": 4,
+      "title": "And the Children Shall Lead",
+      "airDate": "1968-10-11",
+      "year": 1968,
+      "sourceIds": {
+        "tvmaze": 44435
+      }
+    },
+    {
+      "id": "star-trek:tos:S03E05",
+      "series": "tos",
+      "season": 3,
+      "episode": 5,
+      "title": "Is There in Truth No Beauty?",
+      "airDate": "1968-10-18",
+      "year": 1968,
+      "sourceIds": {
+        "tvmaze": 44436
+      }
+    },
+    {
+      "id": "star-trek:tos:S03E06",
+      "series": "tos",
+      "season": 3,
+      "episode": 6,
+      "title": "Spectre of the Gun",
+      "airDate": "1968-10-25",
+      "year": 1968,
+      "sourceIds": {
+        "tvmaze": 44437
+      }
+    },
+    {
+      "id": "star-trek:tos:S03E07",
+      "series": "tos",
+      "season": 3,
+      "episode": 7,
+      "title": "Day of the Dove",
+      "airDate": "1968-11-01",
+      "year": 1968,
+      "sourceIds": {
+        "tvmaze": 44438
+      }
+    },
+    {
+      "id": "star-trek:tos:S03E08",
+      "series": "tos",
+      "season": 3,
+      "episode": 8,
+      "title": "For the World is Hollow and I Have Touched the Sky",
+      "airDate": "1968-11-08",
+      "year": 1968,
+      "sourceIds": {
+        "tvmaze": 44439
+      }
+    },
+    {
+      "id": "star-trek:tos:S03E09",
+      "series": "tos",
+      "season": 3,
+      "episode": 9,
+      "title": "The Tholian Web",
+      "airDate": "1968-11-15",
+      "year": 1968,
+      "sourceIds": {
+        "tvmaze": 44440
+      }
+    },
+    {
+      "id": "star-trek:tos:S03E10",
+      "series": "tos",
+      "season": 3,
+      "episode": 10,
+      "title": "Plato's Stepchildren",
+      "airDate": "1968-11-22",
+      "year": 1968,
+      "sourceIds": {
+        "tvmaze": 44441
+      }
+    },
+    {
+      "id": "star-trek:tos:S03E11",
+      "series": "tos",
+      "season": 3,
+      "episode": 11,
+      "title": "Wink of an Eye",
+      "airDate": "1968-11-29",
+      "year": 1968,
+      "sourceIds": {
+        "tvmaze": 44442
+      }
+    },
+    {
+      "id": "star-trek:tos:S03E12",
+      "series": "tos",
+      "season": 3,
+      "episode": 12,
+      "title": "The Empath",
+      "airDate": "1968-12-06",
+      "year": 1968,
+      "sourceIds": {
+        "tvmaze": 44443
+      }
+    },
+    {
+      "id": "star-trek:tos:S03E13",
+      "series": "tos",
+      "season": 3,
+      "episode": 13,
+      "title": "Elaan of Troyius",
+      "airDate": "1968-12-20",
+      "year": 1968,
+      "sourceIds": {
+        "tvmaze": 44444
+      }
+    },
+    {
+      "id": "star-trek:tos:S03E14",
+      "series": "tos",
+      "season": 3,
+      "episode": 14,
+      "title": "Whom Gods Destroy",
+      "airDate": "1969-01-03",
+      "year": 1969,
+      "sourceIds": {
+        "tvmaze": 44445
+      }
+    },
+    {
+      "id": "star-trek:tos:S03E15",
+      "series": "tos",
+      "season": 3,
+      "episode": 15,
+      "title": "Let That Be Your Last Battlefield",
+      "airDate": "1969-01-10",
+      "year": 1969,
+      "sourceIds": {
+        "tvmaze": 44446
+      }
+    },
+    {
+      "id": "star-trek:tos:S03E16",
+      "series": "tos",
+      "season": 3,
+      "episode": 16,
+      "title": "The Mark of Gideon",
+      "airDate": "1969-01-17",
+      "year": 1969,
+      "sourceIds": {
+        "tvmaze": 44447
+      }
+    },
+    {
+      "id": "star-trek:tos:S03E17",
+      "series": "tos",
+      "season": 3,
+      "episode": 17,
+      "title": "That Which Survives",
+      "airDate": "1969-01-24",
+      "year": 1969,
+      "sourceIds": {
+        "tvmaze": 44448
+      }
+    },
+    {
+      "id": "star-trek:tos:S03E18",
+      "series": "tos",
+      "season": 3,
+      "episode": 18,
+      "title": "The Lights of Zetar",
+      "airDate": "1969-01-31",
+      "year": 1969,
+      "sourceIds": {
+        "tvmaze": 44449
+      }
+    },
+    {
+      "id": "star-trek:tos:S03E19",
+      "series": "tos",
+      "season": 3,
+      "episode": 19,
+      "title": "Requiem for Methuselah",
+      "airDate": "1969-02-14",
+      "year": 1969,
+      "sourceIds": {
+        "tvmaze": 44450
+      }
+    },
+    {
+      "id": "star-trek:tos:S03E20",
+      "series": "tos",
+      "season": 3,
+      "episode": 20,
+      "title": "The Way to Eden",
+      "airDate": "1969-02-21",
+      "year": 1969,
+      "sourceIds": {
+        "tvmaze": 44451
+      }
+    },
+    {
+      "id": "star-trek:tos:S03E21",
+      "series": "tos",
+      "season": 3,
+      "episode": 21,
+      "title": "The Cloud Minders",
+      "airDate": "1969-02-28",
+      "year": 1969,
+      "sourceIds": {
+        "tvmaze": 44452
+      }
+    },
+    {
+      "id": "star-trek:tos:S03E22",
+      "series": "tos",
+      "season": 3,
+      "episode": 22,
+      "title": "The Savage Curtain",
+      "airDate": "1969-03-07",
+      "year": 1969,
+      "sourceIds": {
+        "tvmaze": 44453
+      }
+    },
+    {
+      "id": "star-trek:tos:S03E23",
+      "series": "tos",
+      "season": 3,
+      "episode": 23,
+      "title": "All Our Yesterdays",
+      "airDate": "1969-03-14",
+      "year": 1969,
+      "sourceIds": {
+        "tvmaze": 44454
+      }
+    },
+    {
+      "id": "star-trek:tos:S03E24",
+      "series": "tos",
+      "season": 3,
+      "episode": 24,
+      "title": "Turnabout Intruder",
+      "airDate": "1969-06-03",
+      "year": 1969,
+      "sourceIds": {
+        "tvmaze": 44455
+      }
+    }
+  ]
+}

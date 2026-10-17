@@ -1,0 +1,176 @@
+{
+  "franchise": "star-trek",
+  "franchiseName": "Star Trek",
+  "snapshotDate": "2026-10-18",
+  "rubricVersion": "rubric-v1",
+  "scope": {
+    "categories": [
+      "plot-summary"
+    ],
+    "sources": [
+      "tvmaze",
+      "wikipedia"
+    ],
+    "series": [
+      "tos"
+    ]
+  },
+  "scopeHash": "50675113c0c0",
+  "generatedAt": "2026-10-17T23:02:19+00:00",
+  "coverageGaps": [],
+  "series": [
+    {
+      "id": "tos",
+      "name": "Star Trek: The Original Series",
+      "short": "TOS",
+      "color": "#378ADD",
+      "ageRating": 10,
+      "seasons": [
+        {
+          "season": 1,
+          "year": 1966,
+          "yearEnd": 1967,
+          "episodeCount": 29,
+          "sci": {
+            "perSource": {
+              "tvmaze": {
+                "n": 29,
+                "mean": 1.864,
+                "density": 3.954,
+                "ci95": 1.102
+              },
+              "wikipedia": {
+                "n": 29,
+                "mean": 3.73,
+                "density": 7.547,
+                "ci95": 1.101
+              }
+            },
+            "year": null,
+            "n": 58,
+            "mean": 2.797,
+            "density": 5.75,
+            "ci95": 0.779
+          },
+          "fi": {
+            "perSource": {
+              "tvmaze": {
+                "n": 29,
+                "mean": 0.69,
+                "density": 0.639,
+                "ci95": 0.939
+              },
+              "wikipedia": {
+                "n": 29,
+                "mean": 0.973,
+                "density": 0.876,
+                "ci95": 0.766
+              }
+            },
+            "year": null,
+            "n": 58,
+            "mean": 0.831,
+            "density": 0.758,
+            "ci95": 0.606
+          }
+        },
+        {
+          "season": 2,
+          "year": 1967,
+          "yearEnd": 1968,
+          "episodeCount": 26,
+          "sci": {
+            "perSource": {
+              "tvmaze": {
+                "n": 26,
+                "mean": 2.237,
+                "density": 4.87,
+                "ci95": 1.368
+              },
+              "wikipedia": {
+                "n": 26,
+                "mean": 3.421,
+                "density": 6.914,
+                "ci95": 1.158
+              }
+            },
+            "year": null,
+            "n": 52,
+            "mean": 2.829,
+            "density": 5.892,
+            "ci95": 0.896
+          },
+          "fi": {
+            "perSource": {
+              "tvmaze": {
+                "n": 26,
+                "mean": 0.763,
+                "density": 1.11,
+                "ci95": 1.036
+              },
+              "wikipedia": {
+                "n": 26,
+                "mean": 1.832,
+                "density": 1.828,
+                "ci95": 1.173
+              }
+            },
+            "year": null,
+            "n": 52,
+            "mean": 1.297,
+            "density": 1.469,
+            "ci95": 0.783
+          }
+        },
+        {
+          "season": 3,
+          "year": 1968,
+          "yearEnd": 1969,
+          "episodeCount": 24,
+          "sci": {
+            "perSource": {
+              "tvmaze": {
+                "n": 24,
+                "mean": 1.092,
+                "density": 2.219,
+                "ci95": 1.195
+              },
+              "wikipedia": {
+                "n": 24,
+                "mean": 2.772,
+                "density": 6.087,
+                "ci95": 0.947
+              }
+            },
+            "year": null,
+            "n": 48,
+            "mean": 1.932,
+            "density": 4.153,
+            "ci95": 0.762
+          },
+          "fi": {
+            "perSource": {
+              "tvmaze": {
+                "n": 24,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0
+              },
+              "wikipedia": {
+                "n": 24,
+                "mean": 1.886,
+                "density": 2.386,
+                "ci95": 1.303
+              }
+            },
+            "year": null,
+            "n": 48,
+            "mean": 0.943,
+            "density": 1.193,
+            "ci95": 0.651
+          }
+        }
+      ]
+    }
+  ]
+}

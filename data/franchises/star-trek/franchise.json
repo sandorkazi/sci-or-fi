@@ -1,0 +1,43 @@
+{
+  "id": "star-trek",
+  "name": "Star Trek",
+  "years": [1966, null],
+  "wikis": [
+    { "id": "memory-alpha", "name": "Memory Alpha", "url": "https://memory-alpha.fandom.com", "license": "CC BY-NC (verify per page)" }
+  ],
+  "series": [
+    {
+      "id": "tos",
+      "name": "Star Trek: The Original Series",
+      "short": "TOS",
+      "years": [1966, 1969],
+      "color": "#378ADD",
+      "ageRating": 10,
+      "sourceIds": {
+        "tvmaze": 490,
+        "wikidata": "Q1071",
+        "imdb": "tt0060028"
+      }
+    }
+  ],
+  "sources": {
+    "tvmaze": {
+      "category": "plot-summary",
+      "kind": "summary",
+      "license": "TVmaze API, free, attribution required",
+      "homepage": "https://www.tvmaze.com/api"
+    },
+    "wikipedia": {
+      "category": "plot-summary",
+      "kind": "plot-section",
+      "license": "CC BY-SA 4.0",
+      "homepage": "https://en.wikipedia.org"
+    },
+    "wikidata": {
+      "category": "metadata",
+      "kind": "identifiers",
+      "license": "CC0",
+      "homepage": "https://www.wikidata.org"
+    }
+  }
+}

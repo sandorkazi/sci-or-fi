@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Signal",
+  "description": "One measured value for one episode, one axis, one source. The atomic unit of evidence.",
+  "type": "object",
+  "required": ["episodeId", "series", "season", "episode", "axis", "category", "source", "words", "hits", "density", "score", "confidence"],
+  "properties": {
+    "episodeId": { "type": "string" },
+    "series": { "type": "string" },
+    "season": { "type": "integer", "minimum": 1 },
+    "episode": { "type": "integer", "minimum": 1 },
+    "year": { "type": "integer" },
+    "axis": { "type": "string", "enum": ["sci", "fi"] },
+    "sub": { "type": "string" },
+    "category": { "type": "string" },
+    "source": { "type": "string" },
+    "textKind": { "type": "string" },
+    "words": { "type": "integer", "minimum": 0 },
+    "hits": { "type": "number", "minimum": 0 },
+    "density": { "type": "number", "minimum": 0, "description": "hits per 1000 words" },
+    "score": { "type": "number", "minimum": 0, "maximum": 10 },
+    "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+    "subsignals": { "type": "array" }
+  }
+}
