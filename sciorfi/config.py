@@ -85,6 +85,19 @@ def franchise_entities(franchise_id: str) -> list[dict]:
     return read_json(path).get("entities", [])
 
 
+def effective_sources(franchise_id: str, rubric: dict) -> list[str]:
+    """The sources in scope for a franchise.
+
+    The rubric is the registry of known sources and owns their ordering; the
+    franchise declares which of them cover it (Star Trek uses Memory Alpha,
+    Doctor Who uses the Tardis Wiki). Scoring the other wiki would only add a
+    source with zero measurements.
+    """
+    declared = franchise_meta(franchise_id).get("sources", {})
+    chosen = [sid for sid in rubric["scope"]["sources"] if sid in declared]
+    return chosen or list(declared)
+
+
 def snapshot_path(franchise_id: str, date: str) -> Path:
     return DATA / "snapshots" / franchise_id / f"{date}.json"
 

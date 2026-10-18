@@ -1,6 +1,9 @@
 # Sci-or-Fi redesign — design notes
 
 Status: draft for review. Branch `redesign`, baseline frozen at tag `baseline-v1` (= `dd7f4d7`).
+P2 is done: full Star Trek (15 series + 14 films) and Doctor Who (3 eras + 3 films) are ingested,
+scored and rendered, each augmented with its franchise wiki — Memory Alpha for Star Trek, the Tardis
+Wiki for Doctor Who — so the source scope is now `tvmaze + wikipedia + <franchise wiki>`.
 
 ## Why the current version is being replaced
 
@@ -58,7 +61,13 @@ Franchise  id, name, years, wikis[], sourceBindings{}
   Series   id, name, years, seasonCount, sourceIds{ wikidata, tmdb, imdb, tvmaze }
     Season number, year, episodeCount
       Episode  id, number, title, airDate, year, summaryRefs{}
+  Film     id, name, year, wikipedia   -- a kind: "film" work with one one-entry season
 ```
+
+A **film** is a series-like work (`kind: "film"`) with a single one-entry season, so it rides the
+same pipeline as an episode. Films have no TVmaze entry, so their metadata is pinned in
+`franchise.json` (article title + release year) and their text is a Wikipedia plot section fetched
+by title. The entity lists that feed the Fi coder are keyed **per series**.
 
 Stable IDs use the Wikidata QID as the anchor (e.g. `Q1071` Star Trek: TOS) with IMDb `tconst`,
 TMDB id and TVmaze id as cross-references. An episode id is `<seriesId>:S<season>E<episode>`.
@@ -163,10 +172,10 @@ score = f( franchise, snapshotDate, scope, rubricVersion )
   slice: its Query Service was rate-limiting to 1 request/minute during an active outage, which is
   itself a design lesson — adapters must degrade gracefully and snapshots must be committed so the
   pipeline reproduces without the network. See "P1 status" below.
-- **P2 — full Star Trek + a stronger instrument.** All Star Trek series, transcript and ratings
-  categories, scope switching, sharper visuals.
-- **P3 — second franchise.** Add a non-Star-Trek franchise to prove the framework is generic and
-  the franchise hierarchy works with more than one branch.
+- **P2 — full Star Trek + Doctor Who (done).** Every official Star Trek series and film, and every
+  Doctor Who era and film, ingested and rendered. See "P2 status" below.
+- **P3 — a stronger instrument.** Transcripts (the highest-value quality jump), ratings/reaction
+  categories as an overlay, and the reserved judgement sub-signals under a real coding coder.
 - **P4 — validation and publish.** Drift checks, attribution footer, merge to `main` so Pages
   deploys.
 
@@ -217,12 +226,136 @@ measurements are noisy and the seasons are close together — the next quality j
 (`resolution-mechanism`, `internal-consistency`, …) remain reserved for `rubric-v3` with a real
 coding coder.
 
+## P2 status — full Star Trek and Doctor Who, done
+
+Coverage now spans two franchises: **Star Trek** (15 official series, 1,001 TV episodes + 14 films
+including the 2025 *Section 31*) and **Doctor Who** (3 eras — 1963–1989, 2005–2022, 2023– — 869 TV
+parts + 3 films including the 1996 television film). A film is a `kind: "film"` work with one
+one-entry season, so it flows through the same pipeline.
+
+**Structural findings from doing it.**
+
+1. **TVmaze is TV-only — it has no film entries at all** (every Star Trek film title returns 404).
+   Films therefore need a different source: Wikipedia plot sections, fetched by *pinned article
+   title* rather than by search. A nice side-effect is that film plot sections are 380–835 words,
+   several times richer than TVmaze summaries, so films are measured on better text than episodes.
+2. **The Wikipedia search hint was a latent bug.** It was hardcoded to
+   `"<title> Star Trek: The Original Series episode"`. On a film title that query resolves to
+   *List of Star Trek films*, which has no Plot section — so "Star Trek Generations" silently
+   missed. The hint is now passed per series (`"<series name> episode"`), and films skip search
+   entirely.
+3. **Doctor Who's specials are not dropped.** TVmaze folds them into the numbered seasons for all
+   three eras (verified: zero season-0 episodes), so no specials are lost — and the 1996 television
+   film is genuinely absent from the 1963 series and is added as a film instead.
+4. **A franchise-level entity list does not scale, and pretending otherwise would bias an axis.**
+   With one curated list (TOS), running the entity coder over 17 other series would (a) import TOS
+   gods into other shows and (b) leave every uncoded series' Fi score silently halved, because an
+   entity sub-signal that matches nothing still counts in the denominator. Entities are now scoped
+   per series, and a series without a list is coded **lexicon-only**, with the page's "Fi coder"
+   column stating which. The scale problem is real and unresolved: it is the main open decision on
+   the Fi axis (see below).
+5. **Classic Doctor Who is thin, and the era is worth naming explicitly.** TVmaze lists its
+   25-minute *parts* (median summary ~31 words) rather than serials. Per-part lexicon densities are
+   correspondingly noisy; Wikipedia plot sections are the primary measurement for that franchise.
+6. **A search always returns *something*, so resolution needs a guard.** Accepting the first hit
+   that has a Plot section resolved Lower Decks' "Second Contact" to a *Next Generation* episode
+   article and Doctor Who's "Rose" to "The Star Beast" — real, wrong plots feeding real scores. An
+   article is now accepted only if its title *is* the episode's title (with or without a
+   disambiguator), preferring a disambiguator that names the series; an unresolved episode is left
+   unresolved rather than filled with a different episode's plot.
+7. **Plot sections split into sub-sections were being truncated to nothing.** The section
+   terminator matched a heading of *any* level, so "Emissary (Star Trek: Deep Space Nine)", whose
+   level-2 Plot is split into `=== Part I ===` / `=== Part II ===`, yielded no text and was
+   silently dropped. The section now runs to the next heading of the same level. This is why
+   resolution is verified by the *shape of the article*, not just by a search hit.
+8. **Wikipedia's episode-article coverage is uneven within a franchise, and that changes the
+   measurement basis per series.** TOS/TAS/TNG/DS9/VOY/ENT/DIS have per-episode articles; SNW, LD
+   and Prodigy have only season pages; classic Who has serial articles (so only part-one titles
+   resolve); the modern Who eras have per-episode articles. Each work's text basis — episodes
+   resolved and median words per source — is published in the table, so a series measured on
+   30-word summaries is visible as such rather than averaged in silently.
+
+**What this unblocks.** The axis-framing question (full 0–10 vs zoom-to-data) can now be decided
+on real multi-franchise spread rather than on three TOS seasons — which was the stated blocker.
+
+### Augmenting Wikipedia with the franchise wikis
+
+Wikipedia's coverage of a franchise is *not* a property of the franchise — it is a property of
+Wikipedia's editorial scope, and it collapses exactly where the streaming era begins (Discovery
+6/65, Picard 0/30, Lower Decks 0/50, Prodigy 0/39, Strange New Worlds 3/40). A franchise wiki
+covers its own franchise completely. So two MediaWiki sources are now bound per franchise:
+
+| franchise | wiki | section used | typical length |
+|---|---|---|---|
+| Star Trek | Memory Alpha (`memory-alpha.fandom.com`) | `Summary` | 1,200–9,500 words |
+| Doctor Who | Tardis Wiki (`tardis.fandom.com`) | `Plot` | 750–2,400 words |
+
+Both are the same MediaWiki API, so one adapter serves Wikipedia and the two wikis; only the
+endpoint, the search hint and the section name differ. The section-name priority
+(`plot` → `plot summary` → `synopsis` → `summary` → `story`) matters twice over. Tardis carries both a
+deliberately spoiler-light `Synopsis` and a detailed `Plot`, so `plot` must win. And Memory Alpha
+names the plot `Summary` while also carrying a **real-world** `Story` section under *Background
+information* — so `summary` must beat `story`. Getting that last ordering wrong attaches a
+plausible-looking number to the wrong text, which is the failure mode this whole redesign exists to
+remove. The damage was bounded by an accident of the code (a section that strips to nothing falls
+through to the next candidate, and Memory Alpha's `Story` sections are usually empty stubs), so only
+two works were actually mis-measured: *Star Trek Beyond* (2,086 plot words → 589 words about casting)
+and Voyager's *Caretaker* (5,469 → 568 words about the writers on set). Both are corrected, and the
+episode-level medians are unchanged for every series that was already reading `Summary`.
+
+The effect is large and one-directional: for Star Trek, Lower Decks went from 0/50 episodes resolved
+to 3/3 in sample with ~3,000 words each, and Strange New Worlds from 3/40 to 3/4 in sample with
+~4,800 words. Text length rises from a ~31-word TVmaze median to a ~2,000-word wiki median, which
+narrows the per-episode noise that was the stated limit of the P1 slice.
+
+Two consequences worth stating plainly. First, **the source scope is now a per-franchise decision**,
+not a global list: the rubric remains the registry of known sources and owns their ordering, while
+each franchise declares which of them cover it (`config.effective_sources`). Scoring the Tardis Wiki
+against Star Trek would only add a source with zero measurements. Second, **films go through the same
+wikis**, but by article title rather than by search: a film's wiki article usually carries the film's
+title (all 14 Star Trek films resolve on Memory Alpha that way, 600–9,500 words each), and the few
+that do not are pinned per film per wiki in `franchise.json` (`wikiTitles` — the 1996 Doctor Who film
+is Tardis' "Doctor Who (TV story)"). Direct lookup is what makes this safe: there is no search result
+to mismatch. TVmaze still contributes nothing for films, since it has no film entries at all.
+
+**Classic Doctor Who is the remaining hole.** Tardis and Wikipedia both carry the *serial* article
+("An Unearthly Child (TV story)", ~2,400 words), not a page per 25-minute part, so of 700 classic
+parts only ~10 resolve on Wikipedia and ~19 on Tardis, and the rest fall back to ~31-word TVmaze
+summaries. The measured text basis makes this explicit on the page: DW63 reads
+`tvmaze 683/700·31w · wikipedia 10/700·375w · tardis 19/700·1190w`.
+Two fixes are available: extract the serial article's per-part sub-sections (it has
+`An Unearthly Child (1)`, `The Cave of Skulls (2)`, … headings), or group the parts into serials and
+analyse at story level — which is arguably the right unit for 1963–1989 anyway, since a serial is
+one story told over several weeks. The sub-section route is constrained by TVmaze's own titling,
+which is inconsistent: 117 of the 700 parts are titled `"<part title> (<serial>, Part N)"` (so the
+part title can be matched against a sub-heading) but 583 are titled just `"<serial>, Part N"`, leaving
+only the part *index* to go on. Grouping at story level needs no such guess and would take Doctor Who
+from 869 part-level works, most on 31-word summaries, to ~170 story-level works, most on 1,000–2,400
+words of Tardis plot.
+
 ## Open decisions
 
-1. **Next franchise:** Doctor Who (chosen) — needs a `franchise.json`, an entity list, and a source
-   binding; no pipeline changes.
-2. **Transcript source** for P2: OpenSubtitles via OPUS (ODC-BY) vs a franchise transcript wiki —
-   this is the highest-value quality improvement available.
-3. **Judgement coder** for `rubric-v3`: LLM-coded episode coding against a published codebook, human
+1. **Scaling the Fi coder (the main open decision).** Only TOS has a curated entity list, so Fi is
+   lexicon-only for every other series. Options: (a) hand-curate entity lists per series — accurate,
+   but a large reviewable job across 17 works; (b) mark the whole franchise lexicon-only and drop the
+   entity sub-signal from the Fi axis (comparable across works, but blind to nominal myth like TOS
+   "Apollo"); (c) build a better automatic Fi signal (e.g. a narrative-role coder over plot text)
+   that needs no per-series list. This is the blocker before Fi can be compared *across* franchises.
+
+   The size of the problem is now measurable rather than impressionistic. Across all 1,014 Star Trek
+   works, with the augmented sources in scope: **sci** has median 1.38, p90 5.71, mean 2.15 out of 10;
+   **fi** has median 0.17, p90 2.15, mean 0.77. Only 31% of works score above 0.5 on Fi, against 78%
+   on Sci — so on a 0–10 axis the Fi series is a flat line near zero and the chart is a single
+   bottom-left cluster. That *is* the "most of the things are still on the line" complaint, and it is
+   caused by the lexicon: mythic vocabulary is genuinely rare in Star Trek's secular plot prose, and
+   the entity coder that rubric-v2 added to see it (plot summaries *name* gods rather than describing
+   them mythically) is compiled for TOS alone. The two axes are not merely correlated — `r(sci, fi) =
+   −0.07` — so this is a missing signal, not double-counting.
+2. **Franchise scope edges.** Currently excluded, and easy to add on request: Doctor Who spin-offs
+   (Torchwood, The Sarah Jane Adventures, Class, K9) and animated webcasts (Dreamland, Shada, Real
+   Time, Scream of the Shalka); Star Trek fan productions (Continues, Renegades, Odyssey).
+3. **Transcript source**: OpenSubtitles via OPUS (ODC-BY) vs a franchise transcript wiki — this is
+   the highest-value quality improvement available, and it mostly fixes the thin-text problem above.
+4. **Judgement coder** for `rubric-v3`: LLM-coded episode coding against a published codebook, human
    spot-checks, per-episode confidence. This is what turns the reserved sub-signals into scores.
 

@@ -50,12 +50,15 @@ def run(franchise_id: str, date: str, rubric: dict) -> list[str]:
     for row in rows:
         covered.setdefault(row["source"], set()).add(row["episodeId"])
 
-    for source in rubric["scope"]["sources"]:
+    for source in config.effective_sources(franchise_id, rubric):
         got = len(covered.get(source, ()))
-        if got < len(episodes):
+        # Thin coverage is expected and allowed — TVmaze has no film entries, a
+        # wiki search does not resolve every episode title, and a franchise wiki
+        # only covers its own franchise. It is surfaced in the rendered page. A
+        # source that contributes nothing at all is a real error.
+        if got == 0:
             problems.append(
-                f"coverage: source {source!r} covers {got}/{len(episodes)} episodes "
-                "(thin coverage is allowed, but confirm it is intended)"
+                f"coverage: source {source!r} covers 0/{len(episodes)} episodes — is it wired up?"
             )
 
     # --- derived --------------------------------------------------------
@@ -63,7 +66,7 @@ def run(franchise_id: str, date: str, rubric: dict) -> list[str]:
     if not derived_files:
         return problems + ["no derived output (run: sciorfi score)"]
 
-    derived = config.read_json(derived_files[-1])
+    derived = config.read_json(max(derived_files, key=lambda p: p.stat().st_mtime))
     problems += validate_schema.validate_derived(derived)
 
     # Reproducibility: same inputs must produce the same numbers.

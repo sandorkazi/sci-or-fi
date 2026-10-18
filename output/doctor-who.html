@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Doctor Who: Sci vs Fi, season by season</title>
+<style>
+:root{--bg:#fcfcfb;--card:#fff;--text:#0b0b0b;--text2:#52514e;--muted:#898781;--border:rgba(11,11,11,.10);--grid:#e1e0d9;--accent:#D85A30}
+@media (prefers-color-scheme:dark){:root{--bg:#17171a;--card:#202024;--text:#f0efec;--text2:#c3c2b7;--muted:#898781;--border:rgba(255,255,255,.10);--grid:#2c2c2a}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;padding:24px 16px 48px;line-height:1.5}
+.wrap{max-width:1040px;margin:0 auto}
+h1{font-size:21px;font-weight:500;margin:0 0 4px}
+h2{font-size:15px;font-weight:600;margin:26px 0 10px}
+p.sub{font-size:14px;color:var(--text2);margin:0 0 18px;max-width:70ch}
+.card{background:var(--card);border:.5px solid var(--border);border-radius:12px;padding:16px}
+.layout{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start}
+.main{flex:1 1 560px;min-width:320px}
+.side{flex:0 1 300px;min-width:250px}
+.chart-box{position:relative;width:100%;height:440px}
+.rowhead{display:flex;justify-content:space-between;align-items:center;margin:14px 0 8px}
+.label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:flex;align-items:center;gap:6px;font-size:12px;padding:5px 10px;border-radius:999px;border:1px solid var(--border);background:var(--card);color:var(--text);cursor:pointer}
+.chip.off{opacity:.4}
+.chip .dot{width:9px;height:9px;border-radius:50%}
+.chip[disabled]{cursor:default}
+button.ctrl{font-size:12px;padding:5px 10px;border-radius:6px;border:.5px solid var(--border);background:var(--card);color:var(--text2);cursor:pointer}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th,td{text-align:left;padding:6px 8px;border-bottom:.5px solid var(--border);font-variant-numeric:tabular-nums}
+th{font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);font-weight:600}
+td.num{text-align:right}
+.bar{display:inline-block;height:8px;border-radius:2px;vertical-align:middle}
+.swatch{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:6px}
+.muted{font-size:12px;color:var(--muted);line-height:1.6}
+details{margin-top:22px;background:var(--card);border:.5px solid var(--border);border-radius:12px;padding:0 16px}
+details>summary{cursor:pointer;font-size:13.5px;font-weight:600;padding:14px 0;list-style:none}
+details>summary::-webkit-details-marker{display:none}
+details>summary::before{content:'\25B8  ';color:var(--muted)}
+details[open]>summary::before{content:'\25BE  '}
+.rubric-grid{display:flex;gap:24px;flex-wrap:wrap}
+.rubric-grid>div{flex:1 1 280px}
+.rubric-grid h3{font-size:13px;margin:0 0 4px}
+.rubric-grid p,.rubric-grid ul{font-size:12px;color:var(--text2)}
+.rubric-grid ul{padding-left:18px;line-height:1.7}
+.prov td,.prov th{font-size:12px}
+.prov a{color:var(--accent)}
+code{font-size:.92em;background:rgba(127,127,127,.14);padding:1px 4px;border-radius:4px}
+.note{margin-top:18px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Doctor Who: Sci vs Fi, season by season</h1>
+  <p class="sub">Each season is scored on two independent axes. <strong>Sci</strong> is how much the episode text turns on technical and scientific vocabulary; <strong>Fi</strong> is how much it turns on god-like power, prophecy and reality-bending. Scores are computed per episode from a source scope, then averaged per season; bubble size is the measured 95% confidence interval of that average, never a hand-set value. Covers <code>3</code> series, <code>3</code> films and <code>44</code> seasons; <code>3</code> sources in scope (tvmaze + wikipedia + tardis) — toggle them on the right and the chart recomputes. Films have no TVmaze entry and are plotted with a neutral marker; their text comes from the same wiki sources, looked up by article title rather than search. Fi is a two-coder composite only where a franchise has a curated entity list (0 of 6 works); elsewhere it is lexicon-only, and the table says which. The table's <em>text basis</em> column shows how many episodes each source actually resolved and the median words behind a measurement — several series rest on thin summaries, and that is stated rather than hidden.</p>
+
+  <div class="layout">
+    <div class="main card">
+      <div class="chart-box"><canvas id="chart" role="img" aria-label="Bubble chart of each season's Sci score against its Fi score"></canvas></div>
+      <div class="rowhead">
+        <span class="label">Series</span>
+        <span><button class="ctrl" id="all">All</button> <button class="ctrl" id="none">None</button></span>
+      </div>
+      <div class="chips" id="seriesChips"></div>
+    </div>
+    <div class="side">
+      <div class="card">
+        <div class="rowhead" style="margin-top:0"><span class="label">Source scope</span><span id="scopeCount" class="muted"></span></div>
+        <div class="chips" id="sourceChips"></div>
+        <p class="muted" style="margin:10px 0 0">Scores recompute from the selected sources only. This is the readable form of <code>score = f(snapshot, scope, rubric)</code>.</p>
+      </div>
+      <div class="card" style="margin-top:12px">
+        <label class="chip" id="baselineChip"><input type="checkbox" id="baselineToggle" checked style="accent-color:var(--accent)"> show baseline</label>
+        <p class="muted" style="margin:10px 0 0">No baseline recorded for this franchise.</p>
+      </div>
+      <div class="card" style="margin-top:12px">
+        <label class="chip"><input type="checkbox" id="zoomToggle" style="accent-color:var(--accent)"> zoom to data</label>
+        <p class="muted" style="margin:10px 0 0">Off by default: the full 0&ndash;10 scale makes it plain how little of it the
+        measured scores occupy. Zooming rescales the axes to the visible points, which exaggerates small gaps &mdash; read it
+        alongside the confidence intervals, never on its own.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2>Season scores</h2>
+  <div class="card"><table id="scoresTable"></table></div>
+
+  <details open>
+    <summary>Rubric, uncertainty and provenance</summary>
+    <div class='rubric-grid'><div><h3>Sci - scientific / engineering rigour</h3><p>How much an episode's text turns on technical, scientific or engineering vocabulary, as opposed to being set dressing.</p><ul><li><code>technical-lexicon-density</code> — coder <em>lexicon</em>, 57 terms, weight 1.0, saturates at 20.0</li></ul></div><div><h3>Fi - myth / magic / reality-bending</h3><p>How much an episode's text turns on god-like power, prophecy, magic-equivalent action or reality-breaking storytelling.</p><ul><li><code>mythic-lexicon-density</code> — coder <em>lexicon</em>, 59 terms, weight 1.0, saturates at 9.0</li><li><code>numinous-entity</code> — coder <em>entity</em>, curated entity list (franchise:entities), weight 1.0, saturates at 6.0</li></ul></div></div><p class='muted'>Saturation values are calibrated on the reference corpus (Star Trek: TOS, 79 episodes) as the 95th percentile of episode-level density, so a season scoring 10 is a genuine corpus-tail outlier rather than a saturation artefact. Raw densities are always published alongside scores.</p><p class='muted'><strong>Uncertainty.</strong> ci95-mean: 95% CI of the episode-level mean (z=1.96), inflated ×1.5 below 5 episodes. Measured from the episode distribution, never asserted.</p><p class='muted'><strong>Not yet coded</strong> (rubric-v3, needs a judgement coder rather than a lexicon): <code>resolution-mechanism</code>, <code>methodological-framing</code>, <code>internal-consistency</code>, <code>pseudoscience-handwave</code>, <code>prophecy-driven-plot</code>, <code>magic-equivalent-action</code>, <code>reality-or-format-bending</code>, <code>literal-afterlife</code>, <code>absurdist-tonal-break</code></p>
+    <h2 style="margin-top:20px">Sources in this scope</h2>
+    <table class='prov'><thead><tr><th>source</th><th>category</th><th>what it gives</th><th>licence</th><th></th></tr></thead><tbody><tr><td><code>tvmaze</code></td><td>plot-summary</td><td>summary</td><td>TVmaze API, free, attribution required</td><td><a href='https://www.tvmaze.com/api'>source</a></td></tr><tr><td><code>wikipedia</code></td><td>plot-summary</td><td>plot-section</td><td>CC BY-SA 4.0</td><td><a href='https://en.wikipedia.org'>source</a></td></tr><tr><td><code>tardis</code></td><td>plot-summary</td><td>wiki-plot</td><td>CC BY-SA 3.0 (Fandom / Tardis Wiki)</td><td><a href='https://tardis.fandom.com'>source</a></td></tr></tbody></table><p class='muted'>snapshot <code>2026-10-18</code> · rubric <code>rubric-v2</code> · scope <code>448ad092cd5e</code> · generated <code>2026-10-18T00:57:45+00:00</code>. Only derived counts are stored in the repository; source prose is cached outside it. Attribution for every source is above.</p>
+  </details>
+
+  <p class="muted note">Bubble size is the 95% confidence interval of the season's episode-level mean — a measured quantity. Bubble position is the season score. Sci and Fi are scored from disjoint term sets, so they are independent by construction.</p>
+</div>
+
+<script src="vendor/chart.umd.js"></script>
+<script>
+const DATA = {"franchise":"doctor-who","franchiseName":"Doctor Who","snapshotDate":"2026-10-18","rubricVersion":"rubric-v2","scope":{"categories":["plot-summary"],"sources":["tvmaze","wikipedia","tardis"],"series":["dw63","dw05","dw23","dwf65","dwf66","dwm96"]},"scopeHash":"448ad092cd5e","generatedAt":"2026-10-18T00:57:45+00:00","coverageGaps":[{"series":"dw05","axis":"fi","missingSubsignals":["numinous-entity"]},{"series":"dw23","axis":"fi","missingSubsignals":["numinous-entity"]},{"series":"dw63","axis":"fi","missingSubsignals":["numinous-entity"]},{"series":"dwf65","axis":"fi","missingSubsignals":["numinous-entity"]},{"series":"dwf66","axis":"fi","missingSubsignals":["numinous-entity"]},{"series":"dwm96","axis":"fi","missingSubsignals":["numinous-entity"]}],"series":[{"id":"dw63","name":"Doctor Who (1963-1989)","short":"DW63","kind":"series","color":"#378ADD","ageRating":7,"entityCount":0,"textBasis":{"episodes":700,"sources":{"tvmaze":{"covered":683,"medianWords":31},"wikipedia":{"covered":10,"medianWords":375},"tardis":{"covered":19,"medianWords":1190}}},"seasons":[{"season":1,"year":1963,"yearEnd":1964,"episodeCount":42,"sci":{"perSource":{"tardis":{"n":5,"mean":0.419,"density":0.837,"ci95":0.296},"tvmaze":{"n":42,"mean":0.0,"density":0.0,"ci95":0.0},"wikipedia":{"n":4,"mean":0.644,"density":1.289,"ci95":1.095}},"year":null,"n":51,"mean":0.092,"density":0.183,"ci95":0.091},"fi":{"perSource":{"tardis":{"n":5,"mean":0.686,"density":0.617,"ci95":0.854},"tvmaze":{"n":42,"mean":0.952,"density":2.19,"ci95":0.899},"wikipedia":{"n":4,"mean":1.46,"density":1.315,"ci95":2.486}},"year":null,"n":51,"mean":0.966,"density":1.967,"ci95":0.77}},{"season":2,"year":1964,"yearEnd":1965,"episodeCount":39,"sci":{"perSource":{"tardis":{"n":11,"mean":0.778,"density":1.556,"ci95":0.59},"tvmaze":{"n":39,"mean":0.0,"density":0.0,"ci95":0.0},"wikipedia":{"n":5,"mean":2.137,"density":4.274,"ci95":2.225}},"year":null,"n":55,"mean":0.35,"density":0.7,"ci95":0.234},"fi":{"perSource":{"tardis":{"n":11,"mean":0.564,"density":0.508,"ci95":0.674},"tvmaze":{"n":39,"mean":1.026,"density":1.925,"ci95":0.965},"wikipedia":{"n":5,"mean":0.0,"density":0.0,"ci95":0.0}},"year":null,"n":55,"mean":0.84,"density":1.467,"ci95":0.697}},{"season":3,"year":1965,"yearEnd":1966,"episodeCount":45,"sci":{"perSource":{"tvmaze":{"n":41,"mean":0.308,"density":0.617,"ci95":0.291},"tardis":{"n":3,"mean":2.313,"density":4.626,"ci95":5.89},"wikipedia":{"n":1,"mean":1.805,"density":3.61,"ci95":0.0}},"year":null,"n":45,"mean":0.475,"density":0.951,"ci95":0.474},"fi":{"perSource":{"tvmaze":{"n":41,"mean":2.636,"density":4.969,"ci95":1.292},"tardis":{"n":3,"mean":1.357,"density":1.221,"ci95":3.989},"wikipedia":{"n":1,"mean":0.0,"density":0.0,"ci95":0.0}},"year":null,"n":45,"mean":2.492,"density":4.609,"ci95":1.207}},{"season":4,"year":1966,"yearEnd":1967,"episodeCount":43,"sci":{"perSource":{"tvmaze":{"n":43,"mean":0.698,"density":3.705,"ci95":0.77}},"year":null,"n":43,"mean":0.698,"density":3.705,"ci95":0.77},"fi":{"perSource":{"tvmaze":{"n":43,"mean":0.233,"density":1.011,"ci95":0.456}},"year":null,"n":43,"mean":0.233,"density":1.011,"ci95":0.456}},{"season":5,"year":1967,"yearEnd":1968,"episodeCount":40,"sci":{"perSource":{"tvmaze":{"n":40,"mean":0.5,"density":1.949,"ci95":0.684}},"year":null,"n":40,"mean":0.5,"density":1.949,"ci95":0.684},"fi":{"perSource":{"tvmaze":{"n":40,"mean":0.0,"density":0.0,"ci95":0.0}},"year":null,"n":40,"mean":0.0,"density":0.0,"ci95":0.0}},{"season":6,"year":1968,"yearEnd":1969,"episodeCount":44,"sci":{"perSource":{"tvmaze":{"n":44,"mean":0.0,"density":0.0,"ci95":0.0}},"year":null,"n":44,"mean":0.0,"density":0.0,"ci95":0.0},"fi":{"perSource":{"tvmaze":{"n":44,"mean":0.227,"density":0.758,"ci95":0.445}},"year":null,"n":44,"mean":0.227,"density":0.758,"ci95":0.445}},{"season":7,"year":1970,"yearEnd":null,"episodeCount":25,"sci":{"perSource":{"tvmaze":{"n":25,"mean":2.4,"density":13.579,"ci95":1.709}},"year":null,"n":25,"mean":2.4,"density":13.579,"ci95":1.709},"fi":{"perSource":{"tvmaze":{"n":25,"mean":0.4,"density":1.739,"ci95":0.784}},"year":null,"n":25,"mean":0.4,"density":1.739,"ci95":0.784}},{"season":8,"year":1971,"yearEnd":null,"episodeCount":25,"sci":{"perSource":{"tvmaze":{"n":25,"mean":0.4,"density":1.429,"ci95":0.784}},"year":null,"n":25,"mean":0.4,"density":1.429,"ci95":0.784},"fi":{"perSource":{"tvmaze":{"n":25,"mean":0.4,"density":8.0,"ci95":0.784}},"year":null,"n":25,"mean":0.4,"density":8.0,"ci95":0.784}},{"season":9,"year":1972,"yearEnd":null,"episodeCount":26,"sci":{"perSource":{"tvmaze":{"n":26,"mean":1.154,"density":5.402,"ci95":1.252}},"year":null,"n":26,"mean":1.154,"density":5.402,"ci95":1.252},"fi":{"perSource":{"tvmaze":{"n":26,"mean":0.385,"density":1.538,"ci95":0.754}},"year":null,"n":26,"mean":0.385,"density":1.538,"ci95":0.754}},{"season":10,"year":1972,"yearEnd":1973,"episodeCount":26,"sci":{"perSource":{"tvmaze":{"n":26,"mean":1.677,"density":5.883,"ci95":1.417}},"year":null,"n":26,"mean":1.677,"density":5.883,"ci95":1.417},"fi":{"perSource":{"tvmaze":{"n":26,"mean":0.0,"density":0.0,"ci95":0.0}},"year":null,"n":26,"mean":0.0,"density":0.0,"ci95":0.0}},{"season":11,"year":1973,"yearEnd":1974,"episodeCount":26,"sci":{"perSource":{"tvmaze":{"n":26,"mean":0.546,"density":1.926,"ci95":0.806}},"year":null,"n":26,"mean":0.546,"density":1.926,"ci95":0.806},"fi":{"perSource":{"tvmaze":{"n":26,"mean":0.769,"density":2.508,"ci95":1.045}},"year":null,"n":26,"mean":0.769,"density":2.508,"ci95":1.045}},{"season":12,"year":1974,"yearEnd":1975,"episodeCount":20,"sci":{"perSource":{"tvmaze":{"n":20,"mean":0.5,"density":2.083,"ci95":0.98}},"year":null,"n":20,"mean":0.5,"density":2.083,"ci95":0.98},"fi":{"perSource":{"tvmaze":{"n":20,"mean":0.0,"density":0.0,"ci95":0.0}},"year":null,"n":20,"mean":0.0,"density":0.0,"ci95":0.0}},{"season":13,"year":1975,"yearEnd":1976,"episodeCount":26,"sci":{"perSource":{"tvmaze":{"n":26,"mean":0.385,"density":1.748,"ci95":0.754}},"year":null,"n":26,"mean":0.385,"density":1.748,"ci95":0.754},"fi":{"perSource":{"tvmaze":{"n":26,"mean":1.538,"density":4.768,"ci95":1.414}},"year":null,"n":26,"mean":1.538,"density":4.768,"ci95":1.414}},{"season":14,"year":1976,"yearEnd":1977,"episodeCount":26,"sci":{"perSource":{"tvmaze":{"n":26,"mean":0.769,"density":3.434,"ci95":1.045}},"year":null,"n":26,"mean":0.769,"density":3.434,"ci95":1.045},"fi":{"perSource":{"tvmaze":{"n":26,"mean":0.769,"density":1.558,"ci95":1.045}},"year":null,"n":26,"mean":0.769,"density":1.558,"ci95":1.045}},{"season":15,"year":1977,"yearEnd":1978,"episodeCount":26,"sci":{"perSource":{"tvmaze":{"n":26,"mean":0.963,"density":3.003,"ci95":1.091}},"year":null,"n":26,"mean":0.963,"density":3.003,"ci95":1.091},"fi":{"perSource":{"tvmaze":{"n":26,"mean":1.538,"density":3.396,"ci95":1.414}},"year":null,"n":26,"mean":1.538,"density":3.396,"ci95":1.414}},{"season":16,"year":1978,"yearEnd":1979,"episodeCount":26,"sci":{"perSource":{"tvmaze":{"n":26,"mean":0.385,"density":1.04,"ci95":0.754}},"year":null,"n":26,"mean":0.385,"density":1.04,"ci95":0.754},"fi":{"perSource":{"tvmaze":{"n":26,"mean":0.385,"density":0.62,"ci95":0.754}},"year":null,"n":26,"mean":0.385,"density":0.62,"ci95":0.754}},{"season":17,"year":1979,"yearEnd":1980,"episodeCount":26,"sci":{"perSource":{"tvmaze":{"n":26,"mean":0.0,"density":0.0,"ci95":0.0}},"year":null,"n":26,"mean":0.0,"density":0.0,"ci95":0.0},"fi":{"perSource":{"tvmaze":{"n":26,"mean":0.16,"density":0.144,"ci95":0.314}},"year":null,"n":26,"mean":0.16,"density":0.144,"ci95":0.314}},{"season":18,"year":1980,"yearEnd":1981,"episodeCount":28,"sci":{"perSource":{"tvmaze":{"n":28,"mean":1.488,"density":4.061,"ci95":1.256}},"year":null,"n":28,"mean":1.488,"density":4.061,"ci95":1.256},"fi":{"perSource":{"tvmaze":{"n":28,"mean":1.071,"density":2.482,"ci95":1.167}},"year":null,"n":28,"mean":1.071,"density":2.482,"ci95":1.167}},{"season":19,"year":1982,"yearEnd":null,"episodeCount":26,"sci":{"perSource":{"tvmaze":{"n":26,"mean":0.0,"density":0.0,"ci95":0.0}},"year":null,"n":26,"mean":0.0,"density":0.0,"ci95":0.0},"fi":{"perSource":{"tvmaze":{"n":26,"mean":0.385,"density":0.513,"ci95":0.754}},"year":null,"n":26,"mean":0.385,"density":0.513,"ci95":0.754}},{"season":20,"year":1983,"yearEnd":null,"episodeCount":22,"sci":{"perSource":{"tvmaze":{"n":22,"mean":0.0,"density":0.0,"ci95":0.0}},"year":null,"n":22,"mean":0.0,"density":0.0,"ci95":0.0},"fi":{"perSource":{"tvmaze":{"n":22,"mean":1.364,"density":3.546,"ci95":1.468}},"year":null,"n":22,"mean":1.364,"density":3.546,"ci95":1.468}},{"season":21,"year":1984,"yearEnd":null,"episodeCount":24,"sci":{"perSource":{"tvmaze":{"n":24,"mean":0.0,"density":0.0,"ci95":0.0}},"year":null,"n":24,"mean":0.0,"density":0.0,"ci95":0.0},"fi":{"perSource":{"tvmaze":{"n":24,"mean":0.417,"density":0.868,"ci95":0.817}},"year":null,"n":24,"mean":0.417,"density":0.868,"ci95":0.817}},{"season":22,"year":1985,"yearEnd":null,"episodeCount":13,"sci":{"perSource":{"tvmaze":{"n":5,"mean":1.429,"density":2.857,"ci95":2.8}},"year":null,"n":5,"mean":1.429,"density":2.857,"ci95":2.8},"fi":{"perSource":{"tvmaze":{"n":5,"mean":0.0,"density":0.0,"ci95":0.0}},"year":null,"n":5,"mean":0.0,"density":0.0,"ci95":0.0}},{"season":23,"year":1986,"yearEnd":null,"episodeCount":14,"sci":{"perSource":{"tvmaze":{"n":14,"mean":0.674,"density":1.348,"ci95":1.321}},"year":null,"n":14,"mean":0.674,"density":1.348,"ci95":1.321},"fi":{"perSource":{"tvmaze":{"n":14,"mean":2.143,"density":5.079,"ci95":2.231}},"year":null,"n":14,"mean":2.143,"density":5.079,"ci95":2.231}},{"season":24,"year":1987,"yearEnd":null,"episodeCount":14,"sci":{"perSource":{"tvmaze":{"n":14,"mean":0.0,"density":0.0,"ci95":0.0}},"year":null,"n":14,"mean":0.0,"density":0.0,"ci95":0.0},"fi":{"perSource":{"tvmaze":{"n":14,"mean":0.0,"density":0.0,"ci95":0.0}},"year":null,"n":14,"mean":0.0,"density":0.0,"ci95":0.0}},{"season":25,"year":1988,"yearEnd":1989,"episodeCount":14,"sci":{"perSource":{"tvmaze":{"n":14,"mean":0.0,"density":0.0,"ci95":0.0}},"year":null,"n":14,"mean":0.0,"density":0.0,"ci95":0.0},"fi":{"perSource":{"tvmaze":{"n":14,"mean":1.429,"density":4.536,"ci95":1.902}},"year":null,"n":14,"mean":1.429,"density":4.536,"ci95":1.902}},{"season":26,"year":1989,"yearEnd":null,"episodeCount":14,"sci":{"perSource":{"tvmaze":{"n":9,"mean":0.0,"density":0.0,"ci95":0.0}},"year":null,"n":9,"mean":0.0,"density":0.0,"ci95":0.0},"fi":{"perSource":{"tvmaze":{"n":9,"mean":0.0,"density":0.0,"ci95":0.0}},"year":null,"n":9,"mean":0.0,"density":0.0,"ci95":0.0}}]},{"id":"dw05","name":"Doctor Who (2005-2022)","short":"DW05","kind":"series","color":"#D85A30","ageRating":10,"entityCount":0,"textBasis":{"episodes":153,"sources":{"tvmaze":{"covered":153,"medianWords":30},"wikipedia":{"covered":146,"medianWords":471},"tardis":{"covered":146,"medianWords":2403}}},"seasons":[{"season":1,"year":2005,"yearEnd":null,"episodeCount":13,"sci":{"perSource":{"tardis":{"n":13,"mean":0.614,"density":1.227,"ci95":0.192},"tvmaze":{"n":13,"mean":0.0,"density":0.0,"ci95":0.0},"wikipedia":{"n":13,"mean":0.686,"density":1.371,"ci95":0.666}},"year":null,"n":39,"mean":0.433,"density":0.866,"ci95":0.231},"fi":{"perSource":{"tardis":{"n":13,"mean":0.779,"density":0.701,"ci95":0.509},"tvmaze":{"n":13,"mean":0.0,"density":0.0,"ci95":0.0},"wikipedia":{"n":13,"mean":0.659,"density":0.593,"ci95":0.936}},"year":null,"n":39,"mean":0.479,"density":0.431,"ci95":0.355}},{"season":2,"year":2006,"yearEnd":null,"episodeCount":13,"sci":{"perSource":{"tardis":{"n":13,"mean":0.644,"density":1.288,"ci95":0.445},"tvmaze":{"n":13,"mean":0.0,"density":0.0,"ci95":0.0},"wikipedia":{"n":13,"mean":1.028,"density":2.056,"ci95":0.69}},"year":null,"n":39,"mean":0.557,"density":1.115,"ci95":0.274},"fi":{"perSource":{"tardis":{"n":13,"mean":2.917,"density":2.626,"ci95":1.506},"tvmaze":{"n":13,"mean":0.0,"density":0.0,"ci95":0.0},"wikipedia":{"n":13,"mean":0.862,"density":0.776,"ci95":0.961}},"year":null,"n":39,"mean":1.26,"density":1.134,"ci95":0.595}},{"season":3,"year":2007,"yearEnd":null,"episodeCount":13,"sci":{"perSource":{"tardis":{"n":13,"mean":0.786,"density":1.572,"ci95":0.415},"tvmaze":{"n":13,"mean":0.0,"density":0.0,"ci95":0.0},"wikipedia":{"n":13,"mean":1.523,"density":3.046,"ci95":0.891}},"year":null,"n":39,"mean":0.77,"density":1.539,"ci95":0.328},"fi":{"perSource":{"tardis":{"n":13,"mean":2.037,"density":1.833,"ci95":0.996},"tvmaze":{"n":13,"mean":0.769,"density":5.917,"ci95":1.508},"wikipedia":{"n":13,"mean":2.566,"density":2.309,"ci95":1.293}},"year":null,"n":39,"mean":1.791,"density":3.353,"ci95":0.741}},{"season":4,"year":2008,"yearEnd":null,"episodeCount":13,"sci":{"perSource":{"tardis":{"n":13,"mean":0.751,"density":1.502,"ci95":0.279},"tvmaze":{"n":13,"mean":0.0,"density":0.0,"ci95":0.0},"wikipedia":{"n":13,"mean":1.292,"density":2.583,"ci95":1.356}},"year":null,"n":39,"mean":0.681,"density":1.362,"ci95":0.461},"fi":{"perSource":{"tardis":{"n":13,"mean":1.821,"density":1.639,"ci95":1.417},"tvmaze":{"n":13,"mean":0.0,"density":0.0,"ci95":0.0},"wikipedia":{"n":13,"mean":0.64,"density":0.576,"ci95":0.662}},"year":null,"n":39,"mean":0.82,"density":0.738,"ci95":0.521}},{"season":5,"year":2010,"yearEnd":null,"episodeCount":13,"sci":{"perSource":{"tardis":{"n":12,"mean":0.681,"density":1.363,"ci95":0.372},"tvmaze":{"n":13,"mean":0.0,"density":0.0,"ci95":0.0},"wikipedia":{"n":13,"mean":0.971,"density":1.941,"ci95":0.772}},"year":null,"n":38,"mean":0.547,"density":1.094,"ci95":0.289},"fi":{"perSource":{"tardis":{"n":12,"mean":1.983,"density":1.954,"ci95":1.725},"tvmaze":{"n":13,"mean":0.769,"density":3.205,"ci95":1.508},"wikipedia":{"n":13,"mean":2.075,"density":2.807,"ci95":2.038}},"year":null,"n":38,"mean":1.599,"density":2.674,"ci95":1.024}},{"season":6,"year":2011,"yearEnd":null,"episodeCount":13,"sci":{"perSource":{"tardis":{"n":13,"mean":0.455,"density":0.911,"ci95":0.21},"tvmaze":{"n":13,"mean":0.0,"density":0.0,"ci95":0.0},"wikipedia":{"n":13,"mean":0.381,"density":0.762,"ci95":0.293}},"year":null,"n":39,"mean":0.279,"density":0.558,"ci95":0.12},"fi":{"perSource":{"tardis":{"n":13,"mean":1.608,"density":1.447,"ci95":0.701},"tvmaze":{"n":13,"mean":0.769,"density":1.603,"ci95":1.508},"wikipedia":{"n":13,"mean":2.275,"density":2.047,"ci95":1.064}},"year":null,"n":39,"mean":1.551,"density":1.699,"ci95":0.658}},{"season":7,"year":2012,"yearEnd":2013,"episodeCount":13,"sci":{"perSource":{"tardis":{"n":13,"mean":0.66,"density":1.32,"ci95":0.262},"tvmaze":{"n":13,"mean":0.0,"density":0.0,"ci95":0.0},"wikipedia":{"n":12,"mean":0.749,"density":1.497,"ci95":0.489}},"year":null,"n":38,"mean":0.462,"density":0.924,"ci95":0.179},"fi":{"perSource":{"tardis":{"n":13,"mean":2.81,"density":3.138,"ci95":1.858},"tvmaze":{"n":13,"mean":0.769,"density":5.495,"ci95":1.508},"wikipedia":{"n":12,"mean":2.843,"density":2.931,"ci95":2.084}},"year":null,"n":38,"mean":2.122,"density":3.879,"ci95":1.05}},{"season":8,"year":2014,"yearEnd":null,"episodeCount":12,"sci":{"perSource":{"tardis":{"n":12,"mean":0.746,"density":1.492,"ci95":0.522},"tvmaze":{"n":12,"mean":0.0,"density":0.0,"ci95":0.0},"wikipedia":{"n":12,"mean":1.323,"density":2.646,"ci95":0.915}},"year":null,"n":36,"mean":0.69,"density":1.379,"ci95":0.351},"fi":{"perSource":{"tardis":{"n":12,"mean":1.109,"density":0.998,"ci95":0.383},"tvmaze":{"n":12,"mean":0.0,"density":0.0,"ci95":0.0},"wikipedia":{"n":12,"mean":2.162,"density":1.946,"ci95":1.394}},"year":null,"n":36,"mean":1.09,"density":0.981,"ci95":0.482}},{"season":9,"year":2015,"yearEnd":null,"episodeCount":12,"sci":{"perSource":{"tardis":{"n":12,"mean":0.477,"density":0.954,"ci95":0.242},"tvmaze":{"n":12,"mean":0.833,"density":2.688,"ci95":1.633},"wikipedia":{"n":12,"mean":0.953,"density":1.906,"ci95":0.737}},"year":null,"n":36,"mean":0.754,"density":1.849,"ci95":0.603},"fi":{"perSource":{"tardis":{"n":12,"mean":2.525,"density":2.272,"ci95":1.399},"tvmaze":{"n":12,"mean":0.0,"density":0.0,"ci95":0.0},"wikipedia":{"n":12,"mean":4.269,"density":4.322,"ci95":2.162}},"year":null,"n":36,"mean":2.265,"density":2.198,"ci95":0.858}},{"season":10,"year":2017,"yearEnd":null,"episodeCount":12,"sci":{"perSource":{"tardis":{"n":12,"mean":0.694,"density":1.388,"ci95":0.497},"tvmaze":{"n":12,"mean":0.0,"density":0.0,"ci95":0.0},"wikipedia":{"n":12,"mean":1.004,"density":2.008,"ci95":0.766}},"year":null,"n":36,"mean":0.566,"density":1.132,"ci95":0.304},"fi":{"perSource":{"tardis":{"n":12,"mean":0.956,"density":0.861,"ci95":0.539},"tvmaze":{"n":12,"mean":0.833,"density":2.252,"ci95":1.633},"wikipedia":{"n":12,"mean":1.953,"density":1.758,"ci95":1.073}},"year":null,"n":36,"mean":1.247,"density":1.624,"ci95":0.676}},{"season":11,"year":2018,"yearEnd":null,"episodeCount":10,"sci":{"perSource":{"tardis":{"n":10,"mean":0.496,"density":0.991,"ci95":0.292},"tvmaze":{"n":10,"mean":0.0,"density":0.0,"ci95":0.0},"wikipedia":{"n":10,"mean":0.508,"density":1.017,"ci95":0.562}},"year":null,"n":30,"mean":0.335,"density":0.669,"ci95":0.211},"fi":{"perSource":{"tardis":{"n":10,"mean":2.947,"density":2.978,"ci95":2.453},"tvmaze":{"n":10,"mean":1.0,"density":3.704,"ci95":1.96},"wikipedia":{"n":10,"mean":1.75,"density":1.952,"ci95":1.943}},"year":null,"n":30,"mean":1.899,"density":2.878,"ci95":1.231}},{"season":12,"year":2020,"yearEnd":null,"episodeCount":10,"sci":{"perSource":{"tardis":{"n":10,"mean":1.052,"density":2.104,"ci95":0.537},"tvmaze":{"n":10,"mean":0.0,"density":0.0,"ci95":0.0},"wikipedia":{"n":10,"mean":1.147,"density":2.295,"ci95":0.914}},"year":null,"n":30,"mean":0.733,"density":1.466,"ci95":0.353},"fi":{"perSource":{"tardis":{"n":10,"mean":0.751,"density":0.676,"ci95":0.519},"tvmaze":{"n":10,"mean":0.0,"density":0.0,"ci95":0.0},"wikipedia":{"n":10,"mean":2.304,"density":2.594,"ci95":2.292}},"year":null,"n":30,"mean":1.018,"density":1.09,"ci95":0.783}},{"season":13,"year":2021,"yearEnd":null,"episodeCount":6,"sci":{"perSource":{"tvmaze":{"n":6,"mean":0.0,"density":0.0,"ci95":0.0}},"year":null,"n":6,"mean":0.0,"density":0.0,"ci95":0.0},"fi":{"perSource":{"tvmaze":{"n":6,"mean":3.333,"density":8.338,"ci95":4.132}},"year":null,"n":6,"mean":3.333,"density":8.338,"ci95":4.132}}]},{"id":"dw23","name":"Doctor Who (2023- )","short":"DW23","kind":"series","color":"#1D9E75","ageRating":10,"entityCount":0,"textBasis":{"episodes":16,"sources":{"tvmaze":{"covered":16,"medianWords":30},"wikipedia":{"covered":16,"medianWords":397},"tardis":{"covered":16,"medianWords":1058}}},"seasons":[{"season":1,"year":2024,"yearEnd":null,"episodeCount":8,"sci":{"perSource":{"tardis":{"n":8,"mean":0.971,"density":1.943,"ci95":0.767},"tvmaze":{"n":8,"mean":0.0,"density":0.0,"ci95":0.0},"wikipedia":{"n":8,"mean":0.903,"density":1.806,"ci95":0.87}},"year":null,"n":24,"mean":0.625,"density":1.25,"ci95":0.387},"fi":{"perSource":{"tardis":{"n":8,"mean":1.716,"density":1.544,"ci95":1.073},"tvmaze":{"n":8,"mean":0.0,"density":0.0,"ci95":0.0},"wikipedia":{"n":8,"mean":1.387,"density":1.248,"ci95":1.028}},"year":null,"n":24,"mean":1.034,"density":0.931,"ci95":0.495}},{"season":2,"year":2025,"yearEnd":null,"episodeCount":8,"sci":{"perSource":{"tardis":{"n":8,"mean":0.264,"density":0.527,"ci95":0.289},"tvmaze":{"n":8,"mean":0.0,"density":0.0,"ci95":0.0},"wikipedia":{"n":8,"mean":0.0,"density":0.0,"ci95":0.0}},"year":null,"n":24,"mean":0.088,"density":0.176,"ci95":0.096},"fi":{"perSource":{"tardis":{"n":8,"mean":0.661,"density":0.595,"ci95":0.693},"tvmaze":{"n":8,"mean":0.0,"density":0.0,"ci95":0.0},"wikipedia":{"n":8,"mean":2.454,"density":2.209,"ci95":1.867}},"year":null,"n":24,"mean":1.038,"density":0.935,"ci95":0.664}}]},{"id":"dwf65","name":"Dr. Who and the Daleks","short":"DWD","kind":"film","color":"#7F77DD","ageRating":null,"entityCount":0,"textBasis":{"episodes":1,"sources":{"tvmaze":{"covered":0,"medianWords":0},"wikipedia":{"covered":1,"medianWords":691},"tardis":{"covered":1,"medianWords":923}}},"seasons":[{"season":1,"year":1965,"yearEnd":null,"episodeCount":1,"sci":{"perSource":{"tardis":{"n":1,"mean":1.083,"density":2.167,"ci95":0.0},"wikipedia":{"n":1,"mean":7.236,"density":14.472,"ci95":0.0}},"year":null,"n":2,"mean":4.159,"density":8.319,"ci95":0.0},"fi":{"perSource":{"tardis":{"n":1,"mean":0.0,"density":0.0,"ci95":0.0},"wikipedia":{"n":1,"mean":0.0,"density":0.0,"ci95":0.0}},"year":null,"n":2,"mean":0.0,"density":0.0,"ci95":0.0}}]},{"id":"dwf66","name":"Daleks' Invasion Earth 2150 A.D.","short":"DIE","kind":"film","color":"#EF9F27","ageRating":null,"entityCount":0,"textBasis":{"episodes":1,"sources":{"tvmaze":{"covered":0,"medianWords":0},"wikipedia":{"covered":1,"medianWords":696},"tardis":{"covered":1,"medianWords":2230}}},"seasons":[{"season":1,"year":1966,"yearEnd":null,"episodeCount":1,"sci":{"perSource":{"tardis":{"n":1,"mean":1.569,"density":3.139,"ci95":0.0},"wikipedia":{"n":1,"mean":0.718,"density":1.437,"ci95":0.0}},"year":null,"n":2,"mean":1.143,"density":2.288,"ci95":0.0},"fi":{"perSource":{"tardis":{"n":1,"mean":0.498,"density":0.448,"ci95":0.0},"wikipedia":{"n":1,"mean":0.0,"density":0.0,"ci95":0.0}},"year":null,"n":2,"mean":0.249,"density":0.224,"ci95":0.0}}]},{"id":"dwm96","name":"Doctor Who (1996 television film)","short":"DWM","kind":"film","color":"#D4537E","ageRating":null,"entityCount":0,"textBasis":{"episodes":1,"sources":{"tvmaze":{"covered":0,"medianWords":0},"wikipedia":{"covered":1,"medianWords":679},"tardis":{"covered":1,"medianWords":3911}}},"seasons":[{"season":1,"year":1996,"yearEnd":null,"episodeCount":1,"sci":{"perSource":{"tardis":{"n":1,"mean":1.151,"density":2.301,"ci95":0.0},"wikipedia":{"n":1,"mean":0.737,"density":1.473,"ci95":0.0}},"year":null,"n":2,"mean":0.944,"density":1.887,"ci95":0.0},"fi":{"perSource":{"tardis":{"n":1,"mean":0.284,"density":0.256,"ci95":0.0},"wikipedia":{"n":1,"mean":0.0,"density":0.0,"ci95":0.0}},"year":null,"n":2,"mean":0.142,"density":0.128,"ci95":0.0}}]}]};
+const RUBRIC = {"version":"rubric-v2","description":"Lexicon measurement layer plus a curated named-entity coder on the Fi axis. Supersedes rubric-v1, which could not see mythic content: plot summaries name gods rather than describing them with mythic vocabulary.","scale":{"min":0,"max":10,"mapping":"per sub-signal: frac = min(1, value / saturation); axis score = max * sum(weight * frac) / sum(weight)","notes":"Saturation values are calibrated on the reference corpus (Star Trek: TOS, 79 episodes) as the 95th percentile of episode-level density, so a season scoring 10 is a genuine corpus-tail outlier rather than a saturation artefact. Raw densities are always published alongside scores."},"axes":{"sci":{"label":"Sci - scientific / engineering rigour","definition":"How much an episode's text turns on technical, scientific or engineering vocabulary, as opposed to being set dressing.","subsignals":[{"id":"technical-lexicon-density","coder":"lexicon","weight":1.0,"saturation":20.0,"calibration":"p95 of episode-level density across the reference corpus (n=146 measurements)","patterns":["sensor","scanner","scan","detector","probe","telemetry","diagnostic","analysis","analyze","instrument","experiment","hypothesis","theory","calculation","measurement","equation","formula","physics","chemistry","biology","biological","astronomy","geology","engineer","engineering","repair","circuit","component","computer","program","subroutine","algorithm","database","radiation","frequency","modulation","subspace","tachyon","particle","warp","dilithium","antimatter","reactor","plasma","orbit","gravity","gravitational","magnetic","atmosphere","temperature","pressure","virus","bacteria","vaccine","transporter","phase","polarity"]}]},"fi":{"label":"Fi - myth / magic / reality-bending","definition":"How much an episode's text turns on god-like power, prophecy, magic-equivalent action or reality-breaking storytelling.","subsignals":[{"id":"mythic-lexicon-density","coder":"lexicon","weight":1.0,"saturation":9.0,"calibration":"p95 of episode-level density across the reference corpus","patterns":["god","gods","goddess","deity","divine","worship","worshipper","prayer","temple","altar","ritual","sacred","holy","prophet","prophecy","prophesy","messiah","oracle","destiny","fate","immortal","immortality","eternal","soul","spirit","spirits","ghost","afterlife","heaven","hell","demon","devil","angel","magic","magical","sorcery","witch","wizard","spell","curse","supernatural","miracle","myth","mythical","legend","psychic","telepath","telepathy","telekinetic","psionic","possess","possession","reincarnation","resurrection","cult","transcendent","omnipotent","illusion","hallucination"]},{"id":"numinous-entity","coder":"entity","weight":1.0,"saturation":6.0,"calibration":"mentions per 1000 words of curated god-like / reality-bending entities","entitySource":"franchise:entities","notes":"Added in rubric-v2 precisely because rubric-v1's Fi lexicon was silent on episodes whose mythic content is nominal."}]}},"uncertainty":{"method":"ci95-mean","z":1.96,"thinSampleBelow":5,"thinSampleInflation":1.5,"notes":"ci95 = z * stdev(episode scores) / sqrt(n), inflated when n is below thinSampleBelow. Measured from the episode distribution, never asserted by hand."},"reserved":{"notes":"Judgement sub-signals that require a coding coder (human or LLM) rather than a lexicon. Declared now so rubric-v3 is an extension, not a rewrite.","sci":["resolution-mechanism","methodological-framing","internal-consistency","pseudoscience-handwave"],"fi":["prophecy-driven-plot","magic-equivalent-action","reality-or-format-bending","literal-afterlife","absurdist-tonal-break"]},"scope":{"categories":["plot-summary"],"sources":["tvmaze","wikipedia","memory-alpha","tardis"]}};
+const BASELINE = null;
+const CARD = (getComputedStyle(document.documentElement).getPropertyValue('--card') || '#fff').trim();
+
+const selected = new Set(DATA.scope.sources);
+const films = DATA.series.filter(s => s.kind === 'film');
+const FILM_GROUP = '__films__';
+const on = new Set(DATA.series.filter(s => s.kind !== 'film').map(s => s.id));
+if (films.length) on.add(FILM_GROUP);
+const active = s => s.kind === 'film' ? on.has(FILM_GROUP) : on.has(s.id);
+let showBaseline = true;
+let zoom = false;
+
+function combine(season, axis) {
+  const per = (season[axis] && season[axis].perSource) || {};
+  const parts = Object.entries(per).filter(([k]) => selected.has(k));
+  if (!parts.length) return null;
+  const n = parts.reduce((a, [, p]) => a + p.n, 0);
+  if (!n) return null;
+  const mean = parts.reduce((a, [, p]) => a + p.mean * p.n, 0) / n;
+  const density = parts.reduce((a, [, p]) => a + p.density * p.n, 0) / n;
+  const ci = Math.sqrt(parts.reduce((a, [, p]) => a + (p.n * p.n) * (p.ci95 * p.ci95), 0)) / n;
+  return { mean, density, ci, n, sources: parts.map(([k]) => k) };
+}
+const radius = ci => 3 + Math.min(1, ci / 2.5) * 21;
+const f2 = v => (v === undefined || v === null) ? '-' : v.toFixed(2);
+const yr = se => !se.year ? '-' : (se.yearEnd ? se.year + '–' + String(se.yearEnd).slice(2) : String(se.year));
+
+let chart = null;
+function build() {
+  const datasets = [];
+  for (const s of DATA.series) {
+    if (s.kind === 'film') continue;
+    const pts = [];
+    for (const season of s.seasons) {
+      const sci = combine(season, 'sci'), fi = combine(season, 'fi');
+      if (!sci || !fi) continue;
+      pts.push({ x: sci.mean, y: fi.mean, r: radius(Math.max(sci.ci, fi.ci)),
+                 meta: { s, season, sci, fi } });
+    }
+    datasets.push({ label: s.short, data: pts, backgroundColor: s.color + 'd9',
+                    borderColor: CARD, borderWidth: 1.5, hidden: !on.has(s.id),
+                    hoverBorderColor: s.color, hoverBorderWidth: 2 });
+  }
+  // Films are one group, not 14 near-invisible series: a distinct neutral marker
+  // keeps them legible against the television seasons while the tooltip and the
+  // table still name each film individually.
+  const filmPts = [];
+  for (const s of DATA.series) {
+    if (s.kind !== 'film') continue;
+    for (const season of s.seasons) {
+      const sci = combine(season, 'sci'), fi = combine(season, 'fi');
+      if (!sci || !fi) continue;
+      filmPts.push({ x: sci.mean, y: fi.mean, r: radius(Math.max(sci.ci, fi.ci)),
+                     meta: { s, season, sci, fi } });
+    }
+  }
+  if (filmPts.length) {
+    datasets.push({ label: 'Films', data: filmPts, backgroundColor: '#89878140',
+                    borderColor: '#898781', borderWidth: 1.5, pointStyle: 'rectRot',
+                    hidden: !on.has(FILM_GROUP), hoverBorderColor: '#52514e', hoverBorderWidth: 2 });
+  }
+  if (showBaseline && BASELINE) {
+    for (const b of BASELINE.series) {
+      const s = DATA.series.find(x => x.id === b.id);
+      if (!s || !on.has(b.id)) continue;
+      datasets.push({ label: b.short + ' baseline-v1', data: b.seasons.map(x => ({ x: x.sci, y: x.fi, r: 6 })),
+                      backgroundColor: 'transparent', borderColor: '#898781', borderWidth: 1,
+                      pointStyle: 'crossRot', showLine: false });
+    }
+  }
+  return datasets;
+}
+
+const tip = {
+  callbacks: {
+    label: ctx => {
+      const d = ctx.raw;
+      if (!d.meta) return `${ctx.dataset.label}: Sci ${d.x}, Fi ${d.y}`;
+      const { s, season, sci, fi } = d.meta;
+      const head = s.kind === 'film'
+        ? `${s.name} · film (${season.year})`
+        : `${s.short} S${season.season}${season.year ? ' (' + yr(season) + ')' : ''} · ${season.episodeCount} eps`;
+      return [
+        head,
+        `Sci ${f2(sci.mean)} ± ${f2(sci.ci)}  (${f2(sci.density)}/1k)`,
+        `Fi  ${f2(fi.mean)} ± ${f2(fi.ci)}  (${f2(fi.density)}/1k)`,
+        `n = ${sci.n} · ${sci.sources.join(' + ')}`
+      ];
+    }
+  }
+};
+
+function visibleValues() {
+  const xs = [], ys = [];
+  for (const s of DATA.series) {
+    if (!active(s)) continue;
+    for (const season of s.seasons) {
+      const sci = combine(season, 'sci'), fi = combine(season, 'fi');
+      if (!sci || !fi) continue;
+      xs.push(sci.mean); ys.push(fi.mean);
+    }
+  }
+  if (showBaseline && BASELINE) {
+    for (const b of BASELINE.series) {
+      if (!on.has(b.id)) continue;
+      for (const x of b.seasons) { xs.push(x.sci); ys.push(x.fi); }
+    }
+  }
+  return { xs, ys };
+}
+function fitRange(values) {
+  if (!values.length) return [0, 10];
+  const lo = Math.min(...values), hi = Math.max(...values);
+  const pad = Math.max(0.4, (hi - lo) * 0.3);
+  return [Math.max(0, Math.floor((lo - pad) * 2) / 2), Math.min(10, Math.ceil((hi + pad) * 2) / 2)];
+}
+function draw() {
+  if (chart) chart.destroy();
+  const { xs, ys } = visibleValues();
+  const xr = zoom ? fitRange(xs) : [0, 10];
+  const yr = zoom ? fitRange(ys) : [0, 10];
+  const styles = getComputedStyle(document.documentElement);
+  const grid = styles.getPropertyValue('--grid');
+  const text2 = (styles.getPropertyValue('--text2') || '#52514e').trim();
+  chart = new Chart(document.getElementById('chart'), {
+    type: 'bubble',
+    data: { datasets: build() },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      animation: false,
+      scales: {
+        x: { min: xr[0], max: xr[1], grid: { color: grid },
+             ticks: { color: text2 },
+             title: { display: true, text: 'Sci — scientific / engineering rigour', color: text2 } },
+        y: { min: yr[0], max: yr[1], grid: { color: grid },
+             ticks: { color: text2 },
+             title: { display: true, text: 'Fi — myth / magic / reality-bending', color: text2 } }
+      },
+      plugins: { legend: { display: false }, tooltip: tip }
+    }
+  });
+}
+
+function table() {
+  const head = '<thead><tr><th>Work</th><th>Season</th><th>Year</th><th class="num">Eps</th>'
+    + '<th class="num">Sci</th><th></th><th class="num">Fi</th><th></th><th class="num">n</th>'
+    + '<th>Fi coder</th><th>Text basis <span class="muted">(covered·median words)</span></th></tr></thead>';
+  const rows = [];
+  for (const s of DATA.series) {
+    if (!active(s)) continue;
+    const film = s.kind === 'film';
+    const coder = s.entityCount ? 'lexicon + entity' : 'lexicon';
+    const tb = s.textBasis;
+    const basis = tb ? Object.entries(tb.sources).map(([k, v]) => `${k} ${v.covered}/${tb.episodes}·${v.medianWords}w`).join('  ') : '';
+    for (const season of s.seasons) {
+      const sci = combine(season, 'sci'), fi = combine(season, 'fi');
+      if (!sci || !fi) continue;
+      const bar = (v, color) => `<span class="bar" style="width:${Math.round(v * 9)}px;background:${color}"></span>`;
+      rows.push(`<tr><td><span class="swatch" style="background:${s.color}"></span>${s.short}`
+        + (film ? ' <span class="muted">film</span>' : '') + `</td>`
+        + `<td>${film ? '&mdash;' : season.season}</td><td>${yr(season)}</td><td class="num">${season.episodeCount}</td>`
+        + `<td class="num">${f2(sci.mean)} <span class="muted">±${f2(sci.ci)}</span></td><td>${bar(sci.mean, s.color)}</td>`
+        + `<td class="num">${f2(fi.mean)} <span class="muted">±${f2(fi.ci)}</span></td><td>${bar(fi.mean, s.color)}</td>`
+        + `<td class="num">${sci.n}</td><td class="muted">${coder}</td>`
+        + `<td class="muted" style="font-size:11px">${basis}</td></tr>`);
+    }
+  }
+  document.getElementById('scoresTable').innerHTML = head + '<tbody>' + rows.join('') + '</tbody>';
+}
+
+function chips() {
+  const sc = document.getElementById('seriesChips');
+  sc.innerHTML = '';
+  for (const s of DATA.series) {
+    if (s.kind === 'film') continue;
+    const b = document.createElement('button');
+    b.className = 'chip' + (on.has(s.id) ? '' : ' off');
+    b.innerHTML = `<span class="dot" style="background:${s.color}"></span>${s.short}`;
+    b.title = `${s.name} · ${s.seasons.length} season(s)`;
+    b.onclick = () => { on.has(s.id) ? on.delete(s.id) : on.add(s.id); refresh(); };
+    sc.appendChild(b);
+  }
+  if (films.length) {
+    const b = document.createElement('button');
+    b.className = 'chip' + (on.has(FILM_GROUP) ? '' : ' off');
+    b.innerHTML = `<span class="dot" style="background:#898781"></span>Films (${films.length})`;
+    b.title = 'Theatrical and television films — wiki plot text fetched by article title, shown with a neutral marker';
+    b.onclick = () => { on.has(FILM_GROUP) ? on.delete(FILM_GROUP) : on.add(FILM_GROUP); refresh(); };
+    sc.appendChild(b);
+  }
+  const sr = document.getElementById('sourceChips');
+  sr.innerHTML = '';
+  for (const src of DATA.scope.sources) {
+    const b = document.createElement('button');
+    b.className = 'chip' + (selected.has(src) ? '' : ' off');
+    b.textContent = src;
+    b.onclick = () => {
+      selected.has(src) ? selected.delete(src) : selected.add(src);
+      if (!selected.size) selected.add(src);
+      refresh();
+    };
+    sr.appendChild(b);
+  }
+  document.getElementById('scopeCount').textContent = selected.size + '/' + DATA.scope.sources.length;
+}
+
+function refresh() { chips(); draw(); table(); }
+
+document.getElementById('all').onclick = () => { DATA.series.filter(s => s.kind !== 'film').forEach(s => on.add(s.id)); if (films.length) on.add(FILM_GROUP); refresh(); };
+document.getElementById('none').onclick = () => { on.clear(); refresh(); };
+document.getElementById('baselineToggle').onchange = e => { showBaseline = e.target.checked; refresh(); };
+document.getElementById('zoomToggle').onchange = e => { zoom = e.target.checked; refresh(); };
+refresh();
+</script>
+</body>
+</html>

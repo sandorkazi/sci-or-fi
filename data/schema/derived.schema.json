@@ -30,7 +30,22 @@
           "id": { "type": "string" },
           "name": { "type": "string" },
           "short": { "type": "string" },
+          "kind": { "type": "string", "enum": ["series", "film"] },
           "color": { "type": "string" },
+          "ageRating": { "type": "integer" },
+          "entityCount": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Curated Fi entities for this series; 0 means Fi is lexicon-only here"
+          },
+          "textBasis": {
+            "type": "object",
+            "description": "How much source text each work rests on: episodes, and per source how many were covered and the median words",
+            "properties": {
+              "episodes": { "type": "integer", "minimum": 0 },
+              "sources": { "type": "object" }
+            }
+          },
           "seasons": {
             "type": "array",
             "items": {

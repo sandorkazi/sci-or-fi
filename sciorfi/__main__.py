@@ -22,6 +22,8 @@ def build_parser() -> argparse.ArgumentParser:
 
 def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(line_buffering=True)  # progress must show in redirected logs
     date = args.date or config.today()
     rubric = config.load_rubric(args.rubric)
     sources = args.sources.split(",") if args.sources else None
@@ -33,7 +35,7 @@ def main(argv: list[str] | None = None) -> int:
     if args.stage in ("signals", "all"):
         rows = pipeline.extract_signals(
             args.franchise, date, rubric, refresh=args.refresh,
-            on_progress=lambda s, found, total: print(f"signals : {s} wikipedia plots {found}/{total}"),
+            on_progress=lambda s, found, total: print(f"signals : {s} plots {found}/{total}"),
         )
         by_source: dict[str, int] = {}
         for r in rows:

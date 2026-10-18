@@ -7,12 +7,15 @@
   "properties": {
     "id": { "type": "string", "description": "<franchise>:<series>:S##E##" },
     "series": { "type": "string" },
+    "kind": { "type": "string", "enum": ["episode", "film"], "description": "A film is modelled as a one-entry work so the same pipeline applies" },
     "season": { "type": "integer", "minimum": 1 },
     "episode": { "type": "integer", "minimum": 1 },
     "title": { "type": "string" },
-    "airDate": { "type": "string" },
+    "airDate": { "type": "string", "description": "Null for films, which are dated by release year only" },
     "year": { "type": "integer" },
     "sourceIds": { "type": "object" },
+    "wikipedia": { "type": "string", "description": "Pinned Wikipedia article title (films, where TVmaze has no entry)" },
+    "wikiTitles": { "type": "object", "description": "Per-wiki article-title overrides for films, e.g. {\"tardis\": \"Doctor Who (TV story)\"}; defaults to the film name" },
     "texts": { "type": "object", "description": "In-memory only; removed before publication" }
   }
 }

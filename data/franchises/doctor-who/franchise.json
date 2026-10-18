@@ -1,0 +1,73 @@
+{
+  "id": "doctor-who",
+  "name": "Doctor Who",
+  "years": [1963, null],
+  "scopeNote": "Doctor Who proper only: the three television eras (1963-1989, 2005-2022, 2023- ), the 1996 television film and the two 1960s Dalek cinema films. Spin-offs (Torchwood, The Sarah Jane Adventures, Class, K9) and the animated webcasts (Dreamland, Shada, Real Time, Scream of the Shalka) are separate works and are not included.",
+  "series": [
+    {
+      "id": "dw63",
+      "name": "Doctor Who (1963-1989)",
+      "short": "DW63",
+      "wikiHint": "Doctor Who episode",
+      "years": [1963, 1989],
+      "ageRating": 7,
+      "sourceIds": { "tvmaze": 766, "wikidata": "Q34316" }
+    },
+    {
+      "id": "dw05",
+      "name": "Doctor Who (2005-2022)",
+      "short": "DW05",
+      "wikiHint": "Doctor Who episode",
+      "years": [2005, 2022],
+      "ageRating": 10,
+      "sourceIds": { "tvmaze": 210 }
+    },
+    {
+      "id": "dw23",
+      "name": "Doctor Who (2023- )",
+      "short": "DW23",
+      "wikiHint": "Doctor Who episode",
+      "years": [2023, null],
+      "ageRating": 10,
+      "sourceIds": { "tvmaze": 72724 }
+    }
+  ],
+  "films": [
+    { "id": "dwf65", "name": "Dr. Who and the Daleks", "short": "DWD", "year": 1965, "wikipedia": "Dr. Who and the Daleks" },
+    { "id": "dwf66", "name": "Daleks' Invasion Earth 2150 A.D.", "short": "DIE", "year": 1966, "wikipedia": "Daleks' Invasion Earth 2150 A.D." },
+    { "id": "dwm96", "name": "Doctor Who (1996 television film)", "short": "DWM", "year": 1996, "wikipedia": "Doctor Who (film)", "wikiTitles": { "tardis": "Doctor Who (TV story)" } }
+  ],
+  "notes": [
+    "TVmaze lists the 1963-1989 era as individual 25-minute parts rather than serials, and its episode summaries there are very thin (median ~31 words). Wikipedia plot sections are the primary measurement for this franchise.",
+    "Doctor Who has no curated entity list yet, so the Fi axis is lexicon-only here; TOS is the only series with a curated list."
+  ],
+  "sources": {
+    "tvmaze": {
+      "category": "plot-summary",
+      "kind": "summary",
+      "license": "TVmaze API, free, attribution required",
+      "homepage": "https://www.tvmaze.com/api"
+    },
+    "wikipedia": {
+      "category": "plot-summary",
+      "kind": "plot-section",
+      "license": "CC BY-SA 4.0",
+      "homepage": "https://en.wikipedia.org"
+    },
+    "tardis": {
+      "category": "plot-summary",
+      "kind": "wiki-plot",
+      "license": "CC BY-SA 3.0 (Fandom / Tardis Wiki)",
+      "homepage": "https://tardis.fandom.com",
+      "api": "https://tardis.fandom.com/api.php",
+      "hint": "TV story",
+      "notes": "Covers every Doctor Who story. Plot text comes from the article's \"Plot\" section (the \"Synopsis\" is a deliberately spoiler-light summary)."
+    },
+    "wikidata": {
+      "category": "metadata",
+      "kind": "identifiers",
+      "license": "CC0",
+      "homepage": "https://www.wikidata.org"
+    }
+  }
+}

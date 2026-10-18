@@ -1,0 +1,4757 @@
+{
+  "franchise": "star-trek",
+  "franchiseName": "Star Trek",
+  "snapshotDate": "2026-10-18",
+  "rubricVersion": "rubric-v2",
+  "scope": {
+    "categories": [
+      "plot-summary"
+    ],
+    "sources": [
+      "tvmaze",
+      "wikipedia",
+      "memory-alpha"
+    ],
+    "series": [
+      "tos",
+      "tas",
+      "tng",
+      "ds9",
+      "voy",
+      "ent",
+      "dis",
+      "st",
+      "pic",
+      "ld",
+      "pro",
+      "snw",
+      "vst",
+      "sc",
+      "sfa",
+      "st1",
+      "st2",
+      "st3",
+      "st4",
+      "st5",
+      "st6",
+      "st7",
+      "st8",
+      "st9",
+      "st10",
+      "st11",
+      "st12",
+      "st13",
+      "st14"
+    ]
+  },
+  "scopeHash": "02e8291616c6",
+  "generatedAt": "2026-10-18T00:50:07+00:00",
+  "coverageGaps": [
+    {
+      "series": "dis",
+      "axis": "fi",
+      "missingSubsignals": [
+        "numinous-entity"
+      ]
+    },
+    {
+      "series": "ds9",
+      "axis": "fi",
+      "missingSubsignals": [
+        "numinous-entity"
+      ]
+    },
+    {
+      "series": "ent",
+      "axis": "fi",
+      "missingSubsignals": [
+        "numinous-entity"
+      ]
+    },
+    {
+      "series": "ld",
+      "axis": "fi",
+      "missingSubsignals": [
+        "numinous-entity"
+      ]
+    },
+    {
+      "series": "pic",
+      "axis": "fi",
+      "missingSubsignals": [
+        "numinous-entity"
+      ]
+    },
+    {
+      "series": "pro",
+      "axis": "fi",
+      "missingSubsignals": [
+        "numinous-entity"
+      ]
+    },
+    {
+      "series": "sc",
+      "axis": "fi",
+      "missingSubsignals": [
+        "numinous-entity"
+      ]
+    },
+    {
+      "series": "sfa",
+      "axis": "fi",
+      "missingSubsignals": [
+        "numinous-entity"
+      ]
+    },
+    {
+      "series": "snw",
+      "axis": "fi",
+      "missingSubsignals": [
+        "numinous-entity"
+      ]
+    },
+    {
+      "series": "st",
+      "axis": "fi",
+      "missingSubsignals": [
+        "numinous-entity"
+      ]
+    },
+    {
+      "series": "st1",
+      "axis": "fi",
+      "missingSubsignals": [
+        "numinous-entity"
+      ]
+    },
+    {
+      "series": "st10",
+      "axis": "fi",
+      "missingSubsignals": [
+        "numinous-entity"
+      ]
+    },
+    {
+      "series": "st11",
+      "axis": "fi",
+      "missingSubsignals": [
+        "numinous-entity"
+      ]
+    },
+    {
+      "series": "st12",
+      "axis": "fi",
+      "missingSubsignals": [
+        "numinous-entity"
+      ]
+    },
+    {
+      "series": "st13",
+      "axis": "fi",
+      "missingSubsignals": [
+        "numinous-entity"
+      ]
+    },
+    {
+      "series": "st14",
+      "axis": "fi",
+      "missingSubsignals": [
+        "numinous-entity"
+      ]
+    },
+    {
+      "series": "st2",
+      "axis": "fi",
+      "missingSubsignals": [
+        "numinous-entity"
+      ]
+    },
+    {
+      "series": "st3",
+      "axis": "fi",
+      "missingSubsignals": [
+        "numinous-entity"
+      ]
+    },
+    {
+      "series": "st4",
+      "axis": "fi",
+      "missingSubsignals": [
+        "numinous-entity"
+      ]
+    },
+    {
+      "series": "st5",
+      "axis": "fi",
+      "missingSubsignals": [
+        "numinous-entity"
+      ]
+    },
+    {
+      "series": "st6",
+      "axis": "fi",
+      "missingSubsignals": [
+        "numinous-entity"
+      ]
+    },
+    {
+      "series": "st7",
+      "axis": "fi",
+      "missingSubsignals": [
+        "numinous-entity"
+      ]
+    },
+    {
+      "series": "st8",
+      "axis": "fi",
+      "missingSubsignals": [
+        "numinous-entity"
+      ]
+    },
+    {
+      "series": "st9",
+      "axis": "fi",
+      "missingSubsignals": [
+        "numinous-entity"
+      ]
+    },
+    {
+      "series": "tas",
+      "axis": "fi",
+      "missingSubsignals": [
+        "numinous-entity"
+      ]
+    },
+    {
+      "series": "tng",
+      "axis": "fi",
+      "missingSubsignals": [
+        "numinous-entity"
+      ]
+    },
+    {
+      "series": "voy",
+      "axis": "fi",
+      "missingSubsignals": [
+        "numinous-entity"
+      ]
+    },
+    {
+      "series": "vst",
+      "axis": "fi",
+      "missingSubsignals": [
+        "numinous-entity"
+      ]
+    }
+  ],
+  "series": [
+    {
+      "id": "tos",
+      "name": "Star Trek: The Original Series",
+      "short": "TOS",
+      "kind": "series",
+      "color": "#378ADD",
+      "ageRating": 10,
+      "entityCount": 22,
+      "textBasis": {
+        "episodes": 79,
+        "sources": {
+          "tvmaze": {
+            "covered": 79,
+            "medianWords": 86
+          },
+          "wikipedia": {
+            "covered": 76,
+            "medianWords": 545
+          },
+          "memory-alpha": {
+            "covered": 76,
+            "medianWords": 1643
+          }
+        }
+      },
+      "seasons": [
+        {
+          "season": 1,
+          "year": 1966,
+          "yearEnd": 1967,
+          "episodeCount": 29,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 26,
+                "mean": 2.907,
+                "density": 5.814,
+                "ci95": 0.766
+              },
+              "tvmaze": {
+                "n": 29,
+                "mean": 1.864,
+                "density": 3.954,
+                "ci95": 1.102
+              },
+              "wikipedia": {
+                "n": 26,
+                "mean": 4.099,
+                "density": 8.296,
+                "ci95": 1.141
+              }
+            },
+            "year": null,
+            "n": 81,
+            "mean": 2.916,
+            "density": 5.945,
+            "ci95": 0.592
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 26,
+                "mean": 1.219,
+                "density": 0.418,
+                "ci95": 0.798
+              },
+              "tvmaze": {
+                "n": 29,
+                "mean": 1.379,
+                "density": 0.639,
+                "ci95": 0.96
+              },
+              "wikipedia": {
+                "n": 26,
+                "mean": 1.461,
+                "density": 0.675,
+                "ci95": 0.861
+              }
+            },
+            "year": null,
+            "n": 81,
+            "mean": 1.354,
+            "density": 0.58,
+            "ci95": 0.51
+          }
+        },
+        {
+          "season": 2,
+          "year": 1967,
+          "yearEnd": 1968,
+          "episodeCount": 26,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 26,
+                "mean": 2.93,
+                "density": 5.86,
+                "ci95": 0.736
+              },
+              "tvmaze": {
+                "n": 26,
+                "mean": 2.237,
+                "density": 4.87,
+                "ci95": 1.368
+              },
+              "wikipedia": {
+                "n": 26,
+                "mean": 3.421,
+                "density": 6.914,
+                "ci95": 1.158
+              }
+            },
+            "year": null,
+            "n": 78,
+            "mean": 2.863,
+            "density": 5.881,
+            "ci95": 0.646
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 26,
+                "mean": 1.825,
+                "density": 1.322,
+                "ci95": 1.013
+              },
+              "tvmaze": {
+                "n": 26,
+                "mean": 1.151,
+                "density": 1.11,
+                "ci95": 0.987
+              },
+              "wikipedia": {
+                "n": 26,
+                "mean": 2.008,
+                "density": 1.828,
+                "ci95": 1.103
+              }
+            },
+            "year": null,
+            "n": 78,
+            "mean": 1.661,
+            "density": 1.42,
+            "ci95": 0.598
+          }
+        },
+        {
+          "season": 3,
+          "year": 1968,
+          "yearEnd": 1969,
+          "episodeCount": 24,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 24,
+                "mean": 2.533,
+                "density": 5.12,
+                "ci95": 0.909
+              },
+              "tvmaze": {
+                "n": 24,
+                "mean": 1.092,
+                "density": 2.219,
+                "ci95": 1.195
+              },
+              "wikipedia": {
+                "n": 24,
+                "mean": 2.772,
+                "density": 6.087,
+                "ci95": 0.947
+              }
+            },
+            "year": null,
+            "n": 72,
+            "mean": 2.132,
+            "density": 4.475,
+            "ci95": 0.592
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 24,
+                "mean": 1.852,
+                "density": 1.529,
+                "ci95": 0.9
+              },
+              "tvmaze": {
+                "n": 24,
+                "mean": 0.417,
+                "density": 0.0,
+                "ci95": 0.565
+              },
+              "wikipedia": {
+                "n": 24,
+                "mean": 2.33,
+                "density": 2.386,
+                "ci95": 1.192
+              }
+            },
+            "year": null,
+            "n": 72,
+            "mean": 1.533,
+            "density": 1.305,
+            "ci95": 0.532
+          }
+        }
+      ]
+    },
+    {
+      "id": "tas",
+      "name": "Star Trek: The Animated Series",
+      "short": "TAS",
+      "kind": "series",
+      "color": "#D85A30",
+      "ageRating": 7,
+      "entityCount": 0,
+      "textBasis": {
+        "episodes": 22,
+        "sources": {
+          "tvmaze": {
+            "covered": 22,
+            "medianWords": 63
+          },
+          "wikipedia": {
+            "covered": 22,
+            "medianWords": 288
+          },
+          "memory-alpha": {
+            "covered": 22,
+            "medianWords": 772
+          }
+        }
+      },
+      "seasons": [
+        {
+          "season": 1,
+          "year": 1973,
+          "yearEnd": 1974,
+          "episodeCount": 16,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 16,
+                "mean": 3.599,
+                "density": 7.198,
+                "ci95": 1.401
+              },
+              "tvmaze": {
+                "n": 16,
+                "mean": 1.384,
+                "density": 2.767,
+                "ci95": 1.469
+              },
+              "wikipedia": {
+                "n": 16,
+                "mean": 2.946,
+                "density": 5.892,
+                "ci95": 1.184
+              }
+            },
+            "year": null,
+            "n": 48,
+            "mean": 2.643,
+            "density": 5.286,
+            "ci95": 0.783
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 16,
+                "mean": 1.828,
+                "density": 1.722,
+                "ci95": 1.714
+              },
+              "tvmaze": {
+                "n": 16,
+                "mean": 1.25,
+                "density": 3.629,
+                "ci95": 1.674
+              },
+              "wikipedia": {
+                "n": 16,
+                "mean": 1.92,
+                "density": 2.52,
+                "ci95": 1.788
+              }
+            },
+            "year": null,
+            "n": 48,
+            "mean": 1.666,
+            "density": 2.624,
+            "ci95": 0.996
+          }
+        },
+        {
+          "season": 2,
+          "year": 1974,
+          "yearEnd": null,
+          "episodeCount": 6,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 6,
+                "mean": 3.777,
+                "density": 7.554,
+                "ci95": 1.755
+              },
+              "tvmaze": {
+                "n": 6,
+                "mean": 4.375,
+                "density": 13.124,
+                "ci95": 3.988
+              },
+              "wikipedia": {
+                "n": 6,
+                "mean": 3.238,
+                "density": 6.476,
+                "ci95": 1.774
+              }
+            },
+            "year": null,
+            "n": 18,
+            "mean": 3.797,
+            "density": 9.051,
+            "ci95": 1.568
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 6,
+                "mean": 1.594,
+                "density": 1.434,
+                "ci95": 2.019
+              },
+              "tvmaze": {
+                "n": 6,
+                "mean": 1.667,
+                "density": 6.25,
+                "ci95": 3.267
+              },
+              "wikipedia": {
+                "n": 6,
+                "mean": 1.576,
+                "density": 1.418,
+                "ci95": 3.089
+              }
+            },
+            "year": null,
+            "n": 18,
+            "mean": 1.612,
+            "density": 3.034,
+            "ci95": 1.643
+          }
+        }
+      ]
+    },
+    {
+      "id": "tng",
+      "name": "Star Trek: The Next Generation",
+      "short": "TNG",
+      "kind": "series",
+      "color": "#1D9E75",
+      "ageRating": 10,
+      "entityCount": 0,
+      "textBasis": {
+        "episodes": 178,
+        "sources": {
+          "tvmaze": {
+            "covered": 178,
+            "medianWords": 22
+          },
+          "wikipedia": {
+            "covered": 168,
+            "medianWords": 479
+          },
+          "memory-alpha": {
+            "covered": 174,
+            "medianWords": 2158
+          }
+        }
+      },
+      "seasons": [
+        {
+          "season": 1,
+          "year": 1987,
+          "yearEnd": 1988,
+          "episodeCount": 26,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 26,
+                "mean": 3.361,
+                "density": 6.723,
+                "ci95": 0.906
+              },
+              "tvmaze": {
+                "n": 26,
+                "mean": 2.279,
+                "density": 7.075,
+                "ci95": 1.632
+              },
+              "wikipedia": {
+                "n": 26,
+                "mean": 3.631,
+                "density": 7.263,
+                "ci95": 1.144
+              }
+            },
+            "year": null,
+            "n": 78,
+            "mean": 3.09,
+            "density": 7.02,
+            "ci95": 0.73
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 26,
+                "mean": 0.901,
+                "density": 0.811,
+                "ci95": 0.588
+              },
+              "tvmaze": {
+                "n": 26,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0
+              },
+              "wikipedia": {
+                "n": 26,
+                "mean": 1.485,
+                "density": 1.336,
+                "ci95": 0.946
+              }
+            },
+            "year": null,
+            "n": 78,
+            "mean": 0.795,
+            "density": 0.716,
+            "ci95": 0.371
+          }
+        },
+        {
+          "season": 2,
+          "year": 1988,
+          "yearEnd": 1989,
+          "episodeCount": 22,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 21,
+                "mean": 4.169,
+                "density": 8.338,
+                "ci95": 1.043
+              },
+              "tvmaze": {
+                "n": 22,
+                "mean": 1.364,
+                "density": 6.081,
+                "ci95": 1.468
+              },
+              "wikipedia": {
+                "n": 21,
+                "mean": 3.133,
+                "density": 7.659,
+                "ci95": 1.427
+              }
+            },
+            "year": null,
+            "n": 64,
+            "mean": 2.865,
+            "density": 7.339,
+            "ci95": 0.769
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 21,
+                "mean": 0.778,
+                "density": 0.701,
+                "ci95": 0.29
+              },
+              "tvmaze": {
+                "n": 22,
+                "mean": 0.455,
+                "density": 3.247,
+                "ci95": 0.891
+              },
+              "wikipedia": {
+                "n": 21,
+                "mean": 0.818,
+                "density": 0.736,
+                "ci95": 0.78
+              }
+            },
+            "year": null,
+            "n": 64,
+            "mean": 0.68,
+            "density": 1.588,
+            "ci95": 0.41
+          }
+        },
+        {
+          "season": 3,
+          "year": 1989,
+          "yearEnd": 1990,
+          "episodeCount": 26,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 25,
+                "mean": 2.465,
+                "density": 4.93,
+                "ci95": 0.672
+              },
+              "tvmaze": {
+                "n": 26,
+                "mean": 0.769,
+                "density": 2.505,
+                "ci95": 1.045
+              },
+              "wikipedia": {
+                "n": 25,
+                "mean": 2.967,
+                "density": 6.56,
+                "ci95": 1.219
+              }
+            },
+            "year": null,
+            "n": 76,
+            "mean": 2.05,
+            "density": 4.637,
+            "ci95": 0.581
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 25,
+                "mean": 0.736,
+                "density": 0.662,
+                "ci95": 0.33
+              },
+              "tvmaze": {
+                "n": 26,
+                "mean": 0.385,
+                "density": 1.424,
+                "ci95": 0.754
+              },
+              "wikipedia": {
+                "n": 25,
+                "mean": 1.124,
+                "density": 1.042,
+                "ci95": 0.955
+              }
+            },
+            "year": null,
+            "n": 76,
+            "mean": 0.744,
+            "density": 1.048,
+            "ci95": 0.421
+          }
+        },
+        {
+          "season": 4,
+          "year": 1990,
+          "yearEnd": 1991,
+          "episodeCount": 26,
+          "sci": {
+            "perSource": {
+              "tvmaze": {
+                "n": 26,
+                "mean": 0.769,
+                "density": 2.997,
+                "ci95": 1.045
+              },
+              "memory-alpha": {
+                "n": 25,
+                "mean": 3.477,
+                "density": 7.15,
+                "ci95": 1.021
+              },
+              "wikipedia": {
+                "n": 22,
+                "mean": 3.071,
+                "density": 6.839,
+                "ci95": 1.158
+              }
+            },
+            "year": null,
+            "n": 73,
+            "mean": 2.39,
+            "density": 5.577,
+            "ci95": 0.619
+          },
+          "fi": {
+            "perSource": {
+              "tvmaze": {
+                "n": 26,
+                "mean": 1.154,
+                "density": 3.147,
+                "ci95": 1.252
+              },
+              "memory-alpha": {
+                "n": 25,
+                "mean": 0.961,
+                "density": 0.865,
+                "ci95": 0.815
+              },
+              "wikipedia": {
+                "n": 22,
+                "mean": 0.782,
+                "density": 0.703,
+                "ci95": 0.677
+              }
+            },
+            "year": null,
+            "n": 73,
+            "mean": 0.976,
+            "density": 1.629,
+            "ci95": 0.564
+          }
+        },
+        {
+          "season": 5,
+          "year": 1991,
+          "yearEnd": 1992,
+          "episodeCount": 26,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 25,
+                "mean": 3.024,
+                "density": 6.048,
+                "ci95": 0.724
+              },
+              "tvmaze": {
+                "n": 26,
+                "mean": 0.769,
+                "density": 4.103,
+                "ci95": 1.045
+              },
+              "wikipedia": {
+                "n": 22,
+                "mean": 2.592,
+                "density": 5.184,
+                "ci95": 0.943
+              }
+            },
+            "year": null,
+            "n": 73,
+            "mean": 2.091,
+            "density": 5.095,
+            "ci95": 0.53
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 25,
+                "mean": 0.569,
+                "density": 0.512,
+                "ci95": 0.263
+              },
+              "tvmaze": {
+                "n": 26,
+                "mean": 0.385,
+                "density": 1.424,
+                "ci95": 0.754
+              },
+              "wikipedia": {
+                "n": 22,
+                "mean": 1.202,
+                "density": 1.082,
+                "ci95": 0.982
+              }
+            },
+            "year": null,
+            "n": 73,
+            "mean": 0.694,
+            "density": 1.009,
+            "ci95": 0.41
+          }
+        },
+        {
+          "season": 6,
+          "year": 1992,
+          "yearEnd": 1993,
+          "episodeCount": 26,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 26,
+                "mean": 4.86,
+                "density": 10.046,
+                "ci95": 1.073
+              },
+              "tvmaze": {
+                "n": 26,
+                "mean": 2.286,
+                "density": 11.022,
+                "ci95": 1.636
+              },
+              "wikipedia": {
+                "n": 26,
+                "mean": 3.25,
+                "density": 6.499,
+                "ci95": 1.073
+              }
+            },
+            "year": null,
+            "n": 78,
+            "mean": 3.465,
+            "density": 9.189,
+            "ci95": 0.744
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 26,
+                "mean": 0.651,
+                "density": 0.586,
+                "ci95": 0.594
+              },
+              "tvmaze": {
+                "n": 26,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0
+              },
+              "wikipedia": {
+                "n": 26,
+                "mean": 1.604,
+                "density": 1.686,
+                "ci95": 0.943
+              }
+            },
+            "year": null,
+            "n": 78,
+            "mean": 0.752,
+            "density": 0.757,
+            "ci95": 0.371
+          }
+        },
+        {
+          "season": 7,
+          "year": 1993,
+          "yearEnd": 1994,
+          "episodeCount": 26,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 26,
+                "mean": 3.729,
+                "density": 7.504,
+                "ci95": 1.101
+              },
+              "tvmaze": {
+                "n": 26,
+                "mean": 1.923,
+                "density": 8.005,
+                "ci95": 1.545
+              },
+              "wikipedia": {
+                "n": 26,
+                "mean": 3.17,
+                "density": 6.814,
+                "ci95": 1.249
+              }
+            },
+            "year": null,
+            "n": 78,
+            "mean": 2.941,
+            "density": 7.441,
+            "ci95": 0.757
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 26,
+                "mean": 0.737,
+                "density": 0.663,
+                "ci95": 0.491
+              },
+              "tvmaze": {
+                "n": 26,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0
+              },
+              "wikipedia": {
+                "n": 26,
+                "mean": 1.675,
+                "density": 1.582,
+                "ci95": 1.102
+              }
+            },
+            "year": null,
+            "n": 78,
+            "mean": 0.804,
+            "density": 0.748,
+            "ci95": 0.402
+          }
+        }
+      ]
+    },
+    {
+      "id": "ds9",
+      "name": "Star Trek: Deep Space Nine",
+      "short": "DS9",
+      "kind": "series",
+      "color": "#7F77DD",
+      "ageRating": 14,
+      "entityCount": 0,
+      "textBasis": {
+        "episodes": 176,
+        "sources": {
+          "tvmaze": {
+            "covered": 176,
+            "medianWords": 34
+          },
+          "wikipedia": {
+            "covered": 157,
+            "medianWords": 401
+          },
+          "memory-alpha": {
+            "covered": 175,
+            "medianWords": 2038
+          }
+        }
+      },
+      "seasons": [
+        {
+          "season": 1,
+          "year": 1993,
+          "yearEnd": null,
+          "episodeCount": 20,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 20,
+                "mean": 1.978,
+                "density": 3.957,
+                "ci95": 0.977
+              },
+              "tvmaze": {
+                "n": 20,
+                "mean": 1.0,
+                "density": 5.606,
+                "ci95": 1.349
+              },
+              "wikipedia": {
+                "n": 18,
+                "mean": 1.387,
+                "density": 3.364,
+                "ci95": 1.351
+              }
+            },
+            "year": null,
+            "n": 58,
+            "mean": 1.457,
+            "density": 4.342,
+            "ci95": 0.711
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 20,
+                "mean": 0.417,
+                "density": 0.375,
+                "ci95": 0.205
+              },
+              "tvmaze": {
+                "n": 20,
+                "mean": 0.5,
+                "density": 1.389,
+                "ci95": 0.98
+              },
+              "wikipedia": {
+                "n": 18,
+                "mean": 0.887,
+                "density": 0.798,
+                "ci95": 0.689
+              }
+            },
+            "year": null,
+            "n": 58,
+            "mean": 0.591,
+            "density": 0.856,
+            "ci95": 0.406
+          }
+        },
+        {
+          "season": 2,
+          "year": 1993,
+          "yearEnd": 1994,
+          "episodeCount": 26,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 26,
+                "mean": 1.673,
+                "density": 3.345,
+                "ci95": 0.564
+              },
+              "tvmaze": {
+                "n": 26,
+                "mean": 1.524,
+                "density": 4.245,
+                "ci95": 1.401
+              },
+              "wikipedia": {
+                "n": 23,
+                "mean": 1.195,
+                "density": 2.482,
+                "ci95": 0.982
+              }
+            },
+            "year": null,
+            "n": 75,
+            "mean": 1.475,
+            "density": 3.392,
+            "ci95": 0.604
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 26,
+                "mean": 0.406,
+                "density": 0.365,
+                "ci95": 0.199
+              },
+              "tvmaze": {
+                "n": 26,
+                "mean": 0.385,
+                "density": 0.726,
+                "ci95": 0.754
+              },
+              "wikipedia": {
+                "n": 23,
+                "mean": 0.553,
+                "density": 0.497,
+                "ci95": 0.65
+              }
+            },
+            "year": null,
+            "n": 75,
+            "mean": 0.444,
+            "density": 0.531,
+            "ci95": 0.336
+          }
+        },
+        {
+          "season": 3,
+          "year": 1994,
+          "yearEnd": 1995,
+          "episodeCount": 26,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 26,
+                "mean": 1.755,
+                "density": 3.51,
+                "ci95": 0.639
+              },
+              "tvmaze": {
+                "n": 26,
+                "mean": 1.538,
+                "density": 4.319,
+                "ci95": 1.414
+              },
+              "wikipedia": {
+                "n": 23,
+                "mean": 1.249,
+                "density": 2.498,
+                "ci95": 0.877
+              }
+            },
+            "year": null,
+            "n": 75,
+            "mean": 1.525,
+            "density": 3.48,
+            "ci95": 0.601
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 26,
+                "mean": 0.513,
+                "density": 0.462,
+                "ci95": 0.437
+              },
+              "tvmaze": {
+                "n": 26,
+                "mean": 0.769,
+                "density": 2.963,
+                "ci95": 1.045
+              },
+              "wikipedia": {
+                "n": 23,
+                "mean": 1.009,
+                "density": 1.337,
+                "ci95": 0.963
+              }
+            },
+            "year": null,
+            "n": 75,
+            "mean": 0.754,
+            "density": 1.597,
+            "ci95": 0.491
+          }
+        },
+        {
+          "season": 4,
+          "year": 1995,
+          "yearEnd": 1996,
+          "episodeCount": 26,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 26,
+                "mean": 1.322,
+                "density": 2.644,
+                "ci95": 0.533
+              },
+              "tvmaze": {
+                "n": 26,
+                "mean": 0.385,
+                "density": 3.077,
+                "ci95": 0.754
+              },
+              "wikipedia": {
+                "n": 21,
+                "mean": 1.73,
+                "density": 3.46,
+                "ci95": 1.053
+              }
+            },
+            "year": null,
+            "n": 73,
+            "mean": 1.106,
+            "density": 3.033,
+            "ci95": 0.447
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 26,
+                "mean": 0.73,
+                "density": 0.657,
+                "ci95": 0.489
+              },
+              "tvmaze": {
+                "n": 26,
+                "mean": 0.385,
+                "density": 1.165,
+                "ci95": 0.754
+              },
+              "wikipedia": {
+                "n": 21,
+                "mean": 0.775,
+                "density": 0.697,
+                "ci95": 0.722
+              }
+            },
+            "year": null,
+            "n": 73,
+            "mean": 0.62,
+            "density": 0.849,
+            "ci95": 0.382
+          }
+        },
+        {
+          "season": 5,
+          "year": 1996,
+          "yearEnd": 1997,
+          "episodeCount": 26,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 25,
+                "mean": 1.157,
+                "density": 2.315,
+                "ci95": 0.422
+              },
+              "tvmaze": {
+                "n": 26,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0
+              },
+              "wikipedia": {
+                "n": 24,
+                "mean": 1.098,
+                "density": 2.195,
+                "ci95": 0.52
+              }
+            },
+            "year": null,
+            "n": 75,
+            "mean": 0.737,
+            "density": 1.474,
+            "ci95": 0.218
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 25,
+                "mean": 0.789,
+                "density": 0.71,
+                "ci95": 0.361
+              },
+              "tvmaze": {
+                "n": 26,
+                "mean": 0.769,
+                "density": 1.41,
+                "ci95": 1.045
+              },
+              "wikipedia": {
+                "n": 24,
+                "mean": 0.904,
+                "density": 1.058,
+                "ci95": 0.894
+              }
+            },
+            "year": null,
+            "n": 75,
+            "mean": 0.819,
+            "density": 1.064,
+            "ci95": 0.477
+          }
+        },
+        {
+          "season": 6,
+          "year": 1997,
+          "yearEnd": 1998,
+          "episodeCount": 26,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 26,
+                "mean": 1.172,
+                "density": 2.344,
+                "ci95": 0.576
+              },
+              "tvmaze": {
+                "n": 26,
+                "mean": 0.385,
+                "density": 0.836,
+                "ci95": 0.754
+              },
+              "wikipedia": {
+                "n": 24,
+                "mean": 1.071,
+                "density": 2.142,
+                "ci95": 0.598
+              }
+            },
+            "year": null,
+            "n": 76,
+            "mean": 0.871,
+            "density": 1.764,
+            "ci95": 0.376
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 26,
+                "mean": 1.163,
+                "density": 1.046,
+                "ci95": 0.63
+              },
+              "tvmaze": {
+                "n": 26,
+                "mean": 0.769,
+                "density": 1.887,
+                "ci95": 1.045
+              },
+              "wikipedia": {
+                "n": 24,
+                "mean": 1.512,
+                "density": 1.774,
+                "ci95": 1.201
+              }
+            },
+            "year": null,
+            "n": 76,
+            "mean": 1.138,
+            "density": 1.564,
+            "ci95": 0.564
+          }
+        },
+        {
+          "season": 7,
+          "year": 1998,
+          "yearEnd": 1999,
+          "episodeCount": 26,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 26,
+                "mean": 1.148,
+                "density": 2.295,
+                "ci95": 0.313
+              },
+              "tvmaze": {
+                "n": 26,
+                "mean": 0.385,
+                "density": 1.479,
+                "ci95": 0.754
+              },
+              "wikipedia": {
+                "n": 24,
+                "mean": 1.232,
+                "density": 2.464,
+                "ci95": 0.564
+              }
+            },
+            "year": null,
+            "n": 76,
+            "mean": 0.913,
+            "density": 2.069,
+            "ci95": 0.331
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 26,
+                "mean": 1.644,
+                "density": 1.564,
+                "ci95": 0.809
+              },
+              "tvmaze": {
+                "n": 26,
+                "mean": 0.385,
+                "density": 1.374,
+                "ci95": 0.754
+              },
+              "wikipedia": {
+                "n": 24,
+                "mean": 1.687,
+                "density": 1.561,
+                "ci95": 1.146
+              }
+            },
+            "year": null,
+            "n": 76,
+            "mean": 1.227,
+            "density": 1.498,
+            "ci95": 0.524
+          }
+        }
+      ]
+    },
+    {
+      "id": "voy",
+      "name": "Star Trek: Voyager",
+      "short": "VOY",
+      "kind": "series",
+      "color": "#EF9F27",
+      "ageRating": 14,
+      "entityCount": 0,
+      "textBasis": {
+        "episodes": 172,
+        "sources": {
+          "tvmaze": {
+            "covered": 172,
+            "medianWords": 42
+          },
+          "wikipedia": {
+            "covered": 170,
+            "medianWords": 429
+          },
+          "memory-alpha": {
+            "covered": 169,
+            "medianWords": 2137
+          }
+        }
+      },
+      "seasons": [
+        {
+          "season": 1,
+          "year": 1995,
+          "yearEnd": null,
+          "episodeCount": 16,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 16,
+                "mean": 3.658,
+                "density": 7.316,
+                "ci95": 0.696
+              },
+              "tvmaze": {
+                "n": 16,
+                "mean": 1.25,
+                "density": 4.153,
+                "ci95": 1.674
+              },
+              "wikipedia": {
+                "n": 16,
+                "mean": 3.174,
+                "density": 6.403,
+                "ci95": 1.394
+              }
+            },
+            "year": null,
+            "n": 48,
+            "mean": 2.694,
+            "density": 5.957,
+            "ci95": 0.762
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 16,
+                "mean": 0.315,
+                "density": 0.283,
+                "ci95": 0.469
+              },
+              "tvmaze": {
+                "n": 16,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0
+              },
+              "wikipedia": {
+                "n": 16,
+                "mean": 1.634,
+                "density": 1.515,
+                "ci95": 1.339
+              }
+            },
+            "year": null,
+            "n": 48,
+            "mean": 0.65,
+            "density": 0.599,
+            "ci95": 0.473
+          }
+        },
+        {
+          "season": 2,
+          "year": 1995,
+          "yearEnd": 1996,
+          "episodeCount": 26,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 26,
+                "mean": 4.132,
+                "density": 8.415,
+                "ci95": 1.041
+              },
+              "tvmaze": {
+                "n": 26,
+                "mean": 1.916,
+                "density": 5.466,
+                "ci95": 1.539
+              },
+              "wikipedia": {
+                "n": 26,
+                "mean": 2.826,
+                "density": 5.956,
+                "ci95": 1.185
+              }
+            },
+            "year": null,
+            "n": 78,
+            "mean": 2.958,
+            "density": 6.612,
+            "ci95": 0.735
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 26,
+                "mean": 1.155,
+                "density": 1.04,
+                "ci95": 0.754
+              },
+              "tvmaze": {
+                "n": 26,
+                "mean": 1.154,
+                "density": 3.995,
+                "ci95": 1.252
+              },
+              "wikipedia": {
+                "n": 26,
+                "mean": 1.052,
+                "density": 1.081,
+                "ci95": 0.862
+              }
+            },
+            "year": null,
+            "n": 78,
+            "mean": 1.12,
+            "density": 2.039,
+            "ci95": 0.566
+          }
+        },
+        {
+          "season": 3,
+          "year": 1996,
+          "yearEnd": 1997,
+          "episodeCount": 26,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 25,
+                "mean": 3.254,
+                "density": 6.508,
+                "ci95": 0.827
+              },
+              "tvmaze": {
+                "n": 26,
+                "mean": 0.385,
+                "density": 1.923,
+                "ci95": 0.754
+              },
+              "wikipedia": {
+                "n": 25,
+                "mean": 3.833,
+                "density": 9.031,
+                "ci95": 1.374
+              }
+            },
+            "year": null,
+            "n": 76,
+            "mean": 2.463,
+            "density": 5.769,
+            "ci95": 0.587
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 25,
+                "mean": 1.422,
+                "density": 1.32,
+                "ci95": 1.131
+              },
+              "tvmaze": {
+                "n": 26,
+                "mean": 0.385,
+                "density": 1.424,
+                "ci95": 0.754
+              },
+              "wikipedia": {
+                "n": 25,
+                "mean": 1.493,
+                "density": 1.629,
+                "ci95": 1.123
+              }
+            },
+            "year": null,
+            "n": 76,
+            "mean": 1.091,
+            "density": 1.457,
+            "ci95": 0.584
+          }
+        },
+        {
+          "season": 4,
+          "year": 1997,
+          "yearEnd": 1998,
+          "episodeCount": 26,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 26,
+                "mean": 3.323,
+                "density": 6.646,
+                "ci95": 0.675
+              },
+              "tvmaze": {
+                "n": 26,
+                "mean": 2.067,
+                "density": 5.586,
+                "ci95": 1.503
+              },
+              "wikipedia": {
+                "n": 26,
+                "mean": 2.817,
+                "density": 5.634,
+                "ci95": 1.073
+              }
+            },
+            "year": null,
+            "n": 78,
+            "mean": 2.736,
+            "density": 5.955,
+            "ci95": 0.655
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 26,
+                "mean": 0.481,
+                "density": 0.433,
+                "ci95": 0.268
+              },
+              "tvmaze": {
+                "n": 26,
+                "mean": 0.385,
+                "density": 0.631,
+                "ci95": 0.754
+              },
+              "wikipedia": {
+                "n": 26,
+                "mean": 0.493,
+                "density": 0.443,
+                "ci95": 0.481
+              }
+            },
+            "year": null,
+            "n": 78,
+            "mean": 0.453,
+            "density": 0.502,
+            "ci95": 0.311
+          }
+        },
+        {
+          "season": 5,
+          "year": 1998,
+          "yearEnd": 1999,
+          "episodeCount": 26,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 26,
+                "mean": 3.83,
+                "density": 7.798,
+                "ci95": 0.794
+              },
+              "tvmaze": {
+                "n": 26,
+                "mean": 3.126,
+                "density": 9.187,
+                "ci95": 1.504
+              },
+              "wikipedia": {
+                "n": 26,
+                "mean": 3.12,
+                "density": 6.621,
+                "ci95": 1.023
+              }
+            },
+            "year": null,
+            "n": 78,
+            "mean": 3.359,
+            "density": 7.869,
+            "ci95": 0.662
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 26,
+                "mean": 0.397,
+                "density": 0.357,
+                "ci95": 0.271
+              },
+              "tvmaze": {
+                "n": 26,
+                "mean": 1.538,
+                "density": 2.81,
+                "ci95": 1.414
+              },
+              "wikipedia": {
+                "n": 26,
+                "mean": 0.641,
+                "density": 0.577,
+                "ci95": 0.644
+              }
+            },
+            "year": null,
+            "n": 78,
+            "mean": 0.859,
+            "density": 1.248,
+            "ci95": 0.526
+          }
+        },
+        {
+          "season": 6,
+          "year": 1999,
+          "yearEnd": 2000,
+          "episodeCount": 26,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 24,
+                "mean": 3.94,
+                "density": 7.879,
+                "ci95": 0.754
+              },
+              "tvmaze": {
+                "n": 26,
+                "mean": 2.255,
+                "density": 5.253,
+                "ci95": 1.501
+              },
+              "wikipedia": {
+                "n": 25,
+                "mean": 3.95,
+                "density": 8.356,
+                "ci95": 1.218
+              }
+            },
+            "year": null,
+            "n": 75,
+            "mean": 3.359,
+            "density": 7.128,
+            "ci95": 0.703
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 24,
+                "mean": 1.028,
+                "density": 0.925,
+                "ci95": 0.513
+              },
+              "tvmaze": {
+                "n": 26,
+                "mean": 1.154,
+                "density": 3.314,
+                "ci95": 1.252
+              },
+              "wikipedia": {
+                "n": 25,
+                "mean": 1.602,
+                "density": 1.442,
+                "ci95": 0.966
+              }
+            },
+            "year": null,
+            "n": 75,
+            "mean": 1.263,
+            "density": 1.926,
+            "ci95": 0.565
+          }
+        },
+        {
+          "season": 7,
+          "year": 2000,
+          "yearEnd": 2001,
+          "episodeCount": 26,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 26,
+                "mean": 2.968,
+                "density": 5.937,
+                "ci95": 0.766
+              },
+              "tvmaze": {
+                "n": 26,
+                "mean": 0.949,
+                "density": 4.188,
+                "ci95": 1.083
+              },
+              "wikipedia": {
+                "n": 26,
+                "mean": 2.309,
+                "density": 4.794,
+                "ci95": 0.999
+              }
+            },
+            "year": null,
+            "n": 78,
+            "mean": 2.075,
+            "density": 4.973,
+            "ci95": 0.554
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 26,
+                "mean": 0.287,
+                "density": 0.258,
+                "ci95": 0.281
+              },
+              "tvmaze": {
+                "n": 26,
+                "mean": 0.385,
+                "density": 1.831,
+                "ci95": 0.754
+              },
+              "wikipedia": {
+                "n": 26,
+                "mean": 0.75,
+                "density": 0.675,
+                "ci95": 0.426
+              }
+            },
+            "year": null,
+            "n": 78,
+            "mean": 0.474,
+            "density": 0.921,
+            "ci95": 0.303
+          }
+        }
+      ]
+    },
+    {
+      "id": "ent",
+      "name": "Star Trek: Enterprise",
+      "short": "ENT",
+      "kind": "series",
+      "color": "#D4537E",
+      "ageRating": 13,
+      "entityCount": 0,
+      "textBasis": {
+        "episodes": 98,
+        "sources": {
+          "tvmaze": {
+            "covered": 98,
+            "medianWords": 54
+          },
+          "wikipedia": {
+            "covered": 97,
+            "medianWords": 340
+          },
+          "memory-alpha": {
+            "covered": 97,
+            "medianWords": 1710
+          }
+        }
+      },
+      "seasons": [
+        {
+          "season": 1,
+          "year": 2001,
+          "yearEnd": 2002,
+          "episodeCount": 26,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 26,
+                "mean": 3.772,
+                "density": 7.544,
+                "ci95": 0.92
+              },
+              "tvmaze": {
+                "n": 26,
+                "mean": 2.4,
+                "density": 5.654,
+                "ci95": 1.456
+              },
+              "wikipedia": {
+                "n": 26,
+                "mean": 3.803,
+                "density": 7.977,
+                "ci95": 1.258
+              }
+            },
+            "year": null,
+            "n": 78,
+            "mean": 3.325,
+            "density": 7.058,
+            "ci95": 0.711
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 26,
+                "mean": 0.466,
+                "density": 0.419,
+                "ci95": 0.247
+              },
+              "tvmaze": {
+                "n": 26,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0
+              },
+              "wikipedia": {
+                "n": 26,
+                "mean": 0.349,
+                "density": 0.314,
+                "ci95": 0.381
+              }
+            },
+            "year": null,
+            "n": 78,
+            "mean": 0.272,
+            "density": 0.244,
+            "ci95": 0.151
+          }
+        },
+        {
+          "season": 2,
+          "year": 2002,
+          "yearEnd": 2003,
+          "episodeCount": 26,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 26,
+                "mean": 3.65,
+                "density": 7.462,
+                "ci95": 1.001
+              },
+              "tvmaze": {
+                "n": 26,
+                "mean": 2.34,
+                "density": 8.506,
+                "ci95": 1.542
+              },
+              "wikipedia": {
+                "n": 26,
+                "mean": 3.907,
+                "density": 9.063,
+                "ci95": 1.193
+              }
+            },
+            "year": null,
+            "n": 78,
+            "mean": 3.299,
+            "density": 8.344,
+            "ci95": 0.731
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 26,
+                "mean": 0.301,
+                "density": 0.271,
+                "ci95": 0.201
+              },
+              "tvmaze": {
+                "n": 26,
+                "mean": 0.385,
+                "density": 0.894,
+                "ci95": 0.754
+              },
+              "wikipedia": {
+                "n": 26,
+                "mean": 0.375,
+                "density": 0.337,
+                "ci95": 0.545
+              }
+            },
+            "year": null,
+            "n": 78,
+            "mean": 0.354,
+            "density": 0.501,
+            "ci95": 0.317
+          }
+        },
+        {
+          "season": 3,
+          "year": 2003,
+          "yearEnd": 2004,
+          "episodeCount": 24,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 23,
+                "mean": 3.421,
+                "density": 6.841,
+                "ci95": 0.682
+              },
+              "tvmaze": {
+                "n": 24,
+                "mean": 2.655,
+                "density": 7.838,
+                "ci95": 1.722
+              },
+              "wikipedia": {
+                "n": 23,
+                "mean": 4.169,
+                "density": 8.413,
+                "ci95": 1.137
+              }
+            },
+            "year": null,
+            "n": 70,
+            "mean": 3.404,
+            "density": 7.699,
+            "ci95": 0.734
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 23,
+                "mean": 0.196,
+                "density": 0.176,
+                "ci95": 0.171
+              },
+              "tvmaze": {
+                "n": 24,
+                "mean": 0.417,
+                "density": 0.786,
+                "ci95": 0.817
+              },
+              "wikipedia": {
+                "n": 23,
+                "mean": 0.448,
+                "density": 0.403,
+                "ci95": 0.493
+              }
+            },
+            "year": null,
+            "n": 70,
+            "mean": 0.355,
+            "density": 0.46,
+            "ci95": 0.328
+          }
+        },
+        {
+          "season": 4,
+          "year": 2004,
+          "yearEnd": 2005,
+          "episodeCount": 22,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 22,
+                "mean": 3.686,
+                "density": 7.372,
+                "ci95": 0.965
+              },
+              "tvmaze": {
+                "n": 22,
+                "mean": 1.698,
+                "density": 6.847,
+                "ci95": 1.555
+              },
+              "wikipedia": {
+                "n": 22,
+                "mean": 3.033,
+                "density": 6.139,
+                "ci95": 1.078
+              }
+            },
+            "year": null,
+            "n": 66,
+            "mean": 2.806,
+            "density": 6.786,
+            "ci95": 0.708
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 22,
+                "mean": 0.45,
+                "density": 0.405,
+                "ci95": 0.256
+              },
+              "tvmaze": {
+                "n": 22,
+                "mean": 0.455,
+                "density": 0.758,
+                "ci95": 0.891
+              },
+              "wikipedia": {
+                "n": 22,
+                "mean": 0.76,
+                "density": 0.684,
+                "ci95": 0.601
+              }
+            },
+            "year": null,
+            "n": 66,
+            "mean": 0.555,
+            "density": 0.616,
+            "ci95": 0.368
+          }
+        }
+      ]
+    },
+    {
+      "id": "dis",
+      "name": "Star Trek: Discovery",
+      "short": "DIS",
+      "kind": "series",
+      "color": "#5DCAA5",
+      "ageRating": 16,
+      "entityCount": 0,
+      "textBasis": {
+        "episodes": 65,
+        "sources": {
+          "tvmaze": {
+            "covered": 65,
+            "medianWords": 34
+          },
+          "wikipedia": {
+            "covered": 6,
+            "medianWords": 403
+          },
+          "memory-alpha": {
+            "covered": 61,
+            "medianWords": 3672
+          }
+        }
+      },
+      "seasons": [
+        {
+          "season": 1,
+          "year": 2017,
+          "yearEnd": 2018,
+          "episodeCount": 15,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 15,
+                "mean": 2.563,
+                "density": 5.126,
+                "ci95": 0.519
+              },
+              "tvmaze": {
+                "n": 15,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0
+              },
+              "wikipedia": {
+                "n": 4,
+                "mean": 3.029,
+                "density": 6.058,
+                "ci95": 3.726
+              }
+            },
+            "year": null,
+            "n": 34,
+            "mean": 1.487,
+            "density": 2.974,
+            "ci95": 0.495
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 15,
+                "mean": 0.603,
+                "density": 0.543,
+                "ci95": 0.451
+              },
+              "tvmaze": {
+                "n": 15,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0
+              },
+              "wikipedia": {
+                "n": 4,
+                "mean": 0.737,
+                "density": 0.663,
+                "ci95": 2.167
+              }
+            },
+            "year": null,
+            "n": 34,
+            "mean": 0.353,
+            "density": 0.318,
+            "ci95": 0.323
+          }
+        },
+        {
+          "season": 2,
+          "year": 2019,
+          "yearEnd": null,
+          "episodeCount": 14,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 13,
+                "mean": 3.397,
+                "density": 6.795,
+                "ci95": 0.995
+              },
+              "tvmaze": {
+                "n": 14,
+                "mean": 0.627,
+                "density": 1.253,
+                "ci95": 1.228
+              }
+            },
+            "year": null,
+            "n": 27,
+            "mean": 1.961,
+            "density": 3.921,
+            "ci95": 0.797
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 13,
+                "mean": 2.701,
+                "density": 2.431,
+                "ci95": 1.203
+              },
+              "tvmaze": {
+                "n": 14,
+                "mean": 2.143,
+                "density": 5.02,
+                "ci95": 2.231
+              }
+            },
+            "year": null,
+            "n": 27,
+            "mean": 2.412,
+            "density": 3.773,
+            "ci95": 1.294
+          }
+        },
+        {
+          "season": 3,
+          "year": 2020,
+          "yearEnd": 2021,
+          "episodeCount": 13,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 12,
+                "mean": 4.364,
+                "density": 8.728,
+                "ci95": 1.186
+              },
+              "tvmaze": {
+                "n": 13,
+                "mean": 0.769,
+                "density": 1.972,
+                "ci95": 1.508
+              },
+              "wikipedia": {
+                "n": 2,
+                "mean": 2.272,
+                "density": 4.545,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 27,
+            "mean": 2.478,
+            "density": 5.165,
+            "ci95": 0.897
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 12,
+                "mean": 0.354,
+                "density": 0.318,
+                "ci95": 0.23
+              },
+              "tvmaze": {
+                "n": 13,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0
+              },
+              "wikipedia": {
+                "n": 2,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 27,
+            "mean": 0.157,
+            "density": 0.141,
+            "ci95": 0.102
+          }
+        },
+        {
+          "season": 4,
+          "year": 2021,
+          "yearEnd": 2022,
+          "episodeCount": 13,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 11,
+                "mean": 2.413,
+                "density": 4.826,
+                "ci95": 0.663
+              },
+              "tvmaze": {
+                "n": 13,
+                "mean": 0.769,
+                "density": 2.849,
+                "ci95": 1.508
+              }
+            },
+            "year": null,
+            "n": 24,
+            "mean": 1.522,
+            "density": 3.755,
+            "ci95": 0.872
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 11,
+                "mean": 0.407,
+                "density": 0.366,
+                "ci95": 0.215
+              },
+              "tvmaze": {
+                "n": 13,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 24,
+            "mean": 0.187,
+            "density": 0.168,
+            "ci95": 0.099
+          }
+        },
+        {
+          "season": 5,
+          "year": 2024,
+          "yearEnd": null,
+          "episodeCount": 10,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 10,
+                "mean": 2.153,
+                "density": 4.306,
+                "ci95": 0.471
+              },
+              "tvmaze": {
+                "n": 10,
+                "mean": 1.758,
+                "density": 3.788,
+                "ci95": 2.324
+              }
+            },
+            "year": null,
+            "n": 20,
+            "mean": 1.956,
+            "density": 4.047,
+            "ci95": 1.186
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 10,
+                "mean": 1.249,
+                "density": 1.124,
+                "ci95": 1.181
+              },
+              "tvmaze": {
+                "n": 10,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 20,
+            "mean": 0.625,
+            "density": 0.562,
+            "ci95": 0.591
+          }
+        }
+      ]
+    },
+    {
+      "id": "st",
+      "name": "Star Trek: Short Treks",
+      "short": "ST",
+      "kind": "series",
+      "color": "#AFA9EC",
+      "ageRating": 13,
+      "entityCount": 0,
+      "textBasis": {
+        "episodes": 10,
+        "sources": {
+          "tvmaze": {
+            "covered": 10,
+            "medianWords": 29
+          },
+          "wikipedia": {
+            "covered": 0,
+            "medianWords": 0
+          },
+          "memory-alpha": {
+            "covered": 9,
+            "medianWords": 808
+          }
+        }
+      },
+      "seasons": [
+        {
+          "season": 1,
+          "year": 2018,
+          "yearEnd": 2019,
+          "episodeCount": 4,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 4,
+                "mean": 2.839,
+                "density": 5.678,
+                "ci95": 3.747
+              },
+              "tvmaze": {
+                "n": 4,
+                "mean": 2.5,
+                "density": 8.621,
+                "ci95": 7.35
+              }
+            },
+            "year": null,
+            "n": 8,
+            "mean": 2.67,
+            "density": 7.149,
+            "ci95": 4.125
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 4,
+                "mean": 1.188,
+                "density": 1.069,
+                "ci95": 2.578
+              },
+              "tvmaze": {
+                "n": 4,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 8,
+            "mean": 0.594,
+            "density": 0.534,
+            "ci95": 1.289
+          }
+        },
+        {
+          "season": 2,
+          "year": 2019,
+          "yearEnd": 2020,
+          "episodeCount": 6,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 5,
+                "mean": 1.264,
+                "density": 2.528,
+                "ci95": 0.598
+              },
+              "tvmaze": {
+                "n": 6,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 11,
+            "mean": 0.575,
+            "density": 1.149,
+            "ci95": 0.272
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 5,
+                "mean": 0.174,
+                "density": 0.157,
+                "ci95": 0.341
+              },
+              "tvmaze": {
+                "n": 6,
+                "mean": 1.667,
+                "density": 4.902,
+                "ci95": 3.267
+              }
+            },
+            "year": null,
+            "n": 11,
+            "mean": 0.988,
+            "density": 2.745,
+            "ci95": 1.789
+          }
+        }
+      ]
+    },
+    {
+      "id": "pic",
+      "name": "Star Trek: Picard",
+      "short": "PIC",
+      "kind": "series",
+      "color": "#BA7517",
+      "ageRating": 16,
+      "entityCount": 0,
+      "textBasis": {
+        "episodes": 30,
+        "sources": {
+          "tvmaze": {
+            "covered": 30,
+            "medianWords": 42
+          },
+          "wikipedia": {
+            "covered": 0,
+            "medianWords": 0
+          },
+          "memory-alpha": {
+            "covered": 20,
+            "medianWords": 3842
+          }
+        }
+      },
+      "seasons": [
+        {
+          "season": 1,
+          "year": 2020,
+          "yearEnd": null,
+          "episodeCount": 10,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 10,
+                "mean": 0.798,
+                "density": 1.596,
+                "ci95": 0.214
+              },
+              "tvmaze": {
+                "n": 10,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 20,
+            "mean": 0.399,
+            "density": 0.798,
+            "ci95": 0.107
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 10,
+                "mean": 0.428,
+                "density": 0.386,
+                "ci95": 0.309
+              },
+              "tvmaze": {
+                "n": 10,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 20,
+            "mean": 0.214,
+            "density": 0.193,
+            "ci95": 0.154
+          }
+        },
+        {
+          "season": 2,
+          "year": 2022,
+          "yearEnd": null,
+          "episodeCount": 10,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 10,
+                "mean": 1.168,
+                "density": 2.337,
+                "ci95": 0.397
+              },
+              "tvmaze": {
+                "n": 10,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 20,
+            "mean": 0.584,
+            "density": 1.169,
+            "ci95": 0.199
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 10,
+                "mean": 0.854,
+                "density": 0.769,
+                "ci95": 0.414
+              },
+              "tvmaze": {
+                "n": 10,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 20,
+            "mean": 0.427,
+            "density": 0.385,
+            "ci95": 0.207
+          }
+        },
+        {
+          "season": 3,
+          "year": 2023,
+          "yearEnd": null,
+          "episodeCount": 10,
+          "sci": {
+            "perSource": {
+              "tvmaze": {
+                "n": 10,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 10,
+            "mean": 0.0,
+            "density": 0.0,
+            "ci95": 0.0
+          },
+          "fi": {
+            "perSource": {
+              "tvmaze": {
+                "n": 10,
+                "mean": 1.0,
+                "density": 2.174,
+                "ci95": 1.96
+              }
+            },
+            "year": null,
+            "n": 10,
+            "mean": 1.0,
+            "density": 2.174,
+            "ci95": 1.96
+          }
+        }
+      ]
+    },
+    {
+      "id": "ld",
+      "name": "Star Trek: Lower Decks",
+      "short": "LD",
+      "kind": "series",
+      "color": "#E24B4A",
+      "ageRating": 13,
+      "entityCount": 0,
+      "textBasis": {
+        "episodes": 50,
+        "sources": {
+          "tvmaze": {
+            "covered": 50,
+            "medianWords": 17
+          },
+          "wikipedia": {
+            "covered": 0,
+            "medianWords": 0
+          },
+          "memory-alpha": {
+            "covered": 50,
+            "medianWords": 3085
+          }
+        }
+      },
+      "seasons": [
+        {
+          "season": 1,
+          "year": 2020,
+          "yearEnd": null,
+          "episodeCount": 10,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 10,
+                "mean": 2.517,
+                "density": 5.033,
+                "ci95": 0.794
+              },
+              "tvmaze": {
+                "n": 10,
+                "mean": 4.0,
+                "density": 18.513,
+                "ci95": 3.201
+              }
+            },
+            "year": null,
+            "n": 20,
+            "mean": 3.259,
+            "density": 11.773,
+            "ci95": 1.649
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 10,
+                "mean": 0.255,
+                "density": 0.229,
+                "ci95": 0.211
+              },
+              "tvmaze": {
+                "n": 10,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 20,
+            "mean": 0.128,
+            "density": 0.115,
+            "ci95": 0.105
+          }
+        },
+        {
+          "season": 2,
+          "year": 2021,
+          "yearEnd": null,
+          "episodeCount": 10,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 10,
+                "mean": 1.89,
+                "density": 3.78,
+                "ci95": 0.696
+              },
+              "tvmaze": {
+                "n": 10,
+                "mean": 2.0,
+                "density": 11.688,
+                "ci95": 2.613
+              }
+            },
+            "year": null,
+            "n": 20,
+            "mean": 1.945,
+            "density": 7.734,
+            "ci95": 1.352
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 10,
+                "mean": 0.338,
+                "density": 0.304,
+                "ci95": 0.131
+              },
+              "tvmaze": {
+                "n": 10,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 20,
+            "mean": 0.169,
+            "density": 0.152,
+            "ci95": 0.066
+          }
+        },
+        {
+          "season": 3,
+          "year": 2022,
+          "yearEnd": null,
+          "episodeCount": 10,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 10,
+                "mean": 1.839,
+                "density": 3.677,
+                "ci95": 0.796
+              },
+              "tvmaze": {
+                "n": 10,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 20,
+            "mean": 0.919,
+            "density": 1.839,
+            "ci95": 0.398
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 10,
+                "mean": 0.583,
+                "density": 0.524,
+                "ci95": 0.585
+              },
+              "tvmaze": {
+                "n": 10,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 20,
+            "mean": 0.291,
+            "density": 0.262,
+            "ci95": 0.292
+          }
+        },
+        {
+          "season": 4,
+          "year": 2023,
+          "yearEnd": null,
+          "episodeCount": 10,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 10,
+                "mean": 1.484,
+                "density": 2.968,
+                "ci95": 0.51
+              },
+              "tvmaze": {
+                "n": 10,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 20,
+            "mean": 0.742,
+            "density": 1.484,
+            "ci95": 0.255
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 10,
+                "mean": 0.46,
+                "density": 0.414,
+                "ci95": 0.401
+              },
+              "tvmaze": {
+                "n": 10,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 20,
+            "mean": 0.23,
+            "density": 0.207,
+            "ci95": 0.2
+          }
+        },
+        {
+          "season": 5,
+          "year": 2024,
+          "yearEnd": null,
+          "episodeCount": 10,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 10,
+                "mean": 1.966,
+                "density": 3.932,
+                "ci95": 0.774
+              },
+              "tvmaze": {
+                "n": 10,
+                "mean": 1.0,
+                "density": 12.5,
+                "ci95": 1.96
+              }
+            },
+            "year": null,
+            "n": 20,
+            "mean": 1.483,
+            "density": 8.216,
+            "ci95": 1.054
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 10,
+                "mean": 1.142,
+                "density": 1.028,
+                "ci95": 0.626
+              },
+              "tvmaze": {
+                "n": 10,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 20,
+            "mean": 0.571,
+            "density": 0.514,
+            "ci95": 0.313
+          }
+        }
+      ]
+    },
+    {
+      "id": "pro",
+      "name": "Star Trek: Prodigy",
+      "short": "PRO",
+      "kind": "series",
+      "color": "#85B7EB",
+      "ageRating": 7,
+      "entityCount": 0,
+      "textBasis": {
+        "episodes": 39,
+        "sources": {
+          "tvmaze": {
+            "covered": 39,
+            "medianWords": 23
+          },
+          "wikipedia": {
+            "covered": 0,
+            "medianWords": 0
+          },
+          "memory-alpha": {
+            "covered": 39,
+            "medianWords": 1271
+          }
+        }
+      },
+      "seasons": [
+        {
+          "season": 1,
+          "year": 2021,
+          "yearEnd": 2022,
+          "episodeCount": 19,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 19,
+                "mean": 2.639,
+                "density": 5.381,
+                "ci95": 1.075
+              },
+              "tvmaze": {
+                "n": 19,
+                "mean": 0.526,
+                "density": 2.392,
+                "ci95": 1.032
+              }
+            },
+            "year": null,
+            "n": 38,
+            "mean": 1.583,
+            "density": 3.887,
+            "ci95": 0.745
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 19,
+                "mean": 0.583,
+                "density": 0.525,
+                "ci95": 0.534
+              },
+              "tvmaze": {
+                "n": 19,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 38,
+            "mean": 0.291,
+            "density": 0.263,
+            "ci95": 0.267
+          }
+        },
+        {
+          "season": 2,
+          "year": 2024,
+          "yearEnd": null,
+          "episodeCount": 20,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 20,
+                "mean": 2.125,
+                "density": 4.25,
+                "ci95": 0.469
+              },
+              "tvmaze": {
+                "n": 20,
+                "mean": 0.5,
+                "density": 1.667,
+                "ci95": 0.98
+              }
+            },
+            "year": null,
+            "n": 40,
+            "mean": 1.312,
+            "density": 2.958,
+            "ci95": 0.543
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 20,
+                "mean": 0.514,
+                "density": 0.463,
+                "ci95": 0.272
+              },
+              "tvmaze": {
+                "n": 20,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 40,
+            "mean": 0.257,
+            "density": 0.231,
+            "ci95": 0.136
+          }
+        }
+      ]
+    },
+    {
+      "id": "snw",
+      "name": "Star Trek: Strange New Worlds",
+      "short": "SNW",
+      "kind": "series",
+      "color": "#F0997B",
+      "ageRating": 12,
+      "entityCount": 0,
+      "textBasis": {
+        "episodes": 40,
+        "sources": {
+          "tvmaze": {
+            "covered": 40,
+            "medianWords": 27
+          },
+          "wikipedia": {
+            "covered": 3,
+            "medianWords": 386
+          },
+          "memory-alpha": {
+            "covered": 32,
+            "medianWords": 4569
+          }
+        }
+      },
+      "seasons": [
+        {
+          "season": 1,
+          "year": 2022,
+          "yearEnd": null,
+          "episodeCount": 10,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 9,
+                "mean": 2.304,
+                "density": 4.607,
+                "ci95": 0.674
+              },
+              "tvmaze": {
+                "n": 10,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0
+              },
+              "wikipedia": {
+                "n": 1,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 20,
+            "mean": 1.037,
+            "density": 2.073,
+            "ci95": 0.303
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 9,
+                "mean": 2.422,
+                "density": 2.18,
+                "ci95": 1.42
+              },
+              "tvmaze": {
+                "n": 10,
+                "mean": 2.0,
+                "density": 6.143,
+                "ci95": 2.613
+              },
+              "wikipedia": {
+                "n": 1,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 20,
+            "mean": 2.09,
+            "density": 4.053,
+            "ci95": 1.454
+          }
+        },
+        {
+          "season": 2,
+          "year": 2023,
+          "yearEnd": null,
+          "episodeCount": 10,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 10,
+                "mean": 1.956,
+                "density": 3.911,
+                "ci95": 0.696
+              },
+              "tvmaze": {
+                "n": 10,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0
+              },
+              "wikipedia": {
+                "n": 2,
+                "mean": 2.561,
+                "density": 5.122,
+                "ci95": 0.088
+              }
+            },
+            "year": null,
+            "n": 22,
+            "mean": 1.122,
+            "density": 2.243,
+            "ci95": 0.316
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 10,
+                "mean": 0.733,
+                "density": 0.66,
+                "ci95": 0.484
+              },
+              "tvmaze": {
+                "n": 10,
+                "mean": 1.0,
+                "density": 3.226,
+                "ci95": 1.96
+              },
+              "wikipedia": {
+                "n": 2,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 22,
+            "mean": 0.788,
+            "density": 1.766,
+            "ci95": 0.918
+          }
+        },
+        {
+          "season": 3,
+          "year": 2025,
+          "yearEnd": null,
+          "episodeCount": 10,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 10,
+                "mean": 2.398,
+                "density": 4.796,
+                "ci95": 0.863
+              },
+              "tvmaze": {
+                "n": 10,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 20,
+            "mean": 1.199,
+            "density": 2.398,
+            "ci95": 0.432
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 10,
+                "mean": 1.913,
+                "density": 1.722,
+                "ci95": 1.348
+              },
+              "tvmaze": {
+                "n": 10,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 20,
+            "mean": 0.956,
+            "density": 0.861,
+            "ci95": 0.674
+          }
+        },
+        {
+          "season": 4,
+          "year": 2026,
+          "yearEnd": null,
+          "episodeCount": 10,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 3,
+                "mean": 2.567,
+                "density": 5.134,
+                "ci95": 3.785
+              },
+              "tvmaze": {
+                "n": 10,
+                "mean": 2.0,
+                "density": 14.286,
+                "ci95": 2.613
+              }
+            },
+            "year": null,
+            "n": 13,
+            "mean": 2.131,
+            "density": 12.174,
+            "ci95": 2.192
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 3,
+                "mean": 0.663,
+                "density": 0.596,
+                "ci95": 1.948
+              },
+              "tvmaze": {
+                "n": 10,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 13,
+            "mean": 0.153,
+            "density": 0.138,
+            "ci95": 0.45
+          }
+        }
+      ]
+    },
+    {
+      "id": "vst",
+      "name": "Star Trek: Very Short Treks",
+      "short": "VST",
+      "kind": "series",
+      "color": "#888780",
+      "ageRating": 7,
+      "entityCount": 0,
+      "textBasis": {
+        "episodes": 5,
+        "sources": {
+          "tvmaze": {
+            "covered": 5,
+            "medianWords": 9
+          },
+          "wikipedia": {
+            "covered": 0,
+            "medianWords": 0
+          },
+          "memory-alpha": {
+            "covered": 4,
+            "medianWords": 749
+          }
+        }
+      },
+      "seasons": [
+        {
+          "season": 1,
+          "year": 2023,
+          "yearEnd": null,
+          "episodeCount": 5,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 4,
+                "mean": 2.943,
+                "density": 5.887,
+                "ci95": 2.918
+              },
+              "tvmaze": {
+                "n": 5,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 9,
+            "mean": 1.308,
+            "density": 2.616,
+            "ci95": 1.297
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 4,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0
+              },
+              "tvmaze": {
+                "n": 5,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 9,
+            "mean": 0.0,
+            "density": 0.0,
+            "ci95": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "sc",
+      "name": "Star Trek: Scouts",
+      "short": "SC",
+      "kind": "series",
+      "color": "#ED93B1",
+      "ageRating": 7,
+      "entityCount": 0,
+      "textBasis": {
+        "episodes": 27,
+        "sources": {
+          "tvmaze": {
+            "covered": 26,
+            "medianWords": 66
+          },
+          "wikipedia": {
+            "covered": 0,
+            "medianWords": 0
+          },
+          "memory-alpha": {
+            "covered": 0,
+            "medianWords": 0
+          }
+        }
+      },
+      "seasons": [
+        {
+          "season": 1,
+          "year": 2025,
+          "yearEnd": 2026,
+          "episodeCount": 20,
+          "sci": {
+            "perSource": {
+              "tvmaze": {
+                "n": 20,
+                "mean": 1.27,
+                "density": 2.54,
+                "ci95": 1.152
+              }
+            },
+            "year": null,
+            "n": 20,
+            "mean": 1.27,
+            "density": 2.54,
+            "ci95": 1.152
+          },
+          "fi": {
+            "perSource": {
+              "tvmaze": {
+                "n": 20,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 20,
+            "mean": 0.0,
+            "density": 0.0,
+            "ci95": 0.0
+          }
+        },
+        {
+          "season": 2,
+          "year": 2026,
+          "yearEnd": null,
+          "episodeCount": 7,
+          "sci": {
+            "perSource": {
+              "tvmaze": {
+                "n": 6,
+                "mean": 1.667,
+                "density": 4.273,
+                "ci95": 3.267
+              }
+            },
+            "year": null,
+            "n": 6,
+            "mean": 1.667,
+            "density": 4.273,
+            "ci95": 3.267
+          },
+          "fi": {
+            "perSource": {
+              "tvmaze": {
+                "n": 6,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 6,
+            "mean": 0.0,
+            "density": 0.0,
+            "ci95": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "sfa",
+      "name": "Star Trek: Starfleet Academy",
+      "short": "SFA",
+      "kind": "series",
+      "color": "#639922",
+      "ageRating": 12,
+      "entityCount": 0,
+      "textBasis": {
+        "episodes": 10,
+        "sources": {
+          "tvmaze": {
+            "covered": 10,
+            "medianWords": 42
+          },
+          "wikipedia": {
+            "covered": 10,
+            "medianWords": 560
+          },
+          "memory-alpha": {
+            "covered": 7,
+            "medianWords": 1313
+          }
+        }
+      },
+      "seasons": [
+        {
+          "season": 1,
+          "year": 2026,
+          "yearEnd": null,
+          "episodeCount": 10,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 7,
+                "mean": 2.99,
+                "density": 5.98,
+                "ci95": 1.799
+              },
+              "tvmaze": {
+                "n": 10,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0
+              },
+              "wikipedia": {
+                "n": 10,
+                "mean": 1.538,
+                "density": 3.075,
+                "ci95": 1.214
+              }
+            },
+            "year": null,
+            "n": 27,
+            "mean": 1.345,
+            "density": 2.689,
+            "ci95": 0.648
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 7,
+                "mean": 1.035,
+                "density": 0.931,
+                "ci95": 1.152
+              },
+              "tvmaze": {
+                "n": 10,
+                "mean": 1.0,
+                "density": 2.439,
+                "ci95": 1.96
+              },
+              "wikipedia": {
+                "n": 10,
+                "mean": 1.757,
+                "density": 1.582,
+                "ci95": 1.138
+              }
+            },
+            "year": null,
+            "n": 27,
+            "mean": 1.289,
+            "density": 1.731,
+            "ci95": 0.891
+          }
+        }
+      ]
+    },
+    {
+      "id": "st1",
+      "name": "Star Trek: The Motion Picture",
+      "short": "TMP",
+      "kind": "film",
+      "color": "#C77DBA",
+      "ageRating": null,
+      "entityCount": 0,
+      "textBasis": {
+        "episodes": 1,
+        "sources": {
+          "tvmaze": {
+            "covered": 0,
+            "medianWords": 0
+          },
+          "wikipedia": {
+            "covered": 1,
+            "medianWords": 510
+          },
+          "memory-alpha": {
+            "covered": 1,
+            "medianWords": 6847
+          }
+        }
+      },
+      "seasons": [
+        {
+          "season": 1,
+          "year": 1979,
+          "yearEnd": null,
+          "episodeCount": 1,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 1,
+                "mean": 7.229,
+                "density": 14.459,
+                "ci95": 0.0
+              },
+              "wikipedia": {
+                "n": 1,
+                "mean": 8.823,
+                "density": 17.647,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 2,
+            "mean": 8.026,
+            "density": 16.053,
+            "ci95": 0.0
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 1,
+                "mean": 0.324,
+                "density": 0.292,
+                "ci95": 0.0
+              },
+              "wikipedia": {
+                "n": 1,
+                "mean": 4.358,
+                "density": 3.922,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 2,
+            "mean": 2.341,
+            "density": 2.107,
+            "ci95": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "st2",
+      "name": "Star Trek II: The Wrath of Khan",
+      "short": "TWOK",
+      "kind": "film",
+      "color": "#4C9F70",
+      "ageRating": null,
+      "entityCount": 0,
+      "textBasis": {
+        "episodes": 1,
+        "sources": {
+          "tvmaze": {
+            "covered": 0,
+            "medianWords": 0
+          },
+          "wikipedia": {
+            "covered": 1,
+            "medianWords": 632
+          },
+          "memory-alpha": {
+            "covered": 1,
+            "medianWords": 4109
+          }
+        }
+      },
+      "seasons": [
+        {
+          "season": 1,
+          "year": 1982,
+          "yearEnd": null,
+          "episodeCount": 1,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 1,
+                "mean": 3.529,
+                "density": 7.058,
+                "ci95": 0.0
+              },
+              "wikipedia": {
+                "n": 1,
+                "mean": 4.747,
+                "density": 9.494,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 2,
+            "mean": 4.138,
+            "density": 8.276,
+            "ci95": 0.0
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 1,
+                "mean": 1.081,
+                "density": 0.973,
+                "ci95": 0.0
+              },
+              "wikipedia": {
+                "n": 1,
+                "mean": 1.758,
+                "density": 1.582,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 2,
+            "mean": 1.419,
+            "density": 1.278,
+            "ci95": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "st3",
+      "name": "Star Trek III: The Search for Spock",
+      "short": "TSFS",
+      "kind": "film",
+      "color": "#B98A3E",
+      "ageRating": null,
+      "entityCount": 0,
+      "textBasis": {
+        "episodes": 1,
+        "sources": {
+          "tvmaze": {
+            "covered": 0,
+            "medianWords": 0
+          },
+          "wikipedia": {
+            "covered": 1,
+            "medianWords": 478
+          },
+          "memory-alpha": {
+            "covered": 1,
+            "medianWords": 4516
+          }
+        }
+      },
+      "seasons": [
+        {
+          "season": 1,
+          "year": 1984,
+          "yearEnd": null,
+          "episodeCount": 1,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 1,
+                "mean": 2.99,
+                "density": 5.979,
+                "ci95": 0.0
+              },
+              "wikipedia": {
+                "n": 1,
+                "mean": 1.046,
+                "density": 2.092,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 2,
+            "mean": 2.018,
+            "density": 4.035,
+            "ci95": 0.0
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 1,
+                "mean": 1.722,
+                "density": 1.55,
+                "ci95": 0.0
+              },
+              "wikipedia": {
+                "n": 1,
+                "mean": 2.324,
+                "density": 2.092,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 2,
+            "mean": 2.023,
+            "density": 1.821,
+            "ci95": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "st4",
+      "name": "Star Trek IV: The Voyage Home",
+      "short": "TVH",
+      "kind": "film",
+      "color": "#378ADD",
+      "ageRating": null,
+      "entityCount": 0,
+      "textBasis": {
+        "episodes": 1,
+        "sources": {
+          "tvmaze": {
+            "covered": 0,
+            "medianWords": 0
+          },
+          "wikipedia": {
+            "covered": 1,
+            "medianWords": 600
+          },
+          "memory-alpha": {
+            "covered": 1,
+            "medianWords": 9576
+          }
+        }
+      },
+      "seasons": [
+        {
+          "season": 1,
+          "year": 1986,
+          "yearEnd": null,
+          "episodeCount": 1,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 1,
+                "mean": 4.803,
+                "density": 9.607,
+                "ci95": 0.0
+              },
+              "wikipedia": {
+                "n": 1,
+                "mean": 7.5,
+                "density": 15.0,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 2,
+            "mean": 6.152,
+            "density": 12.303,
+            "ci95": 0.0
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 1,
+                "mean": 0.464,
+                "density": 0.418,
+                "ci95": 0.0
+              },
+              "wikipedia": {
+                "n": 1,
+                "mean": 1.852,
+                "density": 1.667,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 2,
+            "mean": 1.158,
+            "density": 1.042,
+            "ci95": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "st5",
+      "name": "Star Trek V: The Final Frontier",
+      "short": "TFF",
+      "kind": "film",
+      "color": "#D85A30",
+      "ageRating": null,
+      "entityCount": 0,
+      "textBasis": {
+        "episodes": 1,
+        "sources": {
+          "tvmaze": {
+            "covered": 0,
+            "medianWords": 0
+          },
+          "wikipedia": {
+            "covered": 1,
+            "medianWords": 621
+          },
+          "memory-alpha": {
+            "covered": 1,
+            "medianWords": 6928
+          }
+        }
+      },
+      "seasons": [
+        {
+          "season": 1,
+          "year": 1989,
+          "yearEnd": null,
+          "episodeCount": 1,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 1,
+                "mean": 1.444,
+                "density": 2.887,
+                "ci95": 0.0
+              },
+              "wikipedia": {
+                "n": 1,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 2,
+            "mean": 0.722,
+            "density": 1.444,
+            "ci95": 0.0
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 1,
+                "mean": 3.529,
+                "density": 3.176,
+                "ci95": 0.0
+              },
+              "wikipedia": {
+                "n": 1,
+                "mean": 5.368,
+                "density": 4.831,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 2,
+            "mean": 4.449,
+            "density": 4.004,
+            "ci95": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "st6",
+      "name": "Star Trek VI: The Undiscovered Country",
+      "short": "TUC",
+      "kind": "film",
+      "color": "#1D9E75",
+      "ageRating": null,
+      "entityCount": 0,
+      "textBasis": {
+        "episodes": 1,
+        "sources": {
+          "tvmaze": {
+            "covered": 0,
+            "medianWords": 0
+          },
+          "wikipedia": {
+            "covered": 1,
+            "medianWords": 557
+          },
+          "memory-alpha": {
+            "covered": 1,
+            "medianWords": 5641
+          }
+        }
+      },
+      "seasons": [
+        {
+          "season": 1,
+          "year": 1991,
+          "yearEnd": null,
+          "episodeCount": 1,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 1,
+                "mean": 2.748,
+                "density": 5.495,
+                "ci95": 0.0
+              },
+              "wikipedia": {
+                "n": 1,
+                "mean": 1.796,
+                "density": 3.591,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 2,
+            "mean": 2.272,
+            "density": 4.543,
+            "ci95": 0.0
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 1,
+                "mean": 0.394,
+                "density": 0.355,
+                "ci95": 0.0
+              },
+              "wikipedia": {
+                "n": 1,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 2,
+            "mean": 0.197,
+            "density": 0.177,
+            "ci95": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "st7",
+      "name": "Star Trek Generations",
+      "short": "GEN",
+      "kind": "film",
+      "color": "#7F77DD",
+      "ageRating": null,
+      "entityCount": 0,
+      "textBasis": {
+        "episodes": 1,
+        "sources": {
+          "tvmaze": {
+            "covered": 0,
+            "medianWords": 0
+          },
+          "wikipedia": {
+            "covered": 1,
+            "medianWords": 642
+          },
+          "memory-alpha": {
+            "covered": 1,
+            "medianWords": 7963
+          }
+        }
+      },
+      "seasons": [
+        {
+          "season": 1,
+          "year": 1994,
+          "yearEnd": null,
+          "episodeCount": 1,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 1,
+                "mean": 3.139,
+                "density": 6.279,
+                "ci95": 0.0
+              },
+              "wikipedia": {
+                "n": 1,
+                "mean": 7.788,
+                "density": 15.576,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 2,
+            "mean": 5.463,
+            "density": 10.928,
+            "ci95": 0.0
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 1,
+                "mean": 0.977,
+                "density": 0.879,
+                "ci95": 0.0
+              },
+              "wikipedia": {
+                "n": 1,
+                "mean": 1.731,
+                "density": 1.558,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 2,
+            "mean": 1.354,
+            "density": 1.219,
+            "ci95": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "st8",
+      "name": "Star Trek: First Contact",
+      "short": "FC",
+      "kind": "film",
+      "color": "#EF9F27",
+      "ageRating": null,
+      "entityCount": 0,
+      "textBasis": {
+        "episodes": 1,
+        "sources": {
+          "tvmaze": {
+            "covered": 0,
+            "medianWords": 0
+          },
+          "wikipedia": {
+            "covered": 1,
+            "medianWords": 695
+          },
+          "memory-alpha": {
+            "covered": 1,
+            "medianWords": 6006
+          }
+        }
+      },
+      "seasons": [
+        {
+          "season": 1,
+          "year": 1996,
+          "yearEnd": null,
+          "episodeCount": 1,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 1,
+                "mean": 4.329,
+                "density": 8.658,
+                "ci95": 0.0
+              },
+              "wikipedia": {
+                "n": 1,
+                "mean": 7.194,
+                "density": 14.388,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 2,
+            "mean": 5.761,
+            "density": 11.523,
+            "ci95": 0.0
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 1,
+                "mean": 0.556,
+                "density": 0.5,
+                "ci95": 0.0
+              },
+              "wikipedia": {
+                "n": 1,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 2,
+            "mean": 0.278,
+            "density": 0.25,
+            "ci95": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "st9",
+      "name": "Star Trek: Insurrection",
+      "short": "INS",
+      "kind": "film",
+      "color": "#D4537E",
+      "ageRating": null,
+      "entityCount": 0,
+      "textBasis": {
+        "episodes": 1,
+        "sources": {
+          "tvmaze": {
+            "covered": 0,
+            "medianWords": 0
+          },
+          "wikipedia": {
+            "covered": 1,
+            "medianWords": 614
+          },
+          "memory-alpha": {
+            "covered": 1,
+            "medianWords": 8973
+          }
+        }
+      },
+      "seasons": [
+        {
+          "season": 1,
+          "year": 1998,
+          "yearEnd": null,
+          "episodeCount": 1,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 1,
+                "mean": 2.619,
+                "density": 5.238,
+                "ci95": 0.0
+              },
+              "wikipedia": {
+                "n": 1,
+                "mean": 1.628,
+                "density": 3.257,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 2,
+            "mean": 2.123,
+            "density": 4.248,
+            "ci95": 0.0
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 1,
+                "mean": 0.371,
+                "density": 0.334,
+                "ci95": 0.0
+              },
+              "wikipedia": {
+                "n": 1,
+                "mean": 1.81,
+                "density": 1.629,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 2,
+            "mean": 1.091,
+            "density": 0.982,
+            "ci95": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "st10",
+      "name": "Star Trek: Nemesis",
+      "short": "NEM",
+      "kind": "film",
+      "color": "#5DCAA5",
+      "ageRating": null,
+      "entityCount": 0,
+      "textBasis": {
+        "episodes": 1,
+        "sources": {
+          "tvmaze": {
+            "covered": 0,
+            "medianWords": 0
+          },
+          "wikipedia": {
+            "covered": 1,
+            "medianWords": 542
+          },
+          "memory-alpha": {
+            "covered": 1,
+            "medianWords": 8150
+          }
+        }
+      },
+      "seasons": [
+        {
+          "season": 1,
+          "year": 2002,
+          "yearEnd": null,
+          "episodeCount": 1,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 1,
+                "mean": 1.718,
+                "density": 3.436,
+                "ci95": 0.0
+              },
+              "wikipedia": {
+                "n": 1,
+                "mean": 4.612,
+                "density": 9.225,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 2,
+            "mean": 3.165,
+            "density": 6.33,
+            "ci95": 0.0
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 1,
+                "mean": 0.137,
+                "density": 0.123,
+                "ci95": 0.0
+              },
+              "wikipedia": {
+                "n": 1,
+                "mean": 2.05,
+                "density": 1.845,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 2,
+            "mean": 1.093,
+            "density": 0.984,
+            "ci95": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "st11",
+      "name": "Star Trek (2009)",
+      "short": "ST09",
+      "kind": "film",
+      "color": "#AFA9EC",
+      "ageRating": null,
+      "entityCount": 0,
+      "textBasis": {
+        "episodes": 1,
+        "sources": {
+          "tvmaze": {
+            "covered": 0,
+            "medianWords": 0
+          },
+          "wikipedia": {
+            "covered": 1,
+            "medianWords": 676
+          },
+          "memory-alpha": {
+            "covered": 1,
+            "medianWords": 5583
+          }
+        }
+      },
+      "seasons": [
+        {
+          "season": 1,
+          "year": 2009,
+          "yearEnd": null,
+          "episodeCount": 1,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 1,
+                "mean": 2.955,
+                "density": 5.911,
+                "ci95": 0.0
+              },
+              "wikipedia": {
+                "n": 1,
+                "mean": 2.958,
+                "density": 5.917,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 2,
+            "mean": 2.957,
+            "density": 5.914,
+            "ci95": 0.0
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 1,
+                "mean": 0.597,
+                "density": 0.537,
+                "ci95": 0.0
+              },
+              "wikipedia": {
+                "n": 1,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 2,
+            "mean": 0.298,
+            "density": 0.269,
+            "ci95": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "st12",
+      "name": "Star Trek Into Darkness",
+      "short": "ID",
+      "kind": "film",
+      "color": "#BA7517",
+      "ageRating": null,
+      "entityCount": 0,
+      "textBasis": {
+        "episodes": 1,
+        "sources": {
+          "tvmaze": {
+            "covered": 0,
+            "medianWords": 0
+          },
+          "wikipedia": {
+            "covered": 1,
+            "medianWords": 656
+          },
+          "memory-alpha": {
+            "covered": 1,
+            "medianWords": 5643
+          }
+        }
+      },
+      "seasons": [
+        {
+          "season": 1,
+          "year": 2013,
+          "yearEnd": null,
+          "episodeCount": 1,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 1,
+                "mean": 3.367,
+                "density": 6.734,
+                "ci95": 0.0
+              },
+              "wikipedia": {
+                "n": 1,
+                "mean": 4.573,
+                "density": 9.146,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 2,
+            "mean": 3.97,
+            "density": 7.94,
+            "ci95": 0.0
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 1,
+                "mean": 1.378,
+                "density": 1.24,
+                "ci95": 0.0
+              },
+              "wikipedia": {
+                "n": 1,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 2,
+            "mean": 0.689,
+            "density": 0.62,
+            "ci95": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "st13",
+      "name": "Star Trek Beyond",
+      "short": "BEY",
+      "kind": "film",
+      "color": "#E24B4A",
+      "ageRating": null,
+      "entityCount": 0,
+      "textBasis": {
+        "episodes": 1,
+        "sources": {
+          "tvmaze": {
+            "covered": 0,
+            "medianWords": 0
+          },
+          "wikipedia": {
+            "covered": 1,
+            "medianWords": 692
+          },
+          "memory-alpha": {
+            "covered": 1,
+            "medianWords": 2120
+          }
+        }
+      },
+      "seasons": [
+        {
+          "season": 1,
+          "year": 2016,
+          "yearEnd": null,
+          "episodeCount": 1,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 1,
+                "mean": 2.83,
+                "density": 5.66,
+                "ci95": 0.0
+              },
+              "wikipedia": {
+                "n": 1,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 2,
+            "mean": 1.415,
+            "density": 2.83,
+            "ci95": 0.0
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 1,
+                "mean": 2.62,
+                "density": 2.358,
+                "ci95": 0.0
+              },
+              "wikipedia": {
+                "n": 1,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 2,
+            "mean": 1.31,
+            "density": 1.179,
+            "ci95": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "st14",
+      "name": "Star Trek: Section 31",
+      "short": "S31",
+      "kind": "film",
+      "color": "#85B7EB",
+      "ageRating": null,
+      "entityCount": 0,
+      "textBasis": {
+        "episodes": 1,
+        "sources": {
+          "tvmaze": {
+            "covered": 0,
+            "medianWords": 0
+          },
+          "wikipedia": {
+            "covered": 1,
+            "medianWords": 635
+          },
+          "memory-alpha": {
+            "covered": 1,
+            "medianWords": 6354
+          }
+        }
+      },
+      "seasons": [
+        {
+          "season": 1,
+          "year": 2025,
+          "yearEnd": null,
+          "episodeCount": 1,
+          "sci": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 1,
+                "mean": 1.731,
+                "density": 3.462,
+                "ci95": 0.0
+              },
+              "wikipedia": {
+                "n": 1,
+                "mean": 2.362,
+                "density": 4.724,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 2,
+            "mean": 2.046,
+            "density": 4.093,
+            "ci95": 0.0
+          },
+          "fi": {
+            "perSource": {
+              "memory-alpha": {
+                "n": 1,
+                "mean": 0.524,
+                "density": 0.472,
+                "ci95": 0.0
+              },
+              "wikipedia": {
+                "n": 1,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0
+              }
+            },
+            "year": null,
+            "n": 2,
+            "mean": 0.262,
+            "density": 0.236,
+            "ci95": 0.0
+          }
+        }
+      ]
+    }
+  ]
+}

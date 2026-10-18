@@ -5,20 +5,159 @@
   "wikis": [
     { "id": "memory-alpha", "name": "Memory Alpha", "url": "https://memory-alpha.fandom.com", "license": "CC BY-NC (verify per page)" }
   ],
+  "scopeNote": "Official Star Trek only: the licensed television series and the theatrical / television films. Fan productions listed by TVmaze (Star Trek Continues, Renegades, Odyssey) are excluded — they are not Star Trek.",
   "series": [
     {
       "id": "tos",
       "name": "Star Trek: The Original Series",
       "short": "TOS",
+      "wikiHint": "Star Trek: The Original Series episode",
       "years": [1966, 1969],
-      "color": "#378ADD",
       "ageRating": 10,
-      "sourceIds": {
-        "tvmaze": 490,
-        "wikidata": "Q1071",
-        "imdb": "tt0060028"
-      }
+      "sourceIds": { "tvmaze": 490, "wikidata": "Q1071", "imdb": "tt0060028" }
+    },
+    {
+      "id": "tas",
+      "name": "Star Trek: The Animated Series",
+      "short": "TAS",
+      "wikiHint": "Star Trek: The Animated Series episode",
+      "years": [1973, 1974],
+      "ageRating": 7,
+      "sourceIds": { "tvmaze": 3513 }
+    },
+    {
+      "id": "tng",
+      "name": "Star Trek: The Next Generation",
+      "short": "TNG",
+      "wikiHint": "Star Trek: The Next Generation episode",
+      "years": [1987, 1994],
+      "ageRating": 10,
+      "sourceIds": { "tvmaze": 491 }
+    },
+    {
+      "id": "ds9",
+      "name": "Star Trek: Deep Space Nine",
+      "short": "DS9",
+      "wikiHint": "Star Trek: Deep Space Nine episode",
+      "years": [1993, 1999],
+      "ageRating": 14,
+      "sourceIds": { "tvmaze": 493 }
+    },
+    {
+      "id": "voy",
+      "name": "Star Trek: Voyager",
+      "short": "VOY",
+      "wikiHint": "Star Trek: Voyager episode",
+      "years": [1995, 2001],
+      "ageRating": 14,
+      "sourceIds": { "tvmaze": 492 }
+    },
+    {
+      "id": "ent",
+      "name": "Star Trek: Enterprise",
+      "short": "ENT",
+      "wikiHint": "Star Trek: Enterprise episode",
+      "years": [2001, 2005],
+      "ageRating": 13,
+      "sourceIds": { "tvmaze": 714 }
+    },
+    {
+      "id": "dis",
+      "name": "Star Trek: Discovery",
+      "short": "DIS",
+      "wikiHint": "Star Trek: Discovery episode",
+      "years": [2017, 2024],
+      "ageRating": 16,
+      "sourceIds": { "tvmaze": 7480 }
+    },
+    {
+      "id": "st",
+      "name": "Star Trek: Short Treks",
+      "short": "ST",
+      "wikiHint": "Star Trek: Short Treks episode",
+      "years": [2018, 2020],
+      "ageRating": 13,
+      "sourceIds": { "tvmaze": 39744 }
+    },
+    {
+      "id": "pic",
+      "name": "Star Trek: Picard",
+      "short": "PIC",
+      "wikiHint": "Star Trek: Picard episode",
+      "years": [2020, 2023],
+      "ageRating": 16,
+      "sourceIds": { "tvmaze": 42193 }
+    },
+    {
+      "id": "ld",
+      "name": "Star Trek: Lower Decks",
+      "short": "LD",
+      "wikiHint": "Star Trek: Lower Decks episode",
+      "years": [2020, 2024],
+      "ageRating": 13,
+      "sourceIds": { "tvmaze": 39323 }
+    },
+    {
+      "id": "pro",
+      "name": "Star Trek: Prodigy",
+      "short": "PRO",
+      "wikiHint": "Star Trek: Prodigy episode",
+      "years": [2021, 2024],
+      "ageRating": 7,
+      "sourceIds": { "tvmaze": 49333 }
+    },
+    {
+      "id": "snw",
+      "name": "Star Trek: Strange New Worlds",
+      "short": "SNW",
+      "wikiHint": "Star Trek: Strange New Worlds episode",
+      "years": [2022, null],
+      "ageRating": 12,
+      "sourceIds": { "tvmaze": 48090 }
+    },
+    {
+      "id": "vst",
+      "name": "Star Trek: Very Short Treks",
+      "short": "VST",
+      "wikiHint": "Star Trek: Very Short Treks episode",
+      "years": [2023, 2023],
+      "ageRating": 7,
+      "sourceIds": { "tvmaze": 71090 }
+    },
+    {
+      "id": "sc",
+      "name": "Star Trek: Scouts",
+      "short": "SC",
+      "wikiHint": "Star Trek: Scouts episode",
+      "years": [2025, null],
+      "ageRating": 7,
+      "sourceIds": { "tvmaze": 87107 }
+    },
+    {
+      "id": "sfa",
+      "name": "Star Trek: Starfleet Academy",
+      "short": "SFA",
+      "wikiHint": "Star Trek: Starfleet Academy episode",
+      "years": [2026, null],
+      "ageRating": 12,
+      "sourceIds": { "tvmaze": 60302 }
     }
+  ],
+  "films": [
+    { "id": "st1", "name": "Star Trek: The Motion Picture", "short": "TMP", "year": 1979, "wikipedia": "Star Trek: The Motion Picture" },
+    { "id": "st2", "name": "Star Trek II: The Wrath of Khan", "short": "TWOK", "year": 1982, "wikipedia": "Star Trek II: The Wrath of Khan" },
+    { "id": "st3", "name": "Star Trek III: The Search for Spock", "short": "TSFS", "year": 1984, "wikipedia": "Star Trek III: The Search for Spock" },
+    { "id": "st4", "name": "Star Trek IV: The Voyage Home", "short": "TVH", "year": 1986, "wikipedia": "Star Trek IV: The Voyage Home" },
+    { "id": "st5", "name": "Star Trek V: The Final Frontier", "short": "TFF", "year": 1989, "wikipedia": "Star Trek V: The Final Frontier" },
+    { "id": "st6", "name": "Star Trek VI: The Undiscovered Country", "short": "TUC", "year": 1991, "wikipedia": "Star Trek VI: The Undiscovered Country" },
+    { "id": "st7", "name": "Star Trek Generations", "short": "GEN", "year": 1994, "wikipedia": "Star Trek Generations" },
+    { "id": "st8", "name": "Star Trek: First Contact", "short": "FC", "year": 1996, "wikipedia": "Star Trek: First Contact" },
+    { "id": "st9", "name": "Star Trek: Insurrection", "short": "INS", "year": 1998, "wikipedia": "Star Trek: Insurrection" },
+    { "id": "st10", "name": "Star Trek: Nemesis", "short": "NEM", "year": 2002, "wikipedia": "Star Trek: Nemesis" },
+    { "id": "st11", "name": "Star Trek (2009)", "short": "ST09", "year": 2009, "wikipedia": "Star Trek (2009 film)" },
+    { "id": "st12", "name": "Star Trek Into Darkness", "short": "ID", "year": 2013, "wikipedia": "Star Trek Into Darkness" },
+    { "id": "st13", "name": "Star Trek Beyond", "short": "BEY", "year": 2016, "wikipedia": "Star Trek Beyond" },
+    { "id": "st14", "name": "Star Trek: Section 31", "short": "S31", "year": 2025, "wikipedia": "Star Trek: Section 31" }
   ],
   "sources": {
     "tvmaze": {
@@ -32,6 +171,15 @@
       "kind": "plot-section",
       "license": "CC BY-SA 4.0",
       "homepage": "https://en.wikipedia.org"
+    },
+    "memory-alpha": {
+      "category": "plot-summary",
+      "kind": "wiki-summary",
+      "license": "CC BY-NC 3.0 (Fandom; verify per page — non-commercial use only)",
+      "homepage": "https://memory-alpha.fandom.com",
+      "api": "https://memory-alpha.fandom.com/api.php",
+      "hint": "episode",
+      "notes": "Covers every Star Trek episode, including the streaming era that Wikipedia has no per-episode articles for. Plot text comes from the article's \"Summary\" section."
     },
     "wikidata": {
       "category": "metadata",

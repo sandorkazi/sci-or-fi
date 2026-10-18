@@ -10,6 +10,18 @@ import statistics
 
 from . import config, lexicon, sources
 
+# Assigned to series that do not pin a colour, so a franchise with 15 series and
+# 14 films stays legible without hand-picking 29 hex values.
+PALETTE = [
+    "#378ADD", "#D85A30", "#1D9E75", "#7F77DD", "#EF9F27", "#D4537E",
+    "#5DCAA5", "#AFA9EC", "#BA7517", "#E24B4A", "#85B7EB", "#F0997B",
+    "#888780", "#ED93B1", "#639922", "#C77DBA", "#4C9F70", "#B98A3E",
+]
+
+
+def colour_for(meta: dict, index: int) -> str:
+    return meta.get("color") or PALETTE[index % len(PALETTE)]
+
 
 # ------------------------------------------------------------------- ingest
 def build_snapshot(franchise_id: str, date: str, *, refresh: bool = False) -> dict:
@@ -21,6 +33,7 @@ def build_snapshot(franchise_id: str, date: str, *, refresh: bool = False) -> di
         sid = series["id"]
         tvmaze_id = series.get("sourceIds", {}).get("tvmaze")
         if tvmaze_id is None:
+            provenance.append({"source": "tvmaze", "series": sid, "skipped": "no tvmaze id"})
             continue
         raw = sources.tvmaze_episodes(tvmaze_id, refresh=refresh)
         provenance.append({"source": "tvmaze", "series": sid, "id": tvmaze_id, "episodes": len(raw)})
@@ -30,6 +43,7 @@ def build_snapshot(franchise_id: str, date: str, *, refresh: bool = False) -> di
                 {
                     "id": f"{franchise_id}:{sid}:S{ep['season']:02d}E{ep['episode']:02d}",
                     "series": sid,
+                    "kind": "episode",
                     "season": ep["season"],
                     "episode": ep["episode"],
                     "title": ep["title"],
@@ -38,6 +52,30 @@ def build_snapshot(franchise_id: str, date: str, *, refresh: bool = False) -> di
                     "sourceIds": ep["sourceIds"],
                 }
             )
+
+    # Films have no TVmaze presence, so their metadata is pinned in franchise.json
+    # and their plot text is fetched from the wikis by exact article title (see
+    # extract_signals), never by search.
+    for film in meta.get("films", []):
+        if not film.get("wikipedia"):
+            provenance.append({"source": "wikipedia", "film": film["id"], "skipped": "no article pinned"})
+            continue
+        episodes.append(
+            {
+                "id": f"{franchise_id}:{film['id']}:S01E01",
+                "series": film["id"],
+                "kind": "film",
+                "season": 1,
+                "episode": 1,
+                "title": film["name"],
+                "airDate": None,
+                "year": film.get("year"),
+                "sourceIds": {},
+                "wikipedia": film["wikipedia"],
+                "wikiTitles": film.get("wikiTitles", {}),
+            }
+        )
+        provenance.append({"source": "wikipedia", "film": film["id"], "article": film["wikipedia"]})
 
     episodes.sort(key=lambda e: (e["series"], e["season"], e["episode"]))
     # Note: source *text* is never written here. Snapshots carry facts and
@@ -53,6 +91,23 @@ def build_snapshot(franchise_id: str, date: str, *, refresh: bool = False) -> di
     return snapshot
 
 
+def _wiki_targets(series: dict, scope_sources: list[str], declared: dict) -> list[tuple[str, str, str]]:
+    """(source_id, api_url, search hint) for each MediaWiki source in scope.
+
+    Wikipedia's hint is per series (franchise.json ``wikiHint``, because "Rose"
+    needs "Doctor Who episode" and "The Man Trap" needs "Star Trek: The Original
+    Series episode"); each franchise wiki carries one hint on the source itself.
+    """
+    targets: list[tuple[str, str, str]] = []
+    if "wikipedia" in scope_sources and "wikipedia" in declared:
+        hint = series.get("wikiHint") or f'{series["name"]} episode'
+        targets.append(("wikipedia", sources.WIKI_API, hint))
+    for source_id, spec in declared.items():
+        if source_id in scope_sources and spec.get("api"):
+            targets.append((source_id, spec["api"], spec.get("hint") or "episode"))
+    return targets
+
+
 # ------------------------------------------------------------------ signals
 def extract_signals(
     franchise_id: str, date: str, rubric: dict, *, refresh: bool = False, on_progress=None
@@ -61,8 +116,21 @@ def extract_signals(
     episodes = snapshot["episodes"]
     meta = config.franchise_meta(franchise_id)
     compiled = lexicon.compile_axes(rubric)
-    compiled_entities = lexicon.compile_entities(config.franchise_entities(franchise_id))
-    scope_sources = rubric["scope"]["sources"]
+    # Entities are curated per series. Coding a series against a franchise-wide
+    # list would import another series' gods (TOS "Apollo" is not TNG's Apollo),
+    # so a series with no list is coded lexicon-only instead.
+    all_entities = config.franchise_entities(franchise_id)
+    shared_entities = [e for e in all_entities if not e.get("series")]
+    by_series: dict[str, list[dict]] = {}
+    for entity in all_entities:
+        if entity.get("series"):
+            by_series.setdefault(entity["series"], []).append(entity)
+    work_ids = {s["id"] for s in meta["series"]} | {f["id"] for f in meta.get("films", [])}
+    compiled_entities_by_series = {
+        sid: lexicon.compile_entities(by_series.get(sid, []) + shared_entities) for sid in work_ids
+    }
+    scope_sources = config.effective_sources(franchise_id, rubric)
+    declared_sources = meta.get("sources", {})
 
     # Source text is fetched here and held in memory only: it is never committed.
     texts: dict[str, dict[str, dict]] = {}
@@ -71,6 +139,7 @@ def extract_signals(
         group = [e for e in episodes if e["series"] == sid]
         if not group:
             continue
+        titles = [e["title"] for e in group]
         tvmaze_id = series.get("sourceIds", {}).get("tvmaze")
         if "tvmaze" in scope_sources and tvmaze_id is not None:
             raw = sources.tvmaze_episodes(tvmaze_id, refresh=refresh)
@@ -79,22 +148,56 @@ def extract_signals(
                 hit = by_number.get((ep["season"], ep["episode"]))
                 if hit and hit["text"]:
                     texts.setdefault(ep["id"], {})["tvmaze"] = {"text": hit["text"], "kind": hit["textKind"]}
-        if "wikipedia" in scope_sources:
-            plots = sources.wikipedia_plots([e["title"] for e in group], refresh=refresh)
+        for source_id, api_url, hint in _wiki_targets(series, scope_sources, declared_sources):
+            plots = sources.mediawiki_plots(api_url, titles, hint=hint, refresh=refresh)
             if on_progress:
-                on_progress(sid, len(plots), len(group))
+                on_progress(f"{sid} {source_id}", len(plots), len(group))
             for ep in group:
                 hit = plots.get(ep["title"])
                 if hit:
-                    texts.setdefault(ep["id"], {})["wikipedia"] = {"text": hit["text"], "kind": hit["textKind"]}
+                    texts.setdefault(ep["id"], {})[source_id] = {
+                        "text": hit["text"],
+                        "kind": hit["textKind"],
+                    }
+
+    # Films: no search. Wikipedia is pinned by article title; the franchise wikis
+    # are looked up by the film's own name — Memory Alpha's film articles carry the
+    # film title — with a per-film override where that is not so (the 1996 Doctor
+    # Who film is Tardis' "Doctor Who (TV story)", not "Doctor Who (1996 ...)").
+    film_wiki_sources = [("wikipedia", sources.WIKI_API)] + [
+        (sid, spec["api"]) for sid, spec in declared_sources.items() if spec.get("api")
+    ]
+    film_scope = [sid for sid, _ in film_wiki_sources if sid in scope_sources]
+    for ep in [e for e in episodes if e.get("kind") == "film"]:
+        overrides = ep.get("wikiTitles") or {}
+        for source_id, api_url in film_wiki_sources:
+            if source_id not in scope_sources:
+                continue
+            title = (
+                ep.get("wikipedia")
+                if source_id == "wikipedia"
+                else (overrides.get(source_id) or ep.get("title"))
+            )
+            if not title:
+                continue
+            hit = sources.mediawiki_plot_by_title(api_url, title, refresh=refresh)
+            if hit:
+                texts.setdefault(ep["id"], {})[source_id] = {"text": hit["text"], "kind": hit["textKind"]}
+        if on_progress:
+            on_progress(f"{ep['series']} films", len(texts.get(ep["id"], {})), len(film_scope))
 
     rows: list[dict] = []
     for ep in episodes:
         for source_id, payload in texts.get(ep["id"], {}).items():
             if source_id not in scope_sources:
                 continue
+            compiled_entities = compiled_entities_by_series.get(ep["series"], {})
             coded = lexicon.code_text(
-                payload["text"], rubric, compiled=compiled, compiled_entities=compiled_entities
+                payload["text"],
+                rubric,
+                compiled=compiled,
+                compiled_entities=compiled_entities,
+                entity_coding=bool(compiled_entities),
             )
             for axis, data in coded.items():
                 if not data["words"]:
@@ -174,8 +277,9 @@ def score_scope(
 ) -> dict:
     rows = config.read_jsonl(config.signals_path(franchise_id, date))
     meta = config.franchise_meta(franchise_id)
-    scope_sources = scope_sources or rubric["scope"]["sources"]
-    scope_series = scope_series or [s["id"] for s in meta["series"]]
+    scope_sources = scope_sources or config.effective_sources(franchise_id, rubric)
+    if scope_series is None:
+        scope_series = [s["id"] for s in meta["series"]] + [f["id"] for f in meta.get("films", [])]
 
     # (series, season, axis, source) -> per-episode scores
     buckets: dict[tuple, list[float]] = {}
@@ -234,10 +338,49 @@ def score_scope(
         lo, hi = spans.get(key, (year, year))
         spans[key] = (min(lo, year), max(hi, year))
 
-    order = {s["id"]: i for i, s in enumerate(meta["series"])}
+    # Works = series + films, kept in declaration order so the chart and the
+    # legend are stable across runs.
+    works = [{**s, "kind": s.get("kind", "series"), "order": i} for i, s in enumerate(meta["series"])]
+    works += [
+        {**f, "kind": "film", "order": len(meta["series"]) + j}
+        for j, f in enumerate(meta.get("films", []))
+    ]
+    by_id = {w["id"]: w for w in works}
+    entity_counts: dict[str, int] = {}
+    for ent in config.franchise_entities(franchise_id):
+        series_key = ent.get("series")
+        if series_key:
+            entity_counts[series_key] = entity_counts.get(series_key, 0) + 1
+
+    # Text basis: how much evidence each work actually rests on. A franchise can
+    # have an episode count and still be measured almost entirely on 30-word
+    # summaries, so this is published next to the scores rather than buried.
+    episodes_per_series: dict[str, int] = {}
+    covered: dict[tuple, set] = {}
+    words_by: dict[tuple, list] = {}
+    for ep in snapshot["episodes"]:
+        episodes_per_series[ep["series"]] = episodes_per_series.get(ep["series"], 0) + 1
+    for row in rows:
+        if row["source"] not in scope_sources or row["series"] not in scope_series:
+            continue
+        key = (row["series"], row["source"])
+        covered.setdefault(key, set()).add(row["episodeId"])
+        words_by.setdefault(key, []).append(row["words"])
+
+    def text_basis(series_id: str) -> dict:
+        sources_detail = {}
+        for source in scope_sources:
+            key = (series_id, source)
+            words = words_by.get(key) or []
+            sources_detail[source] = {
+                "covered": len(covered.get(key, ())),
+                "medianWords": int(statistics.median(words)) if words else 0,
+            }
+        return {"episodes": episodes_per_series.get(series_id, 0), "sources": sources_detail}
+
     out_series = []
-    for series in sorted({k[0] for k in seasons}, key=lambda s: order.get(s, 99)):
-        series_meta = next(s for s in meta["series"] if s["id"] == series)
+    for series in sorted({k[0] for k in seasons}, key=lambda s: by_id.get(s, {}).get("order", 999)):
+        work = by_id.get(series, {"id": series, "name": series, "kind": "series", "order": 999})
         out_seasons = []
         for (s_id, season) in sorted({k for k in seasons if k[0] == series}, key=lambda k: k[1]):
             axes = seasons[(s_id, season)]
@@ -255,10 +398,13 @@ def score_scope(
         out_series.append(
             {
                 "id": series,
-                "name": series_meta["name"],
-                "short": series_meta.get("short", series),
-                "color": series_meta.get("color", "#888780"),
-                "ageRating": series_meta.get("ageRating"),
+                "name": work["name"],
+                "short": work.get("short", series),
+                "kind": work.get("kind", "series"),
+                "color": colour_for(work, work.get("order", 0)),
+                "ageRating": work.get("ageRating"),
+                "entityCount": entity_counts.get(series, 0),
+                "textBasis": text_basis(series),
                 "seasons": out_seasons,
             }
         )

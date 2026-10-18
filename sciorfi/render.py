@@ -43,7 +43,10 @@ def _latest_derived(franchise_id: str, date: str, rubric_version: str) -> dict:
     candidates = sorted(directory.glob(f"*-{rubric_version}.json"))
     if not candidates:
         raise SystemExit(f"no derived output for {rubric_version} in {directory} (run: sciorfi score)")
-    return config.read_json(candidates[-1])
+    # Scope hashes sort arbitrarily, so "latest" must mean most recently written,
+    # not lexicographically last name.
+    latest = max(candidates, key=lambda p: p.stat().st_mtime)
+    return config.read_json(latest)
 
 
 def _baseline(franchise_id: str) -> dict | None:
@@ -206,7 +209,11 @@ const BASELINE = __BASELINE__;
 const CARD = (getComputedStyle(document.documentElement).getPropertyValue('--card') || '#fff').trim();
 
 const selected = new Set(DATA.scope.sources);
-const on = new Set(DATA.series.map(s => s.id));
+const films = DATA.series.filter(s => s.kind === 'film');
+const FILM_GROUP = '__films__';
+const on = new Set(DATA.series.filter(s => s.kind !== 'film').map(s => s.id));
+if (films.length) on.add(FILM_GROUP);
+const active = s => s.kind === 'film' ? on.has(FILM_GROUP) : on.has(s.id);
 let showBaseline = true;
 let zoom = false;
 
@@ -229,6 +236,7 @@ let chart = null;
 function build() {
   const datasets = [];
   for (const s of DATA.series) {
+    if (s.kind === 'film') continue;
     const pts = [];
     for (const season of s.seasons) {
       const sci = combine(season, 'sci'), fi = combine(season, 'fi');
@@ -239,6 +247,24 @@ function build() {
     datasets.push({ label: s.short, data: pts, backgroundColor: s.color + 'd9',
                     borderColor: CARD, borderWidth: 1.5, hidden: !on.has(s.id),
                     hoverBorderColor: s.color, hoverBorderWidth: 2 });
+  }
+  // Films are one group, not 14 near-invisible series: a distinct neutral marker
+  // keeps them legible against the television seasons while the tooltip and the
+  // table still name each film individually.
+  const filmPts = [];
+  for (const s of DATA.series) {
+    if (s.kind !== 'film') continue;
+    for (const season of s.seasons) {
+      const sci = combine(season, 'sci'), fi = combine(season, 'fi');
+      if (!sci || !fi) continue;
+      filmPts.push({ x: sci.mean, y: fi.mean, r: radius(Math.max(sci.ci, fi.ci)),
+                     meta: { s, season, sci, fi } });
+    }
+  }
+  if (filmPts.length) {
+    datasets.push({ label: 'Films', data: filmPts, backgroundColor: '#89878140',
+                    borderColor: '#898781', borderWidth: 1.5, pointStyle: 'rectRot',
+                    hidden: !on.has(FILM_GROUP), hoverBorderColor: '#52514e', hoverBorderWidth: 2 });
   }
   if (showBaseline && BASELINE) {
     for (const b of BASELINE.series) {
@@ -258,8 +284,11 @@ const tip = {
       const d = ctx.raw;
       if (!d.meta) return `${ctx.dataset.label}: Sci ${d.x}, Fi ${d.y}`;
       const { s, season, sci, fi } = d.meta;
+      const head = s.kind === 'film'
+        ? `${s.name} · film (${season.year})`
+        : `${s.short} S${season.season}${season.year ? ' (' + yr(season) + ')' : ''} · ${season.episodeCount} eps`;
       return [
-        `${s.short} S${season.season}${season.year ? ' (' + yr(season) + ')' : ''} · ${season.episodeCount} eps`,
+        head,
         `Sci ${f2(sci.mean)} ± ${f2(sci.ci)}  (${f2(sci.density)}/1k)`,
         `Fi  ${f2(fi.mean)} ± ${f2(fi.ci)}  (${f2(fi.density)}/1k)`,
         `n = ${sci.n} · ${sci.sources.join(' + ')}`
@@ -271,7 +300,7 @@ const tip = {
 function visibleValues() {
   const xs = [], ys = [];
   for (const s of DATA.series) {
-    if (!on.has(s.id)) continue;
+    if (!active(s)) continue;
     for (const season of s.seasons) {
       const sci = combine(season, 'sci'), fi = combine(season, 'fi');
       if (!sci || !fi) continue;
@@ -320,20 +349,27 @@ function draw() {
 }
 
 function table() {
-  const head = '<thead><tr><th>Series</th><th>Season</th><th>Year</th><th class="num">Eps</th>'
-    + '<th class="num">Sci</th><th></th><th class="num">Fi</th><th></th><th class="num">n</th></tr></thead>';
+  const head = '<thead><tr><th>Work</th><th>Season</th><th>Year</th><th class="num">Eps</th>'
+    + '<th class="num">Sci</th><th></th><th class="num">Fi</th><th></th><th class="num">n</th>'
+    + '<th>Fi coder</th><th>Text basis <span class="muted">(covered·median words)</span></th></tr></thead>';
   const rows = [];
   for (const s of DATA.series) {
-    if (!on.has(s.id)) continue;
+    if (!active(s)) continue;
+    const film = s.kind === 'film';
+    const coder = s.entityCount ? 'lexicon + entity' : 'lexicon';
+    const tb = s.textBasis;
+    const basis = tb ? Object.entries(tb.sources).map(([k, v]) => `${k} ${v.covered}/${tb.episodes}\u00b7${v.medianWords}w`).join('  ') : '';
     for (const season of s.seasons) {
       const sci = combine(season, 'sci'), fi = combine(season, 'fi');
       if (!sci || !fi) continue;
       const bar = (v, color) => `<span class="bar" style="width:${Math.round(v * 9)}px;background:${color}"></span>`;
-      rows.push(`<tr><td><span class="swatch" style="background:${s.color}"></span>${s.short}</td>`
-        + `<td>${season.season}</td><td>${yr(season)}</td><td class="num">${season.episodeCount}</td>`
+      rows.push(`<tr><td><span class="swatch" style="background:${s.color}"></span>${s.short}`
+        + (film ? ' <span class="muted">film</span>' : '') + `</td>`
+        + `<td>${film ? '&mdash;' : season.season}</td><td>${yr(season)}</td><td class="num">${season.episodeCount}</td>`
         + `<td class="num">${f2(sci.mean)} <span class="muted">±${f2(sci.ci)}</span></td><td>${bar(sci.mean, s.color)}</td>`
         + `<td class="num">${f2(fi.mean)} <span class="muted">±${f2(fi.ci)}</span></td><td>${bar(fi.mean, s.color)}</td>`
-        + `<td class="num">${sci.n}</td></tr>`);
+        + `<td class="num">${sci.n}</td><td class="muted">${coder}</td>`
+        + `<td class="muted" style="font-size:11px">${basis}</td></tr>`);
     }
   }
   document.getElementById('scoresTable').innerHTML = head + '<tbody>' + rows.join('') + '</tbody>';
@@ -343,11 +379,20 @@ function chips() {
   const sc = document.getElementById('seriesChips');
   sc.innerHTML = '';
   for (const s of DATA.series) {
+    if (s.kind === 'film') continue;
     const b = document.createElement('button');
     b.className = 'chip' + (on.has(s.id) ? '' : ' off');
     b.innerHTML = `<span class="dot" style="background:${s.color}"></span>${s.short}`;
     b.title = `${s.name} · ${s.seasons.length} season(s)`;
     b.onclick = () => { on.has(s.id) ? on.delete(s.id) : on.add(s.id); refresh(); };
+    sc.appendChild(b);
+  }
+  if (films.length) {
+    const b = document.createElement('button');
+    b.className = 'chip' + (on.has(FILM_GROUP) ? '' : ' off');
+    b.innerHTML = `<span class="dot" style="background:#898781"></span>Films (${films.length})`;
+    b.title = 'Theatrical and television films — wiki plot text fetched by article title, shown with a neutral marker';
+    b.onclick = () => { on.has(FILM_GROUP) ? on.delete(FILM_GROUP) : on.add(FILM_GROUP); refresh(); };
     sc.appendChild(b);
   }
   const sr = document.getElementById('sourceChips');
@@ -368,7 +413,7 @@ function chips() {
 
 function refresh() { chips(); draw(); table(); }
 
-document.getElementById('all').onclick = () => { DATA.series.forEach(s => on.add(s.id)); refresh(); };
+document.getElementById('all').onclick = () => { DATA.series.filter(s => s.kind !== 'film').forEach(s => on.add(s.id)); if (films.length) on.add(FILM_GROUP); refresh(); };
 document.getElementById('none').onclick = () => { on.clear(); refresh(); };
 document.getElementById('baselineToggle').onchange = e => { showBaseline = e.target.checked; refresh(); };
 document.getElementById('zoomToggle').onchange = e => { zoom = e.target.checked; refresh(); };
@@ -441,13 +486,26 @@ def render_all(franchise_id: str, date: str, rubric: dict) -> list[Path]:
     baseline = _baseline(franchise_id)
 
     sources = derived["scope"]["sources"]
+    works = derived["series"]
+    n_series = sum(1 for w in works if w.get("kind") != "film")
+    n_films = sum(1 for w in works if w.get("kind") == "film")
+    n_seasons = sum(len(w["seasons"]) for w in works)
+    entity_coded = sum(1 for w in works if w.get("entityCount"))
     sub = (
         f"Each season is scored on two independent axes. <strong>Sci</strong> is how much the "
         f"episode text turns on technical and scientific vocabulary; <strong>Fi</strong> is how much it "
         f"turns on god-like power, prophecy and reality-bending. Scores are computed per episode from a "
         f"source scope, then averaged per season; bubble size is the measured 95% confidence interval of "
-        f"that average, never a hand-set value. Currently <code>{len(sources)}</code> sources in scope "
-        f"({' + '.join(sources)}); toggle them on the right and the chart recomputes."
+        f"that average, never a hand-set value. Covers <code>{n_series}</code> series, "
+        f"<code>{n_films}</code> films and <code>{n_seasons}</code> seasons; "
+        f"<code>{len(sources)}</code> sources in scope ({' + '.join(sources)}) — toggle them on the right and "
+        f"the chart recomputes. Films have no TVmaze entry and are plotted with a neutral marker; their "
+        f"text comes from the same wiki sources, looked up by article title rather than search. Fi is a "
+        f"two-coder composite only where a franchise has a "
+        f"curated entity list ({entity_coded} of {len(works)} works); elsewhere it is lexicon-only, and the "
+        f"table says which. The table's <em>text basis</em> column shows how many episodes each source "
+        f"actually resolved and the median words behind a measurement — several series rest on thin "
+        f"summaries, and that is stated rather than hidden."
     )
     baseline_note = (
         f"Overlay of <code>baseline-v1</code> — the original whole-season hand-scored integers, frozen before "

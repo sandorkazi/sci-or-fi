@@ -80,6 +80,6 @@
   },
   "scope": {
     "categories": ["plot-summary"],
-    "sources": ["tvmaze", "wikipedia"]
+    "sources": ["tvmaze", "wikipedia", "memory-alpha", "tardis"]
   }
 }

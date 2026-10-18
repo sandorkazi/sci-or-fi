@@ -67,11 +67,17 @@ def code_text(
     entities: list[dict] | None = None,
     compiled: dict | None = None,
     compiled_entities: dict | None = None,
+    entity_coding: bool = True,
 ) -> dict:
     """Code one piece of text.
 
     Returns ``{axis: {hits, words, density, score, subsignals}}``. Each axis is
     scored from its own sub-signals only, so the axes stay independent.
+
+    ``entity_coding=False`` drops the entity-coder sub-signals entirely. It is
+    used for a series that has no curated entity list: the honest statement is
+    "this axis is lexicon-only here", not an entity term silently contributing
+    zero and halving the axis.
     """
     compiled = compiled if compiled is not None else compile_axes(rubric)
     compiled_entities = (
@@ -107,7 +113,7 @@ def code_text(
                 }
             )
 
-        entity_subs = [s for s in spec["subsignals"] if s["coder"] == "entity"]
+        entity_subs = [s for s in spec["subsignals"] if s["coder"] == "entity"] if entity_coding else []
         if entity_subs:
             items = compiled_entities.get(axis, [])
             mentions = 0
