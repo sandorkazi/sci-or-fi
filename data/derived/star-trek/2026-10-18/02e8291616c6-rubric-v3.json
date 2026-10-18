@@ -45,7 +45,7 @@
     ]
   },
   "scopeHash": "02e8291616c6",
-  "generatedAt": "2026-10-18T10:22:47+00:00",
+  "generatedAt": "2026-10-18T11:04:42+00:00",
   "unmeasured": {
     "works": 60,
     "of": 1015,
@@ -259,6 +259,7 @@
       "name": "Star Trek: The Original Series",
       "short": "TOS",
       "kind": "series",
+      "unit": "series",
       "color": "#378ADD",
       "ageRating": 10,
       "entityCount": 22,
@@ -289,53 +290,54 @@
           "year": 1966,
           "yearEnd": 1967,
           "episodeCount": 29,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 26,
-                "mean": 3.871,
+                "mean": 4.017,
                 "density": 5.814,
-                "ci95": 1.02,
+                "ci95": 1.058,
                 "rank": 5.076
               },
               "wikipedia": {
                 "n": 26,
-                "mean": 5.066,
+                "mean": 5.199,
                 "density": 8.296,
-                "ci95": 1.25,
+                "ci95": 1.263,
                 "rank": 8.021
               }
             },
             "year": null,
             "n": 52,
-            "mean": 4.469,
+            "mean": 4.608,
             "density": 7.055,
-            "ci95": 0.807,
+            "ci95": 0.824,
             "rank": 6.549
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 26,
-                "mean": 0.952,
+                "mean": 0.931,
                 "density": 0.418,
-                "ci95": 0.614,
-                "rank": 3.712
+                "ci95": 0.606,
+                "rank": 4.015
               },
               "wikipedia": {
                 "n": 26,
-                "mean": 1.242,
+                "mean": 1.228,
                 "density": 0.675,
-                "ci95": 0.733,
+                "ci95": 0.726,
                 "rank": 3.021
               }
             },
             "year": null,
             "n": 52,
-            "mean": 1.097,
+            "mean": 1.079,
             "density": 0.546,
-            "ci95": 0.478,
-            "rank": 3.366
+            "ci95": 0.473,
+            "rank": 3.518
           }
         },
         {
@@ -343,53 +345,54 @@
           "year": 1967,
           "yearEnd": 1968,
           "episodeCount": 26,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 26,
-                "mean": 3.888,
+                "mean": 4.02,
                 "density": 5.86,
-                "ci95": 0.966,
+                "ci95": 0.989,
                 "rank": 5.227
               },
               "wikipedia": {
                 "n": 26,
-                "mean": 4.123,
+                "mean": 4.22,
                 "density": 6.914,
-                "ci95": 1.194,
+                "ci95": 1.196,
                 "rank": 6.562
               }
             },
             "year": null,
             "n": 52,
-            "mean": 4.005,
+            "mean": 4.12,
             "density": 6.387,
-            "ci95": 0.768,
+            "ci95": 0.776,
             "rank": 5.894
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 26,
-                "mean": 1.826,
+                "mean": 1.787,
                 "density": 1.322,
-                "ci95": 0.961,
-                "rank": 6.894
+                "ci95": 0.951,
+                "rank": 7.045
               },
               "wikipedia": {
                 "n": 26,
-                "mean": 2.276,
+                "mean": 2.247,
                 "density": 1.828,
-                "ci95": 1.075,
+                "ci95": 1.069,
                 "rank": 6.562
               }
             },
             "year": null,
             "n": 52,
-            "mean": 2.051,
+            "mean": 2.017,
             "density": 1.575,
-            "ci95": 0.721,
-            "rank": 6.728
+            "ci95": 0.715,
+            "rank": 6.803
           }
         },
         {
@@ -397,52 +400,53 @@
           "year": 1968,
           "yearEnd": 1969,
           "episodeCount": 24,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 24,
-                "mean": 3.235,
+                "mean": 3.341,
                 "density": 5.12,
-                "ci95": 1.039,
+                "ci95": 1.061,
                 "rank": 3.561
               },
               "wikipedia": {
                 "n": 24,
-                "mean": 3.553,
+                "mean": 3.672,
                 "density": 6.087,
-                "ci95": 1.104,
+                "ci95": 1.131,
                 "rank": 4.062
               }
             },
             "year": null,
             "n": 48,
-            "mean": 3.394,
+            "mean": 3.507,
             "density": 5.603,
-            "ci95": 0.758,
+            "ci95": 0.775,
             "rank": 3.812
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 24,
-                "mean": 1.734,
+                "mean": 1.708,
                 "density": 1.529,
-                "ci95": 0.895,
+                "ci95": 0.888,
                 "rank": 6.591
               },
               "wikipedia": {
                 "n": 24,
-                "mean": 2.142,
+                "mean": 2.112,
                 "density": 2.386,
-                "ci95": 1.187,
+                "ci95": 1.177,
                 "rank": 6.146
               }
             },
             "year": null,
             "n": 48,
-            "mean": 1.938,
+            "mean": 1.91,
             "density": 1.958,
-            "ci95": 0.743,
+            "ci95": 0.737,
             "rank": 6.369
           }
         }
@@ -453,6 +457,7 @@
       "name": "Star Trek: The Animated Series",
       "short": "TAS",
       "kind": "series",
+      "unit": "series",
       "color": "#D85A30",
       "ageRating": 7,
       "entityCount": 0,
@@ -483,53 +488,54 @@
           "year": 1973,
           "yearEnd": 1974,
           "episodeCount": 16,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 16,
-                "mean": 4.567,
+                "mean": 4.669,
                 "density": 7.198,
-                "ci95": 1.664,
-                "rank": 7.348
+                "ci95": 1.668,
+                "rank": 7.045
               },
               "wikipedia": {
                 "n": 15,
-                "mean": 3.73,
+                "mean": 3.846,
                 "density": 5.791,
-                "ci95": 1.525,
+                "ci95": 1.555,
                 "rank": 4.896
               }
             },
             "year": null,
             "n": 31,
-            "mean": 4.162,
+            "mean": 4.271,
             "density": 6.517,
-            "ci95": 1.132,
-            "rank": 6.162
+            "ci95": 1.143,
+            "rank": 6.005
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 16,
-                "mean": 2.285,
+                "mean": 2.265,
                 "density": 1.722,
                 "ci95": 1.926,
                 "rank": 8.561
               },
               "wikipedia": {
                 "n": 15,
-                "mean": 2.49,
+                "mean": 2.467,
                 "density": 2.688,
-                "ci95": 2.185,
-                "rank": 7.188
+                "ci95": 2.172,
+                "rank": 7.604
               }
             },
             "year": null,
             "n": 31,
-            "mean": 2.384,
+            "mean": 2.363,
             "density": 2.189,
-            "ci95": 1.451,
-            "rank": 7.897
+            "ci95": 1.447,
+            "rank": 8.098
           }
         },
         {
@@ -537,37 +543,38 @@
           "year": 1974,
           "yearEnd": null,
           "episodeCount": 6,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 6,
-                "mean": 5.029,
+                "mean": 5.22,
                 "density": 7.554,
-                "ci95": 2.338,
+                "ci95": 2.426,
                 "rank": 8.561
               },
               "wikipedia": {
                 "n": 5,
-                "mean": 5.175,
+                "mean": 5.37,
                 "density": 7.772,
-                "ci95": 2.02,
+                "ci95": 2.097,
                 "rank": 8.229
               }
             },
             "year": null,
             "n": 11,
-            "mean": 5.095,
+            "mean": 5.288,
             "density": 7.653,
-            "ci95": 1.571,
+            "ci95": 1.631,
             "rank": 8.41
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 6,
-                "mean": 2.89,
+                "mean": 2.814,
                 "density": 1.434,
-                "ci95": 3.645,
+                "ci95": 3.565,
                 "rank": 9.015
               },
               "wikipedia": {
@@ -580,9 +587,9 @@
             },
             "year": null,
             "n": 11,
-            "mean": 2.485,
+            "mean": 2.444,
             "density": 1.556,
-            "ci95": 2.67,
+            "ci95": 2.637,
             "rank": 7.521
           }
         }
@@ -593,6 +600,7 @@
       "name": "Star Trek: The Next Generation",
       "short": "TNG",
       "kind": "series",
+      "unit": "series",
       "color": "#1D9E75",
       "ageRating": 10,
       "entityCount": 0,
@@ -623,53 +631,54 @@
           "year": 1987,
           "yearEnd": 1988,
           "episodeCount": 26,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 26,
-                "mean": 4.287,
+                "mean": 4.42,
                 "density": 6.723,
-                "ci95": 1.026,
+                "ci95": 1.04,
                 "rank": 6.288
               },
               "wikipedia": {
                 "n": 26,
-                "mean": 4.446,
+                "mean": 4.556,
                 "density": 7.263,
-                "ci95": 1.231,
+                "ci95": 1.237,
                 "rank": 7.188
               }
             },
             "year": null,
             "n": 52,
-            "mean": 4.367,
+            "mean": 4.488,
             "density": 6.993,
-            "ci95": 0.801,
+            "ci95": 0.808,
             "rank": 6.738
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 26,
-                "mean": 1.566,
+                "mean": 1.51,
                 "density": 0.811,
-                "ci95": 0.936,
-                "rank": 6.288
+                "ci95": 0.917,
+                "rank": 6.439
               },
               "wikipedia": {
                 "n": 26,
-                "mean": 2.453,
+                "mean": 2.354,
                 "density": 1.336,
-                "ci95": 1.426,
-                "rank": 6.979
+                "ci95": 1.374,
+                "rank": 6.771
               }
             },
             "year": null,
             "n": 52,
-            "mean": 2.01,
+            "mean": 1.932,
             "density": 1.074,
-            "ci95": 0.853,
-            "rank": 6.633
+            "ci95": 0.826,
+            "rank": 6.605
           }
         },
         {
@@ -677,53 +686,54 @@
           "year": 1988,
           "yearEnd": 1989,
           "episodeCount": 22,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 21,
-                "mean": 5.405,
+                "mean": 5.592,
                 "density": 8.338,
-                "ci95": 1.26,
+                "ci95": 1.295,
                 "rank": 9.167
               },
               "wikipedia": {
                 "n": 21,
-                "mean": 3.694,
+                "mean": 3.762,
                 "density": 7.659,
-                "ci95": 1.482,
+                "ci95": 1.48,
                 "rank": 4.688
               }
             },
             "year": null,
             "n": 42,
-            "mean": 4.55,
+            "mean": 4.677,
             "density": 7.998,
-            "ci95": 0.973,
+            "ci95": 0.983,
             "rank": 6.927
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 21,
-                "mean": 1.443,
+                "mean": 1.374,
                 "density": 0.701,
-                "ci95": 0.537,
+                "ci95": 0.512,
                 "rank": 5.833
               },
               "wikipedia": {
                 "n": 21,
-                "mean": 1.488,
+                "mean": 1.44,
                 "density": 0.736,
-                "ci95": 1.413,
-                "rank": 4.271
+                "ci95": 1.372,
+                "rank": 4.479
               }
             },
             "year": null,
             "n": 42,
-            "mean": 1.466,
+            "mean": 1.407,
             "density": 0.719,
-            "ci95": 0.756,
-            "rank": 5.052
+            "ci95": 0.732,
+            "rank": 5.156
           }
         },
         {
@@ -731,52 +741,53 @@
           "year": 1989,
           "yearEnd": 1990,
           "episodeCount": 26,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 25,
-                "mean": 3.283,
+                "mean": 3.407,
                 "density": 4.93,
-                "ci95": 0.895,
+                "ci95": 0.929,
                 "rank": 3.712
               },
               "wikipedia": {
                 "n": 25,
-                "mean": 3.552,
+                "mean": 3.641,
                 "density": 6.56,
-                "ci95": 1.275,
+                "ci95": 1.287,
                 "rank": 3.854
               }
             },
             "year": null,
             "n": 50,
-            "mean": 3.417,
+            "mean": 3.524,
             "density": 5.745,
-            "ci95": 0.779,
+            "ci95": 0.794,
             "rank": 3.783
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 25,
-                "mean": 1.364,
+                "mean": 1.299,
                 "density": 0.662,
-                "ci95": 0.611,
+                "ci95": 0.582,
                 "rank": 5.53
               },
               "wikipedia": {
                 "n": 25,
-                "mean": 1.7,
+                "mean": 1.657,
                 "density": 1.042,
-                "ci95": 1.29,
+                "ci95": 1.268,
                 "rank": 5.312
               }
             },
             "year": null,
             "n": 50,
-            "mean": 1.532,
+            "mean": 1.478,
             "density": 0.852,
-            "ci95": 0.714,
+            "ci95": 0.698,
             "rank": 5.421
           }
         },
@@ -785,53 +796,54 @@
           "year": 1990,
           "yearEnd": 1991,
           "episodeCount": 26,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 25,
-                "mean": 4.365,
+                "mean": 4.5,
                 "density": 7.15,
-                "ci95": 1.113,
+                "ci95": 1.131,
                 "rank": 6.591
               },
               "wikipedia": {
                 "n": 22,
-                "mean": 3.789,
+                "mean": 3.897,
                 "density": 6.839,
-                "ci95": 1.235,
+                "ci95": 1.251,
                 "rank": 5.104
               }
             },
             "year": null,
             "n": 47,
-            "mean": 4.095,
+            "mean": 4.218,
             "density": 7.004,
-            "ci95": 0.827,
+            "ci95": 0.84,
             "rank": 5.895
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 25,
-                "mean": 1.478,
+                "mean": 1.446,
                 "density": 0.865,
-                "ci95": 1.123,
+                "ci95": 1.116,
                 "rank": 6.136
               },
               "wikipedia": {
                 "n": 22,
-                "mean": 1.437,
+                "mean": 1.38,
                 "density": 0.703,
-                "ci95": 1.239,
-                "rank": 3.854
+                "ci95": 1.195,
+                "rank": 4.062
               }
             },
             "year": null,
             "n": 47,
-            "mean": 1.459,
+            "mean": 1.415,
             "density": 0.789,
-            "ci95": 0.833,
-            "rank": 5.068
+            "ci95": 0.816,
+            "rank": 5.165
           }
         },
         {
@@ -839,52 +851,53 @@
           "year": 1991,
           "yearEnd": 1992,
           "episodeCount": 26,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 25,
-                "mean": 4.027,
+                "mean": 4.179,
                 "density": 6.048,
-                "ci95": 0.964,
+                "ci95": 1.0,
                 "rank": 5.985
               },
               "wikipedia": {
                 "n": 21,
-                "mean": 3.616,
+                "mean": 3.753,
                 "density": 5.431,
-                "ci95": 1.273,
+                "ci95": 1.321,
                 "rank": 4.479
               }
             },
             "year": null,
             "n": 46,
-            "mean": 3.839,
+            "mean": 3.985,
             "density": 5.766,
-            "ci95": 0.782,
+            "ci95": 0.812,
             "rank": 5.297
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 25,
-                "mean": 1.055,
+                "mean": 1.005,
                 "density": 0.512,
-                "ci95": 0.488,
+                "ci95": 0.464,
                 "rank": 4.318
               },
               "wikipedia": {
                 "n": 21,
-                "mean": 1.954,
+                "mean": 1.883,
                 "density": 1.134,
-                "ci95": 1.362,
+                "ci95": 1.323,
                 "rank": 5.521
               }
             },
             "year": null,
             "n": 46,
-            "mean": 1.465,
+            "mean": 1.406,
             "density": 0.796,
-            "ci95": 0.676,
+            "ci95": 0.655,
             "rank": 4.867
           }
         },
@@ -893,53 +906,54 @@
           "year": 1992,
           "yearEnd": 1993,
           "episodeCount": 26,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 26,
-                "mean": 6.094,
+                "mean": 6.256,
                 "density": 10.046,
-                "ci95": 1.202,
+                "ci95": 1.215,
                 "rank": 9.621
               },
               "wikipedia": {
                 "n": 26,
-                "mean": 4.141,
+                "mean": 4.255,
                 "density": 6.499,
-                "ci95": 1.281,
+                "ci95": 1.301,
                 "rank": 6.771
               }
             },
             "year": null,
             "n": 52,
-            "mean": 5.118,
+            "mean": 5.255,
             "density": 8.272,
-            "ci95": 0.878,
+            "ci95": 0.89,
             "rank": 8.196
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 26,
-                "mean": 1.061,
+                "mean": 1.029,
                 "density": 0.586,
-                "ci95": 0.856,
-                "rank": 4.47
+                "ci95": 0.845,
+                "rank": 4.621
               },
               "wikipedia": {
                 "n": 26,
-                "mean": 2.566,
+                "mean": 2.498,
                 "density": 1.686,
-                "ci95": 1.305,
+                "ci95": 1.291,
                 "rank": 7.812
               }
             },
             "year": null,
             "n": 52,
-            "mean": 1.813,
+            "mean": 1.764,
             "density": 1.136,
-            "ci95": 0.78,
-            "rank": 6.141
+            "ci95": 0.771,
+            "rank": 6.217
           }
         },
         {
@@ -947,53 +961,54 @@
           "year": 1993,
           "yearEnd": 1994,
           "episodeCount": 26,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 26,
-                "mean": 4.695,
+                "mean": 4.817,
                 "density": 7.504,
-                "ci95": 1.262,
+                "ci95": 1.275,
                 "rank": 7.652
               },
               "wikipedia": {
                 "n": 26,
-                "mean": 3.908,
+                "mean": 3.998,
                 "density": 6.814,
-                "ci95": 1.434,
+                "ci95": 1.451,
                 "rank": 5.521
               }
             },
             "year": null,
             "n": 52,
-            "mean": 4.301,
+            "mean": 4.407,
             "density": 7.159,
-            "ci95": 0.955,
+            "ci95": 0.966,
             "rank": 6.587
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 26,
-                "mean": 1.366,
+                "mean": 1.301,
                 "density": 0.663,
-                "ci95": 0.911,
+                "ci95": 0.868,
                 "rank": 5.682
               },
               "wikipedia": {
                 "n": 26,
-                "mean": 2.448,
+                "mean": 2.368,
                 "density": 1.582,
-                "ci95": 1.361,
-                "rank": 6.771
+                "ci95": 1.328,
+                "rank": 6.979
               }
             },
             "year": null,
             "n": 52,
-            "mean": 1.907,
+            "mean": 1.835,
             "density": 1.123,
-            "ci95": 0.819,
-            "rank": 6.227
+            "ci95": 0.793,
+            "rank": 6.331
           }
         }
       ]
@@ -1003,6 +1018,7 @@
       "name": "Star Trek: Deep Space Nine",
       "short": "DS9",
       "kind": "series",
+      "unit": "series",
       "color": "#7F77DD",
       "ageRating": 14,
       "entityCount": 0,
@@ -1033,52 +1049,53 @@
           "year": 1993,
           "yearEnd": null,
           "episodeCount": 20,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 20,
-                "mean": 2.567,
+                "mean": 2.627,
                 "density": 3.957,
                 "ci95": 1.216,
                 "rank": 2.348
               },
               "wikipedia": {
                 "n": 18,
-                "mean": 1.602,
+                "mean": 1.621,
                 "density": 3.364,
-                "ci95": 1.472,
-                "rank": 1.562
+                "ci95": 1.473,
+                "rank": 1.354
               }
             },
             "year": null,
             "n": 38,
-            "mean": 2.11,
+            "mean": 2.15,
             "density": 3.676,
-            "ci95": 0.946,
-            "rank": 1.976
+            "ci95": 0.947,
+            "rank": 1.877
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 20,
-                "mean": 0.773,
+                "mean": 0.736,
                 "density": 0.375,
-                "ci95": 0.38,
+                "ci95": 0.362,
                 "rank": 2.5
               },
               "wikipedia": {
                 "n": 18,
-                "mean": 1.644,
+                "mean": 1.565,
                 "density": 0.798,
-                "ci95": 1.277,
+                "ci95": 1.216,
                 "rank": 5.104
               }
             },
             "year": null,
             "n": 38,
-            "mean": 1.186,
+            "mean": 1.129,
             "density": 0.575,
-            "ci95": 0.637,
+            "ci95": 0.607,
             "rank": 3.733
           }
         },
@@ -1087,52 +1104,53 @@
           "year": 1993,
           "yearEnd": 1994,
           "episodeCount": 26,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 26,
-                "mean": 2.227,
+                "mean": 2.311,
                 "density": 3.345,
-                "ci95": 0.75,
+                "ci95": 0.779,
                 "rank": 1.439
               },
               "wikipedia": {
                 "n": 23,
-                "mean": 1.447,
+                "mean": 1.485,
                 "density": 2.482,
-                "ci95": 1.095,
+                "ci95": 1.114,
                 "rank": 0.938
               }
             },
             "year": null,
             "n": 49,
-            "mean": 1.861,
+            "mean": 1.923,
             "density": 2.94,
-            "ci95": 0.65,
+            "ci95": 0.667,
             "rank": 1.204
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 26,
-                "mean": 0.753,
+                "mean": 0.717,
                 "density": 0.365,
-                "ci95": 0.369,
+                "ci95": 0.351,
                 "rank": 2.197
               },
               "wikipedia": {
                 "n": 23,
-                "mean": 0.931,
+                "mean": 0.907,
                 "density": 0.497,
-                "ci95": 1.06,
+                "ci95": 1.041,
                 "rank": 2.812
               }
             },
             "year": null,
             "n": 49,
-            "mean": 0.837,
+            "mean": 0.806,
             "density": 0.427,
-            "ci95": 0.535,
+            "ci95": 0.523,
             "rank": 2.486
           }
         },
@@ -1141,53 +1159,54 @@
           "year": 1994,
           "yearEnd": 1995,
           "episodeCount": 26,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 26,
-                "mean": 2.337,
+                "mean": 2.425,
                 "density": 3.51,
-                "ci95": 0.852,
+                "ci95": 0.883,
                 "rank": 1.894
               },
               "wikipedia": {
                 "n": 23,
-                "mean": 1.663,
+                "mean": 1.726,
                 "density": 2.498,
-                "ci95": 1.167,
+                "ci95": 1.212,
                 "rank": 1.771
               }
             },
             "year": null,
             "n": 49,
-            "mean": 2.021,
+            "mean": 2.097,
             "density": 3.035,
-            "ci95": 0.71,
+            "ci95": 0.737,
             "rank": 1.836
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 26,
-                "mean": 0.937,
+                "mean": 0.906,
                 "density": 0.462,
-                "ci95": 0.785,
+                "ci95": 0.772,
                 "rank": 3.561
               },
               "wikipedia": {
                 "n": 23,
-                "mean": 1.5,
+                "mean": 1.449,
                 "density": 1.337,
-                "ci95": 1.248,
-                "rank": 4.479
+                "ci95": 1.213,
+                "rank": 4.688
               }
             },
             "year": null,
             "n": 49,
-            "mean": 1.201,
+            "mean": 1.161,
             "density": 0.873,
-            "ci95": 0.719,
-            "rank": 3.992
+            "ci95": 0.701,
+            "rank": 4.09
           }
         },
         {
@@ -1195,53 +1214,54 @@
           "year": 1995,
           "yearEnd": 1996,
           "episodeCount": 26,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 26,
-                "mean": 1.76,
+                "mean": 1.827,
                 "density": 2.644,
-                "ci95": 0.71,
+                "ci95": 0.737,
                 "rank": 0.985
               },
               "wikipedia": {
                 "n": 20,
-                "mean": 2.419,
+                "mean": 2.499,
                 "density": 3.633,
-                "ci95": 1.455,
+                "ci95": 1.498,
                 "rank": 2.604
               }
             },
             "year": null,
             "n": 46,
-            "mean": 2.047,
+            "mean": 2.119,
             "density": 3.074,
-            "ci95": 0.749,
+            "ci95": 0.773,
             "rank": 1.689
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 26,
-                "mean": 1.354,
+                "mean": 1.29,
                 "density": 0.657,
-                "ci95": 0.906,
+                "ci95": 0.863,
                 "rank": 5.227
               },
               "wikipedia": {
                 "n": 20,
-                "mean": 1.509,
+                "mean": 1.437,
                 "density": 0.732,
-                "ci95": 1.4,
-                "rank": 4.688
+                "ci95": 1.333,
+                "rank": 4.271
               }
             },
             "year": null,
             "n": 46,
-            "mean": 1.421,
+            "mean": 1.354,
             "density": 0.69,
-            "ci95": 0.795,
-            "rank": 4.993
+            "ci95": 0.758,
+            "rank": 4.811
           }
         },
         {
@@ -1249,52 +1269,53 @@
           "year": 1996,
           "yearEnd": 1997,
           "episodeCount": 26,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 25,
-                "mean": 1.541,
+                "mean": 1.6,
                 "density": 2.315,
-                "ci95": 0.562,
+                "ci95": 0.583,
                 "rank": 0.379
               },
               "wikipedia": {
                 "n": 24,
-                "mean": 1.462,
+                "mean": 1.517,
                 "density": 2.195,
-                "ci95": 0.692,
+                "ci95": 0.719,
                 "rank": 1.146
               }
             },
             "year": null,
             "n": 49,
-            "mean": 1.502,
+            "mean": 1.559,
             "density": 2.256,
-            "ci95": 0.444,
+            "ci95": 0.461,
             "rank": 0.755
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 25,
-                "mean": 1.463,
+                "mean": 1.393,
                 "density": 0.71,
-                "ci95": 0.67,
+                "ci95": 0.638,
                 "rank": 5.985
               },
               "wikipedia": {
                 "n": 24,
-                "mean": 1.321,
+                "mean": 1.278,
                 "density": 1.058,
-                "ci95": 1.11,
+                "ci95": 1.083,
                 "rank": 3.229
               }
             },
             "year": null,
             "n": 49,
-            "mean": 1.393,
+            "mean": 1.337,
             "density": 0.88,
-            "ci95": 0.642,
+            "ci95": 0.622,
             "rank": 4.635
           }
         },
@@ -1303,52 +1324,53 @@
           "year": 1997,
           "yearEnd": 1998,
           "episodeCount": 26,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 26,
-                "mean": 1.561,
+                "mean": 1.62,
                 "density": 2.344,
-                "ci95": 0.767,
+                "ci95": 0.796,
                 "rank": 0.682
               },
               "wikipedia": {
                 "n": 24,
-                "mean": 1.426,
+                "mean": 1.48,
                 "density": 2.142,
-                "ci95": 0.796,
+                "ci95": 0.826,
                 "rank": 0.729
               }
             },
             "year": null,
             "n": 50,
-            "mean": 1.496,
+            "mean": 1.553,
             "density": 2.247,
-            "ci95": 0.552,
+            "ci95": 0.573,
             "rank": 0.705
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 26,
-                "mean": 1.984,
+                "mean": 1.907,
                 "density": 1.046,
-                "ci95": 0.908,
+                "ci95": 0.89,
                 "rank": 7.803
               },
               "wikipedia": {
                 "n": 24,
-                "mean": 2.052,
+                "mean": 2.014,
                 "density": 1.774,
-                "ci95": 1.427,
+                "ci95": 1.414,
                 "rank": 5.938
               }
             },
             "year": null,
             "n": 50,
-            "mean": 2.017,
+            "mean": 1.958,
             "density": 1.395,
-            "ci95": 0.832,
+            "ci95": 0.821,
             "rank": 6.908
           }
         },
@@ -1357,52 +1379,53 @@
           "year": 1998,
           "yearEnd": 1999,
           "episodeCount": 26,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 26,
-                "mean": 1.528,
+                "mean": 1.586,
                 "density": 2.295,
-                "ci95": 0.417,
+                "ci95": 0.432,
                 "rank": 0.227
               },
               "wikipedia": {
                 "n": 23,
-                "mean": 1.565,
+                "mean": 1.624,
                 "density": 2.351,
-                "ci95": 0.769,
-                "rank": 1.354
+                "ci95": 0.798,
+                "rank": 1.562
               }
             },
             "year": null,
             "n": 49,
-            "mean": 1.545,
+            "mean": 1.604,
             "density": 2.321,
-            "ci95": 0.423,
-            "rank": 0.756
+            "ci95": 0.439,
+            "rank": 0.854
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 26,
-                "mean": 2.72,
+                "mean": 2.608,
                 "density": 1.564,
-                "ci95": 1.05,
+                "ci95": 1.02,
                 "rank": 8.864
               },
               "wikipedia": {
                 "n": 23,
-                "mean": 2.58,
+                "mean": 2.501,
                 "density": 1.629,
-                "ci95": 1.491,
+                "ci95": 1.459,
                 "rank": 8.021
               }
             },
             "year": null,
             "n": 49,
-            "mean": 2.654,
+            "mean": 2.558,
             "density": 1.595,
-            "ci95": 0.895,
+            "ci95": 0.873,
             "rank": 8.468
           }
         }
@@ -1413,6 +1436,7 @@
       "name": "Star Trek: Voyager",
       "short": "VOY",
       "kind": "series",
+      "unit": "series",
       "color": "#EF9F27",
       "ageRating": 14,
       "entityCount": 0,
@@ -1443,53 +1467,54 @@
           "year": 1995,
           "yearEnd": null,
           "episodeCount": 16,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 16,
-                "mean": 4.871,
+                "mean": 5.055,
                 "density": 7.316,
-                "ci95": 0.927,
+                "ci95": 0.962,
                 "rank": 8.106
               },
               "wikipedia": {
                 "n": 16,
-                "mean": 3.919,
+                "mean": 4.02,
                 "density": 6.403,
-                "ci95": 1.516,
+                "ci95": 1.525,
                 "rank": 5.729
               }
             },
             "year": null,
             "n": 32,
-            "mean": 4.395,
+            "mean": 4.537,
             "density": 6.859,
-            "ci95": 0.888,
+            "ci95": 0.902,
             "rank": 6.918
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 16,
-                "mean": 0.584,
+                "mean": 0.556,
                 "density": 0.283,
-                "ci95": 0.869,
+                "ci95": 0.828,
                 "rank": 1.136
               },
               "wikipedia": {
                 "n": 16,
-                "mean": 2.496,
+                "mean": 2.407,
                 "density": 1.515,
-                "ci95": 1.737,
-                "rank": 7.396
+                "ci95": 1.688,
+                "rank": 7.188
               }
             },
             "year": null,
             "n": 32,
-            "mean": 1.54,
+            "mean": 1.482,
             "density": 0.899,
-            "ci95": 0.971,
-            "rank": 4.266
+            "ci95": 0.94,
+            "rank": 4.162
           }
         },
         {
@@ -1497,53 +1522,54 @@
           "year": 1995,
           "yearEnd": 1996,
           "episodeCount": 26,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 26,
-                "mean": 5.173,
+                "mean": 5.296,
                 "density": 8.415,
-                "ci95": 1.145,
-                "rank": 8.864
+                "ci95": 1.142,
+                "rank": 8.712
               },
               "wikipedia": {
                 "n": 26,
-                "mean": 3.597,
+                "mean": 3.704,
                 "density": 5.956,
-                "ci95": 1.448,
+                "ci95": 1.483,
                 "rank": 4.271
               }
             },
             "year": null,
             "n": 52,
-            "mean": 4.385,
+            "mean": 4.5,
             "density": 7.185,
-            "ci95": 0.923,
-            "rank": 6.567
+            "ci95": 0.936,
+            "rank": 6.492
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 26,
-                "mean": 1.888,
+                "mean": 1.834,
                 "density": 1.04,
-                "ci95": 1.053,
-                "rank": 7.348
+                "ci95": 1.046,
+                "rank": 7.5
               },
               "wikipedia": {
                 "n": 26,
-                "mean": 1.622,
+                "mean": 1.563,
                 "density": 1.081,
-                "ci95": 1.137,
+                "ci95": 1.104,
                 "rank": 4.896
               }
             },
             "year": null,
             "n": 52,
-            "mean": 1.755,
+            "mean": 1.699,
             "density": 1.06,
-            "ci95": 0.775,
-            "rank": 6.122
+            "ci95": 0.76,
+            "rank": 6.198
           }
         },
         {
@@ -1551,53 +1577,54 @@
           "year": 1996,
           "yearEnd": 1997,
           "episodeCount": 26,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 25,
-                "mean": 4.333,
+                "mean": 4.497,
                 "density": 6.508,
-                "ci95": 1.102,
+                "ci95": 1.143,
                 "rank": 6.439
               },
               "wikipedia": {
                 "n": 24,
-                "mean": 4.309,
+                "mean": 4.408,
                 "density": 8.543,
-                "ci95": 1.445,
+                "ci95": 1.459,
                 "rank": 6.979
               }
             },
             "year": null,
             "n": 49,
-            "mean": 4.321,
+            "mean": 4.453,
             "density": 7.505,
-            "ci95": 0.904,
+            "ci95": 0.922,
             "rank": 6.703
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 25,
-                "mean": 1.885,
+                "mean": 1.853,
                 "density": 1.32,
                 "ci95": 1.258,
-                "rank": 7.197
+                "rank": 7.652
               },
               "wikipedia": {
                 "n": 24,
-                "mean": 2.235,
+                "mean": 2.208,
                 "density": 1.697,
-                "ci95": 1.545,
+                "ci95": 1.538,
                 "rank": 6.354
               }
             },
             "year": null,
             "n": 49,
-            "mean": 2.056,
+            "mean": 2.027,
             "density": 1.505,
-            "ci95": 0.992,
-            "rank": 6.784
+            "ci95": 0.99,
+            "rank": 7.016
           }
         },
         {
@@ -1605,52 +1632,53 @@
           "year": 1997,
           "yearEnd": 1998,
           "episodeCount": 26,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 26,
-                "mean": 4.425,
+                "mean": 4.593,
                 "density": 6.646,
-                "ci95": 0.899,
+                "ci95": 0.933,
                 "rank": 6.742
               },
               "wikipedia": {
                 "n": 26,
-                "mean": 3.523,
+                "mean": 3.627,
                 "density": 5.634,
-                "ci95": 1.221,
+                "ci95": 1.244,
                 "rank": 3.646
               }
             },
             "year": null,
             "n": 52,
-            "mean": 3.974,
+            "mean": 4.11,
             "density": 6.14,
-            "ci95": 0.758,
+            "ci95": 0.778,
             "rank": 5.194
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 26,
-                "mean": 0.892,
+                "mean": 0.85,
                 "density": 0.433,
-                "ci95": 0.497,
+                "ci95": 0.474,
                 "rank": 3.409
               },
               "wikipedia": {
                 "n": 26,
-                "mean": 0.914,
+                "mean": 0.87,
                 "density": 0.443,
-                "ci95": 0.892,
+                "ci95": 0.849,
                 "rank": 2.604
               }
             },
             "year": null,
             "n": 52,
-            "mean": 0.903,
+            "mean": 0.86,
             "density": 0.438,
-            "ci95": 0.511,
+            "ci95": 0.486,
             "rank": 3.007
           }
         },
@@ -1659,52 +1687,53 @@
           "year": 1998,
           "yearEnd": 1999,
           "episodeCount": 26,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 26,
-                "mean": 4.972,
+                "mean": 5.146,
                 "density": 7.798,
-                "ci95": 0.927,
+                "ci95": 0.95,
                 "rank": 8.409
               },
               "wikipedia": {
                 "n": 25,
-                "mean": 4.031,
+                "mean": 4.151,
                 "density": 6.673,
-                "ci95": 1.287,
+                "ci95": 1.312,
                 "rank": 6.146
               }
             },
             "year": null,
             "n": 51,
-            "mean": 4.511,
+            "mean": 4.658,
             "density": 7.247,
-            "ci95": 0.788,
+            "ci95": 0.805,
             "rank": 7.3
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 26,
-                "mean": 0.736,
+                "mean": 0.701,
                 "density": 0.357,
-                "ci95": 0.503,
+                "ci95": 0.479,
                 "rank": 2.045
               },
               "wikipedia": {
                 "n": 25,
-                "mean": 0.769,
+                "mean": 0.752,
                 "density": 0.387,
-                "ci95": 0.906,
+                "ci95": 0.895,
                 "rank": 2.188
               }
             },
             "year": null,
             "n": 51,
-            "mean": 0.752,
+            "mean": 0.726,
             "density": 0.372,
-            "ci95": 0.513,
+            "ci95": 0.502,
             "rank": 2.115
           }
         },
@@ -1713,53 +1742,54 @@
           "year": 1999,
           "yearEnd": 2000,
           "episodeCount": 26,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 24,
-                "mean": 5.246,
+                "mean": 5.444,
                 "density": 7.879,
-                "ci95": 1.005,
+                "ci95": 1.043,
                 "rank": 9.015
               },
               "wikipedia": {
                 "n": 25,
-                "mean": 4.936,
+                "mean": 5.077,
                 "density": 8.356,
-                "ci95": 1.402,
+                "ci95": 1.429,
                 "rank": 7.812
               }
             },
             "year": null,
             "n": 49,
-            "mean": 5.088,
+            "mean": 5.257,
             "density": 8.122,
-            "ci95": 0.868,
+            "ci95": 0.89,
             "rank": 8.401
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 24,
-                "mean": 1.905,
+                "mean": 1.814,
                 "density": 0.925,
-                "ci95": 0.951,
-                "rank": 7.5
+                "ci95": 0.906,
+                "rank": 7.197
               },
               "wikipedia": {
                 "n": 25,
-                "mean": 2.499,
+                "mean": 2.437,
                 "density": 1.442,
-                "ci95": 1.337,
-                "rank": 7.604
+                "ci95": 1.325,
+                "rank": 7.396
               }
             },
             "year": null,
             "n": 49,
-            "mean": 2.208,
+            "mean": 2.132,
             "density": 1.189,
-            "ci95": 0.826,
-            "rank": 7.553
+            "ci95": 0.809,
+            "rank": 7.299
           }
         },
         {
@@ -1767,53 +1797,54 @@
           "year": 2000,
           "yearEnd": 2001,
           "episodeCount": 26,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 26,
-                "mean": 3.857,
+                "mean": 3.988,
                 "density": 5.937,
-                "ci95": 0.908,
+                "ci95": 0.928,
                 "rank": 4.924
               },
               "wikipedia": {
                 "n": 25,
-                "mean": 2.79,
+                "mean": 2.866,
                 "density": 4.745,
-                "ci95": 1.109,
+                "ci95": 1.119,
                 "rank": 2.812
               }
             },
             "year": null,
             "n": 51,
-            "mean": 3.334,
+            "mean": 3.438,
             "density": 5.353,
-            "ci95": 0.714,
+            "ci95": 0.724,
             "rank": 3.889
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 26,
-                "mean": 0.532,
+                "mean": 0.506,
                 "density": 0.258,
-                "ci95": 0.522,
+                "ci95": 0.497,
                 "rank": 0.833
               },
               "wikipedia": {
                 "n": 25,
-                "mean": 1.446,
+                "mean": 1.377,
                 "density": 0.702,
-                "ci95": 0.814,
-                "rank": 4.062
+                "ci95": 0.775,
+                "rank": 3.854
               }
             },
             "year": null,
             "n": 51,
-            "mean": 0.98,
+            "mean": 0.933,
             "density": 0.476,
-            "ci95": 0.48,
-            "rank": 2.416
+            "ci95": 0.457,
+            "rank": 2.314
           }
         }
       ]
@@ -1823,6 +1854,7 @@
       "name": "Star Trek: Enterprise",
       "short": "ENT",
       "kind": "series",
+      "unit": "series",
       "color": "#D4537E",
       "ageRating": 13,
       "entityCount": 0,
@@ -1853,52 +1885,53 @@
           "year": 2001,
           "yearEnd": 2002,
           "episodeCount": 26,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 26,
-                "mean": 4.93,
+                "mean": 5.087,
                 "density": 7.544,
-                "ci95": 1.152,
+                "ci95": 1.176,
                 "rank": 8.258
               },
               "wikipedia": {
                 "n": 26,
-                "mean": 4.581,
+                "mean": 4.681,
                 "density": 7.977,
-                "ci95": 1.353,
+                "ci95": 1.36,
                 "rank": 7.396
               }
             },
             "year": null,
             "n": 52,
-            "mean": 4.755,
+            "mean": 4.884,
             "density": 7.76,
-            "ci95": 0.888,
+            "ci95": 0.899,
             "rank": 7.827
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 26,
-                "mean": 0.863,
+                "mean": 0.822,
                 "density": 0.419,
-                "ci95": 0.459,
+                "ci95": 0.437,
                 "rank": 3.258
               },
               "wikipedia": {
                 "n": 26,
-                "mean": 0.647,
+                "mean": 0.616,
                 "density": 0.314,
-                "ci95": 0.706,
+                "ci95": 0.673,
                 "rank": 1.979
               }
             },
             "year": null,
             "n": 52,
-            "mean": 0.755,
+            "mean": 0.719,
             "density": 0.366,
-            "ci95": 0.421,
+            "ci95": 0.401,
             "rank": 2.619
           }
         },
@@ -1907,52 +1940,53 @@
           "year": 2002,
           "yearEnd": 2003,
           "episodeCount": 26,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 26,
-                "mean": 4.62,
+                "mean": 4.754,
                 "density": 7.462,
-                "ci95": 1.13,
+                "ci95": 1.143,
                 "rank": 7.5
               },
               "wikipedia": {
                 "n": 26,
-                "mean": 4.815,
+                "mean": 4.939,
                 "density": 9.063,
-                "ci95": 1.316,
+                "ci95": 1.331,
                 "rank": 7.604
               }
             },
             "year": null,
             "n": 52,
-            "mean": 4.718,
+            "mean": 4.846,
             "density": 8.262,
-            "ci95": 0.867,
+            "ci95": 0.877,
             "rank": 7.552
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 26,
-                "mean": 0.557,
+                "mean": 0.531,
                 "density": 0.271,
-                "ci95": 0.372,
+                "ci95": 0.355,
                 "rank": 0.985
               },
               "wikipedia": {
                 "n": 26,
-                "mean": 0.605,
+                "mean": 0.595,
                 "density": 0.337,
-                "ci95": 0.854,
+                "ci95": 0.845,
                 "rank": 1.771
               }
             },
             "year": null,
             "n": 52,
-            "mean": 0.581,
+            "mean": 0.563,
             "density": 0.304,
-            "ci95": 0.466,
+            "ci95": 0.458,
             "rank": 1.378
           }
         },
@@ -1961,52 +1995,53 @@
           "year": 2003,
           "yearEnd": 2004,
           "episodeCount": 24,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 23,
-                "mean": 4.555,
+                "mean": 4.727,
                 "density": 6.841,
-                "ci95": 0.908,
-                "rank": 7.197
+                "ci95": 0.942,
+                "rank": 7.348
               },
               "wikipedia": {
                 "n": 23,
-                "mean": 5.253,
+                "mean": 5.403,
                 "density": 8.413,
-                "ci95": 1.282,
+                "ci95": 1.3,
                 "rank": 8.438
               }
             },
             "year": null,
             "n": 46,
-            "mean": 4.904,
+            "mean": 5.065,
             "density": 7.627,
-            "ci95": 0.785,
-            "rank": 7.818
+            "ci95": 0.803,
+            "rank": 7.893
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 23,
-                "mean": 0.363,
+                "mean": 0.346,
                 "density": 0.176,
-                "ci95": 0.316,
+                "ci95": 0.301,
                 "rank": 0.53
               },
               "wikipedia": {
                 "n": 23,
-                "mean": 0.831,
+                "mean": 0.791,
                 "density": 0.403,
-                "ci95": 0.915,
+                "ci95": 0.871,
                 "rank": 2.396
               }
             },
             "year": null,
             "n": 46,
-            "mean": 0.597,
+            "mean": 0.569,
             "density": 0.289,
-            "ci95": 0.484,
+            "ci95": 0.461,
             "rank": 1.463
           }
         },
@@ -2015,52 +2050,53 @@
           "year": 2004,
           "yearEnd": 2005,
           "episodeCount": 22,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 22,
-                "mean": 4.835,
+                "mean": 4.966,
                 "density": 7.372,
-                "ci95": 1.224,
+                "ci95": 1.231,
                 "rank": 7.955
               },
               "wikipedia": {
                 "n": 22,
-                "mean": 3.873,
+                "mean": 3.984,
                 "density": 6.139,
-                "ci95": 1.265,
+                "ci95": 1.283,
                 "rank": 5.312
               }
             },
             "year": null,
             "n": 44,
-            "mean": 4.354,
+            "mean": 4.475,
             "density": 6.755,
-            "ci95": 0.88,
+            "ci95": 0.889,
             "rank": 6.634
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 22,
-                "mean": 0.834,
+                "mean": 0.794,
                 "density": 0.405,
-                "ci95": 0.475,
+                "ci95": 0.452,
                 "rank": 2.803
               },
               "wikipedia": {
                 "n": 22,
-                "mean": 1.41,
+                "mean": 1.343,
                 "density": 0.684,
-                "ci95": 1.114,
+                "ci95": 1.061,
                 "rank": 3.646
               }
             },
             "year": null,
             "n": 44,
-            "mean": 1.122,
+            "mean": 1.069,
             "density": 0.545,
-            "ci95": 0.606,
+            "ci95": 0.577,
             "rank": 3.224
           }
         }
@@ -2071,6 +2107,7 @@
       "name": "Star Trek: Discovery",
       "short": "DIS",
       "kind": "series",
+      "unit": "series",
       "color": "#5DCAA5",
       "ageRating": 16,
       "entityCount": 0,
@@ -2101,52 +2138,53 @@
           "year": 2017,
           "yearEnd": 2018,
           "episodeCount": 15,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 15,
-                "mean": 3.413,
+                "mean": 3.542,
                 "density": 5.126,
-                "ci95": 0.692,
+                "ci95": 0.718,
                 "rank": 4.167
               },
               "wikipedia": {
                 "n": 4,
-                "mean": 4.033,
+                "mean": 4.186,
                 "density": 6.058,
-                "ci95": 4.961,
+                "ci95": 5.149,
                 "rank": 6.354
               }
             },
             "year": null,
             "n": 19,
-            "mean": 3.544,
+            "mean": 3.678,
             "density": 5.322,
-            "ci95": 1.179,
+            "ci95": 1.223,
             "rank": 4.627
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 15,
-                "mean": 1.119,
+                "mean": 1.066,
                 "density": 0.543,
-                "ci95": 0.837,
+                "ci95": 0.797,
                 "rank": 5.076
               },
               "wikipedia": {
                 "n": 4,
-                "mean": 1.367,
+                "mean": 1.301,
                 "density": 0.663,
-                "ci95": 4.018,
+                "ci95": 3.826,
                 "rank": 3.438
               }
             },
             "year": null,
             "n": 19,
-            "mean": 1.171,
+            "mean": 1.115,
             "density": 0.568,
-            "ci95": 1.073,
+            "ci95": 1.022,
             "rank": 4.731
           }
         },
@@ -2155,38 +2193,39 @@
           "year": 2019,
           "yearEnd": null,
           "episodeCount": 14,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 13,
-                "mean": 4.524,
+                "mean": 4.695,
                 "density": 6.795,
-                "ci95": 1.324,
-                "rank": 7.045
+                "ci95": 1.374,
+                "rank": 7.197
               }
             },
             "year": null,
             "n": 13,
-            "mean": 4.524,
+            "mean": 4.695,
             "density": 6.795,
-            "ci95": 1.324,
-            "rank": 7.045
+            "ci95": 1.374,
+            "rank": 7.197
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 13,
-                "mean": 4.539,
+                "mean": 4.359,
                 "density": 2.431,
-                "ci95": 1.579,
+                "ci95": 1.545,
                 "rank": 9.621
               }
             },
             "year": null,
             "n": 13,
-            "mean": 4.539,
+            "mean": 4.359,
             "density": 2.431,
-            "ci95": 1.579,
+            "ci95": 1.545,
             "rank": 9.621
           }
         },
@@ -2195,18 +2234,19 @@
           "year": 2020,
           "yearEnd": 2021,
           "episodeCount": 13,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 12,
-                "mean": 5.811,
+                "mean": 5.944,
                 "density": 8.728,
-                "ci95": 1.58,
-                "rank": 9.47
+                "ci95": 1.56,
+                "rank": 9.318
               },
               "wikipedia": {
                 "n": 2,
-                "mean": 3.026,
+                "mean": 3.141,
                 "density": 4.545,
                 "ci95": 0.0,
                 "rank": 3.021
@@ -2214,18 +2254,18 @@
             },
             "year": null,
             "n": 14,
-            "mean": 5.413,
+            "mean": 5.544,
             "density": 8.13,
-            "ci95": 1.354,
-            "rank": 8.549
+            "ci95": 1.337,
+            "rank": 8.418
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 12,
-                "mean": 0.656,
+                "mean": 0.625,
                 "density": 0.318,
-                "ci95": 0.426,
+                "ci95": 0.406,
                 "rank": 1.591
               },
               "wikipedia": {
@@ -2238,9 +2278,9 @@
             },
             "year": null,
             "n": 14,
-            "mean": 0.562,
+            "mean": 0.536,
             "density": 0.273,
-            "ci95": 0.365,
+            "ci95": 0.348,
             "rank": 1.483
           }
         },
@@ -2249,38 +2289,39 @@
           "year": 2021,
           "yearEnd": 2022,
           "episodeCount": 13,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 11,
-                "mean": 3.213,
+                "mean": 3.334,
                 "density": 4.826,
-                "ci95": 0.884,
+                "ci95": 0.917,
                 "rank": 3.409
               }
             },
             "year": null,
             "n": 11,
-            "mean": 3.213,
+            "mean": 3.334,
             "density": 4.826,
-            "ci95": 0.884,
+            "ci95": 0.917,
             "rank": 3.409
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 11,
-                "mean": 0.754,
+                "mean": 0.718,
                 "density": 0.366,
-                "ci95": 0.399,
+                "ci95": 0.38,
                 "rank": 2.348
               }
             },
             "year": null,
             "n": 11,
-            "mean": 0.754,
+            "mean": 0.718,
             "density": 0.366,
-            "ci95": 0.399,
+            "ci95": 0.38,
             "rank": 2.348
           }
         },
@@ -2289,39 +2330,40 @@
           "year": 2024,
           "yearEnd": null,
           "episodeCount": 10,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 10,
-                "mean": 2.867,
+                "mean": 2.975,
                 "density": 4.306,
-                "ci95": 0.626,
+                "ci95": 0.65,
                 "rank": 2.955
               }
             },
             "year": null,
             "n": 10,
-            "mean": 2.867,
+            "mean": 2.975,
             "density": 4.306,
-            "ci95": 0.626,
+            "ci95": 0.65,
             "rank": 2.955
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 10,
-                "mean": 2.103,
+                "mean": 2.05,
                 "density": 1.124,
-                "ci95": 1.786,
-                "rank": 8.106
+                "ci95": 1.791,
+                "rank": 8.258
               }
             },
             "year": null,
             "n": 10,
-            "mean": 2.103,
+            "mean": 2.05,
             "density": 1.124,
-            "ci95": 1.786,
-            "rank": 8.106
+            "ci95": 1.791,
+            "rank": 8.258
           }
         }
       ]
@@ -2331,6 +2373,7 @@
       "name": "Star Trek: Short Treks",
       "short": "ST",
       "kind": "series",
+      "unit": "series",
       "color": "#AFA9EC",
       "ageRating": 13,
       "entityCount": 0,
@@ -2361,38 +2404,39 @@
           "year": 2018,
           "yearEnd": 2019,
           "episodeCount": 4,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 4,
-                "mean": 3.78,
+                "mean": 3.924,
                 "density": 5.678,
-                "ci95": 4.99,
+                "ci95": 5.179,
                 "rank": 4.773
               }
             },
             "year": null,
             "n": 4,
-            "mean": 3.78,
+            "mean": 3.924,
             "density": 5.678,
-            "ci95": 4.99,
+            "ci95": 5.179,
             "rank": 4.773
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 4,
-                "mean": 2.202,
+                "mean": 2.097,
                 "density": 1.069,
-                "ci95": 4.78,
+                "ci95": 4.553,
                 "rank": 8.409
               }
             },
             "year": null,
             "n": 4,
-            "mean": 2.202,
+            "mean": 2.097,
             "density": 1.069,
-            "ci95": 4.78,
+            "ci95": 4.553,
             "rank": 8.409
           }
         },
@@ -2401,38 +2445,39 @@
           "year": 2019,
           "yearEnd": 2020,
           "episodeCount": 6,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 5,
-                "mean": 1.683,
+                "mean": 1.747,
                 "density": 2.528,
-                "ci95": 0.797,
+                "ci95": 0.827,
                 "rank": 0.833
               }
             },
             "year": null,
             "n": 5,
-            "mean": 1.683,
+            "mean": 1.747,
             "density": 2.528,
-            "ci95": 0.797,
+            "ci95": 0.827,
             "rank": 0.833
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 5,
-                "mean": 0.323,
+                "mean": 0.308,
                 "density": 0.157,
-                "ci95": 0.633,
+                "ci95": 0.603,
                 "rank": 0.379
               }
             },
             "year": null,
             "n": 5,
-            "mean": 0.323,
+            "mean": 0.308,
             "density": 0.157,
-            "ci95": 0.633,
+            "ci95": 0.603,
             "rank": 0.379
           }
         }
@@ -2443,6 +2488,7 @@
       "name": "Star Trek: Picard",
       "short": "PIC",
       "kind": "series",
+      "unit": "series",
       "color": "#BA7517",
       "ageRating": 16,
       "entityCount": 0,
@@ -2473,38 +2519,39 @@
           "year": 2020,
           "yearEnd": null,
           "episodeCount": 10,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 10,
-                "mean": 1.063,
+                "mean": 1.103,
                 "density": 1.596,
-                "ci95": 0.285,
+                "ci95": 0.295,
                 "rank": 0.076
               }
             },
             "year": null,
             "n": 10,
-            "mean": 1.063,
+            "mean": 1.103,
             "density": 1.596,
-            "ci95": 0.285,
+            "ci95": 0.295,
             "rank": 0.076
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 10,
-                "mean": 0.794,
+                "mean": 0.756,
                 "density": 0.386,
-                "ci95": 0.572,
+                "ci95": 0.545,
                 "rank": 2.652
               }
             },
             "year": null,
             "n": 10,
-            "mean": 0.794,
+            "mean": 0.756,
             "density": 0.386,
-            "ci95": 0.572,
+            "ci95": 0.545,
             "rank": 2.652
           }
         },
@@ -2513,39 +2560,40 @@
           "year": 2022,
           "yearEnd": null,
           "episodeCount": 10,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 10,
-                "mean": 1.556,
+                "mean": 1.615,
                 "density": 2.337,
-                "ci95": 0.529,
+                "ci95": 0.549,
                 "rank": 0.53
               }
             },
             "year": null,
             "n": 10,
-            "mean": 1.556,
+            "mean": 1.615,
             "density": 2.337,
-            "ci95": 0.529,
+            "ci95": 0.549,
             "rank": 0.53
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 10,
-                "mean": 1.583,
+                "mean": 1.508,
                 "density": 0.769,
-                "ci95": 0.768,
-                "rank": 6.439
+                "ci95": 0.731,
+                "rank": 6.288
               }
             },
             "year": null,
             "n": 10,
-            "mean": 1.583,
+            "mean": 1.508,
             "density": 0.769,
-            "ci95": 0.768,
-            "rank": 6.439
+            "ci95": 0.731,
+            "rank": 6.288
           }
         }
       ]
@@ -2555,6 +2603,7 @@
       "name": "Star Trek: Lower Decks",
       "short": "LD",
       "kind": "series",
+      "unit": "series",
       "color": "#E24B4A",
       "ageRating": 13,
       "entityCount": 0,
@@ -2585,38 +2634,39 @@
           "year": 2020,
           "yearEnd": null,
           "episodeCount": 10,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 10,
-                "mean": 3.351,
+                "mean": 3.478,
                 "density": 5.033,
-                "ci95": 1.058,
+                "ci95": 1.098,
                 "rank": 4.015
               }
             },
             "year": null,
             "n": 10,
-            "mean": 3.351,
+            "mean": 3.478,
             "density": 5.033,
-            "ci95": 1.058,
+            "ci95": 1.098,
             "rank": 4.015
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 10,
-                "mean": 0.473,
+                "mean": 0.45,
                 "density": 0.229,
-                "ci95": 0.39,
+                "ci95": 0.372,
                 "rank": 0.682
               }
             },
             "year": null,
             "n": 10,
-            "mean": 0.473,
+            "mean": 0.45,
             "density": 0.229,
-            "ci95": 0.39,
+            "ci95": 0.372,
             "rank": 0.682
           }
         },
@@ -2625,38 +2675,39 @@
           "year": 2021,
           "yearEnd": null,
           "episodeCount": 10,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 10,
-                "mean": 2.517,
+                "mean": 2.612,
                 "density": 3.78,
-                "ci95": 0.927,
+                "ci95": 0.962,
                 "rank": 2.197
               }
             },
             "year": null,
             "n": 10,
-            "mean": 2.517,
+            "mean": 2.612,
             "density": 3.78,
-            "ci95": 0.927,
+            "ci95": 0.962,
             "rank": 2.197
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 10,
-                "mean": 0.627,
+                "mean": 0.597,
                 "density": 0.304,
-                "ci95": 0.243,
+                "ci95": 0.231,
                 "rank": 1.439
               }
             },
             "year": null,
             "n": 10,
-            "mean": 0.627,
+            "mean": 0.597,
             "density": 0.304,
-            "ci95": 0.243,
+            "ci95": 0.231,
             "rank": 1.439
           }
         },
@@ -2665,38 +2716,39 @@
           "year": 2022,
           "yearEnd": null,
           "episodeCount": 10,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 10,
-                "mean": 2.449,
+                "mean": 2.541,
                 "density": 3.677,
-                "ci95": 1.06,
+                "ci95": 1.1,
                 "rank": 2.045
               }
             },
             "year": null,
             "n": 10,
-            "mean": 2.449,
+            "mean": 2.541,
             "density": 3.677,
-            "ci95": 1.06,
+            "ci95": 1.1,
             "rank": 2.045
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 10,
-                "mean": 1.08,
+                "mean": 1.029,
                 "density": 0.524,
-                "ci95": 1.085,
+                "ci95": 1.034,
                 "rank": 4.621
               }
             },
             "year": null,
             "n": 10,
-            "mean": 1.08,
+            "mean": 1.029,
             "density": 0.524,
-            "ci95": 1.085,
+            "ci95": 1.034,
             "rank": 4.621
           }
         },
@@ -2705,38 +2757,39 @@
           "year": 2023,
           "yearEnd": null,
           "episodeCount": 10,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 10,
-                "mean": 1.976,
+                "mean": 2.051,
                 "density": 2.968,
-                "ci95": 0.68,
+                "ci95": 0.705,
                 "rank": 1.288
               }
             },
             "year": null,
             "n": 10,
-            "mean": 1.976,
+            "mean": 2.051,
             "density": 2.968,
-            "ci95": 0.68,
+            "ci95": 0.705,
             "rank": 1.288
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 10,
-                "mean": 0.853,
+                "mean": 0.812,
                 "density": 0.414,
-                "ci95": 0.744,
+                "ci95": 0.709,
                 "rank": 2.955
               }
             },
             "year": null,
             "n": 10,
-            "mean": 0.853,
+            "mean": 0.812,
             "density": 0.414,
-            "ci95": 0.744,
+            "ci95": 0.709,
             "rank": 2.955
           }
         },
@@ -2745,39 +2798,40 @@
           "year": 2024,
           "yearEnd": null,
           "episodeCount": 10,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 10,
-                "mean": 2.618,
+                "mean": 2.717,
                 "density": 3.932,
-                "ci95": 1.031,
+                "ci95": 1.07,
                 "rank": 2.652
               }
             },
             "year": null,
             "n": 10,
-            "mean": 2.618,
+            "mean": 2.717,
             "density": 3.932,
-            "ci95": 1.031,
+            "ci95": 1.07,
             "rank": 2.652
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 10,
-                "mean": 2.119,
+                "mean": 2.018,
                 "density": 1.028,
-                "ci95": 1.161,
-                "rank": 8.258
+                "ci95": 1.106,
+                "rank": 8.106
               }
             },
             "year": null,
             "n": 10,
-            "mean": 2.119,
+            "mean": 2.018,
             "density": 1.028,
-            "ci95": 1.161,
-            "rank": 8.258
+            "ci95": 1.106,
+            "rank": 8.106
           }
         }
       ]
@@ -2787,6 +2841,7 @@
       "name": "Star Trek: Prodigy",
       "short": "PRO",
       "kind": "series",
+      "unit": "series",
       "color": "#85B7EB",
       "ageRating": 7,
       "entityCount": 0,
@@ -2817,39 +2872,40 @@
           "year": 2021,
           "yearEnd": 2022,
           "episodeCount": 19,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 19,
-                "mean": 3.34,
+                "mean": 3.446,
                 "density": 5.381,
-                "ci95": 1.198,
+                "ci95": 1.22,
                 "rank": 3.864
               }
             },
             "year": null,
             "n": 19,
-            "mean": 3.34,
+            "mean": 3.446,
             "density": 5.381,
-            "ci95": 1.198,
+            "ci95": 1.22,
             "rank": 3.864
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 19,
-                "mean": 1.081,
+                "mean": 1.029,
                 "density": 0.525,
-                "ci95": 0.99,
-                "rank": 4.773
+                "ci95": 0.943,
+                "rank": 4.621
               }
             },
             "year": null,
             "n": 19,
-            "mean": 1.081,
+            "mean": 1.029,
             "density": 0.525,
-            "ci95": 0.99,
-            "rank": 4.773
+            "ci95": 0.943,
+            "rank": 4.621
           }
         },
         {
@@ -2857,39 +2913,40 @@
           "year": 2024,
           "yearEnd": null,
           "episodeCount": 20,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 20,
-                "mean": 2.83,
+                "mean": 2.937,
                 "density": 4.25,
-                "ci95": 0.625,
+                "ci95": 0.649,
                 "rank": 2.803
               }
             },
             "year": null,
             "n": 20,
-            "mean": 2.83,
+            "mean": 2.937,
             "density": 4.25,
-            "ci95": 0.625,
+            "ci95": 0.649,
             "rank": 2.803
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 20,
-                "mean": 0.953,
+                "mean": 0.908,
                 "density": 0.463,
-                "ci95": 0.505,
-                "rank": 3.864
+                "ci95": 0.481,
+                "rank": 3.712
               }
             },
             "year": null,
             "n": 20,
-            "mean": 0.953,
+            "mean": 0.908,
             "density": 0.463,
-            "ci95": 0.505,
-            "rank": 3.864
+            "ci95": 0.481,
+            "rank": 3.712
           }
         }
       ]
@@ -2899,6 +2956,7 @@
       "name": "Star Trek: Strange New Worlds",
       "short": "SNW",
       "kind": "series",
+      "unit": "series",
       "color": "#F0997B",
       "ageRating": 12,
       "entityCount": 0,
@@ -2929,38 +2987,39 @@
           "year": 2022,
           "yearEnd": null,
           "episodeCount": 10,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 9,
-                "mean": 3.067,
+                "mean": 3.183,
                 "density": 4.607,
-                "ci95": 0.898,
+                "ci95": 0.931,
                 "rank": 3.106
               }
             },
             "year": null,
             "n": 9,
-            "mean": 3.067,
+            "mean": 3.183,
             "density": 4.607,
-            "ci95": 0.898,
+            "ci95": 0.931,
             "rank": 3.106
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 9,
-                "mean": 4.041,
+                "mean": 3.902,
                 "density": 2.18,
-                "ci95": 1.893,
+                "ci95": 1.884,
                 "rank": 9.47
               }
             },
             "year": null,
             "n": 9,
-            "mean": 4.041,
+            "mean": 3.902,
             "density": 2.18,
-            "ci95": 1.893,
+            "ci95": 1.884,
             "rank": 9.47
           }
         },
@@ -2969,37 +3028,38 @@
           "year": 2023,
           "yearEnd": null,
           "episodeCount": 10,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 10,
-                "mean": 2.604,
+                "mean": 2.703,
                 "density": 3.911,
-                "ci95": 0.927,
+                "ci95": 0.962,
                 "rank": 2.5
               },
               "wikipedia": {
                 "n": 2,
-                "mean": 3.41,
+                "mean": 3.539,
                 "density": 5.122,
-                "ci95": 0.116,
+                "ci95": 0.121,
                 "rank": 3.438
               }
             },
             "year": null,
             "n": 12,
-            "mean": 2.738,
+            "mean": 2.842,
             "density": 4.113,
-            "ci95": 0.773,
+            "ci95": 0.802,
             "rank": 2.656
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 10,
-                "mean": 1.359,
+                "mean": 1.295,
                 "density": 0.66,
-                "ci95": 0.897,
+                "ci95": 0.854,
                 "rank": 5.379
               },
               "wikipedia": {
@@ -3012,9 +3072,9 @@
             },
             "year": null,
             "n": 12,
-            "mean": 1.133,
+            "mean": 1.079,
             "density": 0.55,
-            "ci95": 0.747,
+            "ci95": 0.712,
             "rank": 4.621
           }
         },
@@ -3023,39 +3083,40 @@
           "year": 2025,
           "yearEnd": null,
           "episodeCount": 10,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 10,
-                "mean": 3.193,
+                "mean": 3.314,
                 "density": 4.796,
-                "ci95": 1.149,
+                "ci95": 1.192,
                 "rank": 3.258
               }
             },
             "year": null,
             "n": 10,
-            "mean": 3.193,
+            "mean": 3.314,
             "density": 4.796,
-            "ci95": 1.149,
+            "ci95": 1.192,
             "rank": 3.258
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 10,
-                "mean": 3.168,
+                "mean": 3.065,
                 "density": 1.722,
-                "ci95": 1.868,
-                "rank": 9.167
+                "ci95": 1.854,
+                "rank": 9.318
               }
             },
             "year": null,
             "n": 10,
-            "mean": 3.168,
+            "mean": 3.065,
             "density": 1.722,
-            "ci95": 1.868,
-            "rank": 9.167
+            "ci95": 1.854,
+            "rank": 9.318
           }
         },
         {
@@ -3063,39 +3124,40 @@
           "year": 2026,
           "yearEnd": null,
           "episodeCount": 10,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 2,
-                "mean": 5.128,
+                "mean": 5.322,
                 "density": 7.702,
-                "ci95": 0.682,
-                "rank": 8.712
+                "ci95": 0.707,
+                "rank": 8.864
               }
             },
             "year": null,
             "n": 2,
-            "mean": 5.128,
+            "mean": 5.322,
             "density": 7.702,
-            "ci95": 0.682,
-            "rank": 8.712
+            "ci95": 0.707,
+            "rank": 8.864
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 2,
-                "mean": 1.843,
+                "mean": 1.755,
                 "density": 0.894,
-                "ci95": 5.418,
-                "rank": 7.045
+                "ci95": 5.16,
+                "rank": 6.894
               }
             },
             "year": null,
             "n": 2,
-            "mean": 1.843,
+            "mean": 1.755,
             "density": 0.894,
-            "ci95": 5.418,
-            "rank": 7.045
+            "ci95": 5.16,
+            "rank": 6.894
           }
         }
       ]
@@ -3105,6 +3167,7 @@
       "name": "Star Trek: Very Short Treks",
       "short": "VST",
       "kind": "series",
+      "unit": "series",
       "color": "#888780",
       "ageRating": 7,
       "entityCount": 0,
@@ -3135,21 +3198,22 @@
           "year": 2023,
           "yearEnd": null,
           "episodeCount": 5,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 4,
-                "mean": 3.92,
+                "mean": 4.068,
                 "density": 5.887,
-                "ci95": 3.886,
+                "ci95": 4.033,
                 "rank": 5.379
               }
             },
             "year": null,
             "n": 4,
-            "mean": 3.92,
+            "mean": 4.068,
             "density": 5.887,
-            "ci95": 3.886,
+            "ci95": 4.033,
             "rank": 5.379
           },
           "fi": {
@@ -3177,6 +3241,7 @@
       "name": "Star Trek: Starfleet Academy",
       "short": "SFA",
       "kind": "series",
+      "unit": "series",
       "color": "#639922",
       "ageRating": 12,
       "entityCount": 0,
@@ -3207,53 +3272,54 @@
           "year": 2026,
           "yearEnd": null,
           "episodeCount": 10,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 7,
-                "mean": 3.982,
+                "mean": 4.132,
                 "density": 5.98,
-                "ci95": 2.396,
+                "ci95": 2.486,
                 "rank": 5.833
               },
               "wikipedia": {
                 "n": 10,
-                "mean": 2.047,
+                "mean": 2.125,
                 "density": 3.075,
-                "ci95": 1.616,
+                "ci95": 1.677,
                 "rank": 1.979
               }
             },
             "year": null,
             "n": 17,
-            "mean": 2.844,
+            "mean": 2.951,
             "density": 4.271,
-            "ci95": 1.37,
+            "ci95": 1.422,
             "rank": 3.566
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 7,
-                "mean": 1.918,
+                "mean": 1.827,
                 "density": 0.931,
-                "ci95": 2.136,
-                "rank": 7.652
+                "ci95": 2.034,
+                "rank": 7.348
               },
               "wikipedia": {
                 "n": 10,
-                "mean": 3.259,
+                "mean": 3.103,
                 "density": 1.582,
-                "ci95": 2.109,
-                "rank": 8.542
+                "ci95": 2.009,
+                "rank": 8.438
               }
             },
             "year": null,
             "n": 17,
-            "mean": 2.707,
+            "mean": 2.578,
             "density": 1.314,
-            "ci95": 1.521,
-            "rank": 8.176
+            "ci95": 1.448,
+            "rank": 7.989
           }
         }
       ]
@@ -3263,6 +3329,7 @@
       "name": "Star Trek: The Motion Picture",
       "short": "TMP",
       "kind": "film",
+      "unit": "film",
       "color": "#C77DBA",
       "ageRating": null,
       "entityCount": 0,
@@ -3293,11 +3360,12 @@
           "year": 1979,
           "yearEnd": null,
           "episodeCount": 1,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 1,
-                "mean": 9.627,
+                "mean": 9.991,
                 "density": 14.459,
                 "ci95": null,
                 "rank": 9.924
@@ -3307,28 +3375,28 @@
                 "mean": 10.0,
                 "density": 17.647,
                 "ci95": null,
-                "rank": 9.792
+                "rank": 9.688
               }
             },
             "year": null,
             "n": 2,
-            "mean": 9.814,
+            "mean": 9.995,
             "density": 16.053,
             "ci95": null,
-            "rank": 9.858
+            "rank": 9.806
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 1,
-                "mean": 0.602,
+                "mean": 0.573,
                 "density": 0.292,
                 "ci95": null,
                 "rank": 1.288
               },
               "wikipedia": {
                 "n": 1,
-                "mean": 8.08,
+                "mean": 7.695,
                 "density": 3.922,
                 "ci95": null,
                 "rank": 9.688
@@ -3336,7 +3404,7 @@
             },
             "year": null,
             "n": 2,
-            "mean": 4.341,
+            "mean": 4.134,
             "density": 2.107,
             "ci95": null,
             "rank": 5.488
@@ -3349,6 +3417,7 @@
       "name": "Star Trek II: The Wrath of Khan",
       "short": "TWOK",
       "kind": "film",
+      "unit": "film",
       "color": "#4C9F70",
       "ageRating": null,
       "entityCount": 0,
@@ -3379,18 +3448,19 @@
           "year": 1982,
           "yearEnd": null,
           "episodeCount": 1,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 1,
-                "mean": 4.699,
+                "mean": 4.877,
                 "density": 7.058,
                 "ci95": null,
                 "rank": 7.803
               },
               "wikipedia": {
                 "n": 1,
-                "mean": 6.321,
+                "mean": 6.56,
                 "density": 9.494,
                 "ci95": null,
                 "rank": 9.062
@@ -3398,7 +3468,7 @@
             },
             "year": null,
             "n": 2,
-            "mean": 5.51,
+            "mean": 5.718,
             "density": 8.276,
             "ci95": null,
             "rank": 8.432
@@ -3407,25 +3477,25 @@
             "perSource": {
               "memory-alpha": {
                 "n": 1,
-                "mean": 2.005,
+                "mean": 1.909,
                 "density": 0.973,
                 "ci95": null,
                 "rank": 7.955
               },
               "wikipedia": {
                 "n": 1,
-                "mean": 3.259,
+                "mean": 3.104,
                 "density": 1.582,
                 "ci95": null,
-                "rank": 8.542
+                "rank": 8.646
               }
             },
             "year": null,
             "n": 2,
-            "mean": 2.632,
+            "mean": 2.506,
             "density": 1.278,
             "ci95": null,
-            "rank": 8.248
+            "rank": 8.3
           }
         }
       ]
@@ -3435,6 +3505,7 @@
       "name": "Star Trek III: The Search for Spock",
       "short": "TSFS",
       "kind": "film",
+      "unit": "film",
       "color": "#B98A3E",
       "ageRating": null,
       "entityCount": 0,
@@ -3465,18 +3536,19 @@
           "year": 1984,
           "yearEnd": null,
           "episodeCount": 1,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 1,
-                "mean": 3.981,
+                "mean": 4.131,
                 "density": 5.979,
                 "ci95": null,
                 "rank": 5.682
               },
               "wikipedia": {
                 "n": 1,
-                "mean": 1.393,
+                "mean": 1.446,
                 "density": 2.092,
                 "ci95": null,
                 "rank": 0.521
@@ -3484,7 +3556,7 @@
             },
             "year": null,
             "n": 2,
-            "mean": 2.687,
+            "mean": 2.788,
             "density": 4.035,
             "ci95": null,
             "rank": 3.102
@@ -3493,14 +3565,14 @@
             "perSource": {
               "memory-alpha": {
                 "n": 1,
-                "mean": 3.193,
+                "mean": 3.041,
                 "density": 1.55,
                 "ci95": null,
-                "rank": 9.318
+                "rank": 9.167
               },
               "wikipedia": {
                 "n": 1,
-                "mean": 4.31,
+                "mean": 4.104,
                 "density": 2.092,
                 "ci95": null,
                 "rank": 9.479
@@ -3508,10 +3580,10 @@
             },
             "year": null,
             "n": 2,
-            "mean": 3.752,
+            "mean": 3.572,
             "density": 1.821,
             "ci95": null,
-            "rank": 9.398
+            "rank": 9.323
           }
         }
       ]
@@ -3521,6 +3593,7 @@
       "name": "Star Trek IV: The Voyage Home",
       "short": "TVH",
       "kind": "film",
+      "unit": "film",
       "color": "#378ADD",
       "ageRating": null,
       "entityCount": 0,
@@ -3551,42 +3624,43 @@
           "year": 1986,
           "yearEnd": null,
           "episodeCount": 1,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 1,
-                "mean": 6.397,
+                "mean": 6.638,
                 "density": 9.607,
                 "ci95": null,
                 "rank": 9.773
               },
               "wikipedia": {
                 "n": 1,
-                "mean": 9.987,
+                "mean": 10.0,
                 "density": 15.0,
                 "ci95": null,
-                "rank": 9.479
+                "rank": 9.688
               }
             },
             "year": null,
             "n": 2,
-            "mean": 8.192,
+            "mean": 8.319,
             "density": 12.303,
             "ci95": null,
-            "rank": 9.626
+            "rank": 9.73
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 1,
-                "mean": 0.861,
+                "mean": 0.82,
                 "density": 0.418,
                 "ci95": null,
                 "rank": 3.106
               },
               "wikipedia": {
                 "n": 1,
-                "mean": 3.434,
+                "mean": 3.271,
                 "density": 1.667,
                 "ci95": null,
                 "rank": 9.062
@@ -3594,7 +3668,7 @@
             },
             "year": null,
             "n": 2,
-            "mean": 2.147,
+            "mean": 2.046,
             "density": 1.042,
             "ci95": null,
             "rank": 6.084
@@ -3607,6 +3681,7 @@
       "name": "Star Trek V: The Final Frontier",
       "short": "TFF",
       "kind": "film",
+      "unit": "film",
       "color": "#D85A30",
       "ageRating": null,
       "entityCount": 0,
@@ -3637,11 +3712,12 @@
           "year": 1989,
           "yearEnd": null,
           "episodeCount": 1,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 1,
-                "mean": 1.922,
+                "mean": 1.995,
                 "density": 2.887,
                 "ci95": null,
                 "rank": 1.136
@@ -3656,7 +3732,7 @@
             },
             "year": null,
             "n": 2,
-            "mean": 0.961,
+            "mean": 0.998,
             "density": 1.444,
             "ci95": null,
             "rank": 0.672
@@ -3665,14 +3741,14 @@
             "perSource": {
               "memory-alpha": {
                 "n": 1,
-                "mean": 6.543,
+                "mean": 6.231,
                 "density": 3.176,
                 "ci95": null,
                 "rank": 9.924
               },
               "wikipedia": {
                 "n": 1,
-                "mean": 9.953,
+                "mean": 9.478,
                 "density": 4.831,
                 "ci95": null,
                 "rank": 9.896
@@ -3680,7 +3756,7 @@
             },
             "year": null,
             "n": 2,
-            "mean": 8.248,
+            "mean": 7.854,
             "density": 4.004,
             "ci95": null,
             "rank": 9.91
@@ -3693,6 +3769,7 @@
       "name": "Star Trek VI: The Undiscovered Country",
       "short": "TUC",
       "kind": "film",
+      "unit": "film",
       "color": "#1D9E75",
       "ageRating": null,
       "entityCount": 0,
@@ -3723,18 +3800,19 @@
           "year": 1991,
           "yearEnd": null,
           "episodeCount": 1,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 1,
-                "mean": 3.659,
+                "mean": 3.797,
                 "density": 5.495,
                 "ci95": null,
                 "rank": 4.47
               },
               "wikipedia": {
                 "n": 1,
-                "mean": 2.391,
+                "mean": 2.481,
                 "density": 3.591,
                 "ci95": null,
                 "rank": 2.396
@@ -3742,7 +3820,7 @@
             },
             "year": null,
             "n": 2,
-            "mean": 3.025,
+            "mean": 3.139,
             "density": 4.543,
             "ci95": null,
             "rank": 3.433
@@ -3751,7 +3829,7 @@
             "perSource": {
               "memory-alpha": {
                 "n": 1,
-                "mean": 0.731,
+                "mean": 0.696,
                 "density": 0.355,
                 "ci95": null,
                 "rank": 1.894
@@ -3766,7 +3844,7 @@
             },
             "year": null,
             "n": 2,
-            "mean": 0.365,
+            "mean": 0.348,
             "density": 0.177,
             "ci95": null,
             "rank": 1.363
@@ -3779,6 +3857,7 @@
       "name": "Star Trek Generations",
       "short": "GEN",
       "kind": "film",
+      "unit": "film",
       "color": "#7F77DD",
       "ageRating": null,
       "entityCount": 0,
@@ -3809,11 +3888,12 @@
           "year": 1994,
           "yearEnd": null,
           "episodeCount": 1,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 1,
-                "mean": 4.181,
+                "mean": 4.339,
                 "density": 6.279,
                 "ci95": null,
                 "rank": 6.136
@@ -3823,28 +3903,28 @@
                 "mean": 10.0,
                 "density": 15.576,
                 "ci95": null,
-                "rank": 9.792
+                "rank": 9.688
               }
             },
             "year": null,
             "n": 2,
-            "mean": 7.091,
+            "mean": 7.17,
             "density": 10.928,
             "ci95": null,
-            "rank": 7.964
+            "rank": 7.912
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 1,
-                "mean": 1.811,
+                "mean": 1.725,
                 "density": 0.879,
                 "ci95": null,
                 "rank": 6.742
               },
               "wikipedia": {
                 "n": 1,
-                "mean": 3.21,
+                "mean": 3.057,
                 "density": 1.558,
                 "ci95": null,
                 "rank": 8.229
@@ -3852,7 +3932,7 @@
             },
             "year": null,
             "n": 2,
-            "mean": 2.51,
+            "mean": 2.391,
             "density": 1.219,
             "ci95": null,
             "rank": 7.486
@@ -3865,6 +3945,7 @@
       "name": "Star Trek: First Contact",
       "short": "FC",
       "kind": "film",
+      "unit": "film",
       "color": "#EF9F27",
       "ageRating": null,
       "entityCount": 0,
@@ -3895,18 +3976,19 @@
           "year": 1996,
           "yearEnd": null,
           "episodeCount": 1,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 1,
-                "mean": 5.765,
+                "mean": 5.983,
                 "density": 8.658,
                 "ci95": null,
-                "rank": 9.318
+                "rank": 9.47
               },
               "wikipedia": {
                 "n": 1,
-                "mean": 9.58,
+                "mean": 9.942,
                 "density": 14.388,
                 "ci95": null,
                 "rank": 9.271
@@ -3914,16 +3996,16 @@
             },
             "year": null,
             "n": 2,
-            "mean": 7.672,
+            "mean": 7.963,
             "density": 11.523,
             "ci95": null,
-            "rank": 9.294
+            "rank": 9.37
           },
           "fi": {
             "perSource": {
               "memory-alpha": {
                 "n": 1,
-                "mean": 1.03,
+                "mean": 0.981,
                 "density": 0.5,
                 "ci95": null,
                 "rank": 4.167
@@ -3938,7 +4020,7 @@
             },
             "year": null,
             "n": 2,
-            "mean": 0.515,
+            "mean": 0.49,
             "density": 0.25,
             "ci95": null,
             "rank": 2.5
@@ -3951,6 +4033,7 @@
       "name": "Star Trek: Insurrection",
       "short": "INS",
       "kind": "film",
+      "unit": "film",
       "color": "#D4537E",
       "ageRating": null,
       "entityCount": 0,
@@ -3981,18 +4064,19 @@
           "year": 1998,
           "yearEnd": null,
           "episodeCount": 1,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 1,
-                "mean": 3.488,
+                "mean": 3.619,
                 "density": 5.238,
                 "ci95": null,
                 "rank": 4.318
               },
               "wikipedia": {
                 "n": 1,
-                "mean": 2.169,
+                "mean": 2.251,
                 "density": 3.257,
                 "ci95": null,
                 "rank": 2.188
@@ -4000,7 +4084,7 @@
             },
             "year": null,
             "n": 2,
-            "mean": 2.829,
+            "mean": 2.935,
             "density": 4.248,
             "ci95": null,
             "rank": 3.253
@@ -4009,14 +4093,14 @@
             "perSource": {
               "memory-alpha": {
                 "n": 1,
-                "mean": 0.688,
+                "mean": 0.655,
                 "density": 0.334,
                 "ci95": null,
                 "rank": 1.742
               },
               "wikipedia": {
                 "n": 1,
-                "mean": 3.356,
+                "mean": 3.196,
                 "density": 1.629,
                 "ci95": null,
                 "rank": 8.854
@@ -4024,7 +4108,7 @@
             },
             "year": null,
             "n": 2,
-            "mean": 2.022,
+            "mean": 1.925,
             "density": 0.982,
             "ci95": null,
             "rank": 5.298
@@ -4037,6 +4121,7 @@
       "name": "Star Trek: Nemesis",
       "short": "NEM",
       "kind": "film",
+      "unit": "film",
       "color": "#5DCAA5",
       "ageRating": null,
       "entityCount": 0,
@@ -4067,18 +4152,19 @@
           "year": 2002,
           "yearEnd": null,
           "episodeCount": 1,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 1,
-                "mean": 2.288,
+                "mean": 2.374,
                 "density": 3.436,
                 "ci95": null,
                 "rank": 1.591
               },
               "wikipedia": {
                 "n": 1,
-                "mean": 6.142,
+                "mean": 6.374,
                 "density": 9.225,
                 "ci95": null,
                 "rank": 8.854
@@ -4086,7 +4172,7 @@
             },
             "year": null,
             "n": 2,
-            "mean": 4.215,
+            "mean": 4.374,
             "density": 6.33,
             "ci95": null,
             "rank": 5.222
@@ -4095,14 +4181,14 @@
             "perSource": {
               "memory-alpha": {
                 "n": 1,
-                "mean": 0.253,
+                "mean": 0.241,
                 "density": 0.123,
                 "ci95": null,
                 "rank": 0.227
               },
               "wikipedia": {
                 "n": 1,
-                "mean": 3.801,
+                "mean": 3.62,
                 "density": 1.845,
                 "ci95": null,
                 "rank": 9.271
@@ -4110,7 +4196,7 @@
             },
             "year": null,
             "n": 2,
-            "mean": 2.027,
+            "mean": 1.931,
             "density": 0.984,
             "ci95": null,
             "rank": 4.749
@@ -4123,6 +4209,7 @@
       "name": "Star Trek (2009)",
       "short": "ST09",
       "kind": "film",
+      "unit": "film",
       "color": "#AFA9EC",
       "ageRating": null,
       "entityCount": 0,
@@ -4153,18 +4240,19 @@
           "year": 2009,
           "yearEnd": null,
           "episodeCount": 1,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 1,
-                "mean": 3.936,
+                "mean": 4.084,
                 "density": 5.911,
                 "ci95": null,
                 "rank": 5.53
               },
               "wikipedia": {
                 "n": 1,
-                "mean": 3.94,
+                "mean": 4.089,
                 "density": 5.917,
                 "ci95": null,
                 "rank": 5.938
@@ -4172,7 +4260,7 @@
             },
             "year": null,
             "n": 2,
-            "mean": 3.938,
+            "mean": 4.087,
             "density": 5.914,
             "ci95": null,
             "rank": 5.734
@@ -4181,7 +4269,7 @@
             "perSource": {
               "memory-alpha": {
                 "n": 1,
-                "mean": 1.106,
+                "mean": 1.054,
                 "density": 0.537,
                 "ci95": null,
                 "rank": 4.924
@@ -4196,7 +4284,7 @@
             },
             "year": null,
             "n": 2,
-            "mean": 0.553,
+            "mean": 0.527,
             "density": 0.269,
             "ci95": null,
             "rank": 2.879
@@ -4209,6 +4297,7 @@
       "name": "Star Trek Into Darkness",
       "short": "ID",
       "kind": "film",
+      "unit": "film",
       "color": "#BA7517",
       "ageRating": null,
       "entityCount": 0,
@@ -4239,18 +4328,19 @@
           "year": 2013,
           "yearEnd": null,
           "episodeCount": 1,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 1,
-                "mean": 4.484,
+                "mean": 4.653,
                 "density": 6.734,
                 "ci95": null,
                 "rank": 6.894
               },
               "wikipedia": {
                 "n": 1,
-                "mean": 6.09,
+                "mean": 6.32,
                 "density": 9.146,
                 "ci95": null,
                 "rank": 8.646
@@ -4258,7 +4348,7 @@
             },
             "year": null,
             "n": 2,
-            "mean": 5.287,
+            "mean": 5.486,
             "density": 7.94,
             "ci95": null,
             "rank": 7.77
@@ -4267,7 +4357,7 @@
             "perSource": {
               "memory-alpha": {
                 "n": 1,
-                "mean": 2.555,
+                "mean": 2.433,
                 "density": 1.24,
                 "ci95": null,
                 "rank": 8.712
@@ -4282,7 +4372,7 @@
             },
             "year": null,
             "n": 2,
-            "mean": 1.278,
+            "mean": 1.216,
             "density": 0.62,
             "ci95": null,
             "rank": 4.772
@@ -4295,6 +4385,7 @@
       "name": "Star Trek Beyond",
       "short": "BEY",
       "kind": "film",
+      "unit": "film",
       "color": "#E24B4A",
       "ageRating": null,
       "entityCount": 0,
@@ -4325,11 +4416,12 @@
           "year": 2016,
           "yearEnd": null,
           "episodeCount": 1,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 1,
-                "mean": 3.769,
+                "mean": 3.911,
                 "density": 5.66,
                 "ci95": null,
                 "rank": 4.621
@@ -4344,7 +4436,7 @@
             },
             "year": null,
             "n": 2,
-            "mean": 1.885,
+            "mean": 1.956,
             "density": 2.83,
             "ci95": null,
             "rank": 2.415
@@ -4353,7 +4445,7 @@
             "perSource": {
               "memory-alpha": {
                 "n": 1,
-                "mean": 4.858,
+                "mean": 4.626,
                 "density": 2.358,
                 "ci95": null,
                 "rank": 9.773
@@ -4368,7 +4460,7 @@
             },
             "year": null,
             "n": 2,
-            "mean": 2.429,
+            "mean": 2.313,
             "density": 1.179,
             "ci95": null,
             "rank": 5.303
@@ -4381,6 +4473,7 @@
       "name": "Star Trek: Section 31",
       "short": "S31",
       "kind": "film",
+      "unit": "film",
       "color": "#85B7EB",
       "ageRating": null,
       "entityCount": 0,
@@ -4411,18 +4504,19 @@
           "year": 2025,
           "yearEnd": null,
           "episodeCount": 1,
+          "partCount": null,
           "sci": {
             "perSource": {
               "memory-alpha": {
                 "n": 1,
-                "mean": 2.305,
+                "mean": 2.392,
                 "density": 3.462,
                 "ci95": null,
                 "rank": 1.742
               },
               "wikipedia": {
                 "n": 1,
-                "mean": 3.145,
+                "mean": 3.264,
                 "density": 4.724,
                 "ci95": null,
                 "rank": 3.229
@@ -4430,7 +4524,7 @@
             },
             "year": null,
             "n": 2,
-            "mean": 2.725,
+            "mean": 2.828,
             "density": 4.093,
             "ci95": null,
             "rank": 2.486
@@ -4439,10 +4533,10 @@
             "perSource": {
               "memory-alpha": {
                 "n": 1,
-                "mean": 0.972,
+                "mean": 0.926,
                 "density": 0.472,
                 "ci95": null,
-                "rank": 4.015
+                "rank": 3.864
               },
               "wikipedia": {
                 "n": 1,
@@ -4454,10 +4548,10 @@
             },
             "year": null,
             "n": 2,
-            "mean": 0.486,
+            "mean": 0.463,
             "density": 0.236,
             "ci95": null,
-            "rank": 2.424
+            "rank": 2.349
           }
         }
       ]

@@ -20,8 +20,8 @@
           "id": "technical-lexicon-density",
           "coder": "lexicon",
           "weight": 1.0,
-          "saturation": 15.019,
-          "calibration": "p95 of this sub-signal over 2016 valid measurements (>= 200 words of source text), all franchises and sources",
+          "saturation": 14.472,
+          "calibration": "p95 of this sub-signal over 2289 valid measurements (>= 200 words of source text), all franchises and sources",
           "patterns": [
             "sensor",
             "scanner",
@@ -92,8 +92,8 @@
           "id": "mythic-lexicon-density",
           "coder": "lexicon",
           "weight": 1.0,
-          "saturation": 4.854,
-          "calibration": "p95 of this sub-signal over 2016 valid measurements (>= 200 words of source text), all franchises and sources",
+          "saturation": 5.097,
+          "calibration": "p95 of this sub-signal over 2289 valid measurements (>= 200 words of source text), all franchises and sources",
           "patterns": [
             "god",
             "gods",
@@ -211,21 +211,21 @@
     ],
     "subsignals": {
       "technical-lexicon-density": {
-        "n": 2016,
-        "p95": 15.019,
-        "was": 20.0
+        "n": 2289,
+        "p95": 14.472,
+        "was": 15.019
       },
       "mythic-lexicon-density": {
-        "n": 2016,
-        "p95": 4.854,
-        "was": 9.0
+        "n": 2289,
+        "p95": 5.097,
+        "was": 4.854
       },
       "numinous-entity": {
         "n": 152,
         "p95": 23.654,
-        "was": 6.0
+        "was": 23.654
       }
     },
-    "generatedAt": "2026-10-18T10:02:40+00:00"
+    "generatedAt": "2026-10-18T11:04:42+00:00"
   }
 }

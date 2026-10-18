@@ -22,14 +22,14 @@
     ]
   },
   "scopeHash": "448ad092cd5e",
-  "generatedAt": "2026-10-18T10:22:48+00:00",
+  "generatedAt": "2026-10-18T11:04:43+00:00",
   "unmeasured": {
-    "works": 688,
-    "of": 872,
+    "works": 9,
+    "of": 327,
     "minWords": 200,
     "bySeries": {
-      "dw63": 682,
-      "dw05": 6
+      "dw05": 6,
+      "dw63": 3
     }
   },
   "coverageGaps": [
@@ -82,27 +82,28 @@
       "name": "Doctor Who (1963-1989)",
       "short": "DW63",
       "kind": "series",
+      "unit": "serial",
       "color": "#378ADD",
       "ageRating": 7,
       "entityCount": 0,
       "textBasis": {
-        "episodes": 700,
+        "episodes": 155,
         "minWords": 200,
         "sources": {
           "tvmaze": {
-            "covered": 683,
-            "medianWords": 31,
+            "covered": 150,
+            "medianWords": 40,
             "measured": 2
           },
           "wikipedia": {
-            "covered": 10,
-            "medianWords": 375,
-            "measured": 10
+            "covered": 149,
+            "medianWords": 417,
+            "measured": 147
           },
           "tardis": {
-            "covered": 19,
-            "medianWords": 1190,
-            "measured": 16
+            "covered": 152,
+            "medianWords": 2434,
+            "measured": 152
           }
         }
       },
@@ -111,171 +112,904 @@
           "season": 1,
           "year": 1963,
           "yearEnd": 1964,
-          "episodeCount": 42,
+          "episodeCount": 8,
+          "partCount": 42,
           "sci": {
             "perSource": {
               "tardis": {
-                "n": 5,
-                "mean": 0.557,
-                "density": 0.837,
-                "ci95": 0.393,
-                "rank": 0.25
+                "n": 8,
+                "mean": 1.032,
+                "density": 1.493,
+                "ci95": 0.881,
+                "rank": 4.167
               },
               "wikipedia": {
-                "n": 4,
-                "mean": 0.858,
-                "density": 1.289,
-                "ci95": 1.459,
-                "rank": 1.75
+                "n": 7,
+                "mean": 1.976,
+                "density": 2.86,
+                "ci95": 2.387,
+                "rank": 7.024
               }
             },
             "year": null,
-            "n": 9,
-            "mean": 0.691,
-            "density": 1.038,
-            "ci95": 0.684,
-            "rank": 0.917
+            "n": 15,
+            "mean": 1.473,
+            "density": 2.131,
+            "ci95": 1.209,
+            "rank": 5.5
           },
           "fi": {
             "perSource": {
               "tardis": {
-                "n": 5,
-                "mean": 1.272,
-                "density": 0.617,
-                "ci95": 1.584,
-                "rank": 1.75
+                "n": 8,
+                "mean": 2.389,
+                "density": 1.218,
+                "ci95": 2.285,
+                "rank": 6.071
               },
               "wikipedia": {
-                "n": 4,
-                "mean": 2.708,
-                "density": 1.315,
-                "ci95": 4.61,
-                "rank": 5.75
+                "n": 7,
+                "mean": 2.126,
+                "density": 1.113,
+                "ci95": 2.904,
+                "rank": 4.643
               }
             },
             "year": null,
-            "n": 9,
-            "mean": 1.91,
-            "density": 0.927,
-            "ci95": 2.23,
-            "rank": 3.528
+            "n": 15,
+            "mean": 2.266,
+            "density": 1.169,
+            "ci95": 1.823,
+            "rank": 5.405
           }
         },
         {
           "season": 2,
           "year": 1964,
           "yearEnd": 1965,
-          "episodeCount": 39,
+          "episodeCount": 9,
+          "partCount": 39,
           "sci": {
             "perSource": {
               "tardis": {
-                "n": 8,
-                "mean": 1.425,
-                "density": 2.14,
-                "ci95": 0.953,
-                "rank": 7.75
+                "n": 9,
+                "mean": 0.527,
+                "density": 0.763,
+                "ci95": 0.377,
+                "rank": 0.119
               },
               "wikipedia": {
-                "n": 5,
-                "mean": 2.846,
-                "density": 4.274,
-                "ci95": 2.963,
-                "rank": 9.25
+                "n": 9,
+                "mean": 0.609,
+                "density": 0.881,
+                "ci95": 0.605,
+                "rank": 1.071
               }
             },
             "year": null,
-            "n": 13,
-            "mean": 1.972,
-            "density": 2.961,
-            "ci95": 1.282,
-            "rank": 8.327
+            "n": 18,
+            "mean": 0.568,
+            "density": 0.822,
+            "ci95": 0.356,
+            "rank": 0.595
           },
           "fi": {
             "perSource": {
               "tardis": {
-                "n": 8,
-                "mean": 1.438,
-                "density": 0.698,
-                "ci95": 1.662,
-                "rank": 2.75
+                "n": 9,
+                "mean": 0.801,
+                "density": 0.408,
+                "ci95": 0.875,
+                "rank": 2.024
               },
               "wikipedia": {
-                "n": 5,
-                "mean": 0.0,
-                "density": 0.0,
-                "ci95": 0.0,
-                "rank": 1.25
+                "n": 9,
+                "mean": 0.604,
+                "density": 0.308,
+                "ci95": 1.184,
+                "rank": 1.548
               }
             },
             "year": null,
-            "n": 13,
-            "mean": 0.885,
-            "density": 0.43,
-            "ci95": 1.023,
-            "rank": 2.173
+            "n": 18,
+            "mean": 0.703,
+            "density": 0.358,
+            "ci95": 0.736,
+            "rank": 1.786
           }
         },
         {
           "season": 3,
           "year": 1965,
           "yearEnd": 1966,
-          "episodeCount": 45,
+          "episodeCount": 10,
+          "partCount": 45,
+          "sci": {
+            "perSource": {
+              "tardis": {
+                "n": 9,
+                "mean": 1.026,
+                "density": 1.485,
+                "ci95": 0.44,
+                "rank": 3.69
+              },
+              "wikipedia": {
+                "n": 9,
+                "mean": 1.414,
+                "density": 2.047,
+                "ci95": 1.134,
+                "rank": 4.643
+              }
+            },
+            "year": null,
+            "n": 18,
+            "mean": 1.22,
+            "density": 1.766,
+            "ci95": 0.608,
+            "rank": 4.167
+          },
+          "fi": {
+            "perSource": {
+              "tardis": {
+                "n": 9,
+                "mean": 1.486,
+                "density": 0.817,
+                "ci95": 2.109,
+                "rank": 4.167
+              },
+              "wikipedia": {
+                "n": 9,
+                "mean": 2.154,
+                "density": 1.369,
+                "ci95": 2.342,
+                "rank": 5.119
+              }
+            },
+            "year": null,
+            "n": 18,
+            "mean": 1.82,
+            "density": 1.093,
+            "ci95": 1.576,
+            "rank": 4.643
+          }
+        },
+        {
+          "season": 4,
+          "year": 1966,
+          "yearEnd": 1967,
+          "episodeCount": 9,
+          "partCount": 43,
+          "sci": {
+            "perSource": {
+              "tardis": {
+                "n": 9,
+                "mean": 1.183,
+                "density": 1.711,
+                "ci95": 0.682,
+                "rank": 5.119
+              },
+              "wikipedia": {
+                "n": 9,
+                "mean": 1.858,
+                "density": 2.689,
+                "ci95": 1.403,
+                "rank": 6.786
+              }
+            },
+            "year": null,
+            "n": 18,
+            "mean": 1.52,
+            "density": 2.2,
+            "ci95": 0.78,
+            "rank": 5.952
+          },
+          "fi": {
+            "perSource": {
+              "tardis": {
+                "n": 9,
+                "mean": 1.425,
+                "density": 0.859,
+                "ci95": 2.116,
+                "rank": 3.929
+              },
+              "wikipedia": {
+                "n": 9,
+                "mean": 1.664,
+                "density": 1.416,
+                "ci95": 2.308,
+                "rank": 4.167
+              }
+            },
+            "year": null,
+            "n": 18,
+            "mean": 1.545,
+            "density": 1.138,
+            "ci95": 1.566,
+            "rank": 4.048
+          }
+        },
+        {
+          "season": 5,
+          "year": 1967,
+          "yearEnd": 1968,
+          "episodeCount": 7,
+          "partCount": 40,
+          "sci": {
+            "perSource": {
+              "tardis": {
+                "n": 7,
+                "mean": 1.838,
+                "density": 2.66,
+                "ci95": 1.177,
+                "rank": 7.976
+              },
+              "wikipedia": {
+                "n": 7,
+                "mean": 2.17,
+                "density": 3.14,
+                "ci95": 2.587,
+                "rank": 7.738
+              }
+            },
+            "year": null,
+            "n": 14,
+            "mean": 2.004,
+            "density": 2.9,
+            "ci95": 1.421,
+            "rank": 7.857
+          },
+          "fi": {
+            "perSource": {
+              "tardis": {
+                "n": 7,
+                "mean": 1.001,
+                "density": 0.51,
+                "ci95": 0.86,
+                "rank": 2.738
+              },
+              "wikipedia": {
+                "n": 7,
+                "mean": 0.734,
+                "density": 0.374,
+                "ci95": 1.438,
+                "rank": 1.786
+              }
+            },
+            "year": null,
+            "n": 14,
+            "mean": 0.867,
+            "density": 0.442,
+            "ci95": 0.838,
+            "rank": 2.262
+          }
+        },
+        {
+          "season": 6,
+          "year": 1968,
+          "yearEnd": 1969,
+          "episodeCount": 7,
+          "partCount": 44,
+          "sci": {
+            "perSource": {
+              "tardis": {
+                "n": 7,
+                "mean": 1.438,
+                "density": 2.081,
+                "ci95": 0.376,
+                "rank": 6.31
+              },
+              "wikipedia": {
+                "n": 7,
+                "mean": 0.849,
+                "density": 1.229,
+                "ci95": 0.929,
+                "rank": 2.024
+              }
+            },
+            "year": null,
+            "n": 14,
+            "mean": 1.143,
+            "density": 1.655,
+            "ci95": 0.501,
+            "rank": 4.167
+          },
+          "fi": {
+            "perSource": {
+              "tardis": {
+                "n": 7,
+                "mean": 0.555,
+                "density": 0.283,
+                "ci95": 0.235,
+                "rank": 1.548
+              },
+              "wikipedia": {
+                "n": 7,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0,
+                "rank": 0.714
+              }
+            },
+            "year": null,
+            "n": 14,
+            "mean": 0.278,
+            "density": 0.141,
+            "ci95": 0.118,
+            "rank": 1.131
+          }
+        },
+        {
+          "season": 7,
+          "year": 1970,
+          "yearEnd": null,
+          "episodeCount": 4,
+          "partCount": 25,
           "sci": {
             "perSource": {
               "tardis": {
                 "n": 3,
-                "mean": 3.08,
-                "density": 4.626,
-                "ci95": 7.843,
-                "rank": 9.75
+                "mean": 2.625,
+                "density": 3.798,
+                "ci95": 2.898,
+                "rank": 9.405
               },
               "wikipedia": {
-                "n": 1,
-                "mean": 2.404,
-                "density": 3.61,
-                "ci95": null,
-                "rank": 8.75
+                "n": 3,
+                "mean": 4.485,
+                "density": 7.064,
+                "ci95": 8.11,
+                "rank": 9.643
               }
             },
             "year": null,
-            "n": 4,
-            "mean": 2.911,
-            "density": 4.372,
-            "ci95": null,
-            "rank": 9.5
+            "n": 6,
+            "mean": 3.555,
+            "density": 5.431,
+            "ci95": 4.306,
+            "rank": 9.524
           },
           "fi": {
             "perSource": {
               "tardis": {
                 "n": 3,
-                "mean": 2.515,
-                "density": 1.221,
-                "ci95": 7.395,
-                "rank": 5.25
+                "mean": 0.315,
+                "density": 0.161,
+                "ci95": 0.469,
+                "rank": 0.357
               },
               "wikipedia": {
-                "n": 1,
+                "n": 3,
                 "mean": 0.0,
                 "density": 0.0,
-                "ci95": null,
-                "rank": 1.25
+                "ci95": 0.0,
+                "rank": 0.714
               }
             },
             "year": null,
-            "n": 4,
-            "mean": 1.886,
-            "density": 0.916,
-            "ci95": null,
-            "rank": 4.25
+            "n": 6,
+            "mean": 0.158,
+            "density": 0.081,
+            "ci95": 0.235,
+            "rank": 0.535
+          }
+        },
+        {
+          "season": 8,
+          "year": 1971,
+          "yearEnd": null,
+          "episodeCount": 5,
+          "partCount": 25,
+          "sci": {
+            "perSource": {
+              "tardis": {
+                "n": 5,
+                "mean": 1.665,
+                "density": 2.41,
+                "ci95": 0.777,
+                "rank": 7.5
+              },
+              "wikipedia": {
+                "n": 5,
+                "mean": 3.067,
+                "density": 4.439,
+                "ci95": 1.064,
+                "rank": 8.929
+              }
+            },
+            "year": null,
+            "n": 10,
+            "mean": 2.366,
+            "density": 3.425,
+            "ci95": 0.659,
+            "rank": 8.215
+          },
+          "fi": {
+            "perSource": {
+              "tardis": {
+                "n": 5,
+                "mean": 2.324,
+                "density": 1.893,
+                "ci95": 3.778,
+                "rank": 5.595
+              },
+              "wikipedia": {
+                "n": 5,
+                "mean": 4.111,
+                "density": 3.511,
+                "ci95": 3.731,
+                "rank": 8.69
+              }
+            },
+            "year": null,
+            "n": 10,
+            "mean": 3.217,
+            "density": 2.702,
+            "ci95": 2.655,
+            "rank": 7.143
+          }
+        },
+        {
+          "season": 9,
+          "year": 1972,
+          "yearEnd": null,
+          "episodeCount": 5,
+          "partCount": 26,
+          "sci": {
+            "perSource": {
+              "tardis": {
+                "n": 5,
+                "mean": 1.749,
+                "density": 2.532,
+                "ci95": 1.398,
+                "rank": 7.738
+              },
+              "wikipedia": {
+                "n": 5,
+                "mean": 0.895,
+                "density": 1.295,
+                "ci95": 1.295,
+                "rank": 2.262
+              }
+            },
+            "year": null,
+            "n": 10,
+            "mean": 1.322,
+            "density": 1.913,
+            "ci95": 0.953,
+            "rank": 5.0
+          },
+          "fi": {
+            "perSource": {
+              "tardis": {
+                "n": 5,
+                "mean": 2.776,
+                "density": 1.415,
+                "ci95": 2.345,
+                "rank": 6.548
+              },
+              "wikipedia": {
+                "n": 5,
+                "mean": 5.416,
+                "density": 2.76,
+                "ci95": 1.782,
+                "rank": 9.643
+              }
+            },
+            "year": null,
+            "n": 10,
+            "mean": 4.096,
+            "density": 2.087,
+            "ci95": 1.473,
+            "rank": 8.096
+          }
+        },
+        {
+          "season": 10,
+          "year": 1972,
+          "yearEnd": 1973,
+          "episodeCount": 5,
+          "partCount": 26,
+          "sci": {
+            "perSource": {
+              "tardis": {
+                "n": 5,
+                "mean": 1.974,
+                "density": 2.857,
+                "ci95": 0.789,
+                "rank": 8.214
+              },
+              "wikipedia": {
+                "n": 4,
+                "mean": 0.788,
+                "density": 1.141,
+                "ci95": 1.351,
+                "rank": 1.786
+              }
+            },
+            "year": null,
+            "n": 9,
+            "mean": 1.447,
+            "density": 2.094,
+            "ci95": 0.743,
+            "rank": 5.357
+          },
+          "fi": {
+            "perSource": {
+              "tardis": {
+                "n": 5,
+                "mean": 0.726,
+                "density": 0.37,
+                "ci95": 0.41,
+                "rank": 1.786
+              },
+              "wikipedia": {
+                "n": 4,
+                "mean": 1.229,
+                "density": 0.626,
+                "ci95": 3.614,
+                "rank": 3.214
+              }
+            },
+            "year": null,
+            "n": 9,
+            "mean": 0.95,
+            "density": 0.484,
+            "ci95": 1.622,
+            "rank": 2.421
+          }
+        },
+        {
+          "season": 11,
+          "year": 1973,
+          "yearEnd": 1974,
+          "episodeCount": 5,
+          "partCount": 26,
+          "sci": {
+            "perSource": {
+              "tardis": {
+                "n": 5,
+                "mean": 0.829,
+                "density": 1.2,
+                "ci95": 0.415,
+                "rank": 2.024
+              },
+              "wikipedia": {
+                "n": 5,
+                "mean": 1.782,
+                "density": 2.579,
+                "ci95": 1.376,
+                "rank": 6.31
+              }
+            },
+            "year": null,
+            "n": 10,
+            "mean": 1.305,
+            "density": 1.89,
+            "ci95": 0.719,
+            "rank": 4.167
+          },
+          "fi": {
+            "perSource": {
+              "tardis": {
+                "n": 5,
+                "mean": 2.795,
+                "density": 1.424,
+                "ci95": 0.953,
+                "rank": 7.024
+              },
+              "wikipedia": {
+                "n": 5,
+                "mean": 1.492,
+                "density": 0.76,
+                "ci95": 1.881,
+                "rank": 3.452
+              }
+            },
+            "year": null,
+            "n": 10,
+            "mean": 2.143,
+            "density": 1.092,
+            "ci95": 1.054,
+            "rank": 5.238
+          }
+        },
+        {
+          "season": 12,
+          "year": 1974,
+          "yearEnd": 1975,
+          "episodeCount": 5,
+          "partCount": 20,
+          "sci": {
+            "perSource": {
+              "tardis": {
+                "n": 5,
+                "mean": 1.643,
+                "density": 2.377,
+                "ci95": 1.311,
+                "rank": 7.262
+              },
+              "wikipedia": {
+                "n": 5,
+                "mean": 3.072,
+                "density": 4.446,
+                "ci95": 1.962,
+                "rank": 9.167
+              }
+            },
+            "year": null,
+            "n": 10,
+            "mean": 2.357,
+            "density": 3.411,
+            "ci95": 1.18,
+            "rank": 8.214
+          },
+          "fi": {
+            "perSource": {
+              "tardis": {
+                "n": 5,
+                "mean": 0.527,
+                "density": 0.269,
+                "ci95": 0.463,
+                "rank": 1.31
+              },
+              "wikipedia": {
+                "n": 5,
+                "mean": 0.773,
+                "density": 0.394,
+                "ci95": 1.514,
+                "rank": 2.024
+              }
+            },
+            "year": null,
+            "n": 10,
+            "mean": 0.65,
+            "density": 0.332,
+            "ci95": 0.792,
+            "rank": 1.667
+          }
+        },
+        {
+          "season": 13,
+          "year": 1975,
+          "yearEnd": 1976,
+          "episodeCount": 6,
+          "partCount": 26,
+          "sci": {
+            "perSource": {
+              "tardis": {
+                "n": 6,
+                "mean": 2.389,
+                "density": 3.457,
+                "ci95": 1.956,
+                "rank": 9.167
+              },
+              "wikipedia": {
+                "n": 6,
+                "mean": 2.122,
+                "density": 3.876,
+                "ci95": 3.21,
+                "rank": 7.5
+              }
+            },
+            "year": null,
+            "n": 12,
+            "mean": 2.256,
+            "density": 3.666,
+            "ci95": 1.879,
+            "rank": 8.333
+          },
+          "fi": {
+            "perSource": {
+              "tardis": {
+                "n": 6,
+                "mean": 1.1,
+                "density": 0.561,
+                "ci95": 1.857,
+                "rank": 3.214
+              },
+              "wikipedia": {
+                "n": 6,
+                "mean": 0.809,
+                "density": 0.413,
+                "ci95": 1.586,
+                "rank": 2.262
+              }
+            },
+            "year": null,
+            "n": 12,
+            "mean": 0.955,
+            "density": 0.487,
+            "ci95": 1.221,
+            "rank": 2.738
+          }
+        },
+        {
+          "season": 14,
+          "year": 1976,
+          "yearEnd": 1977,
+          "episodeCount": 6,
+          "partCount": 26,
+          "sci": {
+            "perSource": {
+              "tardis": {
+                "n": 6,
+                "mean": 2.781,
+                "density": 4.024,
+                "ci95": 2.477,
+                "rank": 9.643
+              },
+              "wikipedia": {
+                "n": 6,
+                "mean": 3.975,
+                "density": 5.752,
+                "ci95": 3.53,
+                "rank": 9.405
+              }
+            },
+            "year": null,
+            "n": 12,
+            "mean": 3.378,
+            "density": 4.888,
+            "ci95": 2.156,
+            "rank": 9.524
+          },
+          "fi": {
+            "perSource": {
+              "tardis": {
+                "n": 6,
+                "mean": 4.853,
+                "density": 3.319,
+                "ci95": 3.421,
+                "rank": 9.881
+              },
+              "wikipedia": {
+                "n": 6,
+                "mean": 4.704,
+                "density": 5.486,
+                "ci95": 4.156,
+                "rank": 9.167
+              }
+            },
+            "year": null,
+            "n": 12,
+            "mean": 4.779,
+            "density": 4.402,
+            "ci95": 2.691,
+            "rank": 9.524
+          }
+        },
+        {
+          "season": 15,
+          "year": 1977,
+          "yearEnd": 1978,
+          "episodeCount": 6,
+          "partCount": 26,
+          "sci": {
+            "perSource": {
+              "tardis": {
+                "n": 6,
+                "mean": 2.951,
+                "density": 4.271,
+                "ci95": 2.718,
+                "rank": 9.881
+              },
+              "wikipedia": {
+                "n": 5,
+                "mean": 3.038,
+                "density": 4.396,
+                "ci95": 1.695,
+                "rank": 8.69
+              }
+            },
+            "year": null,
+            "n": 11,
+            "mean": 2.991,
+            "density": 4.328,
+            "ci95": 1.671,
+            "rank": 9.34
+          },
+          "fi": {
+            "perSource": {
+              "tardis": {
+                "n": 6,
+                "mean": 3.44,
+                "density": 3.068,
+                "ci95": 4.071,
+                "rank": 8.214
+              },
+              "wikipedia": {
+                "n": 5,
+                "mean": 4.0,
+                "density": 5.026,
+                "ci95": 4.801,
+                "rank": 7.976
+              }
+            },
+            "year": null,
+            "n": 11,
+            "mean": 3.695,
+            "density": 3.958,
+            "ci95": 3.113,
+            "rank": 8.106
+          }
+        },
+        {
+          "season": 16,
+          "year": 1978,
+          "yearEnd": 1979,
+          "episodeCount": 6,
+          "partCount": 26,
+          "sci": {
+            "perSource": {
+              "tardis": {
+                "n": 6,
+                "mean": 0.705,
+                "density": 1.02,
+                "ci95": 0.409,
+                "rank": 1.548
+              },
+              "wikipedia": {
+                "n": 5,
+                "mean": 1.065,
+                "density": 1.541,
+                "ci95": 0.571,
+                "rank": 3.452
+              }
+            },
+            "year": null,
+            "n": 11,
+            "mean": 0.869,
+            "density": 1.257,
+            "ci95": 0.342,
+            "rank": 2.413
+          },
+          "fi": {
+            "perSource": {
+              "tardis": {
+                "n": 6,
+                "mean": 4.754,
+                "density": 2.432,
+                "ci95": 2.959,
+                "rank": 9.643
+              },
+              "wikipedia": {
+                "n": 5,
+                "mean": 3.459,
+                "density": 2.12,
+                "ci95": 4.235,
+                "rank": 7.024
+              }
+            },
+            "year": null,
+            "n": 11,
+            "mean": 4.165,
+            "density": 2.29,
+            "ci95": 2.512,
+            "rank": 8.453
           }
         },
         {
           "season": 17,
           "year": 1979,
-          "yearEnd": 1980,
-          "episodeCount": 26,
+          "yearEnd": null,
+          "episodeCount": 6,
+          "partCount": 26,
           "sci": {
             "perSource": {
+              "tardis": {
+                "n": 6,
+                "mean": 1.395,
+                "density": 2.019,
+                "ci95": 0.42,
+                "rank": 6.071
+              },
+              "wikipedia": {
+                "n": 6,
+                "mean": 1.625,
+                "density": 2.351,
+                "ci95": 1.314,
+                "rank": 5.595
+              },
               "tvmaze": {
                 "n": 1,
                 "mean": 0.0,
@@ -285,54 +1019,97 @@
               }
             },
             "year": null,
-            "n": 1,
-            "mean": 0.0,
-            "density": 0.0,
+            "n": 13,
+            "mean": 1.394,
+            "density": 2.017,
             "ci95": null,
-            "rank": 2.5
+            "rank": 5.577
           },
           "fi": {
             "perSource": {
+              "tardis": {
+                "n": 6,
+                "mean": 0.465,
+                "density": 0.237,
+                "ci95": 0.481,
+                "rank": 0.833
+              },
+              "wikipedia": {
+                "n": 6,
+                "mean": 2.376,
+                "density": 1.413,
+                "ci95": 3.284,
+                "rank": 5.595
+              },
               "tvmaze": {
                 "n": 1,
-                "mean": 7.715,
+                "mean": 7.347,
                 "density": 3.745,
                 "ci95": null,
                 "rank": 7.5
               }
             },
             "year": null,
-            "n": 1,
-            "mean": 7.715,
-            "density": 3.745,
+            "n": 13,
+            "mean": 1.876,
+            "density": 1.05,
             "ci95": null,
-            "rank": 7.5
+            "rank": 3.544
           }
         },
         {
           "season": 18,
           "year": 1980,
           "yearEnd": 1981,
-          "episodeCount": 28,
+          "episodeCount": 7,
+          "partCount": 28,
           "sci": {
             "perSource": {
+              "tardis": {
+                "n": 7,
+                "mean": 2.335,
+                "density": 3.379,
+                "ci95": 1.063,
+                "rank": 8.929
+              },
+              "wikipedia": {
+                "n": 7,
+                "mean": 2.966,
+                "density": 4.292,
+                "ci95": 1.857,
+                "rank": 8.452
+              },
               "tvmaze": {
                 "n": 1,
-                "mean": 5.548,
+                "mean": 5.758,
                 "density": 8.333,
                 "ci95": null,
                 "rank": 7.5
               }
             },
             "year": null,
-            "n": 1,
-            "mean": 5.548,
-            "density": 8.333,
+            "n": 15,
+            "mean": 2.858,
+            "density": 4.135,
             "ci95": null,
-            "rank": 7.5
+            "rank": 8.611
           },
           "fi": {
             "perSource": {
+              "tardis": {
+                "n": 7,
+                "mean": 0.983,
+                "density": 0.501,
+                "ci95": 0.918,
+                "rank": 2.5
+              },
+              "wikipedia": {
+                "n": 7,
+                "mean": 1.554,
+                "density": 0.792,
+                "ci95": 2.065,
+                "rank": 3.929
+              },
               "tvmaze": {
                 "n": 1,
                 "mean": 0.0,
@@ -342,11 +1119,396 @@
               }
             },
             "year": null,
-            "n": 1,
-            "mean": 0.0,
-            "density": 0.0,
+            "n": 15,
+            "mean": 1.184,
+            "density": 0.603,
             "ci95": null,
-            "rank": 2.5
+            "rank": 3.167
+          }
+        },
+        {
+          "season": 19,
+          "year": 1982,
+          "yearEnd": null,
+          "episodeCount": 7,
+          "partCount": 26,
+          "sci": {
+            "perSource": {
+              "tardis": {
+                "n": 7,
+                "mean": 1.375,
+                "density": 1.99,
+                "ci95": 0.806,
+                "rank": 5.833
+              },
+              "wikipedia": {
+                "n": 7,
+                "mean": 1.632,
+                "density": 2.361,
+                "ci95": 1.288,
+                "rank": 5.833
+              }
+            },
+            "year": null,
+            "n": 14,
+            "mean": 1.504,
+            "density": 2.175,
+            "ci95": 0.76,
+            "rank": 5.833
+          },
+          "fi": {
+            "perSource": {
+              "tardis": {
+                "n": 7,
+                "mean": 1.884,
+                "density": 0.96,
+                "ci95": 1.573,
+                "rank": 5.119
+              },
+              "wikipedia": {
+                "n": 7,
+                "mean": 2.122,
+                "density": 1.424,
+                "ci95": 2.902,
+                "rank": 4.405
+              }
+            },
+            "year": null,
+            "n": 14,
+            "mean": 2.003,
+            "density": 1.192,
+            "ci95": 1.65,
+            "rank": 4.762
+          }
+        },
+        {
+          "season": 20,
+          "year": 1983,
+          "yearEnd": null,
+          "episodeCount": 6,
+          "partCount": 22,
+          "sci": {
+            "perSource": {
+              "tardis": {
+                "n": 6,
+                "mean": 1.318,
+                "density": 1.907,
+                "ci95": 1.294,
+                "rank": 5.357
+              },
+              "wikipedia": {
+                "n": 6,
+                "mean": 2.704,
+                "density": 3.914,
+                "ci95": 3.039,
+                "rank": 8.214
+              }
+            },
+            "year": null,
+            "n": 12,
+            "mean": 2.011,
+            "density": 2.911,
+            "ci95": 1.652,
+            "rank": 6.786
+          },
+          "fi": {
+            "perSource": {
+              "tardis": {
+                "n": 6,
+                "mean": 1.616,
+                "density": 0.824,
+                "ci95": 1.72,
+                "rank": 4.405
+              },
+              "wikipedia": {
+                "n": 6,
+                "mean": 2.132,
+                "density": 1.087,
+                "ci95": 1.901,
+                "rank": 4.881
+              }
+            },
+            "year": null,
+            "n": 12,
+            "mean": 1.874,
+            "density": 0.956,
+            "ci95": 1.282,
+            "rank": 4.643
+          }
+        },
+        {
+          "season": 21,
+          "year": 1984,
+          "yearEnd": null,
+          "episodeCount": 7,
+          "partCount": 24,
+          "sci": {
+            "perSource": {
+              "tardis": {
+                "n": 7,
+                "mean": 2.059,
+                "density": 2.98,
+                "ci95": 1.177,
+                "rank": 8.452
+              },
+              "wikipedia": {
+                "n": 7,
+                "mean": 2.357,
+                "density": 3.41,
+                "ci95": 2.562,
+                "rank": 7.976
+              }
+            },
+            "year": null,
+            "n": 14,
+            "mean": 2.208,
+            "density": 3.195,
+            "ci95": 1.41,
+            "rank": 8.214
+          },
+          "fi": {
+            "perSource": {
+              "tardis": {
+                "n": 7,
+                "mean": 3.192,
+                "density": 1.959,
+                "ci95": 2.757,
+                "rank": 7.976
+              },
+              "wikipedia": {
+                "n": 7,
+                "mean": 3.344,
+                "density": 2.398,
+                "ci95": 3.256,
+                "rank": 6.548
+              }
+            },
+            "year": null,
+            "n": 14,
+            "mean": 3.268,
+            "density": 2.179,
+            "ci95": 2.133,
+            "rank": 7.262
+          }
+        },
+        {
+          "season": 22,
+          "year": 1985,
+          "yearEnd": null,
+          "episodeCount": 6,
+          "partCount": 13,
+          "sci": {
+            "perSource": {
+              "tardis": {
+                "n": 6,
+                "mean": 0.871,
+                "density": 1.26,
+                "ci95": 0.465,
+                "rank": 2.5
+              },
+              "wikipedia": {
+                "n": 5,
+                "mean": 0.644,
+                "density": 0.932,
+                "ci95": 0.857,
+                "rank": 1.31
+              }
+            },
+            "year": null,
+            "n": 11,
+            "mean": 0.768,
+            "density": 1.111,
+            "ci95": 0.465,
+            "rank": 1.959
+          },
+          "fi": {
+            "perSource": {
+              "tardis": {
+                "n": 6,
+                "mean": 1.002,
+                "density": 0.511,
+                "ci95": 1.028,
+                "rank": 2.976
+              },
+              "wikipedia": {
+                "n": 5,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0,
+                "rank": 0.714
+              }
+            },
+            "year": null,
+            "n": 11,
+            "mean": 0.547,
+            "density": 0.279,
+            "ci95": 0.561,
+            "rank": 1.948
+          }
+        },
+        {
+          "season": 24,
+          "year": 1987,
+          "yearEnd": null,
+          "episodeCount": 4,
+          "partCount": 14,
+          "sci": {
+            "perSource": {
+              "tardis": {
+                "n": 4,
+                "mean": 1.043,
+                "density": 1.51,
+                "ci95": 1.039,
+                "rank": 4.643
+              },
+              "wikipedia": {
+                "n": 4,
+                "mean": 0.309,
+                "density": 0.448,
+                "ci95": 0.91,
+                "rank": 0.595
+              }
+            },
+            "year": null,
+            "n": 8,
+            "mean": 0.676,
+            "density": 0.979,
+            "ci95": 0.691,
+            "rank": 2.619
+          },
+          "fi": {
+            "perSource": {
+              "tardis": {
+                "n": 4,
+                "mean": 0.341,
+                "density": 0.173,
+                "ci95": 1.001,
+                "rank": 0.595
+              },
+              "wikipedia": {
+                "n": 4,
+                "mean": 0.936,
+                "density": 0.477,
+                "ci95": 2.751,
+                "rank": 2.5
+              }
+            },
+            "year": null,
+            "n": 8,
+            "mean": 0.639,
+            "density": 0.325,
+            "ci95": 1.464,
+            "rank": 1.547
+          }
+        },
+        {
+          "season": 25,
+          "year": 1988,
+          "yearEnd": null,
+          "episodeCount": 4,
+          "partCount": 14,
+          "sci": {
+            "perSource": {
+              "tardis": {
+                "n": 4,
+                "mean": 0.696,
+                "density": 1.007,
+                "ci95": 0.998,
+                "rank": 1.31
+              },
+              "wikipedia": {
+                "n": 4,
+                "mean": 1.611,
+                "density": 2.332,
+                "ci95": 3.388,
+                "rank": 5.357
+              }
+            },
+            "year": null,
+            "n": 8,
+            "mean": 1.153,
+            "density": 1.669,
+            "ci95": 1.766,
+            "rank": 3.333
+          },
+          "fi": {
+            "perSource": {
+              "tardis": {
+                "n": 4,
+                "mean": 2.802,
+                "density": 1.993,
+                "ci95": 7.103,
+                "rank": 7.262
+              },
+              "wikipedia": {
+                "n": 4,
+                "mean": 5.0,
+                "density": 4.65,
+                "ci95": 8.487,
+                "rank": 9.405
+              }
+            },
+            "year": null,
+            "n": 8,
+            "mean": 3.901,
+            "density": 3.322,
+            "ci95": 5.534,
+            "rank": 8.333
+          }
+        },
+        {
+          "season": 26,
+          "year": 1989,
+          "yearEnd": null,
+          "episodeCount": 4,
+          "partCount": 14,
+          "sci": {
+            "perSource": {
+              "tardis": {
+                "n": 4,
+                "mean": 0.581,
+                "density": 0.841,
+                "ci95": 1.376,
+                "rank": 0.357
+              },
+              "wikipedia": {
+                "n": 4,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0,
+                "rank": 0.238
+              }
+            },
+            "year": null,
+            "n": 8,
+            "mean": 0.29,
+            "density": 0.42,
+            "ci95": 0.688,
+            "rank": 0.297
+          },
+          "fi": {
+            "perSource": {
+              "tardis": {
+                "n": 4,
+                "mean": 1.752,
+                "density": 0.893,
+                "ci95": 3.572,
+                "rank": 4.881
+              },
+              "wikipedia": {
+                "n": 4,
+                "mean": 4.424,
+                "density": 2.255,
+                "ci95": 7.558,
+                "rank": 8.929
+              }
+            },
+            "year": null,
+            "n": 8,
+            "mean": 3.088,
+            "density": 1.574,
+            "ci95": 4.18,
+            "rank": 6.905
           }
         }
       ]
@@ -356,6 +1518,7 @@
       "name": "Doctor Who (2005-2022)",
       "short": "DW05",
       "kind": "series",
+      "unit": "series",
       "color": "#D85A30",
       "ageRating": 10,
       "entityCount": 0,
@@ -386,53 +1549,54 @@
           "year": 2005,
           "yearEnd": null,
           "episodeCount": 13,
+          "partCount": null,
           "sci": {
             "perSource": {
               "tardis": {
                 "n": 13,
-                "mean": 0.817,
+                "mean": 0.848,
                 "density": 1.227,
-                "ci95": 0.256,
-                "rank": 2.75
+                "ci95": 0.266,
+                "rank": 2.262
               },
               "wikipedia": {
                 "n": 13,
-                "mean": 0.913,
+                "mean": 0.948,
                 "density": 1.371,
-                "ci95": 0.886,
-                "rank": 2.25
+                "ci95": 0.92,
+                "rank": 2.5
               }
             },
             "year": null,
             "n": 26,
-            "mean": 0.865,
+            "mean": 0.898,
             "density": 1.299,
-            "ci95": 0.461,
-            "rank": 2.5
+            "ci95": 0.479,
+            "rank": 2.381
           },
           "fi": {
             "perSource": {
               "tardis": {
                 "n": 13,
-                "mean": 1.443,
+                "mean": 1.375,
                 "density": 0.701,
-                "ci95": 0.944,
-                "rank": 3.25
+                "ci95": 0.899,
+                "rank": 3.69
               },
               "wikipedia": {
                 "n": 13,
-                "mean": 1.165,
+                "mean": 1.147,
                 "density": 0.593,
-                "ci95": 1.637,
-                "rank": 2.75
+                "ci95": 1.623,
+                "rank": 2.976
               }
             },
             "year": null,
             "n": 26,
-            "mean": 1.304,
+            "mean": 1.261,
             "density": 0.647,
-            "ci95": 0.945,
-            "rank": 3.0
+            "ci95": 0.928,
+            "rank": 3.333
           }
         },
         {
@@ -440,53 +1604,54 @@
           "year": 2006,
           "yearEnd": null,
           "episodeCount": 13,
+          "partCount": null,
           "sci": {
             "perSource": {
               "tardis": {
                 "n": 13,
-                "mean": 0.858,
+                "mean": 0.89,
                 "density": 1.288,
-                "ci95": 0.593,
-                "rank": 3.25
+                "ci95": 0.615,
+                "rank": 2.738
               },
               "wikipedia": {
                 "n": 13,
-                "mean": 1.369,
+                "mean": 1.42,
                 "density": 2.056,
-                "ci95": 0.919,
-                "rank": 6.25
+                "ci95": 0.953,
+                "rank": 4.881
               }
             },
             "year": null,
             "n": 26,
-            "mean": 1.113,
+            "mean": 1.155,
             "density": 1.672,
-            "ci95": 0.547,
-            "rank": 4.75
+            "ci95": 0.567,
+            "rank": 3.809
           },
           "fi": {
             "perSource": {
               "tardis": {
                 "n": 13,
-                "mean": 4.551,
+                "mean": 4.407,
                 "density": 2.626,
-                "ci95": 1.821,
-                "rank": 9.75
+                "ci95": 1.806,
+                "rank": 9.405
               },
               "wikipedia": {
                 "n": 13,
-                "mean": 1.567,
+                "mean": 1.522,
                 "density": 0.776,
-                "ci95": 1.732,
-                "rank": 3.75
+                "ci95": 1.696,
+                "rank": 3.69
               }
             },
             "year": null,
             "n": 26,
-            "mean": 3.059,
+            "mean": 2.965,
             "density": 1.701,
-            "ci95": 1.257,
-            "rank": 6.75
+            "ci95": 1.239,
+            "rank": 6.547
           }
         },
         {
@@ -494,53 +1659,54 @@
           "year": 2007,
           "yearEnd": null,
           "episodeCount": 13,
+          "partCount": null,
           "sci": {
             "perSource": {
               "tardis": {
                 "n": 13,
-                "mean": 1.047,
+                "mean": 1.086,
                 "density": 1.572,
-                "ci95": 0.553,
-                "rank": 6.25
+                "ci95": 0.574,
+                "rank": 4.881
               },
               "wikipedia": {
                 "n": 13,
-                "mean": 2.028,
+                "mean": 2.105,
                 "density": 3.046,
-                "ci95": 1.187,
-                "rank": 8.25
+                "ci95": 1.232,
+                "rank": 7.262
               }
             },
             "year": null,
             "n": 26,
-            "mean": 1.538,
+            "mean": 1.595,
             "density": 2.309,
-            "ci95": 0.655,
-            "rank": 7.25
+            "ci95": 0.68,
+            "rank": 6.071
           },
           "fi": {
             "perSource": {
               "tardis": {
                 "n": 13,
-                "mean": 3.777,
+                "mean": 3.597,
                 "density": 1.833,
-                "ci95": 1.847,
-                "rank": 7.75
+                "ci95": 1.759,
+                "rank": 8.452
               },
               "wikipedia": {
                 "n": 13,
-                "mean": 4.23,
+                "mean": 4.102,
                 "density": 2.309,
-                "ci95": 1.748,
-                "rank": 9.25
+                "ci95": 1.743,
+                "rank": 8.452
               }
             },
             "year": null,
             "n": 26,
-            "mean": 4.004,
+            "mean": 3.85,
             "density": 2.071,
-            "ci95": 1.272,
-            "rank": 8.5
+            "ci95": 1.238,
+            "rank": 8.452
           }
         },
         {
@@ -548,53 +1714,54 @@
           "year": 2008,
           "yearEnd": null,
           "episodeCount": 13,
+          "partCount": null,
           "sci": {
             "perSource": {
               "tardis": {
                 "n": 13,
-                "mean": 1.0,
+                "mean": 1.038,
                 "density": 1.502,
-                "ci95": 0.372,
-                "rank": 5.75
+                "ci95": 0.386,
+                "rank": 4.405
               },
               "wikipedia": {
                 "n": 13,
-                "mean": 1.627,
+                "mean": 1.66,
                 "density": 2.583,
-                "ci95": 1.652,
-                "rank": 7.25
+                "ci95": 1.667,
+                "rank": 6.071
               }
             },
             "year": null,
             "n": 26,
-            "mean": 1.313,
+            "mean": 1.349,
             "density": 2.042,
-            "ci95": 0.847,
-            "rank": 6.5
+            "ci95": 0.856,
+            "rank": 5.238
           },
           "fi": {
             "perSource": {
               "tardis": {
                 "n": 13,
-                "mean": 2.736,
+                "mean": 2.643,
                 "density": 1.639,
-                "ci95": 1.533,
-                "rank": 5.75
+                "ci95": 1.516,
+                "rank": 6.31
               },
               "wikipedia": {
                 "n": 13,
-                "mean": 1.187,
+                "mean": 1.13,
                 "density": 0.576,
-                "ci95": 1.227,
-                "rank": 3.25
+                "ci95": 1.168,
+                "rank": 2.738
               }
             },
             "year": null,
             "n": 26,
-            "mean": 1.962,
+            "mean": 1.886,
             "density": 1.107,
-            "ci95": 0.982,
-            "rank": 4.5
+            "ci95": 0.957,
+            "rank": 4.524
           }
         },
         {
@@ -602,53 +1769,54 @@
           "year": 2010,
           "yearEnd": null,
           "episodeCount": 13,
+          "partCount": null,
           "sci": {
             "perSource": {
               "tardis": {
                 "n": 12,
-                "mean": 0.907,
+                "mean": 0.942,
                 "density": 1.363,
-                "ci95": 0.495,
-                "rank": 4.25
+                "ci95": 0.513,
+                "rank": 3.214
               },
               "wikipedia": {
                 "n": 13,
-                "mean": 1.293,
+                "mean": 1.341,
                 "density": 1.941,
-                "ci95": 1.027,
-                "rank": 5.25
+                "ci95": 1.066,
+                "rank": 4.167
               }
             },
             "year": null,
             "n": 25,
-            "mean": 1.108,
+            "mean": 1.149,
             "density": 1.664,
-            "ci95": 0.585,
-            "rank": 4.77
+            "ci95": 0.607,
+            "rank": 3.71
           },
           "fi": {
             "perSource": {
               "tardis": {
                 "n": 12,
-                "mean": 2.84,
+                "mean": 2.785,
                 "density": 1.954,
-                "ci95": 2.026,
-                "rank": 6.25
+                "ci95": 2.028,
+                "rank": 6.786
               },
               "wikipedia": {
                 "n": 13,
-                "mean": 2.534,
+                "mean": 2.487,
                 "density": 2.807,
-                "ci95": 2.228,
-                "rank": 4.75
+                "ci95": 2.201,
+                "rank": 6.071
               }
             },
             "year": null,
             "n": 25,
-            "mean": 2.681,
+            "mean": 2.63,
             "density": 2.398,
-            "ci95": 1.513,
-            "rank": 5.47
+            "ci95": 1.503,
+            "rank": 6.414
           }
         },
         {
@@ -656,53 +1824,54 @@
           "year": 2011,
           "yearEnd": null,
           "episodeCount": 13,
+          "partCount": null,
           "sci": {
             "perSource": {
               "tardis": {
                 "n": 13,
-                "mean": 0.606,
+                "mean": 0.629,
                 "density": 0.911,
-                "ci95": 0.28,
-                "rank": 0.75
+                "ci95": 0.291,
+                "rank": 0.595
               },
               "wikipedia": {
                 "n": 13,
-                "mean": 0.508,
+                "mean": 0.527,
                 "density": 0.762,
-                "ci95": 0.39,
-                "rank": 0.75
+                "ci95": 0.405,
+                "rank": 0.833
               }
             },
             "year": null,
             "n": 26,
-            "mean": 0.557,
+            "mean": 0.578,
             "density": 0.837,
-            "ci95": 0.24,
-            "rank": 0.75
+            "ci95": 0.249,
+            "rank": 0.714
           },
           "fi": {
             "perSource": {
               "tardis": {
                 "n": 13,
-                "mean": 2.981,
+                "mean": 2.839,
                 "density": 1.447,
-                "ci95": 1.299,
-                "rank": 6.75
+                "ci95": 1.237,
+                "rank": 7.5
               },
               "wikipedia": {
                 "n": 13,
-                "mean": 4.213,
+                "mean": 4.017,
                 "density": 2.047,
-                "ci95": 1.968,
-                "rank": 8.75
+                "ci95": 1.879,
+                "rank": 8.214
               }
             },
             "year": null,
             "n": 26,
-            "mean": 3.597,
+            "mean": 3.428,
             "density": 1.747,
-            "ci95": 1.179,
-            "rank": 7.75
+            "ci95": 1.125,
+            "rank": 7.857
           }
         },
         {
@@ -710,53 +1879,54 @@
           "year": 2012,
           "yearEnd": 2013,
           "episodeCount": 13,
+          "partCount": null,
           "sci": {
             "perSource": {
               "tardis": {
                 "n": 13,
-                "mean": 0.879,
+                "mean": 0.912,
                 "density": 1.32,
-                "ci95": 0.349,
-                "rank": 3.75
+                "ci95": 0.362,
+                "rank": 2.976
               },
               "wikipedia": {
                 "n": 12,
-                "mean": 0.997,
+                "mean": 1.035,
                 "density": 1.497,
-                "ci95": 0.651,
-                "rank": 3.75
+                "ci95": 0.676,
+                "rank": 3.214
               }
             },
             "year": null,
             "n": 25,
-            "mean": 0.936,
+            "mean": 0.971,
             "density": 1.405,
-            "ci95": 0.361,
-            "rank": 3.75
+            "ci95": 0.375,
+            "rank": 3.09
           },
           "fi": {
             "perSource": {
               "tardis": {
                 "n": 13,
-                "mean": 3.809,
+                "mean": 3.737,
                 "density": 3.138,
-                "ci95": 1.976,
-                "rank": 8.25
+                "ci95": 1.992,
+                "rank": 8.69
               },
               "wikipedia": {
                 "n": 12,
-                "mean": 3.848,
+                "mean": 3.744,
                 "density": 2.931,
-                "ci95": 2.297,
-                "rank": 7.75
+                "ci95": 2.263,
+                "rank": 7.5
               }
             },
             "year": null,
             "n": 25,
-            "mean": 3.828,
+            "mean": 3.74,
             "density": 3.039,
-            "ci95": 1.507,
-            "rank": 8.01
+            "ci95": 1.501,
+            "rank": 8.119
           }
         },
         {
@@ -764,53 +1934,54 @@
           "year": 2014,
           "yearEnd": null,
           "episodeCount": 12,
+          "partCount": null,
           "sci": {
             "perSource": {
               "tardis": {
                 "n": 12,
-                "mean": 0.994,
+                "mean": 1.031,
                 "density": 1.492,
-                "ci95": 0.695,
-                "rank": 5.25
+                "ci95": 0.721,
+                "rank": 3.929
               },
               "wikipedia": {
                 "n": 12,
-                "mean": 1.762,
+                "mean": 1.828,
                 "density": 2.646,
-                "ci95": 1.218,
-                "rank": 7.75
+                "ci95": 1.264,
+                "rank": 6.548
               }
             },
             "year": null,
             "n": 24,
-            "mean": 1.378,
+            "mean": 1.429,
             "density": 2.069,
-            "ci95": 0.701,
-            "rank": 6.5
+            "ci95": 0.728,
+            "rank": 5.238
           },
           "fi": {
             "perSource": {
               "tardis": {
                 "n": 12,
-                "mean": 2.057,
+                "mean": 1.959,
                 "density": 0.998,
-                "ci95": 0.709,
-                "rank": 4.25
+                "ci95": 0.675,
+                "rank": 5.357
               },
               "wikipedia": {
                 "n": 12,
-                "mean": 3.752,
+                "mean": 3.692,
                 "density": 1.946,
                 "ci95": 2.342,
-                "rank": 7.25
+                "rank": 7.262
               }
             },
             "year": null,
             "n": 24,
-            "mean": 2.905,
+            "mean": 2.826,
             "density": 1.472,
-            "ci95": 1.223,
-            "rank": 5.75
+            "ci95": 1.219,
+            "rank": 6.309
           }
         },
         {
@@ -818,53 +1989,54 @@
           "year": 2015,
           "yearEnd": null,
           "episodeCount": 12,
+          "partCount": null,
           "sci": {
             "perSource": {
               "tardis": {
                 "n": 12,
-                "mean": 0.635,
+                "mean": 0.659,
                 "density": 0.954,
-                "ci95": 0.322,
-                "rank": 1.25
+                "ci95": 0.335,
+                "rank": 0.833
               },
               "wikipedia": {
                 "n": 12,
-                "mean": 1.269,
+                "mean": 1.317,
                 "density": 1.906,
-                "ci95": 0.982,
-                "rank": 4.75
+                "ci95": 1.019,
+                "rank": 3.929
               }
             },
             "year": null,
             "n": 24,
-            "mean": 0.952,
+            "mean": 0.988,
             "density": 1.43,
-            "ci95": 0.517,
-            "rank": 3.0
+            "ci95": 0.536,
+            "rank": 2.381
           },
           "fi": {
             "perSource": {
               "tardis": {
                 "n": 12,
-                "mean": 4.222,
+                "mean": 4.138,
                 "density": 2.272,
-                "ci95": 2.115,
-                "rank": 9.25
+                "ci95": 2.127,
+                "rank": 9.167
               },
               "wikipedia": {
                 "n": 12,
-                "mean": 5.66,
+                "mean": 5.549,
                 "density": 4.322,
-                "ci95": 2.197,
-                "rank": 9.75
+                "ci95": 2.203,
+                "rank": 9.881
               }
             },
             "year": null,
             "n": 24,
-            "mean": 4.941,
+            "mean": 4.843,
             "density": 3.297,
-            "ci95": 1.525,
-            "rank": 9.5
+            "ci95": 1.531,
+            "rank": 9.524
           }
         },
         {
@@ -872,53 +2044,54 @@
           "year": 2017,
           "yearEnd": null,
           "episodeCount": 12,
+          "partCount": null,
           "sci": {
             "perSource": {
               "tardis": {
                 "n": 12,
-                "mean": 0.924,
+                "mean": 0.959,
                 "density": 1.388,
-                "ci95": 0.662,
-                "rank": 4.75
+                "ci95": 0.686,
+                "rank": 3.452
               },
               "wikipedia": {
                 "n": 12,
-                "mean": 1.337,
+                "mean": 1.388,
                 "density": 2.008,
-                "ci95": 1.02,
-                "rank": 5.75
+                "ci95": 1.059,
+                "rank": 4.405
               }
             },
             "year": null,
             "n": 24,
-            "mean": 1.131,
+            "mean": 1.173,
             "density": 1.698,
-            "ci95": 0.608,
-            "rank": 5.25
+            "ci95": 0.631,
+            "rank": 3.928
           },
           "fi": {
             "perSource": {
               "tardis": {
                 "n": 12,
-                "mean": 1.773,
+                "mean": 1.689,
                 "density": 0.861,
-                "ci95": 0.999,
-                "rank": 3.75
+                "ci95": 0.952,
+                "rank": 4.643
               },
               "wikipedia": {
                 "n": 12,
-                "mean": 3.622,
+                "mean": 3.449,
                 "density": 1.758,
-                "ci95": 1.989,
-                "rank": 6.75
+                "ci95": 1.895,
+                "rank": 6.786
               }
             },
             "year": null,
             "n": 24,
-            "mean": 2.697,
+            "mean": 2.569,
             "density": 1.31,
-            "ci95": 1.113,
-            "rank": 5.25
+            "ci95": 1.06,
+            "rank": 5.714
           }
         },
         {
@@ -926,53 +2099,54 @@
           "year": 2018,
           "yearEnd": null,
           "episodeCount": 10,
+          "partCount": null,
           "sci": {
             "perSource": {
               "tardis": {
                 "n": 10,
-                "mean": 0.66,
+                "mean": 0.685,
                 "density": 0.991,
-                "ci95": 0.388,
-                "rank": 1.75
+                "ci95": 0.403,
+                "rank": 1.071
               },
               "wikipedia": {
                 "n": 10,
-                "mean": 0.677,
+                "mean": 0.703,
                 "density": 1.017,
-                "ci95": 0.749,
-                "rank": 1.25
+                "ci95": 0.777,
+                "rank": 1.548
               }
             },
             "year": null,
             "n": 20,
-            "mean": 0.669,
+            "mean": 0.694,
             "density": 1.004,
-            "ci95": 0.422,
-            "rank": 1.5
+            "ci95": 0.438,
+            "rank": 1.309
           },
           "fi": {
             "perSource": {
               "tardis": {
                 "n": 10,
-                "mean": 3.825,
+                "mean": 3.738,
                 "density": 2.978,
-                "ci95": 2.728,
-                "rank": 8.75
+                "ci95": 2.691,
+                "rank": 8.929
               },
               "wikipedia": {
                 "n": 10,
-                "mean": 2.391,
+                "mean": 2.325,
                 "density": 1.952,
-                "ci95": 2.153,
-                "rank": 4.25
+                "ci95": 2.123,
+                "rank": 5.357
               }
             },
             "year": null,
             "n": 20,
-            "mean": 3.108,
+            "mean": 3.032,
             "density": 2.465,
-            "ci95": 1.738,
-            "rank": 6.5
+            "ci95": 1.714,
+            "rank": 7.143
           }
         },
         {
@@ -980,53 +2154,54 @@
           "year": 2020,
           "yearEnd": null,
           "episodeCount": 10,
+          "partCount": null,
           "sci": {
             "perSource": {
               "tardis": {
                 "n": 10,
-                "mean": 1.401,
+                "mean": 1.454,
                 "density": 2.104,
-                "ci95": 0.715,
-                "rank": 7.25
+                "ci95": 0.742,
+                "rank": 6.548
               },
               "wikipedia": {
                 "n": 10,
-                "mean": 1.528,
+                "mean": 1.586,
                 "density": 2.295,
-                "ci95": 1.216,
-                "rank": 6.75
+                "ci95": 1.263,
+                "rank": 5.119
               }
             },
             "year": null,
             "n": 20,
-            "mean": 1.464,
+            "mean": 1.52,
             "density": 2.199,
-            "ci95": 0.705,
-            "rank": 7.0
+            "ci95": 0.732,
+            "rank": 5.833
           },
           "fi": {
             "perSource": {
               "tardis": {
                 "n": 10,
-                "mean": 1.393,
+                "mean": 1.327,
                 "density": 0.676,
-                "ci95": 0.963,
-                "rank": 2.25
+                "ci95": 0.917,
+                "rank": 3.452
               },
               "wikipedia": {
                 "n": 10,
-                "mean": 2.889,
+                "mean": 2.846,
                 "density": 2.594,
-                "ci95": 2.484,
-                "rank": 6.25
+                "ci95": 2.482,
+                "rank": 6.31
               }
             },
             "year": null,
             "n": 20,
-            "mean": 2.141,
+            "mean": 2.087,
             "density": 1.635,
-            "ci95": 1.332,
-            "rank": 4.25
+            "ci95": 1.323,
+            "rank": 4.881
           }
         }
       ]
@@ -1036,6 +2211,7 @@
       "name": "Doctor Who (2023- )",
       "short": "DW23",
       "kind": "series",
+      "unit": "series",
       "color": "#1D9E75",
       "ageRating": 10,
       "entityCount": 0,
@@ -1066,53 +2242,54 @@
           "year": 2024,
           "yearEnd": null,
           "episodeCount": 8,
+          "partCount": null,
           "sci": {
             "perSource": {
               "tardis": {
                 "n": 8,
-                "mean": 1.294,
+                "mean": 1.342,
                 "density": 1.943,
-                "ci95": 1.021,
-                "rank": 6.75
+                "ci95": 1.06,
+                "rank": 5.595
               },
               "wikipedia": {
                 "n": 8,
-                "mean": 1.202,
+                "mean": 1.248,
                 "density": 1.806,
-                "ci95": 1.158,
-                "rank": 4.25
+                "ci95": 1.202,
+                "rank": 3.69
               }
             },
             "year": null,
             "n": 16,
-            "mean": 1.248,
+            "mean": 1.295,
             "density": 1.875,
-            "ci95": 0.772,
-            "rank": 5.5
+            "ci95": 0.801,
+            "rank": 4.643
           },
           "fi": {
             "perSource": {
               "tardis": {
                 "n": 8,
-                "mean": 3.18,
+                "mean": 3.029,
                 "density": 1.544,
-                "ci95": 1.989,
-                "rank": 7.25
+                "ci95": 1.895,
+                "rank": 7.738
               },
               "wikipedia": {
                 "n": 8,
-                "mean": 2.572,
+                "mean": 2.45,
                 "density": 1.248,
-                "ci95": 1.907,
-                "rank": 5.25
+                "ci95": 1.816,
+                "rank": 5.833
               }
             },
             "year": null,
             "n": 16,
-            "mean": 2.876,
+            "mean": 2.74,
             "density": 1.396,
-            "ci95": 1.378,
-            "rank": 6.25
+            "ci95": 1.312,
+            "rank": 6.786
           }
         },
         {
@@ -1120,53 +2297,54 @@
           "year": 2025,
           "yearEnd": null,
           "episodeCount": 8,
+          "partCount": null,
           "sci": {
             "perSource": {
               "tardis": {
                 "n": 4,
-                "mean": 0.702,
+                "mean": 0.728,
                 "density": 1.054,
-                "ci95": 0.917,
-                "rank": 2.25
+                "ci95": 0.952,
+                "rank": 1.786
               },
               "wikipedia": {
                 "n": 8,
                 "mean": 0.0,
                 "density": 0.0,
                 "ci95": 0.0,
-                "rank": 0.25
+                "rank": 0.238
               }
             },
             "year": null,
             "n": 12,
-            "mean": 0.234,
+            "mean": 0.243,
             "density": 0.351,
-            "ci95": 0.306,
-            "rank": 0.917
+            "ci95": 0.317,
+            "rank": 0.754
           },
           "fi": {
             "perSource": {
               "tardis": {
                 "n": 4,
-                "mean": 2.45,
+                "mean": 2.333,
                 "density": 1.189,
-                "ci95": 2.947,
-                "rank": 4.75
+                "ci95": 2.807,
+                "rank": 5.833
               },
               "wikipedia": {
                 "n": 8,
-                "mean": 3.921,
+                "mean": 3.793,
                 "density": 2.209,
-                "ci95": 2.502,
-                "rank": 8.25
+                "ci95": 2.464,
+                "rank": 7.738
               }
             },
             "year": null,
             "n": 12,
-            "mean": 3.431,
+            "mean": 3.306,
             "density": 1.869,
-            "ci95": 1.936,
-            "rank": 7.083
+            "ci95": 1.89,
+            "rank": 7.103
           }
         }
       ]
@@ -1176,6 +2354,7 @@
       "name": "Dr. Who and the Daleks",
       "short": "DWD",
       "kind": "film",
+      "unit": "film",
       "color": "#7F77DD",
       "ageRating": null,
       "entityCount": 0,
@@ -1206,29 +2385,30 @@
           "year": 1965,
           "yearEnd": null,
           "episodeCount": 1,
+          "partCount": null,
           "sci": {
             "perSource": {
               "tardis": {
                 "n": 1,
-                "mean": 1.443,
+                "mean": 1.497,
                 "density": 2.167,
                 "ci95": null,
-                "rank": 8.25
+                "rank": 6.786
               },
               "wikipedia": {
                 "n": 1,
-                "mean": 9.636,
+                "mean": 10.0,
                 "density": 14.472,
                 "ci95": null,
-                "rank": 9.75
+                "rank": 9.881
               }
             },
             "year": null,
             "n": 2,
-            "mean": 5.539,
+            "mean": 5.748,
             "density": 8.319,
             "ci95": null,
-            "rank": 9.0
+            "rank": 8.334
           },
           "fi": {
             "perSource": {
@@ -1237,14 +2417,14 @@
                 "mean": 0.0,
                 "density": 0.0,
                 "ci95": null,
-                "rank": 0.25
+                "rank": 0.119
               },
               "wikipedia": {
                 "n": 1,
                 "mean": 0.0,
                 "density": 0.0,
                 "ci95": null,
-                "rank": 1.25
+                "rank": 0.714
               }
             },
             "year": null,
@@ -1252,7 +2432,7 @@
             "mean": 0.0,
             "density": 0.0,
             "ci95": null,
-            "rank": 0.75
+            "rank": 0.416
           }
         }
       ]
@@ -1262,6 +2442,7 @@
       "name": "Daleks' Invasion Earth 2150 A.D.",
       "short": "DIE",
       "kind": "film",
+      "unit": "film",
       "color": "#EF9F27",
       "ageRating": null,
       "entityCount": 0,
@@ -1292,53 +2473,54 @@
           "year": 1966,
           "yearEnd": null,
           "episodeCount": 1,
+          "partCount": null,
           "sci": {
             "perSource": {
               "tardis": {
                 "n": 1,
-                "mean": 2.09,
+                "mean": 2.169,
                 "density": 3.139,
                 "ci95": null,
-                "rank": 9.25
+                "rank": 8.69
               },
               "wikipedia": {
                 "n": 1,
-                "mean": 0.957,
+                "mean": 0.993,
                 "density": 1.437,
                 "ci95": null,
-                "rank": 2.75
+                "rank": 2.738
               }
             },
             "year": null,
             "n": 2,
-            "mean": 1.523,
+            "mean": 1.581,
             "density": 2.288,
             "ci95": null,
-            "rank": 6.0
+            "rank": 5.714
           },
           "fi": {
             "perSource": {
               "tardis": {
                 "n": 1,
-                "mean": 0.923,
+                "mean": 0.879,
                 "density": 0.448,
                 "ci95": null,
-                "rank": 1.25
+                "rank": 2.262
               },
               "wikipedia": {
                 "n": 1,
                 "mean": 0.0,
                 "density": 0.0,
                 "ci95": null,
-                "rank": 1.25
+                "rank": 0.714
               }
             },
             "year": null,
             "n": 2,
-            "mean": 0.462,
+            "mean": 0.44,
             "density": 0.224,
             "ci95": null,
-            "rank": 1.25
+            "rank": 1.488
           }
         }
       ]
@@ -1348,6 +2530,7 @@
       "name": "Doctor Who (1996 television film)",
       "short": "DWM",
       "kind": "film",
+      "unit": "film",
       "color": "#D4537E",
       "ageRating": null,
       "entityCount": 0,
@@ -1378,53 +2561,54 @@
           "year": 1996,
           "yearEnd": null,
           "episodeCount": 1,
+          "partCount": null,
           "sci": {
             "perSource": {
               "tardis": {
                 "n": 1,
-                "mean": 1.532,
+                "mean": 1.59,
                 "density": 2.301,
                 "ci95": null,
-                "rank": 8.75
+                "rank": 7.024
               },
               "wikipedia": {
                 "n": 1,
-                "mean": 0.981,
+                "mean": 1.018,
                 "density": 1.473,
                 "ci95": null,
-                "rank": 3.25
+                "rank": 2.976
               }
             },
             "year": null,
             "n": 2,
-            "mean": 1.256,
+            "mean": 1.304,
             "density": 1.887,
             "ci95": null,
-            "rank": 6.0
+            "rank": 5.0
           },
           "fi": {
             "perSource": {
               "tardis": {
                 "n": 1,
-                "mean": 0.527,
+                "mean": 0.502,
                 "density": 0.256,
                 "ci95": null,
-                "rank": 0.75
+                "rank": 1.071
               },
               "wikipedia": {
                 "n": 1,
                 "mean": 0.0,
                 "density": 0.0,
                 "ci95": null,
-                "rank": 1.25
+                "rank": 0.714
               }
             },
             "year": null,
             "n": 2,
-            "mean": 0.264,
+            "mean": 0.251,
             "density": 0.128,
             "ci95": null,
-            "rank": 1.0
+            "rank": 0.892
           }
         }
       ]

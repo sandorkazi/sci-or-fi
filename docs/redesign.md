@@ -257,6 +257,7 @@ one-entry season, so it flows through the same pipeline.
 5. **Classic Doctor Who is thin, and the era is worth naming explicitly.** TVmaze lists its
    25-minute *parts* (median summary ~31 words) rather than serials. Per-part lexicon densities are
    correspondingly noisy; Wikipedia plot sections are the primary measurement for that franchise.
+   *(Resolved in P4: parts are now grouped into serials at ingest.)*
 6. **A search always returns *something*, so resolution needs a guard.** Accepting the first hit
    that has a Plot section resolved Lower Decks' "Second Contact" to a *Next Generation* episode
    article and Doctor Who's "Rose" to "The Star Beast" — real, wrong plots feeding real scores. An
@@ -319,7 +320,7 @@ that do not are pinned per film per wiki in `franchise.json` (`wikiTitles` — t
 is Tardis' "Doctor Who (TV story)"). Direct lookup is what makes this safe: there is no search result
 to mismatch. TVmaze still contributes nothing for films, since it has no film entries at all.
 
-**Classic Doctor Who is the remaining hole.** Tardis and Wikipedia both carry the *serial* article
+**Classic Doctor Who was the remaining hole — fixed, see P4.** Tardis and Wikipedia both carry the *serial* article
 ("An Unearthly Child (TV story)", ~2,400 words), not a page per 25-minute part, so of 700 classic
 parts only ~10 resolve on Wikipedia and ~19 on Tardis, and the rest fall back to ~31-word TVmaze
 summaries. The measured text basis makes this explicit on the page: DW63 reads
@@ -432,6 +433,57 @@ zero — its median moved from 0.69 to 1.47 on Star Trek, mostly because the myt
 was recalibrated down (9.0 → 4.854) while the entity saturation was recalibrated up, correctly
 trading a hand-guessed constant for a measured one.
 
+## P4 status — classic Doctor Who at story level, done
+
+P3's floor exposed the hole; this closes it. Classic Who (1963–1989) was broadcast as 700
+twenty-five-minute **parts**, and TVmaze lists it that way — each part with the serial's summary, a
+median 31 words. The sources that actually carry the era do the opposite: Tardis and Wikipedia both
+have **one article per serial**, with the parts as sub-headings, 1,000–2,400 words of plot. So
+measuring parts meant measuring a fifth of a story's text against a whole story's plot, and it put
+700 of the corpus's 872 Doctor Who works on the thinnest text we have.
+
+A series can now declare `grouping: "serial"`. At ingest the parts are collapsed into one work per
+serial, numbered by broadcast order; a part with no `", Part N"` label (`Mission to the Unknown`, a
+single-episode serial) becomes a one-part serial named after itself. TVmaze's titling is inconsistent
+in exactly three ways and all three are handled: `"The Cave of Skulls (An Unearthly Child, Part
+Two)"` (117 parts), `"The Savages, Part One"` (568), and `"The Trial of a Time Lord, Part Two (The
+Mysterious Planet)"` (14, the one serial that names its parts in parentheses). All 700 parts parse
+into **155 serials**, and the count of original transmission parts is carried per season rather than
+lost (`partCount`), so the table can say "8 serials" and still know they were 42 parts.
+
+Two smaller changes came with it. The TVmaze lookup in `signals` now matches by episode **id**
+instead of by `(season, episode)` number, because a grouped series renumbers its works 1..n within
+the season and would otherwise match the wrong parts. And the schema validator learned `type: ["x",
+"null"]`, so `partCount` can be honestly absent for ungrouped series.
+
+**Result — the coverage hole is closed, and Doctor Who is no longer mostly missing.**
+
+| | P3 (parts) | **P4 (serials)** |
+|---|---|---|
+| Doctor Who works with no measurement | 688 of 872 (79%) | **9 of 327 (3%)** |
+| classic Who works measured | 35 of 700 | **152 of 155** |
+| classic Who text (Tardis) | 31-word teasers | **2,434-word median** |
+| Doctor Who seasons on the chart | 22 | **42** |
+
+| | axis | median | p90 | above 4 | seasons |
+|---|---|---|---|---|---|
+| Star Trek | Sci | 3.80 | 5.49 | 47% | 66 |
+| Star Trek | Fi | 1.41 | 2.58 | 5% | 66 |
+| Doctor Who | **Sci** | **1.34** | **2.86** | **2%** | 42 |
+| Doctor Who | **Fi** | **2.12** | **3.90** | **10%** | 42 |
+
+The recalibration moved with the corpus, which is the point of it being a stage rather than a
+constant: `technical-lexicon-density` 15.019 → 14.472 and `mythic-lexicon-density` 4.854 → 5.097
+(n 2,016 → 2,289); `numinous-entity` held at 23.654 because no new series is entity-coded.
+
+Doctor Who's Sci axis stays low, and that is now a real finding rather than a gap: classic Who is
+science-fiction television whose plots are written as adventure serials — the vocabulary is
+"journey", "capture", "escape", not "tachyon" and "dilithium". The DW63 seasons that do score high
+on Sci are the ones that literally put a scientist or a machine at the centre of the story, which is
+what the axis is supposed to measure. Star Trek is the opposite: even its mythic episodes are
+narrated in technical language, which is why it sits a full point higher on Sci with a much wider
+spread.
+
 ## Open decisions
 
 1. **Scaling the Fi coder (the main open decision).** Only TOS has a curated entity list, so Fi is
@@ -457,15 +509,14 @@ trading a hand-guessed constant for a measured one.
 4. **Judgement coder** for a later rubric: LLM-coded episode coding against a published codebook,
    human spot-checks, per-episode confidence. This is what turns the reserved sub-signals into
    scores.
-5. **Classic Doctor Who, now urgent (was an "open decision", promoted by P3).** The validity floor
-   made the hole concrete: 682 of 872 Doctor Who works have no measurement at all, because their
-   only text was a 31-word teaser. Two fixes, both already scoped: (a) **group the parts into
-   serials** and analyse at story level — ~170 story-level works measured on 1,000–2,400 words of
-   Tardis plot, which is arguably the right unit for 1963–1989 anyway; or (b) **fetch the serial
-   article for each part** (Tardis carries `An Unearthly Child (TV story)` with per-part
-   sub-headings), which keeps part-level rows but gives every part of a serial the same text. Both
-   need the serial name parsed out of TVmaze's inconsistent titles (`"<part title> (<serial>, Part
-   N)"` for 117 parts, `"<serial>, Part N"` for 583). (a) is the larger change and the better
-   analysis; (b) is a smaller change that restores coverage. Until one lands, **Doctor Who's chart is
-   modern Who plus the films**, and the page says so.
+5. **Classic Doctor Who — closed by P4.** Grouping the parts into serials restored 152 of 155 classic
+   stories to measured status on 1,000–2,400 words of Tardis plot. The alternative (fetch the serial
+   article for each part) was rejected because it would give every part of a serial the same text and
+   so invent a per-part signal that does not exist. The question that remains is a scope one, not a
+   measurement one: whether 1963–1989 should stay a single `dw63` series of 25 broadcast seasons or
+   be split by Doctor (Hartnell … McCoy), which the data now supports.
+6. **Splitting the classic era by Doctor.** With serials as the unit, `dw63` is 25 seasons across
+   seven lead actors. The chart currently shows eras, which buries the fact that the show's
+   relationship to its own science changes with its lead. This is a small change (a `byEra` split at
+   ingest) and a judgement about what a "series" is.
 

@@ -3,19 +3,68 @@
   "title": "Episode",
   "description": "One row of a franchise snapshot. Facts and identifiers only, never source prose.",
   "type": "object",
-  "required": ["id", "series", "season", "episode", "title", "year"],
+  "required": [
+    "id",
+    "series",
+    "season",
+    "episode",
+    "title",
+    "year"
+  ],
   "properties": {
-    "id": { "type": "string", "description": "<franchise>:<series>:S##E##" },
-    "series": { "type": "string" },
-    "kind": { "type": "string", "enum": ["episode", "film"], "description": "A film is modelled as a one-entry work so the same pipeline applies" },
-    "season": { "type": "integer", "minimum": 1 },
-    "episode": { "type": "integer", "minimum": 1 },
-    "title": { "type": "string" },
-    "airDate": { "type": "string", "description": "Null for films, which are dated by release year only" },
-    "year": { "type": "integer" },
-    "sourceIds": { "type": "object" },
-    "wikipedia": { "type": "string", "description": "Pinned Wikipedia article title (films, where TVmaze has no entry)" },
-    "wikiTitles": { "type": "object", "description": "Per-wiki article-title overrides for films, e.g. {\"tardis\": \"Doctor Who (TV story)\"}; defaults to the film name" },
-    "texts": { "type": "object", "description": "In-memory only; removed before publication" }
+    "id": {
+      "type": "string",
+      "description": "<franchise>:<series>:S##E##"
+    },
+    "series": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "episode",
+        "film",
+        "serial"
+      ],
+      "description": "A serial groups the 25-minute parts of one classic-era story into a single work; a film is modelled as a one-entry work so the same pipeline applies"
+    },
+    "parts": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "For a serial: how many transmission parts it was broadcast in"
+    },
+    "season": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "episode": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "title": {
+      "type": "string"
+    },
+    "airDate": {
+      "type": "string",
+      "description": "Null for films, which are dated by release year only"
+    },
+    "year": {
+      "type": "integer"
+    },
+    "sourceIds": {
+      "type": "object"
+    },
+    "wikipedia": {
+      "type": "string",
+      "description": "Pinned Wikipedia article title (films, where TVmaze has no entry)"
+    },
+    "wikiTitles": {
+      "type": "object",
+      "description": "Per-wiki article-title overrides for films, e.g. {\"tardis\": \"Doctor Who (TV story)\"}; defaults to the film name"
+    },
+    "texts": {
+      "type": "object",
+      "description": "In-memory only; removed before publication"
+    }
   }
 }

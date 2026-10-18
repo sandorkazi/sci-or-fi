@@ -6,6 +6,7 @@ scope can be changed without re-hitting a network source.
 from __future__ import annotations
 
 import math
+import re
 import statistics
 
 from . import config, lexicon, sources
@@ -23,6 +24,88 @@ def colour_for(meta: dict, index: int) -> str:
     return meta.get("color") or PALETTE[index % len(PALETTE)]
 
 
+# ------------------------------------------------------- classic-era grouping
+# Classic Doctor Who (1963–1989) was broadcast as 25-minute *parts* — TVmaze lists
+# all 700 of them, each with a median 31-word summary — but it was written,
+# produced and is remembered as *serials*: one story told over several weeks. The
+# sources that carry it (Tardis, Wikipedia) do the same: there is one article per
+# story, with sub-headings per part, not one article per part. Measuring parts
+# therefore means measuring a fifth of a story's text against a whole story's plot,
+# and it puts 700 works on the thinnest text in the corpus. A series that declares
+# ``grouping: "serial"`` is collapsed to one work per serial at ingest.
+_PART_WORDS = {
+    w: i
+    for i, w in enumerate(
+        "one two three four five six seven eight nine ten eleven twelve thirteen fourteen "
+        "fifteen sixteen seventeen eighteen nineteen twenty".split(),
+        1,
+    )
+}
+# TVmaze's titling is inconsistent in three ways, all observed in the 700 parts:
+_SERIAL_PATTERNS = (
+    # "The Trial of a Time Lord, Part Two (The Mysterious Planet)" — 14 parts
+    re.compile(r"^(?P<serial>.+?),\s*Part\s+(?P<num>[A-Za-z0-9]+)\s*\((?P<part>.*)\)\s*$"),
+    # "The Cave of Skulls (An Unearthly Child, Part Two)" — 117 parts
+    re.compile(r"^(?P<part>.*?)\s*\((?P<serial>.+?),\s*Part\s+(?P<num>[A-Za-z0-9]+)\)\s*$"),
+    # "The Savages, Part One" — 568 parts
+    re.compile(r"^(?P<serial>.+?),\s*Part\s+(?P<num>[A-Za-z0-9]+)\s*$"),
+)
+
+
+def parse_serial_part(title: str) -> tuple[str, int] | None:
+    """(serial name, part number) from a TVmaze part title, or None if unlabelled."""
+    for pattern in _SERIAL_PATTERNS:
+        match = pattern.match(title or "")
+        if not match:
+            continue
+        token = match.group("num").casefold()
+        number = _PART_WORDS.get(token)
+        if number is None:
+            try:
+                number = int(token)
+            except ValueError:
+                return None
+        return match.group("serial").strip(), number
+    return None
+
+
+def group_parts_into_serials(parts: list[dict]) -> list[dict]:
+    """Collapse TVmaze parts into one work per serial, numbered by broadcast order.
+
+    A part with no recognisable ", Part N" label (``Mission to the Unknown``, a
+    single-episode serial) becomes a one-part serial named after itself. Every
+    part of a serial carries the same TVmaze summary, so the first part's summary
+    is the serial's summary and nothing is lost by keeping the first part's id.
+    """
+    grouped: dict[tuple[int, str], list[dict]] = {}
+    for part in parts:
+        parsed = parse_serial_part(part["title"])
+        serial, number = parsed if parsed else (part["title"], 1)
+        grouped.setdefault((part["season"], serial), []).append({**part, "partNumber": number})
+
+    serials: list[dict] = []
+    for (season, serial), members in grouped.items():
+        members.sort(key=lambda m: (m["partNumber"], m["episode"]))
+        first = members[0]
+        serials.append(
+            {
+                **first,                       # keeps the first part's id, airdate and summary
+                "season": season,
+                "title": serial,               # the wiki is searched on the serial name, not a part title
+                "parts": len(members),
+                "partTitles": [m["title"] for m in members],
+                "partIds": [m["sourceIds"].get("tvmaze") for m in members],
+            }
+        )
+
+    serials.sort(key=lambda s: (s["season"], s["episode"]))
+    position: dict[int, int] = {}
+    for serial in serials:
+        position[serial["season"]] = position.get(serial["season"], 0) + 1
+        serial["episode"] = position[serial["season"]]
+    return serials
+
+
 # ------------------------------------------------------------------- ingest
 def build_snapshot(franchise_id: str, date: str, *, refresh: bool = False) -> dict:
     meta = config.franchise_meta(franchise_id)
@@ -36,20 +119,34 @@ def build_snapshot(franchise_id: str, date: str, *, refresh: bool = False) -> di
             provenance.append({"source": "tvmaze", "series": sid, "skipped": "no tvmaze id"})
             continue
         raw = sources.tvmaze_episodes(tvmaze_id, refresh=refresh)
-        provenance.append({"source": "tvmaze", "series": sid, "id": tvmaze_id, "episodes": len(raw)})
+        grouping = series.get("grouping")
+        if grouping == "serial":
+            raw = group_parts_into_serials(raw)
+            provenance.append(
+                {
+                    "source": "tvmaze",
+                    "series": sid,
+                    "id": tvmaze_id,
+                    "grouping": "serial",
+                    "serials": len(raw),
+                }
+            )
+        else:
+            provenance.append({"source": "tvmaze", "series": sid, "id": tvmaze_id, "episodes": len(raw)})
         for ep in raw:
             air = ep.get("airDate")
             episodes.append(
                 {
                     "id": f"{franchise_id}:{sid}:S{ep['season']:02d}E{ep['episode']:02d}",
                     "series": sid,
-                    "kind": "episode",
+                    "kind": "serial" if ep.get("parts") else "episode",
                     "season": ep["season"],
                     "episode": ep["episode"],
                     "title": ep["title"],
                     "airDate": air,
                     "year": int(air[:4]) if air else None,
                     "sourceIds": ep["sourceIds"],
+                    **({"parts": ep["parts"]} if ep.get("parts") else {}),
                 }
             )
 
@@ -143,9 +240,12 @@ def extract_signals(
         tvmaze_id = series.get("sourceIds", {}).get("tvmaze")
         if "tvmaze" in scope_sources and tvmaze_id is not None:
             raw = sources.tvmaze_episodes(tvmaze_id, refresh=refresh)
-            by_number = {(e["season"], e["episode"]): e for e in raw}
+            # Look up by episode id, not by (season, episode) number: a grouped
+            # series numbers serials 1..n within the season, which no longer
+            # matches TVmaze's own part numbering.
+            by_id = {e["sourceIds"]["tvmaze"]: e for e in raw if e["sourceIds"].get("tvmaze")}
             for ep in group:
-                hit = by_number.get((ep["season"], ep["episode"]))
+                hit = by_id.get((ep.get("sourceIds") or {}).get("tvmaze"))
                 if hit and hit["text"]:
                     texts.setdefault(ep["id"], {})["tvmaze"] = {"text": hit["text"], "kind": hit["textKind"]}
         for source_id, api_url, hint in _wiki_targets(series, scope_sources, declared_sources):
@@ -442,6 +542,14 @@ def score_scope(
             "sources": sources_detail,
         }
 
+    # A grouped series counts *serials* as its works, so the number of original
+    # transmission parts per season is carried alongside rather than lost.
+    parts: dict[tuple, int] = {}
+    for ep in snapshot["episodes"]:
+        if ep.get("parts"):
+            key = (ep["series"], ep["season"])
+            parts[key] = parts.get(key, 0) + ep["parts"]
+
     out_series = []
     for series in sorted({k[0] for k in seasons}, key=lambda s: by_id.get(s, {}).get("order", 999)):
         work = by_id.get(series, {"id": series, "name": series, "kind": "series", "order": 999})
@@ -455,6 +563,7 @@ def score_scope(
                     "year": year,
                     "yearEnd": year_end if year_end != year else None,
                     "episodeCount": counts.get((s_id, season), 0),
+                    "partCount": parts.get((s_id, season)) or None,
                     "sci": axes.get("sci"),
                     "fi": axes.get("fi"),
                 }
@@ -465,6 +574,7 @@ def score_scope(
                 "name": work["name"],
                 "short": work.get("short", series),
                 "kind": work.get("kind", "series"),
+                "unit": "serial" if work.get("grouping") == "serial" else work.get("kind", "series"),
                 "color": colour_for(work, work.get("order", 0)),
                 "ageRating": work.get("ageRating"),
                 "entityCount": entity_counts.get(series, 0),

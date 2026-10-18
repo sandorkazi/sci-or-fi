@@ -47,6 +47,13 @@ wikis by exact article title (never by search — see `wikiTitles` for the handf
 differs from the film name). On the chart, films share one neutral marker so they stay legible
 against 15+ television series; the tooltip and the table still name each film.
 
+A series can also declare `grouping: "serial"`. Classic Doctor Who was broadcast as 700
+twenty-five-minute **parts** but written and archived as **serials** — one story over several weeks —
+and Tardis and Wikipedia both carry one article per serial. Grouping at ingest collapses the parts
+into one work per serial (`unit: "serial"`), so a story is measured against a story's text instead of
+a fifth of it. The original part count is kept per season as `partCount`. This one flag took classic
+Who from 35 of 700 works measured to **152 of 155**.
+
 Curated `entities.json` lists are **per series**. A series without one is coded lexicon-only on the
 Fi axis, and the page's "Fi coder" column says so — a missing list is stated, never hidden behind an
 entity term that silently contributes zero.
@@ -72,9 +79,10 @@ into every series pulled the whole chart toward zero. A source's zero-measuremen
 visible in the *text basis* column rather than being deleted.
 
 Removing works means the chart could quietly become emptier, so `derived.unmeasured` counts works
-with no measurement at all and the page states the tally under the chart. It is currently the most
-important number in the build: **688 of 872 Doctor Who works have no measurement** (682 of them
-classic Who, which rested entirely on 31-word teasers), against 60 of 1,015 for Star Trek.
+with no measurement at all and the page states the tally under the chart. After P4 (classic Who
+grouped into serials) that tally is **9 of 327 Doctor Who works** and 60 of 1,015 for Star Trek. It
+was 688 of 872 before the grouping, which is what made the classic-Who text problem impossible to
+ignore.
 
 ## Scoring and scales
 

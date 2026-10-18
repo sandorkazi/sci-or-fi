@@ -7,6 +7,8 @@ from __future__ import annotations
 
 from . import config
 
+_TYPES = {"object": dict, "array": list, "string": str, "integer": int, "number": (int, float), "boolean": bool}
+
 
 def _load_schema(name: str) -> dict:
     return config.read_json(config.DATA / "schema" / name)
@@ -15,9 +17,18 @@ def _load_schema(name: str) -> dict:
 def _check(obj, schema: dict, path: str) -> list[str]:
     problems: list[str] = []
     t = schema.get("type")
-    types = {"object": dict, "array": list, "string": str, "integer": int, "number": (int, float), "boolean": bool}
-    if t and not isinstance(obj, types[t]):
-        return [f"{path}: expected {t}, got {type(obj).__name__}"]
+    allowed = t if isinstance(t, list) else ([t] if t else [])
+    if allowed:
+        if obj is None:
+            # An explicit null is fine only where the schema says so; otherwise the
+            # caller skips nulls on optional fields before we get here.
+            return [] if "null" in allowed else [f"{path}: expected {'/'.join(allowed)}, got null"]
+        matched = [a for a in allowed if a in _TYPES and isinstance(obj, _TYPES[a])]
+        if not matched:
+            return [f"{path}: expected {'/'.join(allowed)}, got {type(obj).__name__}"]
+        t = matched[0]
+    else:
+        return problems
 
     if t == "object":
         for key in schema.get("required", []):

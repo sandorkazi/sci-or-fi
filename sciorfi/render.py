@@ -97,8 +97,9 @@ def _rubric_html(rubric: dict) -> str:
         f"<p class='muted'><strong>Uncertainty.</strong> {unc['method']}: "
         f"95% CI of the episode-level mean (z={unc['z']}), inflated ×{unc['thinSampleInflation']} "
         f"below {unc['thinSampleBelow']} episodes. Measured from the episode distribution, never asserted. "
-        f"A season with a single measurement has no estimable interval: it is published as <code>n/a</code> "
-        f"and drawn large, not as <code>±0.00</code>.</p>"
+        f"Where no interval is estimable — a season with one measurement, or one whose source set includes "
+        f"a source that resolved a single work — it is published as <code>n/a</code> and drawn large, not "
+        f"as <code>±0.00</code>.</p>"
         f"<p class='muted'><strong>Not yet coded</strong> (needs a judgement coder rather than a "
         f"lexicon): {reserved_list}</p>"
     )
@@ -230,7 +231,7 @@ code{font-size:.92em;background:rgba(127,127,127,.14);padding:1px 4px;border-rad
     __PROVENANCE__
   </details>
 
-  <p class="muted note">Bubble size is the 95% confidence interval of the season's episode-level mean &mdash; a measured quantity. Two things have no interval to encode and are drawn at a fixed size instead: a film (one work, not a season average) and a season measured on a single episode, which is drawn large and reported as <code>n/a</code> rather than <code>&plusmn;0.00</code>. Bubble position is the season score. Sci and Fi are scored from disjoint term sets, so they are independent by construction. On the <em>normalised</em> scale bubble position is a percentile rank and size is fixed, because a confidence interval has no meaning for a rank.</p>
+  <p class="muted note">Bubble size is the 95% confidence interval of the season's episode-level mean &mdash; a measured quantity. Some things have no interval to encode and are drawn at a fixed size instead: a film (one work, not a season average), and a season with no estimable interval &mdash; either it rests on a single measurement, or one of its sources resolved only one work &mdash; which is drawn large and reported as <code>n/a</code> rather than <code>&plusmn;0.00</code>. Bubble position is the season score. Series with <code>unit: serial</code> were broadcast as parts and are analysed as serials, so their counts are stories, not transmission parts. Sci and Fi are scored from disjoint term sets, so they are independent by construction. On the <em>normalised</em> scale bubble position is a percentile rank and size is fixed, because a confidence interval has no meaning for a rank.</p>
 </div>
 
 <script src="vendor/chart.umd.js"></script>
@@ -336,13 +337,15 @@ const tip = {
       const d = ctx.raw;
       if (!d.meta) return `${ctx.dataset.label}: Sci ${d.x}, Fi ${d.y}`;
       const { s, season, sci, fi } = d.meta;
+      const unit = s.unit === 'serial' ? 'serials' : 'eps';
+      const parts = s.unit === 'serial' && season.partCount ? ` (${season.partCount} parts)` : '';
       const head = s.kind === 'film'
         ? `${s.name} · film (${season.year})`
-        : `${s.short} S${season.season}${season.year ? ' (' + yr(season) + ')' : ''} · ${season.episodeCount} eps`;
+        : `${s.short} S${season.season}${season.year ? ' (' + yr(season) + ')' : ''} · ${season.episodeCount} ${unit}${parts}`;
       const line = (label, v) => normalised
-        ? `${label} rank ${f2(v.rank)}  (measured ${f2(v.mean)}${v.ci === null ? ', single measurement' : ' \u00b1 ' + f2(v.ci)})`
+        ? `${label} rank ${f2(v.rank)}  (measured ${f2(v.mean)}${v.ci === null ? ', interval not estimable' : ' \u00b1 ' + f2(v.ci)})`
         : (v.ci === null
-            ? `${label} ${f2(v.mean)} \u2014 single measurement, uncertainty not estimable`
+            ? `${label} ${f2(v.mean)} \u2014 interval not estimable (one measurement, or a source resting on one)`
             : `${label} ${f2(v.mean)} \u00b1 ${f2(v.ci)}  (${f2(v.density)}/1k)`);
       return [
         head,
@@ -436,7 +439,8 @@ function table() {
         : `${f2(v.mean)} <span class="muted">${v.ci === null ? 'n/a' : '±' + f2(v.ci)}</span>`;
       rows.push(`<tr><td><span class="swatch" style="background:${s.color}"></span>${s.short}`
         + (film ? ' <span class="muted">film</span>' : '') + `</td>`
-        + `<td>${film ? '&mdash;' : season.season}</td><td>${yr(season)}</td><td class="num">${season.episodeCount}</td>`
+        + `<td>${film ? '&mdash;' : season.season}</td><td>${yr(season)}</td>`
+        + `<td class="num">${season.episodeCount}${s.unit === 'serial' && season.partCount ? ` <span class="muted" title="${season.partCount} transmission parts">serials</span>` : ''}</td>`
         + `<td class="num">${cell(sci)}</td><td>${bar(sci.value, s.color)}</td>`
         + `<td class="num">${cell(fi)}</td><td>${bar(fi.value, s.color)}</td>`
         + `<td class="num">${sci.n}</td><td class="muted">${coder}</td>`
