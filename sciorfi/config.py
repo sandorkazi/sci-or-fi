@@ -111,7 +111,7 @@ def derived_dir(franchise_id: str, date: str) -> Path:
 
 
 # ----------------------------------------------------------------------- rubric
-def load_rubric(version: str = "rubric-v1") -> dict:
+def load_rubric(version: str = "rubric-v3") -> dict:
     path = RUBRIC_DIR / f"{version}.json"
     if not path.exists():
         raise SystemExit(f"unknown rubric: {version} (expected {path})")

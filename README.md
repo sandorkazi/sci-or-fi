@@ -21,6 +21,7 @@ sciorfi/            pipeline (standard library only — no virtualenv needed)
   sources.py        MediaWiki adapter (Wikipedia, Memory Alpha, Tardis) + TVmaze
   lexicon.py        coders: lexicon (term lists) and entity (curated names)
   pipeline.py       ingest -> signals -> score
+  calibrate.py      reclaims each sub-signal's saturation from the measured corpus
   render.py         static HTML generation (Chart.js vendored, not CDN)
   validate*.py      schema, range, coverage, provenance and reproducibility gates
 rubric/             versioned scoring rules and term lists
@@ -58,7 +59,42 @@ parenthetical suffix is stripped), then accepts an article **only if its title i
 title**, with or without a disambiguator, preferring a disambiguator that names the series. If
 nothing qualifies the episode is left unresolved and measured on its remaining source — an
 unresolved episode is better than a confidently wrong plot. The page's *text basis* column reports,
-per source, how many episodes resolved and the median word count behind a measurement.
+per source, `measured/covered·median words`: how many episodes the source resolved at all, and how
+many of those supplied enough prose to be measured.
+
+## The validity floor (`rubric-v3`)
+
+A density is only a measurement if there was enough prose to measure. A source that supplies fewer
+than `measurement.minWords` words (200) still counts as *covering* an episode, but contributes no
+score. This exists because TVmaze's "summaries" have a 33-word median and 92% of them contain no
+rubric term at all: their zero is the absence of text, not the absence of science, and averaging it
+into every series pulled the whole chart toward zero. A source's zero-measurement coverage stays
+visible in the *text basis* column rather than being deleted.
+
+Removing works means the chart could quietly become emptier, so `derived.unmeasured` counts works
+with no measurement at all and the page states the tally under the chart. It is currently the most
+important number in the build: **688 of 872 Doctor Who works have no measurement** (682 of them
+classic Who, which rested entirely on 31-word teasers), against 60 of 1,015 for Star Trek.
+
+## Scoring and scales
+
+Sci and Fi are scored from disjoint term sets, per episode per source, as a density
+(hits per 1,000 words), then mapped to 0–10 with `frac = min(1, density / saturation)`.
+
+- **Saturation is calibrated, not asserted.** `python3 -m sciorfi calibrate` recomputes each
+  sub-signal's saturation as the 95th percentile of its own value across every valid measurement in
+  the repository, and writes a named rubric file. It is a separate re-runnable stage, never something
+  `score` does on the fly: a score must be a function of a named rubric, and re-calibrating must be a
+  reviewable event.
+- **Uncertainty is measured.** A season's 95% interval comes from the dispersion of its episode-level
+  measurements and is what the bubble size encodes. A season measured on a single episode has no
+  estimable interval: it is published as `n/a` and drawn at a fixed large size, never as `±0.00`. A
+  film is one work rather than a season average, so films are drawn at a fixed size too.
+- **Measured score, or rank.** Each season also carries a **percentile rank** per source, averaged
+  over the selected sources exactly as the measured score is. The sidebar can switch the chart to it.
+  The rank scale is uniform by construction, so it uses the full 0–10 range and cancels the
+  systematic level differences between sources — but a rank says where a work *sits*, not how much
+  science it contains. The measured scale is the default; rank is opt-in.
 
 ## Stages
 
@@ -68,6 +104,7 @@ per source, how many episodes resolved and the median word count behind a measur
 | `signals` | snapshot + sources | `data/signals/<franchise>/<date>.jsonl` |
 | `score` | signals + rubric | `data/derived/<franchise>/<date>/<scope>-<rubric>.json` |
 | `render` | derived | `output/` + root `index.html` |
+| `calibrate` | signals | a new `rubric/<name>.json` with corpus-measured saturations |
 | `validate` | all of the above | exit code |
 
 Each stage reads the previous stage's committed output, so changing a **rubric** or a **scope**

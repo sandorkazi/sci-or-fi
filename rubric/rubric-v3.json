@@ -1,0 +1,231 @@
+{
+  "version": "rubric-v3",
+  "description": "rubric-v2's coders (technical lexicon on Sci, mythic lexicon + curated named entities on Fi) with two measurement changes. First, a validity floor: a source text shorter than measurement.minWords is still recorded as covering an episode but does not contribute a score, because a 33-word teaser with no lexicon hit is the absence of text rather than the absence of science. Second, saturations are calibrated on the whole measured corpus instead of on Star Trek: TOS alone, so the 0-10 scale is used end to end; see the 'calibration' block, which the `calibrate` stage regenerates.",
+  "measurement": {
+    "minWords": 200,
+    "notes": "Minimum source-text length for a measurement. Below it a source still counts as covering an episode (published in the text basis) but contributes no score. TVmaze summaries have a 33-word median and 92% of them contain no lexicon term at all."
+  },
+  "scale": {
+    "min": 0,
+    "max": 10,
+    "mapping": "per sub-signal: frac = min(1, value / saturation); axis score = max * sum(weight * frac) / sum(weight)",
+    "notes": "per sub-signal: frac = min(1, value / saturation); axis score = max * sum(weight * frac) / sum(weight). Saturation is the 95th percentile of that sub-signal's raw value over all valid measurements in the repository (`calibrate`), so a score of 10 is the top 5% of what has actually been measured rather than an extrapolation. Raw densities are always published alongside scores, and each season also carries a percentile `rank` so the chart can be read on a scale that cannot bunch."
+  },
+  "axes": {
+    "sci": {
+      "label": "Sci - scientific / engineering rigour",
+      "definition": "How much an episode's text turns on technical, scientific or engineering vocabulary, as opposed to being set dressing.",
+      "subsignals": [
+        {
+          "id": "technical-lexicon-density",
+          "coder": "lexicon",
+          "weight": 1.0,
+          "saturation": 15.019,
+          "calibration": "p95 of this sub-signal over 2016 valid measurements (>= 200 words of source text), all franchises and sources",
+          "patterns": [
+            "sensor",
+            "scanner",
+            "scan",
+            "detector",
+            "probe",
+            "telemetry",
+            "diagnostic",
+            "analysis",
+            "analyze",
+            "instrument",
+            "experiment",
+            "hypothesis",
+            "theory",
+            "calculation",
+            "measurement",
+            "equation",
+            "formula",
+            "physics",
+            "chemistry",
+            "biology",
+            "biological",
+            "astronomy",
+            "geology",
+            "engineer",
+            "engineering",
+            "repair",
+            "circuit",
+            "component",
+            "computer",
+            "program",
+            "subroutine",
+            "algorithm",
+            "database",
+            "radiation",
+            "frequency",
+            "modulation",
+            "subspace",
+            "tachyon",
+            "particle",
+            "warp",
+            "dilithium",
+            "antimatter",
+            "reactor",
+            "plasma",
+            "orbit",
+            "gravity",
+            "gravitational",
+            "magnetic",
+            "atmosphere",
+            "temperature",
+            "pressure",
+            "virus",
+            "bacteria",
+            "vaccine",
+            "transporter",
+            "phase",
+            "polarity"
+          ]
+        }
+      ]
+    },
+    "fi": {
+      "label": "Fi - myth / magic / reality-bending",
+      "definition": "How much an episode's text turns on god-like power, prophecy, magic-equivalent action or reality-breaking storytelling.",
+      "subsignals": [
+        {
+          "id": "mythic-lexicon-density",
+          "coder": "lexicon",
+          "weight": 1.0,
+          "saturation": 4.854,
+          "calibration": "p95 of this sub-signal over 2016 valid measurements (>= 200 words of source text), all franchises and sources",
+          "patterns": [
+            "god",
+            "gods",
+            "goddess",
+            "deity",
+            "divine",
+            "worship",
+            "worshipper",
+            "prayer",
+            "temple",
+            "altar",
+            "ritual",
+            "sacred",
+            "holy",
+            "prophet",
+            "prophecy",
+            "prophesy",
+            "messiah",
+            "oracle",
+            "destiny",
+            "fate",
+            "immortal",
+            "immortality",
+            "eternal",
+            "soul",
+            "spirit",
+            "spirits",
+            "ghost",
+            "afterlife",
+            "heaven",
+            "hell",
+            "demon",
+            "devil",
+            "angel",
+            "magic",
+            "magical",
+            "sorcery",
+            "witch",
+            "wizard",
+            "spell",
+            "curse",
+            "supernatural",
+            "miracle",
+            "myth",
+            "mythical",
+            "legend",
+            "psychic",
+            "telepath",
+            "telepathy",
+            "telekinetic",
+            "psionic",
+            "possess",
+            "possession",
+            "reincarnation",
+            "resurrection",
+            "cult",
+            "transcendent",
+            "omnipotent",
+            "illusion",
+            "hallucination"
+          ]
+        },
+        {
+          "id": "numinous-entity",
+          "coder": "entity",
+          "weight": 1.0,
+          "saturation": 23.654,
+          "calibration": "p95 of this sub-signal over 152 valid measurements (>= 200 words of source text), all franchises and sources",
+          "entitySource": "franchise:entities",
+          "notes": "Added in rubric-v2 precisely because rubric-v1's Fi lexicon was silent on episodes whose mythic content is nominal."
+        }
+      ]
+    }
+  },
+  "uncertainty": {
+    "method": "ci95-mean",
+    "z": 1.96,
+    "thinSampleBelow": 5,
+    "thinSampleInflation": 1.5,
+    "notes": "ci95 = z * stdev(episode scores) / sqrt(n), inflated when n is below thinSampleBelow. Measured from the episode distribution, never asserted by hand."
+  },
+  "reserved": {
+    "notes": "Judgement sub-signals that require a coding coder (human or LLM) rather than a lexicon. Declared now so rubric-v3 is an extension, not a rewrite.",
+    "sci": [
+      "resolution-mechanism",
+      "methodological-framing",
+      "internal-consistency",
+      "pseudoscience-handwave"
+    ],
+    "fi": [
+      "prophecy-driven-plot",
+      "magic-equivalent-action",
+      "reality-or-format-bending",
+      "literal-afterlife",
+      "absurdist-tonal-break"
+    ]
+  },
+  "scope": {
+    "categories": [
+      "plot-summary"
+    ],
+    "sources": [
+      "tvmaze",
+      "wikipedia",
+      "memory-alpha",
+      "tardis"
+    ]
+  },
+  "calibration": {
+    "method": "p95 of the sub-signal's raw value over valid measurements",
+    "minWords": 200,
+    "franchises": [
+      "doctor-who",
+      "star-trek"
+    ],
+    "subsignals": {
+      "technical-lexicon-density": {
+        "n": 2016,
+        "p95": 15.019,
+        "was": 20.0
+      },
+      "mythic-lexicon-density": {
+        "n": 2016,
+        "p95": 4.854,
+        "was": 9.0
+      },
+      "numinous-entity": {
+        "n": 152,
+        "p95": 23.654,
+        "was": 6.0
+      }
+    },
+    "generatedAt": "2026-10-18T10:02:40+00:00"
+  }
+}

@@ -275,8 +275,9 @@ one-entry season, so it flows through the same pipeline.
    resolved and median words per source — is published in the table, so a series measured on
    30-word summaries is visible as such rather than averaged in silently.
 
-**What this unblocks.** The axis-framing question (full 0–10 vs zoom-to-data) can now be decided
-on real multi-franchise spread rather than on three TOS seasons — which was the stated blocker.
+**What this unblocks.** The axis-framing question (full 0–10 vs zoom-to-data) is decided and
+superseded in P3: the full 0–10 frame stays, the zoom toggle stays as an opt-in, and the real fix
+turned out to be a validity floor plus a separately calibrated saturation and an opt-in rank scale.
 
 ### Augmenting Wikipedia with the franchise wikis
 
@@ -333,6 +334,104 @@ only the part *index* to go on. Grouping at story level needs no such guess and 
 from 869 part-level works, most on 31-word summaries, to ~170 story-level works, most on 1,000–2,400
 words of Tardis plot.
 
+## P3 status — the scale, normalised, done
+
+The P2 chart was technically correct and read badly: **three quarters of a 0–10 axis was empty.**
+Half of all works sat under 2.5 on Sci and under 0.5 on Fi, so the plotted points were a smear along
+the bottom-left, and the points at exactly 0 were drawn half outside the plot area. Two of those are
+a scale problem and one is a rendering bug; all three are fixed, and the diagnosis is worth keeping
+because it was not the diagnosis anyone expected.
+
+**The complaint "movies and series are evaluated differently" is true, and the mechanism is neither
+length nor the app.** Correlation between a source text's word count and its density across every
+source and axis is `r = −0.012 … +0.018`: a 9,500-word Memory Alpha film page and a 2,100-word
+episode page are already on the same footing, because the measurement is per 1,000 words. What
+differs is **which sources exist for each work**:
+
+| source | mean Sci | median words | share scoring exactly 0 |
+|---|---|---|---|
+| TVmaze | 1.30 | 33 | **92%** |
+| Wikipedia | 2.82 | 416 | 31% |
+| Memory Alpha | 2.83 | 2,110 | 3% |
+
+TVmaze's "summaries" are 33-word teasers; 92% of TVmaze measurements contain no rubric term at all,
+and its 90th percentile on Fi is 0.00. **It is not measuring anything — it is averaging zero into
+every series.** Films have no TVmaze entry whatsoever, so they escaped that drag, which is exactly
+the asymmetry that was visible on screen: the film-versus-series Sci gap was **+1.92 with TVmaze in
+scope and +0.77 without it**. Roughly 60% of the apparent film advantage was the scope artefact; the
+remainder is real, and film plots are genuinely more technology-driven.
+
+**Fix 1 — a validity floor (`rubric-v3`).** A density is only a measurement if there was enough
+prose to measure. A source that supplies fewer than `measurement.minWords` (200) words still counts
+as *covering* an episode — that is published in the text basis as `measured/covered·median words` —
+but contributes no score. This is a rule about measurement validity, not a policy about sources, so
+it drops TVmaze's teasers without a special case and would equally catch any other thin source.
+Dropping TVmaze outright was the alternative; the floor is better because it is general and because
+it leaves the coverage visible.
+
+**Fix 2 — saturation reclaimed from the corpus.** A sub-signal's `saturation` is the density that
+scores 10. `rubric-v1`/`v2` fixed it at the 95th percentile of the *TOS reference corpus* — 79
+episodes — which was defensible when TOS was the only thing measured and is not defensible now.
+Saturation is now the 95th percentile of that sub-signal's own value across every valid measurement
+in the repository, so 10 means "top 5% of what has actually been measured". Calibration is a
+separate, re-runnable stage (`python3 -m sciorfi calibrate`) that writes a named rubric file, never
+something `score` does on the fly: a score must be a function of a named rubric, and re-calibrating
+must be a reviewable event. Current values:
+
+| sub-signal | was | measured p95 | n |
+|---|---|---|---|
+| `technical-lexicon-density` | 20.0 | 15.019 | 2,016 |
+| `mythic-lexicon-density` | 9.0 | 4.854 | 2,016 |
+| `numinous-entity` | 6.0 | 23.654 | 152 |
+
+**Fix 3 — a rank scale, on request.** Measured scores are densities and densities bunch, so no
+rescaling of the measured axis makes it fill the frame honestly. Each season therefore also carries
+a **percentile rank** per source, averaged over the selected sources exactly as the measured score
+is, and the sidebar can switch the chart to it. The rank is uniform by construction, which is the
+point: it uses the full range and cancels the systematic level differences between sources. It is
+opt-in and clearly labelled, because a rank says *where a work sits*, not *how much science it
+contains* — the measured scale is still the default.
+
+**Fix 4 — three honesty bugs found while looking.** (a) A bubble centred on 0 was drawn half outside
+the plot area; the full-scale axes now start slightly below 0 and end slightly above 10 while the
+ticks still read 0–10. (b) A season measured on a *single* episode had `ci95 = 0.0`, so the least
+certain point on the chart was drawn as the smallest, most confident bubble — an exact inversion of
+the truth. An interval is now `null` when there is only one measurement, drawn at a fixed large size
+and reported as `n/a`, never `±0.00`. (c) Films were sized by the same interval; a film is one work,
+not a season average, so films are now drawn at a fixed size.
+
+**Fix 5 — the absence is published.** The floor makes the chart honest by *removing* works, and a
+silently emptier chart would be worse than a crowded one. `derived.unmeasured` counts works with no
+measurement at all, and the page states it under the chart. The result is the most important
+number in this pass:
+
+> **688 of 872 Doctor Who works (79%) have no measurement at all** — 682 of them classic Who —
+> against 60 of 1,015 for Star Trek.
+
+That is not damage from the floor; it is the floor *exposing* what P2's classic-Who section already
+suspected: 700 parts rested on 31-word TVmaze teasers and nothing else. Star Trek, whose streaming
+era is now covered by Memory Alpha at 1,200–9,500 words, is unaffected (6% unmeasured, mostly
+*Star Trek: Scouts* which has no source text at all).
+
+**Result (season level, full source scope).**
+
+| | axis | median | p90 | above 4 | seasons |
+|---|---|---|---|---|---|
+| Star Trek | v2 Sci | 2.09 | 3.80 | 7% | 69 |
+| Star Trek | **v3 Sci** | **3.66** | **5.29** | **42%** | 66 |
+| Star Trek | v2 Fi | 0.69 | 1.66 | 1% | 69 |
+| Star Trek | **v3 Fi** | **1.47** | **2.71** | **6%** | 66 |
+| Doctor Who | v2 Sci | 0.52 | 1.43 | 2% | 44 |
+| Doctor Who | **v3 Sci** | **1.19** | **2.91** | **9%** | 22 |
+| Doctor Who | v2 Fi | 0.83 | 2.12 | 0% | 44 |
+| Doctor Who | **v3 Fi** | **2.69** | **4.00** | **14%** | 22 |
+
+The rank scale lands where a rank must: median ≈ 5, p90 ≈ 8, on both franchises. The measured scale
+now uses its range without being rescaled per corpus. And the Fi axis is no longer a flat line at
+zero — its median moved from 0.69 to 1.47 on Star Trek, mostly because the mythic-lexicon saturation
+was recalibrated down (9.0 → 4.854) while the entity saturation was recalibrated up, correctly
+trading a hand-guessed constant for a measured one.
+
 ## Open decisions
 
 1. **Scaling the Fi coder (the main open decision).** Only TOS has a curated entity list, so Fi is
@@ -342,20 +441,31 @@ words of Tardis plot.
    "Apollo"); (c) build a better automatic Fi signal (e.g. a narrative-role coder over plot text)
    that needs no per-series list. This is the blocker before Fi can be compared *across* franchises.
 
-   The size of the problem is now measurable rather than impressionistic. Across all 1,014 Star Trek
-   works, with the augmented sources in scope: **sci** has median 1.38, p90 5.71, mean 2.15 out of 10;
-   **fi** has median 0.17, p90 2.15, mean 0.77. Only 31% of works score above 0.5 on Fi, against 78%
-   on Sci — so on a 0–10 axis the Fi series is a flat line near zero and the chart is a single
-   bottom-left cluster. That *is* the "most of the things are still on the line" complaint, and it is
-   caused by the lexicon: mythic vocabulary is genuinely rare in Star Trek's secular plot prose, and
-   the entity coder that rubric-v2 added to see it (plot summaries *name* gods rather than describing
-   them mythically) is compiled for TOS alone. The two axes are not merely correlated — `r(sci, fi) =
+   The size of the problem is now measurable rather than impressionistic. Across all Star Trek
+   works, with the augmented sources in scope, `rubric-v3` (season level) gives **sci** median 3.66,
+   p90 5.29; **fi** median 1.47, p90 2.71. Fi is still the weaker axis — but the P3 recalibration
+   roughly doubled its median, so the remaining flatness is dominated by the *coder* rather than by
+   the scale. Mythic vocabulary is genuinely rare in Star Trek's secular plot prose, and the entity
+   coder that `rubric-v2` added to see it (plot summaries *name* gods rather than describing them
+   mythically) is compiled for TOS alone. The two axes are not merely correlated — `r(sci, fi) =
    −0.07` — so this is a missing signal, not double-counting.
 2. **Franchise scope edges.** Currently excluded, and easy to add on request: Doctor Who spin-offs
    (Torchwood, The Sarah Jane Adventures, Class, K9) and animated webcasts (Dreamland, Shada, Real
    Time, Scream of the Shalka); Star Trek fan productions (Continues, Renegades, Odyssey).
 3. **Transcript source**: OpenSubtitles via OPUS (ODC-BY) vs a franchise transcript wiki — this is
    the highest-value quality improvement available, and it mostly fixes the thin-text problem above.
-4. **Judgement coder** for `rubric-v3`: LLM-coded episode coding against a published codebook, human
-   spot-checks, per-episode confidence. This is what turns the reserved sub-signals into scores.
+4. **Judgement coder** for a later rubric: LLM-coded episode coding against a published codebook,
+   human spot-checks, per-episode confidence. This is what turns the reserved sub-signals into
+   scores.
+5. **Classic Doctor Who, now urgent (was an "open decision", promoted by P3).** The validity floor
+   made the hole concrete: 682 of 872 Doctor Who works have no measurement at all, because their
+   only text was a 31-word teaser. Two fixes, both already scoped: (a) **group the parts into
+   serials** and analyse at story level — ~170 story-level works measured on 1,000–2,400 words of
+   Tardis plot, which is arguably the right unit for 1963–1989 anyway; or (b) **fetch the serial
+   article for each part** (Tardis carries `An Unearthly Child (TV story)` with per-part
+   sub-headings), which keeps part-level rows but gives every part of a serial the same text. Both
+   need the serial name parsed out of TVmaze's inconsistent titles (`"<part title> (<serial>, Part
+   N)"` for 117 parts, `"<serial>, Part N"` for 583). (a) is the larger change and the better
+   analysis; (b) is a smaller change that restores coverage. Until one lands, **Doctor Who's chart is
+   modern Who plus the films**, and the page says so.
 

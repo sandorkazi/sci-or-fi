@@ -256,15 +256,42 @@ def map_score(subsignals: list[dict], axis: str, rubric: dict) -> tuple[float, l
     return round(scale["min"] + (scale["max"] - scale["min"]) * weighted / weight_sum, 3), missing
 
 
-def _ci95(values: list[float], rubric: dict) -> float:
+def _ci95(values: list[float], rubric: dict) -> float | None:
     n = len(values)
     if n < 2:
-        return 0.0
+        # A single measurement has no estimable spread. Returning 0.0 would draw
+        # the least certain point as the smallest, most certain bubble — the exact
+        # inversion of the truth — so the uncertainty is published as unknown.
+        return None
     sd = statistics.stdev(values)
     ci = rubric["uncertainty"]["z"] * sd / math.sqrt(n)
     if n < rubric["uncertainty"]["thinSampleBelow"]:
         ci *= rubric["uncertainty"]["thinSampleInflation"]
     return ci
+
+
+def _ranks(values: list[float]) -> list[float]:
+    """Mid-rank percentile of each value on a 0..10 scale, ties sharing one rank.
+
+    Used for the normalised view: it is invariant to the saturation constants and
+    to the systematic level differences between sources, which is exactly what a
+    raw density is not.
+    """
+    n = len(values)
+    if not n:
+        return []
+    order = sorted(range(n), key=lambda i: values[i])
+    out = [0.0] * n
+    i = 0
+    while i < n:
+        j = i
+        while j + 1 < n and values[order[j + 1]] == values[order[i]]:
+            j += 1
+        p = ((i + j) / 2 + 0.5) / n
+        for k in range(i, j + 1):
+            out[order[k]] = 10 * p
+        i = j + 1
+    return out
 
 
 def score_scope(
@@ -281,12 +308,21 @@ def score_scope(
     if scope_series is None:
         scope_series = [s["id"] for s in meta["series"]] + [f["id"] for f in meta.get("films", [])]
 
+    # A density is only a measurement if there was enough prose to measure. TVmaze
+    # "summaries" have a 33-word median and 92% of them contain none of the lexicon
+    # at all, so their zero is the absence of text, not the absence of science.
+    # Below the floor a source still counts as *covering* an episode (that is
+    # published in the text basis), it just does not contribute a score.
+    min_words = int((rubric.get("measurement") or {}).get("minWords", 0))
+
     # (series, season, axis, source) -> per-episode scores
     buckets: dict[tuple, list[float]] = {}
     densities: dict[tuple, list[float]] = {}
     coverage_gaps: dict[tuple, set] = {}
     for row in rows:
         if row["source"] not in scope_sources or row["series"] not in scope_series:
+            continue
+        if row["words"] < min_words:
             continue
         score, missing = map_score(row.get("subsignals") or [], row["axis"], rubric)
         if missing:
@@ -299,12 +335,28 @@ def score_scope(
     for (series, season, axis, source), values in buckets.items():
         entry = seasons.setdefault((series, season), {})
         axis_entry = entry.setdefault(axis, {"perSource": {}, "year": None})
+        ci = _ci95(values, rubric)
         axis_entry["perSource"][source] = {
             "n": len(values),
             "mean": round(statistics.fmean(values), 3),
             "density": round(statistics.fmean(densities[(series, season, axis, source)]), 3),
-            "ci95": round(_ci95(values, rubric), 3),
+            "ci95": None if ci is None else round(ci, 3),
         }
+
+    # Percentile rank: where this season's figure for a source sits in the
+    # franchise's whole distribution for that source. Published next to the
+    # measured score so the chart can also be read on a scale that is guaranteed to
+    # use its range — the measured scale is a density, and densities are bunched.
+    for axis in ("sci", "fi"):
+        for source in scope_sources:
+            keys, values = [], []
+            for (series, season), entry in seasons.items():
+                part = ((entry.get(axis) or {}).get("perSource") or {}).get(source)
+                if part:
+                    keys.append((series, season, source))
+                    values.append(part["mean"])
+            for (series, season, src), rank in zip(keys, _ranks(values)):
+                seasons[(series, season)][axis]["perSource"][src]["rank"] = round(rank, 3)
 
     # Combine sources into a single per-season figure, weighted by episode count.
     for (series, season), axes in seasons.items():
@@ -315,13 +367,17 @@ def score_scope(
                 continue
             mean = sum(p["mean"] * p["n"] for p in parts) / total_n
             density = sum(p["density"] * p["n"] for p in parts) / total_n
-            ci = math.sqrt(sum((p["n"] ** 2) * (p["ci95"] ** 2) for p in parts)) / total_n
+            if any(p["ci95"] is None for p in parts):
+                ci = None  # an unknown in the sum makes the total unknown
+            else:
+                ci = math.sqrt(sum((p["n"] ** 2) * (p["ci95"] ** 2) for p in parts)) / total_n
             axis_entry.update(
                 {
                     "n": total_n,
                     "mean": round(mean, 3),
                     "density": round(density, 3),
-                    "ci95": round(ci, 3),
+                    "ci95": None if ci is None else round(ci, 3),
+                    "rank": round(sum(p["rank"] * p["n"] for p in parts) / total_n, 3),
                 }
             )
 
@@ -357,6 +413,7 @@ def score_scope(
     # summaries, so this is published next to the scores rather than buried.
     episodes_per_series: dict[str, int] = {}
     covered: dict[tuple, set] = {}
+    measured: dict[tuple, set] = {}
     words_by: dict[tuple, list] = {}
     for ep in snapshot["episodes"]:
         episodes_per_series[ep["series"]] = episodes_per_series.get(ep["series"], 0) + 1
@@ -365,6 +422,8 @@ def score_scope(
             continue
         key = (row["series"], row["source"])
         covered.setdefault(key, set()).add(row["episodeId"])
+        if row["words"] >= min_words:
+            measured.setdefault(key, set()).add(row["episodeId"])
         words_by.setdefault(key, []).append(row["words"])
 
     def text_basis(series_id: str) -> dict:
@@ -375,8 +434,13 @@ def score_scope(
             sources_detail[source] = {
                 "covered": len(covered.get(key, ())),
                 "medianWords": int(statistics.median(words)) if words else 0,
+                "measured": len(measured.get(key, ())),
             }
-        return {"episodes": episodes_per_series.get(series_id, 0), "sources": sources_detail}
+        return {
+            "episodes": episodes_per_series.get(series_id, 0),
+            "minWords": min_words,
+            "sources": sources_detail,
+        }
 
     out_series = []
     for series in sorted({k[0] for k in seasons}, key=lambda s: by_id.get(s, {}).get("order", 999)):
@@ -414,6 +478,26 @@ def score_scope(
         "sources": list(scope_sources),
         "series": list(scope_series),
     }
+    # Works with no measurement at all: every source either missed them or supplied
+    # less prose than the floor. They are absent from the chart rather than plotted at
+    # zero, and the tally is published so that the absence is visible — an empty
+    # region of the chart is a finding, and it should not look like full coverage.
+    measured_ids = {
+        row["episodeId"]
+        for row in rows
+        if row["source"] in scope_sources and row["series"] in scope_series and row["words"] >= min_words
+    }
+    series_of = {ep["id"]: ep["series"] for ep in snapshot["episodes"] if ep["series"] in scope_series}
+    unmeasured_by_series: dict[str, int] = {}
+    for ep_id, series_id in series_of.items():
+        if ep_id not in measured_ids:
+            unmeasured_by_series[series_id] = unmeasured_by_series.get(series_id, 0) + 1
+    unmeasured = {
+        "works": sum(1 for ep_id in series_of if ep_id not in measured_ids),
+        "of": len(series_of),
+        "minWords": min_words,
+        "bySeries": dict(sorted(unmeasured_by_series.items(), key=lambda kv: -kv[1])),
+    }
     return {
         "franchise": franchise_id,
         "franchiseName": meta["name"],
@@ -422,6 +506,7 @@ def score_scope(
         "scope": scope,
         "scopeHash": config.digest(scope),
         "generatedAt": config.now(),
+        "unmeasured": unmeasured,
         "coverageGaps": [
             {"series": s, "axis": a, "missingSubsignals": sorted(m)}
             for (s, a), m in sorted(coverage_gaps.items())

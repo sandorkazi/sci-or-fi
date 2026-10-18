@@ -1,13 +1,14 @@
 FRANCHISE ?= star-trek
 DATE      ?= $(shell date +%F)
-RUBRIC    ?= rubric-v2
+RUBRIC    ?= rubric-v3
 
-.PHONY: help build ingest signals score render validate clean tree
+.PHONY: help build ingest signals score render calibrate validate clean tree
 
 help:
 	@echo "make build                  ingest -> signals -> score -> render -> validate"
 	@echo "make FRANCHISE=star-trek score"
-	@echo "make RUBRIC=rubric-v1 score   compare rubric versions against the same measurements"
+	@echo "make RUBRIC=rubric-v2 score   compare rubric versions against the same measurements"
+	@echo "make RUBRIC=rubric-v3 calibrate   re-measure saturations from the corpus into the rubric file"
 
 build: ingest signals score render validate
 
@@ -22,6 +23,9 @@ score:
 
 render:
 	python3 -m sciorfi render --franchise $(FRANCHISE) --rubric $(RUBRIC)
+
+calibrate:
+	python3 -m sciorfi calibrate --rubric $(RUBRIC) --out rubric/$(RUBRIC).json
 
 validate:
 	python3 -m sciorfi validate --franchise $(FRANCHISE) --rubric $(RUBRIC)

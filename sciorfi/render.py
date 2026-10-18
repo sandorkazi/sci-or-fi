@@ -73,13 +73,33 @@ def _rubric_html(rubric: dict) -> str:
         f"<code>{s}</code>" for s in reserved.get("sci", []) + reserved.get("fi", [])
     )
     unc = rubric["uncertainty"]
+    cal = rubric.get("calibration") or {}
+    meas = rubric.get("measurement") or {}
+    cal_html = ""
+    if cal.get("subsignals"):
+        subs = ", ".join(
+            f"<code>{k}</code> {v['was']} &rarr; {v['p95']} (n={v['n']})"
+            for k, v in cal["subsignals"].items()
+        )
+        cal_html = (
+            "<p class='muted'><strong>Saturation is calibrated, not asserted.</strong> "
+            f"{cal.get('method', 'p95 over valid measurements')} in {', '.join(cal.get('franchises', []))}: "
+            f"{subs}. Regenerate with <code>python3 -m sciorfi calibrate</code>; a score is always a "
+            "function of a named rubric file, never of the corpus it was read from.</p>"
+        )
+    floor_html = ""
+    if meas.get("minWords"):
+        floor_html = f"<p class='muted'><strong>Validity floor.</strong> {meas.get('notes', '')}</p>"
     return (
         f"<div class='rubric-grid'>{''.join(f'<div>{b}</div>' for b in blocks)}</div>"
         f"<p class='muted'>{rubric['scale']['notes']}</p>"
+        f"{cal_html}{floor_html}"
         f"<p class='muted'><strong>Uncertainty.</strong> {unc['method']}: "
         f"95% CI of the episode-level mean (z={unc['z']}), inflated ×{unc['thinSampleInflation']} "
-        f"below {unc['thinSampleBelow']} episodes. Measured from the episode distribution, never asserted.</p>"
-        f"<p class='muted'><strong>Not yet coded</strong> (rubric-v3, needs a judgement coder rather than a "
+        f"below {unc['thinSampleBelow']} episodes. Measured from the episode distribution, never asserted. "
+        f"A season with a single measurement has no estimable interval: it is published as <code>n/a</code> "
+        f"and drawn large, not as <code>±0.00</code>.</p>"
+        f"<p class='muted'><strong>Not yet coded</strong> (needs a judgement coder rather than a "
         f"lexicon): {reserved_list}</p>"
     )
 
@@ -163,6 +183,7 @@ code{font-size:.92em;background:rgba(127,127,127,.14);padding:1px 4px;border-rad
   <div class="layout">
     <div class="main card">
       <div class="chart-box"><canvas id="chart" role="img" aria-label="Bubble chart of each season's Sci score against its Fi score"></canvas></div>
+      __UNMEASURED__
       <div class="rowhead">
         <span class="label">Series</span>
         <span><button class="ctrl" id="all">All</button> <button class="ctrl" id="none">None</button></span>
@@ -180,6 +201,15 @@ code{font-size:.92em;background:rgba(127,127,127,.14);padding:1px 4px;border-rad
         <p class="muted" style="margin:10px 0 0">__BASELINE_NOTE__</p>
       </div>
       <div class="card" style="margin-top:12px">
+        <label class="chip"><input type="checkbox" id="normToggle" style="accent-color:var(--accent)"> normalised (rank) scale</label>
+        <p class="muted" style="margin:10px 0 0">Measured scores are densities, and densities bunch: half of all works
+        sit under 2.5 of 10, so the top of a 0&ndash;10 axis is empty. The normalised view ranks each work within
+        the corpus <em>per source</em> and plots that, which guarantees the full range and cancels the level
+        differences between sources &mdash; but a rank says where a work sits, not how much science it contains.
+        The <code>baseline-v1</code> overlay is hidden here: those are hand-scored integers, and an integer 6 is
+        not the same quantity as a rank of 6.</p>
+      </div>
+      <div class="card" style="margin-top:12px">
         <label class="chip"><input type="checkbox" id="zoomToggle" style="accent-color:var(--accent)"> zoom to data</label>
         <p class="muted" style="margin:10px 0 0">Off by default: the full 0&ndash;10 scale makes it plain how little of it the
         measured scores occupy. Zooming rescales the axes to the visible points, which exaggerates small gaps &mdash; read it
@@ -189,7 +219,9 @@ code{font-size:.92em;background:rgba(127,127,127,.14);padding:1px 4px;border-rad
   </div>
 
   <h2>Season scores</h2>
-  <div class="card"><table id="scoresTable"></table></div>
+  <div class="card"><table id="scoresTable"></table>
+    <p class="muted" id="basisNote" style="margin:10px 0 0"></p>
+  </div>
 
   <details open>
     <summary>Rubric, uncertainty and provenance</summary>
@@ -198,7 +230,7 @@ code{font-size:.92em;background:rgba(127,127,127,.14);padding:1px 4px;border-rad
     __PROVENANCE__
   </details>
 
-  <p class="muted note">Bubble size is the 95% confidence interval of the season's episode-level mean — a measured quantity. Bubble position is the season score. Sci and Fi are scored from disjoint term sets, so they are independent by construction.</p>
+  <p class="muted note">Bubble size is the 95% confidence interval of the season's episode-level mean &mdash; a measured quantity. Two things have no interval to encode and are drawn at a fixed size instead: a film (one work, not a season average) and a season measured on a single episode, which is drawn large and reported as <code>n/a</code> rather than <code>&plusmn;0.00</code>. Bubble position is the season score. Sci and Fi are scored from disjoint term sets, so they are independent by construction. On the <em>normalised</em> scale bubble position is a percentile rank and size is fixed, because a confidence interval has no meaning for a rank.</p>
 </div>
 
 <script src="vendor/chart.umd.js"></script>
@@ -216,7 +248,15 @@ if (films.length) on.add(FILM_GROUP);
 const active = s => s.kind === 'film' ? on.has(FILM_GROUP) : on.has(s.id);
 let showBaseline = true;
 let zoom = false;
+let normalised = false;
 
+// baseline-v1 is whole-season hand-scored integers: a 6 there is not the same
+// quantity as a rank of 6, so the overlay is suppressed on the normalised scale.
+const baselineOn = () => showBaseline && BASELINE && !normalised;
+
+// Measured score or percentile rank, depending on the scale toggle. The rank is
+// computed per source in the scorer, then averaged here over the selected sources
+// weighted by episode count, exactly as the measured score is.
 function combine(season, axis) {
   const per = (season[axis] && season[axis].perSource) || {};
   const parts = Object.entries(per).filter(([k]) => selected.has(k));
@@ -225,10 +265,22 @@ function combine(season, axis) {
   if (!n) return null;
   const mean = parts.reduce((a, [, p]) => a + p.mean * p.n, 0) / n;
   const density = parts.reduce((a, [, p]) => a + p.density * p.n, 0) / n;
-  const ci = Math.sqrt(parts.reduce((a, [, p]) => a + (p.n * p.n) * (p.ci95 * p.ci95), 0)) / n;
-  return { mean, density, ci, n, sources: parts.map(([k]) => k) };
+  const rank = parts.reduce((a, [, p]) => a + (p.rank === undefined ? 0 : p.rank) * p.n, 0) / n;
+  const unknown = parts.some(([, p]) => p.ci95 === null || p.ci95 === undefined);
+  const ci = unknown ? null
+    : Math.sqrt(parts.reduce((a, [, p]) => a + (p.n * p.n) * (p.ci95 * p.ci95), 0)) / n;
+  return { mean, density, rank, ci, unknown, n, sources: parts.map(([k]) => k), value: normalised ? rank : mean };
 }
-const radius = ci => 3 + Math.min(1, ci / 2.5) * 21;
+// A null interval means a single measurement: the uncertainty is not estimable,
+// so it is drawn at the largest size rather than collapsing to a confident dot.
+// Bubble size encodes the season's 95% confidence interval. Two cases have no
+// interval to encode, and neither should be drawn as if it did:
+//  - a season measured on a single episode (UNKNOWN_R: not estimable, drawn large)
+//  - a film (FILM_R: one work, not a season average at all, drawn small and fixed)
+const UNKNOWN_R = 13;
+const FILM_R = 7;
+const radius = ci => (ci === null || ci === undefined) ? UNKNOWN_R : 3 + Math.min(1, ci / 2.5) * 21;
+const ciOf = (a, b) => (a === null || a === undefined || b === null || b === undefined) ? null : Math.max(a, b);
 const f2 = v => (v === undefined || v === null) ? '-' : v.toFixed(2);
 const yr = se => !se.year ? '-' : (se.yearEnd ? se.year + '\u2013' + String(se.yearEnd).slice(2) : String(se.year));
 
@@ -241,7 +293,7 @@ function build() {
     for (const season of s.seasons) {
       const sci = combine(season, 'sci'), fi = combine(season, 'fi');
       if (!sci || !fi) continue;
-      pts.push({ x: sci.mean, y: fi.mean, r: radius(Math.max(sci.ci, fi.ci)),
+      pts.push({ x: sci.value, y: fi.value, r: normalised ? 6 : radius(ciOf(sci.ci, fi.ci)),
                  meta: { s, season, sci, fi } });
     }
     datasets.push({ label: s.short, data: pts, backgroundColor: s.color + 'd9',
@@ -257,7 +309,7 @@ function build() {
     for (const season of s.seasons) {
       const sci = combine(season, 'sci'), fi = combine(season, 'fi');
       if (!sci || !fi) continue;
-      filmPts.push({ x: sci.mean, y: fi.mean, r: radius(Math.max(sci.ci, fi.ci)),
+      filmPts.push({ x: sci.value, y: fi.value, r: normalised ? 6 : FILM_R,
                      meta: { s, season, sci, fi } });
     }
   }
@@ -266,7 +318,7 @@ function build() {
                     borderColor: '#898781', borderWidth: 1.5, pointStyle: 'rectRot',
                     hidden: !on.has(FILM_GROUP), hoverBorderColor: '#52514e', hoverBorderWidth: 2 });
   }
-  if (showBaseline && BASELINE) {
+  if (baselineOn()) {
     for (const b of BASELINE.series) {
       const s = DATA.series.find(x => x.id === b.id);
       if (!s || !on.has(b.id)) continue;
@@ -287,10 +339,15 @@ const tip = {
       const head = s.kind === 'film'
         ? `${s.name} · film (${season.year})`
         : `${s.short} S${season.season}${season.year ? ' (' + yr(season) + ')' : ''} · ${season.episodeCount} eps`;
+      const line = (label, v) => normalised
+        ? `${label} rank ${f2(v.rank)}  (measured ${f2(v.mean)}${v.ci === null ? ', single measurement' : ' \u00b1 ' + f2(v.ci)})`
+        : (v.ci === null
+            ? `${label} ${f2(v.mean)} \u2014 single measurement, uncertainty not estimable`
+            : `${label} ${f2(v.mean)} \u00b1 ${f2(v.ci)}  (${f2(v.density)}/1k)`);
       return [
         head,
-        `Sci ${f2(sci.mean)} ± ${f2(sci.ci)}  (${f2(sci.density)}/1k)`,
-        `Fi  ${f2(fi.mean)} ± ${f2(fi.ci)}  (${f2(fi.density)}/1k)`,
+        line('Sci', sci),
+        line('Fi ', fi),
         `n = ${sci.n} · ${sci.sources.join(' + ')}`
       ];
     }
@@ -304,10 +361,10 @@ function visibleValues() {
     for (const season of s.seasons) {
       const sci = combine(season, 'sci'), fi = combine(season, 'fi');
       if (!sci || !fi) continue;
-      xs.push(sci.mean); ys.push(fi.mean);
+      xs.push(sci.value); ys.push(fi.value);
     }
   }
-  if (showBaseline && BASELINE) {
+  if (baselineOn()) {
     for (const b of BASELINE.series) {
       if (!on.has(b.id)) continue;
       for (const x of b.seasons) { xs.push(x.sci); ys.push(x.fi); }
@@ -315,17 +372,22 @@ function visibleValues() {
   }
   return { xs, ys };
 }
+// A bubble centred on 0 with a 12px radius is half outside the plot area, so the
+// full-scale axes start a little below 0 and end a little above 10: the tick
+// labels still read 0..10, but the marker itself is whole.
+const BLEED = 0.35;
 function fitRange(values) {
-  if (!values.length) return [0, 10];
+  if (!values.length) return [-BLEED, 10];
   const lo = Math.min(...values), hi = Math.max(...values);
   const pad = Math.max(0.4, (hi - lo) * 0.3);
-  return [Math.max(0, Math.floor((lo - pad) * 2) / 2), Math.min(10, Math.ceil((hi + pad) * 2) / 2)];
+  const a = Math.floor((lo - pad) * 2) / 2, b = Math.ceil((hi + pad) * 2) / 2;
+  return [Math.min(0, a), b];
 }
 function draw() {
   if (chart) chart.destroy();
   const { xs, ys } = visibleValues();
-  const xr = zoom ? fitRange(xs) : [0, 10];
-  const yr = zoom ? fitRange(ys) : [0, 10];
+  const xr = zoom ? fitRange(xs) : [-BLEED, 10];
+  const yr = zoom ? fitRange(ys) : [-BLEED, 10];
   const styles = getComputedStyle(document.documentElement);
   const grid = styles.getPropertyValue('--grid');
   const text2 = (styles.getPropertyValue('--text2') || '#52514e').trim();
@@ -337,11 +399,11 @@ function draw() {
       animation: false,
       scales: {
         x: { min: xr[0], max: xr[1], grid: { color: grid },
-             ticks: { color: text2 },
-             title: { display: true, text: 'Sci — scientific / engineering rigour', color: text2 } },
+             ticks: { color: text2, callback: v => (v < 0 ? '' : v) },
+             title: { display: true, text: 'Sci — scientific / engineering rigour' + (normalised ? '  (rank)' : ''), color: text2 } },
         y: { min: yr[0], max: yr[1], grid: { color: grid },
-             ticks: { color: text2 },
-             title: { display: true, text: 'Fi — myth / magic / reality-bending', color: text2 } }
+             ticks: { color: text2, callback: v => (v < 0 ? '' : v) },
+             title: { display: true, text: 'Fi — myth / magic / reality-bending' + (normalised ? '  (rank)' : ''), color: text2 } }
       },
       plugins: { legend: { display: false }, tooltip: tip }
     }
@@ -350,29 +412,42 @@ function draw() {
 
 function table() {
   const head = '<thead><tr><th>Work</th><th>Season</th><th>Year</th><th class="num">Eps</th>'
-    + '<th class="num">Sci</th><th></th><th class="num">Fi</th><th></th><th class="num">n</th>'
-    + '<th>Fi coder</th><th>Text basis <span class="muted">(covered·median words)</span></th></tr></thead>';
+    + '<th class="num">' + (normalised ? 'Sci rank' : 'Sci') + '</th><th></th>'
+    + '<th class="num">' + (normalised ? 'Fi rank' : 'Fi') + '</th><th></th><th class="num">n</th>'
+    + '<th>Fi coder</th><th>Text basis <span class="muted">(measured/covered·median words)</span></th></tr></thead>';
   const rows = [];
+  const minW = (DATA.series.find(s => s.textBasis && s.textBasis.minWords) || {}).textBasis;
+  const floor = minW ? minW.minWords : 0;
   for (const s of DATA.series) {
     if (!active(s)) continue;
     const film = s.kind === 'film';
     const coder = s.entityCount ? 'lexicon + entity' : 'lexicon';
     const tb = s.textBasis;
-    const basis = tb ? Object.entries(tb.sources).map(([k, v]) => `${k} ${v.covered}/${tb.episodes}\u00b7${v.medianWords}w`).join('  ') : '';
+    // A source can "cover" an episode with a 30-word teaser that is too short to
+    // measure, so coverage and measurement are shown as two different numbers.
+    const basis = tb ? Object.entries(tb.sources).map(([k, v]) =>
+      `${k} <b>${v.measured === undefined ? v.covered : v.measured}</b>/${v.covered}·${v.medianWords}w`).join('  ') : '';
     for (const season of s.seasons) {
       const sci = combine(season, 'sci'), fi = combine(season, 'fi');
       if (!sci || !fi) continue;
       const bar = (v, color) => `<span class="bar" style="width:${Math.round(v * 9)}px;background:${color}"></span>`;
+      const cell = v => normalised
+        ? `${f2(v.rank)} <span class="muted" title="measured score">(${f2(v.mean)})</span>`
+        : `${f2(v.mean)} <span class="muted">${v.ci === null ? 'n/a' : '±' + f2(v.ci)}</span>`;
       rows.push(`<tr><td><span class="swatch" style="background:${s.color}"></span>${s.short}`
         + (film ? ' <span class="muted">film</span>' : '') + `</td>`
         + `<td>${film ? '&mdash;' : season.season}</td><td>${yr(season)}</td><td class="num">${season.episodeCount}</td>`
-        + `<td class="num">${f2(sci.mean)} <span class="muted">±${f2(sci.ci)}</span></td><td>${bar(sci.mean, s.color)}</td>`
-        + `<td class="num">${f2(fi.mean)} <span class="muted">±${f2(fi.ci)}</span></td><td>${bar(fi.mean, s.color)}</td>`
+        + `<td class="num">${cell(sci)}</td><td>${bar(sci.value, s.color)}</td>`
+        + `<td class="num">${cell(fi)}</td><td>${bar(fi.value, s.color)}</td>`
         + `<td class="num">${sci.n}</td><td class="muted">${coder}</td>`
         + `<td class="muted" style="font-size:11px">${basis}</td></tr>`);
     }
   }
   document.getElementById('scoresTable').innerHTML = head + '<tbody>' + rows.join('') + '</tbody>';
+  const note = document.getElementById('basisNote');
+  if (note) note.textContent = floor
+    ? `A measurement needs at least ${floor} words of source text; a source still counts as covering an episode below that, but contributes no score. Text basis reads measured/covered·median words.`
+    : '';
 }
 
 function chips() {
@@ -417,6 +492,7 @@ document.getElementById('all').onclick = () => { DATA.series.filter(s => s.kind 
 document.getElementById('none').onclick = () => { on.clear(); refresh(); };
 document.getElementById('baselineToggle').onchange = e => { showBaseline = e.target.checked; refresh(); };
 document.getElementById('zoomToggle').onchange = e => { zoom = e.target.checked; refresh(); };
+document.getElementById('normToggle').onchange = e => { normalised = e.target.checked; refresh(); };
 refresh();
 </script>
 </body>
@@ -491,6 +567,20 @@ def render_all(franchise_id: str, date: str, rubric: dict) -> list[Path]:
     n_films = sum(1 for w in works if w.get("kind") == "film")
     n_seasons = sum(len(w["seasons"]) for w in works)
     entity_coded = sum(1 for w in works if w.get("entityCount"))
+    min_words = int((rubric.get("measurement") or {}).get("minWords", 0))
+    un = derived.get("unmeasured") or {}
+    unmeasured_note = ""
+    if un.get("works"):
+        top = sorted((un.get("bySeries") or {}).items(), key=lambda kv: -kv[1])[:4]
+        top_txt = ", ".join(f"<code>{k}</code> {v}" for k, v in top)
+        unmeasured_note = (
+            f"<p class=\"muted note\"><strong>{un['works']} of {un['of']} works in this franchise have no "
+            f"measurement at all</strong> under the full source scope: every source either missed them or "
+            f"supplied fewer than <code>{un['minWords']}</code> words of prose. They are absent from the "
+            f"chart rather than plotted at zero, so an empty region here is a gap in the evidence, not a "
+            f"low score. Largest gaps: {top_txt}. Deselecting a source can only increase this. The fix is "
+            f"better source text, not a different number.</p>"
+        )
     sub = (
         f"Each season is scored on two independent axes. <strong>Sci</strong> is how much the "
         f"episode text turns on technical and scientific vocabulary; <strong>Fi</strong> is how much it "
@@ -503,9 +593,13 @@ def render_all(franchise_id: str, date: str, rubric: dict) -> list[Path]:
         f"text comes from the same wiki sources, looked up by article title rather than search. Fi is a "
         f"two-coder composite only where a franchise has a "
         f"curated entity list ({entity_coded} of {len(works)} works); elsewhere it is lexicon-only, and the "
-        f"table says which. The table's <em>text basis</em> column shows how many episodes each source "
-        f"actually resolved and the median words behind a measurement — several series rest on thin "
-        f"summaries, and that is stated rather than hidden."
+        f"table says which. A source only contributes a score if it supplied at least "
+        f"<code>{min_words}</code> words of prose; the <em>text basis</em> column reads "
+        f"<em>measured/covered·median words</em>, so a source that resolved most episodes with a 30-word "
+        f"teaser is shown as covering them and measuring none of them. Scores are densities and densities "
+        f"bunch, so the sidebar can switch the chart to a percentile <em>rank</em> scale that uses the full "
+        f"range — read the measured scale for how much science a work contains, the rank scale for where it "
+        f"stands."
     )
     baseline_note = (
         f"Overlay of <code>baseline-v1</code> — the original whole-season hand-scored integers, frozen before "
@@ -524,6 +618,7 @@ def render_all(franchise_id: str, date: str, rubric: dict) -> list[Path]:
         .replace("__DATA__", _js(derived))
         .replace("__RUBRIC_JS__", _js(rubric))
         .replace("__BASELINE__", _js(baseline))
+        .replace("__UNMEASURED__", unmeasured_note)
     )
     out = config.OUTPUT / f"{franchise_id}.html"
     out.parent.mkdir(parents=True, exist_ok=True)

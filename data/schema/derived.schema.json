@@ -11,6 +11,16 @@
     "rubricVersion": { "type": "string" },
     "generatedAt": { "type": "string" },
     "scopeHash": { "type": "string" },
+    "unmeasured": {
+      "type": "object",
+      "description": "Works with no measurement at all: absent from the chart rather than plotted at zero, with the tally per series so the absence is visible",
+      "properties": {
+        "works": { "type": "integer", "minimum": 0 },
+        "of": { "type": "integer", "minimum": 0 },
+        "minWords": { "type": "integer", "minimum": 0 },
+        "bySeries": { "type": "object" }
+      }
+    },
     "scope": {
       "type": "object",
       "required": ["categories", "sources", "series"],
@@ -40,9 +50,10 @@
           },
           "textBasis": {
             "type": "object",
-            "description": "How much source text each work rests on: episodes, and per source how many were covered and the median words",
+            "description": "How much source text each work rests on: episodes, the validity floor in words, and per source how many episodes were covered, the median words, and how many were long enough to be measured",
             "properties": {
               "episodes": { "type": "integer", "minimum": 0 },
+              "minWords": { "type": "integer", "minimum": 0 },
               "sources": { "type": "object" }
             }
           },
