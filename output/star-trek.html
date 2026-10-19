@@ -56,14 +56,14 @@ code{font-size:.92em;background:rgba(127,127,127,.14);padding:1px 4px;border-rad
 
   <div class="layout">
     <div class="main card">
-      <div class="chart-box"><canvas id="chart" role="img" aria-label="Bubble chart of each season's Sci score against its Fi score"></canvas></div>
-      <p class="muted" id="zoomHint" style="margin:8px 0 0;font-size:12px"></p>
-      <p class="muted note"><strong>60 of 1015 works in this franchise have no measurement at all</strong> under the full source scope: every source either missed them or supplied fewer than <code>200</code> words of prose. They are absent from the chart rather than plotted at zero, so an empty region here is a gap in the evidence, not a low score. Largest gaps: <code>sc</code> 27, <code>pic</code> 10, <code>snw</code> 9, <code>dis</code> 4. Deselecting a source can only increase this. The fix is better source text, not a different number.</p>
-      <div class="rowhead">
+      <div class="rowhead" style="margin-top:0">
         <span class="label">Series</span>
         <span><button class="ctrl" id="all">All</button> <button class="ctrl" id="none">None</button></span>
       </div>
-      <div class="chips" id="seriesChips"></div>
+      <div class="chips" id="seriesChips" style="margin-bottom:10px"></div>
+      <div class="chart-box"><canvas id="chart" role="img" aria-label="Bubble chart of each season's Sci score against its Fi score"></canvas></div>
+      <p class="muted" id="zoomHint" style="margin:8px 0 0;font-size:12px"></p>
+      <p class="muted note"><strong>60 of 1015 works in this franchise have no measurement at all</strong> under the full source scope: every source either missed them or supplied fewer than <code>200</code> words of prose. They are absent from the chart rather than plotted at zero, so an empty region here is a gap in the evidence, not a low score. Largest gaps: <code>sc</code> 27, <code>pic</code> 10, <code>snw</code> 9, <code>dis</code> 4. Deselecting a source can only increase this. The fix is better source text, not a different number.</p>
     </div>
     <div class="side">
       <div class="card">

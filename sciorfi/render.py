@@ -188,14 +188,14 @@ code{font-size:.92em;background:rgba(127,127,127,.14);padding:1px 4px;border-rad
 
   <div class="layout">
     <div class="main card">
-      <div class="chart-box"><canvas id="chart" role="img" aria-label="Bubble chart of each season's Sci score against its Fi score"></canvas></div>
-      <p class="muted" id="zoomHint" style="margin:8px 0 0;font-size:12px"></p>
-      __UNMEASURED__
-      <div class="rowhead">
+      <div class="rowhead" style="margin-top:0">
         <span class="label">Series</span>
         <span><button class="ctrl" id="all">All</button> <button class="ctrl" id="none">None</button></span>
       </div>
-      <div class="chips" id="seriesChips"></div>
+      <div class="chips" id="seriesChips" style="margin-bottom:10px"></div>
+      <div class="chart-box"><canvas id="chart" role="img" aria-label="Bubble chart of each season's Sci score against its Fi score"></canvas></div>
+      <p class="muted" id="zoomHint" style="margin:8px 0 0;font-size:12px"></p>
+      __UNMEASURED__
     </div>
     <div class="side">
       <div class="card">
