@@ -57,6 +57,7 @@ code{font-size:.92em;background:rgba(127,127,127,.14);padding:1px 4px;border-rad
   <div class="layout">
     <div class="main card">
       <div class="chart-box"><canvas id="chart" role="img" aria-label="Bubble chart of each season's Sci score against its Fi score"></canvas></div>
+      <p class="muted" id="zoomHint" style="margin:8px 0 0;font-size:12px"></p>
       <p class="muted note"><strong>9 of 327 works in this franchise have no measurement at all</strong> under the full source scope: every source either missed them or supplied fewer than <code>200</code> words of prose. They are absent from the chart rather than plotted at zero, so an empty region here is a gap in the evidence, not a low score. Largest gaps: <code>dw05</code> 6, <code>dw1</code> 1, <code>dw3</code> 1, <code>dw6</code> 1. Deselecting a source can only increase this. The fix is better source text, not a different number.</p>
       <div class="rowhead">
         <span class="label">Series</span>
@@ -77,9 +78,9 @@ code{font-size:.92em;background:rgba(127,127,127,.14);padding:1px 4px;border-rad
       <div class="card" style="margin-top:12px">
         <label class="chip"><input type="checkbox" id="pathToggle" checked style="accent-color:var(--accent)"> series paths</label>
         <p class="muted" style="margin:10px 0 0">Each series is joined in broadcast order from its first season
-        (marked with that season's number, so the Second Doctor's path starts at <code>4</code>) to its latest,
-        and the line fades in at the start so direction in time is visible. Turn paths off to compare seasons as
-        a cloud; the tooltip still names the season.</p>
+        (marked with that season's number &mdash; a split era can start mid-run) to its latest, and the line fades in
+        at the start so direction in time is visible. Turn paths off to compare seasons as a cloud; the tooltip still
+        names the season.</p>
       </div>
       <div class="card" style="margin-top:12px">
         <label class="chip"><input type="checkbox" id="normToggle" style="accent-color:var(--accent)"> normalised (rank) scale</label>
@@ -91,10 +92,11 @@ code{font-size:.92em;background:rgba(127,127,127,.14);padding:1px 4px;border-rad
         not the same quantity as a rank of 6.</p>
       </div>
       <div class="card" style="margin-top:12px">
-        <label class="chip"><input type="checkbox" id="zoomToggle" style="accent-color:var(--accent)"> zoom to data</label>
+        <label class="chip"><input type="checkbox" id="zoomToggle" style="accent-color:var(--accent)"> fit axes to data</label>
         <p class="muted" style="margin:10px 0 0">Off by default: the full 0&ndash;10 scale makes it plain how little of it the
-        measured scores occupy. Zooming rescales the axes to the visible points, which exaggerates small gaps &mdash; read it
-        alongside the confidence intervals, never on its own.</p>
+        measured scores occupy. Fitting rescales the axes to the visible points, which exaggerates small gaps &mdash; read it
+        alongside the confidence intervals, never on its own. For a closer look, scroll over the chart to zoom, drag to pan
+        and double-click to reset; the hint under the chart shows the current window.</p>
       </div>
     </div>
   </div>
@@ -131,6 +133,10 @@ let showBaseline = true;
 let zoom = false;
 let normalised = false;
 let showPaths = true;
+// Interactive view window: null means "the base range" (full, or fitted when the
+// fit toggle is on). Wheel/drag only change these four numbers, so the chart is not
+// rebuilt on every frame and the axes keep their meaning.
+let view = null;
 
 // baseline-v1 is whole-season hand-scored integers: a 6 there is not the same
 // quantity as a rank of 6, so the overlay is suppressed on the normalised scale.
@@ -297,6 +303,10 @@ const startMarkers = {
       const meta = c.getDatasetMeta(st.dataset);
       if (!meta || meta.hidden || !meta.data || !meta.data.length) continue;
       const el = meta.data[0];
+      // Zooming can push a series' start outside the view. Do not pin its numeral
+      // to the axis edge: that would claim the start is where the reader is looking.
+      if (el.x < c.chartArea.left || el.x > c.chartArea.right
+          || el.y < c.chartArea.top || el.y > c.chartArea.bottom) continue;
       const r = (el.options && el.options.radius) || 6;
       // Sit the numeral just outside the bubble: inside it, the label is lost on a
       // crowded season, and a leader would need a second line to stay readable.
@@ -343,8 +353,8 @@ function fitRange(values) {
 function draw() {
   if (chart) chart.destroy();
   const { xs, ys } = visibleValues();
-  const xr = zoom ? fitRange(xs) : [-BLEED, 10];
-  const yr = zoom ? fitRange(ys) : [-BLEED, 10];
+  const xr = view ? view.x : (zoom ? fitRange(xs) : [-BLEED, 10]);
+  const yr = view ? view.y : (zoom ? fitRange(ys) : [-BLEED, 10]);
   const styles = getComputedStyle(document.documentElement);
   const grid = styles.getPropertyValue('--grid');
   const text2 = (styles.getPropertyValue('--text2') || '#52514e').trim();
@@ -356,16 +366,17 @@ function draw() {
       animation: false,
       scales: {
         x: { min: xr[0], max: xr[1], grid: { color: grid },
-             ticks: { color: text2, callback: v => (v < 0 ? '' : v) },
+             ticks: { color: text2, includeBounds: false, callback: v => (v < 0 ? '' : trim2(v)) },
              title: { display: true, text: 'Sci — scientific / engineering rigour' + (normalised ? '  (rank)' : ''), color: text2 } },
         y: { min: yr[0], max: yr[1], grid: { color: grid },
-             ticks: { color: text2, callback: v => (v < 0 ? '' : v) },
+             ticks: { color: text2, includeBounds: false, callback: v => (v < 0 ? '' : trim2(v)) },
              title: { display: true, text: 'Fi — myth / magic / reality-bending' + (normalised ? '  (rank)' : ''), color: text2 } }
       },
       plugins: { legend: { display: false }, tooltip: tip }
     },
     plugins: [startMarkers]
   });
+  updateHint();
 }
 
 function table() {
@@ -447,11 +458,91 @@ function chips() {
 
 function refresh() { chips(); draw(); table(); }
 
+// ---------------------------------------------------------------- zoom + pan
+// The chart is a picture of two densities, and the interesting region is often a
+// small corner of 0-10. Wheel zooms around the cursor, drag pans, double-click
+// resets. The view is four numbers, not a rebuilt chart, so this stays cheap and
+// the axis units never change underneath the reader.
+const FULL = [-BLEED, 10];
+function clampRange(a, b) {
+  const span = Math.min(Math.max(b - a, 0.25), FULL[1] - FULL[0]);
+  let lo = a, hi = lo + span;
+  if (lo < FULL[0]) { lo = FULL[0]; hi = lo + span; }
+  if (hi > FULL[1]) { hi = FULL[1]; lo = hi - span; }
+  return [lo, hi];
+}
+function setView(xr, yr) {
+  if (!chart) return;
+  view = { x: clampRange(xr[0], xr[1]), y: clampRange(yr[0], yr[1]) };
+  chart.options.scales.x.min = view.x[0];
+  chart.options.scales.x.max = view.x[1];
+  chart.options.scales.y.min = view.y[0];
+  chart.options.scales.y.max = view.y[1];
+  chart.update('none');
+  updateHint();
+}
+function resetView() { view = null; draw(); }
+const trim2 = n => n.toFixed(2).replace(/\.?0+$/, '');
+function updateHint() {
+  const hint = document.getElementById('zoomHint');
+  if (!hint) return;
+  if (!view) {
+    hint.innerHTML = 'Scroll over the chart to zoom, drag to pan, double-click to reset.';
+    return;
+  }
+  hint.innerHTML = `View: Sci ${trim2(view.x[0])}&ndash;${trim2(view.x[1])} · Fi ${trim2(view.y[0])}&ndash;${trim2(view.y[1])} · <a href="#" id="resetView">reset</a>`;
+}
+document.getElementById('zoomHint').addEventListener('click', e => {
+  if (e.target.id === 'resetView') { e.preventDefault(); resetView(); }
+});
+const canvas = document.getElementById('chart');
+const rel = e => {
+  const r = canvas.getBoundingClientRect();
+  return { x: e.clientX - r.left, y: e.clientY - r.top };
+};
+canvas.style.cursor = 'grab';
+canvas.addEventListener('wheel', e => {
+  if (!chart) return;
+  e.preventDefault();
+  const p = rel(e), sx = chart.scales.x, sy = chart.scales.y;
+  const cx = sx.getValueForPixel(p.x), cy = sy.getValueForPixel(p.y);
+  if (cx === undefined || cy === undefined) return;
+  const f = Math.exp(e.deltaY * 0.0015);
+  setView([cx - (cx - sx.min) * f, cx + (sx.max - cx) * f],
+          [cy - (cy - sy.min) * f, cy + (sy.max - cy) * f]);
+}, { passive: false });
+
+let drag = null;
+canvas.addEventListener('mousedown', e => {
+  if (e.button !== 0 || !chart) return;
+  const sx = chart.scales.x, sy = chart.scales.y;
+  drag = {
+    x: e.clientX, y: e.clientY,
+    xmin: sx.min, xmax: sx.max, ymin: sy.min, ymax: sy.max,
+    perX: (sx.max - sx.min) / (sx.right - sx.left),
+    perY: (sy.max - sy.min) / (sy.bottom - sy.top)
+  };
+  canvas.style.cursor = 'grabbing';
+  e.preventDefault();
+});
+window.addEventListener('mousemove', e => {
+  if (!drag || !chart) return;
+  const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+  setView([drag.xmin - dx * drag.perX, drag.xmax - dx * drag.perX],
+          [drag.ymin + dy * drag.perY, drag.ymax + dy * drag.perY]);
+});
+window.addEventListener('mouseup', () => {
+  if (!drag) return;
+  drag = null;
+  canvas.style.cursor = 'grab';
+});
+canvas.addEventListener('dblclick', e => { e.preventDefault(); resetView(); });
+
 document.getElementById('all').onclick = () => { DATA.series.filter(s => s.kind !== 'film').forEach(s => on.add(s.id)); if (films.length) on.add(FILM_GROUP); refresh(); };
 document.getElementById('none').onclick = () => { on.clear(); refresh(); };
 document.getElementById('baselineToggle').onchange = e => { showBaseline = e.target.checked; refresh(); };
-document.getElementById('zoomToggle').onchange = e => { zoom = e.target.checked; refresh(); };
-document.getElementById('normToggle').onchange = e => { normalised = e.target.checked; refresh(); };
+document.getElementById('zoomToggle').onchange = e => { zoom = e.target.checked; view = null; refresh(); };
+document.getElementById('normToggle').onchange = e => { normalised = e.target.checked; view = null; refresh(); };
 document.getElementById('pathToggle').onchange = e => { showPaths = e.target.checked; refresh(); };
 refresh();
 </script>
