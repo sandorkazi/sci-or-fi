@@ -207,6 +207,12 @@ code{font-size:.92em;background:rgba(127,127,127,.14);padding:1px 4px;border-rad
         <p class="muted" style="margin:10px 0 0">__BASELINE_NOTE__</p>
       </div>
       <div class="card" style="margin-top:12px">
+        <label class="chip"><input type="checkbox" id="pathToggle" checked style="accent-color:var(--accent)"> series paths</label>
+        <p class="muted" style="margin:10px 0 0">Each series is joined in broadcast order from its first season
+        (marked <code>1</code>) to its latest, and the line fades in at the start so direction in time is visible.
+        Turn paths off to compare seasons as a cloud; the tooltip still names the season.</p>
+      </div>
+      <div class="card" style="margin-top:12px">
         <label class="chip"><input type="checkbox" id="normToggle" style="accent-color:var(--accent)"> normalised (rank) scale</label>
         <p class="muted" style="margin:10px 0 0">Measured scores are densities, and densities bunch: half of all works
         sit under 2.5 of 10, so the top of a 0&ndash;10 axis is empty. The normalised view ranks each work within
@@ -255,6 +261,7 @@ const active = s => s.kind === 'film' ? on.has(FILM_GROUP) : on.has(s.id);
 let showBaseline = true;
 let zoom = false;
 let normalised = false;
+let showPaths = true;
 
 // baseline-v1 is whole-season hand-scored integers: a 6 there is not the same
 // quantity as a rank of 6, so the overlay is suppressed on the normalised scale.
@@ -291,17 +298,55 @@ const f2 = v => (v === undefined || v === null) ? '-' : v.toFixed(2);
 const yr = se => !se.year ? '-' : (se.yearEnd ? se.year + '\u2013' + String(se.yearEnd).slice(2) : String(se.year));
 
 let chart = null;
+// Where each series starts, so the start marker plugin knows which bubble is the
+// first season and what to call it. Rebuilt with every draw.
+let starts = [];
+
+// A season average is a point in time, but a series is a path: without the line the
+// chart is a cloud and "did this mellow or harden?" is unanswerable. Each series
+// therefore also gets a line dataset (type 'line' in a bubble chart — the bubble
+// controller draws no lines) ordered by season, which also means the line is only
+// drawn between seasons that were actually measured.
 function build() {
   const datasets = [];
+  starts = [];
+  // Two passes: every path, then every set of bubbles. Interleaving them would let a
+  // later series' line cross over an earlier series' markers, which is exactly the
+  // clutter the paths are meant to remove.
+  const series = [];
   for (const s of DATA.series) {
     if (s.kind === 'film') continue;
     const pts = [];
+    const path = [];
+    let firstSeason = null;
     for (const season of s.seasons) {
       const sci = combine(season, 'sci'), fi = combine(season, 'fi');
       if (!sci || !fi) continue;
+      if (firstSeason === null) firstSeason = season;
       pts.push({ x: sci.value, y: fi.value, r: normalised ? 6 : radius(ciOf(sci.ci, fi.ci)),
                  meta: { s, season, sci, fi } });
+      path.push({ x: sci.value, y: fi.value });
     }
+    if (pts.length) series.push({ s, pts, path, firstSeason });
+  }
+  if (showPaths) {
+    for (const { s, path } of series) {
+      // Fade along the path: faint at the first season (marked 1), solid at the latest.
+      // Without it a tangle of lines shows adjacency but not direction in time.
+      datasets.push({ type: 'line', label: s.short + ' path', data: path,
+                      borderColor: s.color, borderWidth: 1.3, pointRadius: 0,
+                      fill: false, tension: 0.25, hidden: !on.has(s.id),
+                      segment: {
+                        borderColor: c => {
+                          const t = path.length > 1 ? c.p1DataIndex / (path.length - 1) : 1;
+                          const a = Math.round((0.10 + 0.90 * t) * 255).toString(16).padStart(2, '0');
+                          return s.color + a;
+                        }
+                      } });
+    }
+  }
+  for (const { s, pts, firstSeason } of series) {
+    starts.push({ dataset: datasets.length, season: firstSeason.season, color: s.color });
     datasets.push({ label: s.short, data: pts, backgroundColor: s.color + 'd9',
                     borderColor: CARD, borderWidth: 1.5, hidden: !on.has(s.id),
                     hoverBorderColor: s.color, hoverBorderWidth: 2 });
@@ -337,6 +382,9 @@ function build() {
 }
 
 const tip = {
+  // The trajectory lines are decoration: hovering a line should say nothing, and
+  // hovering a season should say the season, not "TNG path".
+  filter: item => item.dataset.type !== 'line',
   callbacks: {
     label: ctx => {
       const d = ctx.raw;
@@ -359,6 +407,38 @@ const tip = {
         `n = ${sci.n} · ${sci.sources.join(' + ')}`
       ];
     }
+  }
+};
+
+// The first season of each series carries its season number, so a path has a visible
+// origin: most read "1", and a series whose first season was below the floor starts at
+// the number it actually starts at. The trajectory then reads forward from there.
+const startMarkers = {
+  id: 'startMarkers',
+  afterDatasetsDraw(c) {
+    const ctx = c.ctx;
+    ctx.save();
+    ctx.font = '700 11px system-ui, -apple-system, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.lineJoin = 'round';
+    ctx.lineWidth = 3;
+    ctx.strokeStyle = 'rgba(255,255,255,0.92)';
+    for (const st of starts) {
+      const meta = c.getDatasetMeta(st.dataset);
+      if (!meta || meta.hidden || !meta.data || !meta.data.length) continue;
+      const el = meta.data[0];
+      const r = (el.options && el.options.radius) || 6;
+      // Sit the numeral just outside the bubble: inside it, the label is lost on a
+      // crowded season, and a leader would need a second line to stay readable.
+      const above = el.y - (r + 7);
+      const x = el.x, y = above < c.chartArea.top + 7 ? el.y + r + 8 : above;
+      const label = String(st.season);
+      ctx.strokeText(label, x, y);
+      ctx.fillStyle = st.color;
+      ctx.fillText(label, x, y);
+    }
+    ctx.restore();
   }
 };
 
@@ -414,7 +494,8 @@ function draw() {
              title: { display: true, text: 'Fi — myth / magic / reality-bending' + (normalised ? '  (rank)' : ''), color: text2 } }
       },
       plugins: { legend: { display: false }, tooltip: tip }
-    }
+    },
+    plugins: [startMarkers]
   });
 }
 
@@ -502,6 +583,7 @@ document.getElementById('none').onclick = () => { on.clear(); refresh(); };
 document.getElementById('baselineToggle').onchange = e => { showBaseline = e.target.checked; refresh(); };
 document.getElementById('zoomToggle').onchange = e => { zoom = e.target.checked; refresh(); };
 document.getElementById('normToggle').onchange = e => { normalised = e.target.checked; refresh(); };
+document.getElementById('pathToggle').onchange = e => { showPaths = e.target.checked; refresh(); };
 refresh();
 </script>
 </body>
@@ -602,7 +684,9 @@ def render_all(franchise_id: str, date: str, rubric: dict) -> list[Path]:
         f"episode text turns on technical and scientific vocabulary; <strong>Fi</strong> is how much it "
         f"turns on god-like power, prophecy and reality-bending. Scores are computed per episode from a "
         f"source scope, then averaged per season; bubble size is the measured 95% confidence interval of "
-        f"that average, never a hand-set value. Covers <code>{series_txt}</code> series, "
+        f"that average, never a hand-set value. Seasons of a series are joined in broadcast order, so "
+        f"each series is a path over the years: the first season is marked <code>1</code> and the line "
+        f"fades in from there to the latest season. Covers <code>{series_txt}</code> series, "
         f"<code>{films_txt}</code> films and <code>{n_seasons}</code> seasons; "
         f"<code>{len(sources)}</code> sources in scope ({' + '.join(sources)}) — toggle them on the right and "
         f"the chart recomputes. Films have no TVmaze entry and are plotted with a neutral marker; their "

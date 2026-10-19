@@ -111,6 +111,9 @@ Sci and Fi are scored from disjoint term sets, per episode per source, as a dens
   recovers named myth the lexicon misses. `axes.fi.combine = "max"` takes the strongest evidence
   either sees, because averaging the entity coder's zeros into the lexicon's hits would suppress real
   myth. Change the field to `"weighted"` for a mean; nothing else depends on the choice.
+- **Seasons are paths, not a cloud.** Each series is joined in broadcast order and its first season
+  is marked `1`; the line fades in at the start, so direction in time is visible without a third
+  axis. The *series paths* checkbox turns the lines off for a season-cloud view.
 - **Measured score, or rank.** Each season also carries a **percentile rank** per source, averaged
   over the selected sources exactly as the measured score is. The sidebar can switch the chart to it.
   The rank scale is uniform by construction, so it uses the full 0–10 range and cancels the
