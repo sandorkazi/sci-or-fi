@@ -54,9 +54,18 @@ into one work per serial (`unit: "serial"`), so a story is measured against a st
 a fifth of it. The original part count is kept per season as `partCount`. This one flag took classic
 Who from 35 of 700 works measured to **152 of 155**.
 
-Curated `entities.json` lists are **per series**. A series without one is coded lexicon-only on the
-Fi axis, and the page's "Fi coder" column says so — a missing list is stated, never hidden behind an
-entity term that silently contributes zero.
+Curated `entities.json` lists are **per series**, and hand-curated with LLM assistance: a fixed spec
+(universe-of-discourse figures only, each with evidence counts) is applied per series, then proposals
+are merged and pruned — dead strings, generic terms and ordinary characters do not survive. Every
+entry carries its `terms`, `evidence` (hits/works/texts/words) and a short `codebook` rationale, and
+`caseSensitive` where the name is also a common noun (`the Oracle`, `the Caretaker`). A series with no
+list stays lexicon-only on Fi and the page's "Fi coder" column says so — a missing list is stated,
+never hidden behind an entity term that silently contributes zero.
+
+The Fi axis combines its two coders by **`max`**, not a mean: the lexicon is dense and the entity list
+is a sparse *recovery* coder, so averaging the entity coder's many zeros would pull down real lexicon
+hits. The rule is `axes.fi.combine` in the rubric, with the reasoning in `combineNotes`; setting it
+back to `"weighted"` restores the mean.
 
 ## Source resolution (why a measurement is trustworthy)
 
@@ -98,6 +107,10 @@ Sci and Fi are scored from disjoint term sets, per episode per source, as a dens
   measurements and is what the bubble size encodes. A season measured on a single episode has no
   estimable interval: it is published as `n/a` and drawn at a fixed large size, never as `±0.00`. A
   film is one work rather than a season average, so films are drawn at a fixed size too.
+- **Two coders on Fi, combined by `max`.** The mythic lexicon is dense; the entity list is sparse and
+  recovers named myth the lexicon misses. `axes.fi.combine = "max"` takes the strongest evidence
+  either sees, because averaging the entity coder's zeros into the lexicon's hits would suppress real
+  myth. Change the field to `"weighted"` for a mean; nothing else depends on the choice.
 - **Measured score, or rank.** Each season also carries a **percentile rank** per source, averaged
   over the selected sources exactly as the measured score is. The sidebar can switch the chart to it.
   The rank scale is uniform by construction, so it uses the full 0–10 range and cancels the
@@ -116,7 +129,9 @@ Sci and Fi are scored from disjoint term sets, per episode per source, as a dens
 | `validate` | all of the above | exit code |
 
 Each stage reads the previous stage's committed output, so changing a **rubric** or a **scope**
-never re-hits a network source.
+never re-hits a network source. Snapshots are dated: with no `--date`, `ingest` uses today, while
+`signals`/`score`/`render`/`validate` fall back to the newest snapshot on disk and print which date
+they used (so a build does not break at midnight).
 
 ## Adding a franchise
 

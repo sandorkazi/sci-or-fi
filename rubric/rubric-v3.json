@@ -1,6 +1,6 @@
 {
   "version": "rubric-v3",
-  "description": "rubric-v2's coders (technical lexicon on Sci, mythic lexicon + curated named entities on Fi) with two measurement changes. First, a validity floor: a source text shorter than measurement.minWords is still recorded as covering an episode but does not contribute a score, because a 33-word teaser with no lexicon hit is the absence of text rather than the absence of science. Second, saturations are calibrated on the whole measured corpus instead of on Star Trek: TOS alone, so the 0-10 scale is used end to end; see the 'calibration' block, which the `calibrate` stage regenerates.",
+  "description": "rubric-v2's coders (technical lexicon on Sci, mythic lexicon + curated named entities on Fi) with two measurement changes. First, a validity floor: a source text shorter than measurement.minWords is still recorded as covering an episode but does not contribute a score, because a 33-word teaser with no lexicon hit is the absence of text rather than the absence of science. Second, saturations are calibrated on the whole measured corpus instead of on Star Trek: TOS alone, so the 0-10 scale is used end to end; see the 'calibration' block, which the `calibrate` stage regenerates. Fi is combined by max rather than a mean (see axes.fi.combineNotes).",
   "measurement": {
     "minWords": 200,
     "notes": "Minimum source-text length for a measurement. Below it a source still counts as covering an episode (published in the text basis) but contributes no score. TVmaze summaries have a 33-word median and 92% of them contain no lexicon term at all."
@@ -86,6 +86,8 @@
     },
     "fi": {
       "label": "Fi - myth / magic / reality-bending",
+      "combine": "max",
+      "combineNotes": "The Fi axis is one dense coder plus one sparse recovery coder. The entity list exists because plot summaries name gods rather than describing them mythically, so it recovers myth that the lexicon cannot see; it is not a second opinion about episodes the lexicon already scores. Averaging would let its many zeros pull down the lexicon's hits, so the axis takes the strongest evidence either coder sees. Set combine to \"weighted\" to average them instead.",
       "definition": "How much an episode's text turns on god-like power, prophecy, magic-equivalent action or reality-breaking storytelling.",
       "subsignals": [
         {
@@ -160,8 +162,8 @@
           "id": "numinous-entity",
           "coder": "entity",
           "weight": 1.0,
-          "saturation": 23.654,
-          "calibration": "p95 of this sub-signal over 152 valid measurements (>= 200 words of source text), all franchises and sources",
+          "saturation": 12.285,
+          "calibration": "p95 of this sub-signal over 2233 valid measurements (>= 200 words of source text), all franchises and sources",
           "entitySource": "franchise:entities",
           "notes": "Added in rubric-v2 precisely because rubric-v1's Fi lexicon was silent on episodes whose mythic content is nominal."
         }
@@ -213,19 +215,19 @@
       "technical-lexicon-density": {
         "n": 2289,
         "p95": 14.472,
-        "was": 15.019
+        "was": 14.472
       },
       "mythic-lexicon-density": {
         "n": 2289,
         "p95": 5.097,
-        "was": 4.854
+        "was": 5.097
       },
       "numinous-entity": {
-        "n": 152,
-        "p95": 23.654,
+        "n": 2233,
+        "p95": 12.285,
         "was": 23.654
       }
     },
-    "generatedAt": "2026-10-18T11:04:42+00:00"
+    "generatedAt": "2026-10-18T11:29:18+00:00"
   }
 }

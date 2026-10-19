@@ -27,6 +27,14 @@ def main(argv: list[str] | None = None) -> int:
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(line_buffering=True)  # progress must show in redirected logs
     date = args.date or config.today()
+    # `ingest` creates the date; every later stage reads one. Without an explicit
+    # --date, fall back to the newest snapshot rather than failing at midnight.
+    if args.date is None and args.stage in ("signals", "score", "render", "validate"):
+        if not config.snapshot_path(args.franchise, date).exists():
+            latest = config.latest_snapshot_date(args.franchise)
+            if latest:
+                print(f"date    : no snapshot for {date}; using {latest}")
+                date = latest
     rubric = config.load_rubric(args.rubric)
     sources = args.sources.split(",") if args.sources else None
 
@@ -38,7 +46,7 @@ def main(argv: list[str] | None = None) -> int:
         updated = config.read_json(path)
         for sub_id, info in updated["calibration"]["subsignals"].items():
             print(f"calibrate: {sub_id:26} {info['was']} -> {info['p95']}  (n={info['n']})")
-        print(f"calibrate: {path.relative_to(config.ROOT)}")
+        print(f"calibrate: {path.relative_to(config.ROOT) if path.is_relative_to(config.ROOT) else path}")
         return 0
 
     if args.stage in ("ingest", "all"):

@@ -17,16 +17,29 @@ import re
 _WORD = re.compile(r"[A-Za-z']+")
 
 
-def _alt_regex(terms: list[str]) -> re.Pattern:
-    return re.compile(rf"(?i)\b(?:{'|'.join(re.escape(t) for t in terms)})\b")
+def _alt_regex(terms: list[str], *, case_sensitive: bool = False) -> re.Pattern:
+    pattern = rf"\b(?:{'|'.join(re.escape(t) for t in terms)})\b"
+    return re.compile(pattern) if case_sensitive else re.compile(pattern, re.I)
 
 
 def compile_entities(entities: list[dict]) -> dict[str, list[dict]]:
-    """Group curated entities by axis, each with its own compiled regex."""
+    """Group curated entities by axis, each with its own compiled regex.
+
+    ``caseSensitive`` exists because some entities are named after common nouns:
+    "the Beast" must match the Beast of *The Impossible Planet*, and must not be
+    matched by "a beast" in any other episode's prose. The flag is per entity and
+    visible in ``entities.json``, so the choice is reviewable rather than implicit.
+    """
     grouped: dict[str, list[dict]] = {}
     for entity in entities or []:
         grouped.setdefault(entity["axis"], []).append(
-            {"name": entity["name"], "regex": _alt_regex(entity.get("terms") or [entity["name"]])}
+            {
+                "name": entity["name"],
+                "regex": _alt_regex(
+                    entity.get("terms") or [entity["name"]],
+                    case_sensitive=bool(entity.get("caseSensitive")),
+                ),
+            }
         )
     return grouped
 

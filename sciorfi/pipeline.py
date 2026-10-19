@@ -335,12 +335,23 @@ def map_score(subsignals: list[dict], axis: str, rubric: dict) -> tuple[float, l
     Signals hold *measurements* (densities); the rubric holds the *mapping*
     (saturation + weight). Re-scoring under a different rubric version therefore
     needs no re-extraction. Returns (score, missing_subsignals).
+
+    An axis is combined by weighted mean by default: several coders giving evidence
+    about *the same* quantity should average. ``combine: "max"`` says the axis is
+    instead composed of one dense coder plus one sparse *recovery* coder — the Fi
+    entity list exists to see nominal myth ("Apollo") that the mythic lexicon is
+    silent on, not to disagree with it about episodes the lexicon already catches.
+    A mean would let the sparse coder's zeros pull down the dense coder's hits, so
+    the axis takes the strongest evidence either coder sees. The rule lives in the
+    rubric, so it is versioned and reviewable like everything else.
     """
     spec = {s["id"]: s for s in rubric["axes"][axis]["subsignals"]}
     present = {d["id"] for d in subsignals}
     missing = [sid for sid in spec if sid not in present]
+    combine = rubric["axes"][axis].get("combine", "weighted")
     weighted = 0.0
     weight_sum = 0.0
+    best = 0.0
     for item in subsignals:
         sub = spec.get(item["id"])
         if sub is None:
@@ -350,10 +361,12 @@ def map_score(subsignals: list[dict], axis: str, rubric: dict) -> tuple[float, l
         frac = min(1.0, item["density"] / saturation) if saturation else 0.0
         weighted += weight * frac
         weight_sum += weight
+        best = max(best, frac)
     if not weight_sum:
         return 0.0, missing
+    frac = best if combine == "max" else weighted / weight_sum
     scale = rubric["scale"]
-    return round(scale["min"] + (scale["max"] - scale["min"]) * weighted / weight_sum, 3), missing
+    return round(scale["min"] + (scale["max"] - scale["min"]) * frac, 3), missing
 
 
 def _ci95(values: list[float], rubric: dict) -> float | None:

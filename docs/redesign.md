@@ -484,23 +484,82 @@ what the axis is supposed to measure. Star Trek is the opposite: even its mythic
 narrated in technical language, which is why it sits a full point higher on Sci with a much wider
 spread.
 
+## P5 status — Fi coded across both franchises, done
+
+P4 fixed coverage; P5 fixes the other axis. Fi (myth, magic, reality-bending) is computed from two
+coders that see different things. The **mythic lexicon** counts mythic vocabulary in plot prose — it
+is dense and works on every work with text. The **entity coder** counts named mythic entities
+(`Apollo`, `V'Ger`, `the Eye of Harmony`) — it exists because plot summaries *name* gods rather than
+describing them mythically, so it recovers myth the lexicon cannot see. In `rubric-v2` that list
+existed for TOS alone, which made Fi comparable inside TOS and not across anything else. (It was
+explicitly *not* a second opinion: `r(lexicon, entity) = +0.34`, and 6% of measured rows score zero on
+the lexicon while firing an entity.)
+
+**Curating the lists.** The lists are hand-curated per series with LLM assistance, because "is this
+named thing treated as a god in this franchise?" is a judgement about story, not a string-matching
+task. The method was five parallel LLM passes over each franchise's episode articles with a fixed
+spec — universe of discourse only (gods, prophets, cosmic powers, reality-altering artefacts and
+places), never ordinary characters; every proposal needs a name, the work it belongs to, and evidence
+counts (hits, works, texts, words) — followed by a merge and an explicit pruning pass. Proposals with
+no hits, generic terms ("the Force", "the Other"), and ordinary named characters were dropped. The
+result is **84 Star Trek entities across 14 works** (TOS 25, TNG 14, DS9 9, VOY 8, DIS 6, LD 6, TAS 4,
+ENT 3, PIC 3, PRO 2, SNW 1, three films) and **59 Doctor Who entities across 4 works** (dw63 38, dw05
+13, dw23 7, the 1996 film 1).
+
+Two details matter for correctness. A term is matched as a whole word with plural/possessive
+tolerance, and `caseSensitive` is set for names that are also common nouns — `the Oracle`, `the
+Caretaker`, `the Prophets`, `the Beast`, `the Great One` — so "the caretaker of the colony" does not
+count as a mythic entity. Each entity carries its evidence and sits next to a short `codebook` in
+`data/franchises/<franchise>/entities.json`, so a reviewer can challenge any single name without
+re-running the pipeline.
+
+**Combining the two coders: `max`, not a mean.** Averaging a dense coder with a sparse recovery coder
+punishes the recovery coder for being silent: its many zeros are "I have nothing to add", not "no
+myth here". The Fi axis therefore takes `max(lexicon, entity)`; the rule is a rubric field
+(`axes.fi.combine`), with the reasoning in `combineNotes`, so reverting to a weighted mean is a
+one-line change in a versioned file. At the current lists the difference is large and one-directional:
+
+| Fi, season level | mean (weighted) | **max** |
+|---|---|---|
+| Star Trek median / p90 | 1.07 / 2.56 | **1.84 / 3.81** |
+| Doctor Who median / p90 | 1.62 / 3.76 | **2.79 / 5.10** |
+
+The entity coder is not a list-length artefact: `r(entity-list length, mean Fi density) = +0.05`
+across Star Trek's 14 entity-coded works (Doctor Who's `+0.58` rests on three points and is not
+evidence).
+
+**Result.** With entity lists everywhere and `max`, and with the entity saturation reclaimed from the
+enlarged corpus (**23.654 → 12.285**, n = 2,233; technical 14.472 and mythic 5.097 unchanged, n =
+2,289), the season-level picture is:
+
+| | axis | median | p90 | above 4 | seasons |
+|---|---|---|---|---|---|
+| Star Trek | Sci | 3.80 | 5.32 | 47% | 66 |
+| Star Trek | **Fi** | **1.84** | **3.81** | **6%** | 66 |
+| Doctor Who | Sci | 1.34 | 2.86 | 2% | 42 |
+| Doctor Who | **Fi** | **2.79** | **5.10** | **24%** | 42 |
+
+Fi is no longer flat, and it now separates works the way the concept should. Doctor Who sits a full
+point above Star Trek on Fi with a wider spread — a show whose premise is an ancient traveller with a
+magic box is mythic in its bones — while Star Trek keeps the higher Sci axis. The films are a clean
+sanity check on a single-work scale: **The Motion Picture** (V'Ger) scores Sci 9.99 / Fi 8.09, a
+god-machine story told in technical language, and **The Final Frontier** (Sha Ka Ree) scores Sci 1.00
+/ Fi 7.85, the franchise's least scientific and most explicitly theological film. The top Fi seasons
+are the expected ones: DIS S2 (the Red Angel) 4.49, TOS S2 3.92, DS9 S7 3.89; the top Fi episodes
+include TOS "Who Mourns for Adonais?", TNG "Rightful Heir", DS9 "The Reckoning", and classic Who's
+"Image of the Fendahl" and "The Face of Evil", all at 10.00.
+
+Fi remains a *text* measure, not a judgement coder: it counts how much the plot summary turns on myth,
+and an episode whose myth is visual rather than narrated will still read low. That is the gap the
+judgement coder in open decision 4 is meant to close.
+
 ## Open decisions
 
-1. **Scaling the Fi coder (the main open decision).** Only TOS has a curated entity list, so Fi is
-   lexicon-only for every other series. Options: (a) hand-curate entity lists per series — accurate,
-   but a large reviewable job across 17 works; (b) mark the whole franchise lexicon-only and drop the
-   entity sub-signal from the Fi axis (comparable across works, but blind to nominal myth like TOS
-   "Apollo"); (c) build a better automatic Fi signal (e.g. a narrative-role coder over plot text)
-   that needs no per-series list. This is the blocker before Fi can be compared *across* franchises.
-
-   The size of the problem is now measurable rather than impressionistic. Across all Star Trek
-   works, with the augmented sources in scope, `rubric-v3` (season level) gives **sci** median 3.66,
-   p90 5.29; **fi** median 1.47, p90 2.71. Fi is still the weaker axis — but the P3 recalibration
-   roughly doubled its median, so the remaining flatness is dominated by the *coder* rather than by
-   the scale. Mythic vocabulary is genuinely rare in Star Trek's secular plot prose, and the entity
-   coder that `rubric-v2` added to see it (plot summaries *name* gods rather than describing them
-   mythically) is compiled for TOS alone. The two axes are not merely correlated — `r(sci, fi) =
-   −0.07` — so this is a missing signal, not double-counting.
+1. **Scaling the Fi coder — closed by P5.** Entity lists now exist for every series with text in both
+   franchises, the Fi axis combines its two coders by `max`, and films are entity-coded where their
+   story names a mythic entity. See P5 for the method and the mean-vs-max numbers. Nothing in the
+   pipeline treats a series without a list as an error: it simply stays lexicon-only, and the page's
+   "Fi coder" column says so.
 2. **Franchise scope edges.** Currently excluded, and easy to add on request: Doctor Who spin-offs
    (Torchwood, The Sarah Jane Adventures, Class, K9) and animated webcasts (Dreamland, Shada, Real
    Time, Scream of the Shalka); Star Trek fan productions (Continues, Renegades, Odyssey).

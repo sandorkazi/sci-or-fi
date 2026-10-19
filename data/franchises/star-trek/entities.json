@@ -1,29 +1,1386 @@
 {
   "franchise": "star-trek",
-  "description": "Curated god-like, reality-bending or magic-equivalent entities, by series. This is a judgement list and is deliberately explicit: it is reviewed, versioned and diffable, unlike a number buried in a score.",
-  "curatedBy": "hand-curated for the rubric-v2 entity coder",
+  "description": "Curated god-like, reality-bending or magic-equivalent entities, by series (and by film, since a film is a work too). This is a judgement list and is deliberately explicit: it is reviewed, versioned and diffable, unlike a number buried in a score. Every entry carries the hit count measured against the real plot text of its own series, so a name that does not occur cannot silently contribute nothing.",
+  "curatedBy": "hand-curated for the rubric-v2 entity coder (TOS); extended per series by review with LLM-assisted candidate mining (plot sentences co-occurring with mythic vocabulary) and term-level validation against the measured plot text",
+  "codebook": "Include a name only when the work treats it as mythic, divine, magical or reality-bending in itself: a god, demon, spirit, oracle, prophet, immortal, ascended or cosmic intelligence, a personified abstract force, a supernatural magician, an object or place of worship, or an artefact of reality-bending power. Exclude ordinary antagonists and villains however powerful (Davros, the Master, the Daleks), regulars, aliens and species as such, planets, ships, organisations, technology, real-world religion, and unpersonified abstract nouns. caseSensitive is set where the name is also a common noun, so 'the Beast' is not matched by 'a beast'.",
   "entities": [
-    { "name": "Trelane", "axis": "fi", "series": "tos", "kind": "god-like trickster", "terms": ["Trelane"] },
-    { "name": "Apollo", "axis": "fi", "series": "tos", "kind": "god presenting as deity", "terms": ["Apollo"] },
-    { "name": "Vaal", "axis": "fi", "series": "tos", "kind": "object of worship", "terms": ["Vaal"] },
-    { "name": "Landru", "axis": "fi", "series": "tos", "kind": "object of worship", "terms": ["Landru"] },
-    { "name": "Organians", "axis": "fi", "series": "tos", "kind": "non-corporeal super-beings", "terms": ["Organian", "Organians"] },
-    { "name": "Gary Mitchell", "axis": "fi", "series": "tos", "kind": "ascended god-like human", "terms": ["Gary Mitchell"] },
-    { "name": "Thasians", "axis": "fi", "series": "tos", "kind": "non-corporeal power-granting beings", "terms": ["Thasian", "Thasians"] },
-    { "name": "Metrons", "axis": "fi", "series": "tos", "kind": "super-beings staging judgement", "terms": ["Metron", "Metrons"] },
-    { "name": "Providers", "axis": "fi", "series": "tos", "kind": "beings worshipped as gods", "terms": ["Providers"] },
-    { "name": "the Companion", "axis": "fi", "series": "tos", "kind": "non-corporeal being", "terms": ["the Companion"] },
-    { "name": "Platonians", "axis": "fi", "series": "tos", "kind": "psychokinetic powers", "terms": ["Platonian", "Platonians", "Parmen"] },
-    { "name": "Melkotians", "axis": "fi", "series": "tos", "kind": "illusion-casting judgement", "terms": ["Melkot", "Melkotians"] },
-    { "name": "Excalbians", "axis": "fi", "series": "tos", "kind": "reality-staging beings", "terms": ["Excalbian", "Excalbians"] },
-    { "name": "Flint", "axis": "fi", "series": "tos", "kind": "immortal", "terms": ["Flint"] },
-    { "name": "Redjac", "axis": "fi", "series": "tos", "kind": "disembodied entity", "terms": ["Redjac"] },
-    { "name": "Zetar", "axis": "fi", "series": "tos", "kind": "non-corporeal entity", "terms": ["Zetar"] },
-    { "name": "Preservers", "axis": "fi", "series": "tos", "kind": "unseen god-like benefactors", "terms": ["Preservers"] },
-    { "name": "Sargon", "axis": "fi", "series": "tos", "kind": "disembodied god-like mind", "terms": ["Sargon"] },
-    { "name": "Vians", "axis": "fi", "series": "tos", "kind": "beings testing humanity", "terms": ["Vian", "Vians"] },
-    { "name": "Guardian of Forever", "axis": "fi", "series": "tos", "kind": "reality-bending artefact", "terms": ["Guardian of Forever"] },
-    { "name": "Kollos", "axis": "fi", "series": "tos", "kind": "mind-bending non-corporeal being", "terms": ["Kollos"] },
-    { "name": "Nexus", "axis": "fi", "series": "tos", "kind": "illusion / wish-fulfilment reality", "terms": ["Nexus"] }
+    {
+      "name": "Trelane",
+      "axis": "fi",
+      "series": "tos",
+      "kind": "god-like trickster",
+      "terms": [
+        "Trelane"
+      ],
+      "evidence": {
+        "hits": 71,
+        "works": 2,
+        "texts": 152,
+        "words": 182726
+      }
+    },
+    {
+      "name": "Apollo",
+      "axis": "fi",
+      "series": "tos",
+      "kind": "god presenting as deity",
+      "terms": [
+        "Apollo"
+      ],
+      "evidence": {
+        "hits": 50,
+        "works": 2,
+        "texts": 152,
+        "words": 182726
+      }
+    },
+    {
+      "name": "Vaal",
+      "axis": "fi",
+      "series": "tos",
+      "kind": "object of worship",
+      "terms": [
+        "Vaal"
+      ],
+      "evidence": {
+        "hits": 54,
+        "works": 2,
+        "texts": 152,
+        "words": 182726
+      }
+    },
+    {
+      "name": "Landru",
+      "axis": "fi",
+      "series": "tos",
+      "kind": "object of worship",
+      "terms": [
+        "Landru"
+      ],
+      "evidence": {
+        "hits": 24,
+        "works": 2,
+        "texts": 152,
+        "words": 182726
+      }
+    },
+    {
+      "name": "Organians",
+      "axis": "fi",
+      "series": "tos",
+      "kind": "non-corporeal super-beings",
+      "terms": [
+        "Organian",
+        "Organians"
+      ],
+      "evidence": {
+        "hits": 23,
+        "works": 3,
+        "texts": 152,
+        "words": 182726
+      }
+    },
+    {
+      "name": "Gary Mitchell",
+      "axis": "fi",
+      "series": "tos",
+      "kind": "ascended god-like human",
+      "terms": [
+        "Gary Mitchell"
+      ],
+      "evidence": {
+        "hits": 5,
+        "works": 2,
+        "texts": 152,
+        "words": 182726
+      }
+    },
+    {
+      "name": "Thasians",
+      "axis": "fi",
+      "series": "tos",
+      "kind": "non-corporeal power-granting beings",
+      "terms": [
+        "Thasian",
+        "Thasians"
+      ],
+      "evidence": {
+        "hits": 12,
+        "works": 2,
+        "texts": 152,
+        "words": 182726
+      }
+    },
+    {
+      "name": "Metrons",
+      "axis": "fi",
+      "series": "tos",
+      "kind": "super-beings staging judgement",
+      "terms": [
+        "Metron",
+        "Metrons"
+      ],
+      "evidence": {
+        "hits": 24,
+        "works": 2,
+        "texts": 152,
+        "words": 182726
+      }
+    },
+    {
+      "name": "Providers",
+      "axis": "fi",
+      "series": "tos",
+      "kind": "beings worshipped as gods",
+      "terms": [
+        "Providers"
+      ],
+      "evidence": {
+        "hits": 29,
+        "works": 2,
+        "texts": 152,
+        "words": 182726
+      }
+    },
+    {
+      "name": "the Companion",
+      "axis": "fi",
+      "series": "tos",
+      "kind": "non-corporeal being",
+      "terms": [
+        "the Companion"
+      ],
+      "evidence": {
+        "hits": 38,
+        "works": 2,
+        "texts": 152,
+        "words": 182726
+      }
+    },
+    {
+      "name": "Platonians",
+      "axis": "fi",
+      "series": "tos",
+      "kind": "psychokinetic powers",
+      "terms": [
+        "Platonian",
+        "Platonians",
+        "Parmen"
+      ],
+      "evidence": {
+        "hits": 62,
+        "works": 2,
+        "texts": 152,
+        "words": 182726
+      }
+    },
+    {
+      "name": "Melkotians",
+      "axis": "fi",
+      "series": "tos",
+      "kind": "illusion-casting judgement",
+      "terms": [
+        "Melkot",
+        "Melkotians"
+      ],
+      "evidence": {
+        "hits": 9,
+        "works": 2,
+        "texts": 152,
+        "words": 182726
+      }
+    },
+    {
+      "name": "Excalbians",
+      "axis": "fi",
+      "series": "tos",
+      "kind": "reality-staging beings",
+      "terms": [
+        "Excalbian",
+        "Excalbians"
+      ],
+      "evidence": {
+        "hits": 9,
+        "works": 2,
+        "texts": 152,
+        "words": 182726
+      }
+    },
+    {
+      "name": "Flint",
+      "axis": "fi",
+      "series": "tos",
+      "kind": "immortal",
+      "terms": [
+        "Flint"
+      ],
+      "caseSensitive": true,
+      "evidence": {
+        "hits": 67,
+        "works": 2,
+        "texts": 152,
+        "words": 182726
+      }
+    },
+    {
+      "name": "Redjac",
+      "axis": "fi",
+      "series": "tos",
+      "kind": "disembodied entity",
+      "terms": [
+        "Redjac"
+      ],
+      "evidence": {
+        "hits": 10,
+        "works": 2,
+        "texts": 152,
+        "words": 182726
+      }
+    },
+    {
+      "name": "Zetar",
+      "axis": "fi",
+      "series": "tos",
+      "kind": "non-corporeal entity",
+      "terms": [
+        "Zetar"
+      ],
+      "evidence": {
+        "hits": 3,
+        "works": 2,
+        "texts": 152,
+        "words": 182726
+      }
+    },
+    {
+      "name": "Preservers",
+      "axis": "fi",
+      "series": "tos",
+      "kind": "unseen god-like benefactors",
+      "terms": [
+        "Preservers"
+      ],
+      "evidence": {
+        "hits": 2,
+        "works": 2,
+        "texts": 152,
+        "words": 182726
+      }
+    },
+    {
+      "name": "Sargon",
+      "axis": "fi",
+      "series": "tos",
+      "kind": "disembodied god-like mind",
+      "terms": [
+        "Sargon"
+      ],
+      "evidence": {
+        "hits": 62,
+        "works": 2,
+        "texts": 152,
+        "words": 182726
+      }
+    },
+    {
+      "name": "Vians",
+      "axis": "fi",
+      "series": "tos",
+      "kind": "beings testing humanity",
+      "terms": [
+        "Vian",
+        "Vians"
+      ],
+      "evidence": {
+        "hits": 39,
+        "works": 3,
+        "texts": 152,
+        "words": 182726
+      }
+    },
+    {
+      "name": "Guardian of Forever",
+      "axis": "fi",
+      "series": "tos",
+      "kind": "reality-bending artefact",
+      "terms": [
+        "Guardian of Forever"
+      ],
+      "evidence": {
+        "hits": 7,
+        "works": 3,
+        "texts": 152,
+        "words": 182726
+      }
+    },
+    {
+      "name": "Kollos",
+      "axis": "fi",
+      "series": "tos",
+      "kind": "mind-bending non-corporeal being",
+      "terms": [
+        "Kollos"
+      ],
+      "evidence": {
+        "hits": 33,
+        "works": 2,
+        "texts": 152,
+        "words": 182726
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "tos",
+      "name": "the Oracle",
+      "kind": "machine worshipped as a god",
+      "terms": [
+        "Oracle",
+        "Oracle of the People"
+      ],
+      "confidence": "high",
+      "caseSensitive": true,
+      "evidence": {
+        "hits": 23,
+        "works": 2,
+        "texts": 152,
+        "words": 182726
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "tos",
+      "name": "Gorgan",
+      "kind": "possessing spirit / 'friendly angel'",
+      "terms": [
+        "Gorgan"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 13,
+        "works": 2,
+        "texts": 152,
+        "words": 182726
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "tos",
+      "name": "Sylvia",
+      "kind": "witch / sorceress",
+      "terms": [
+        "Sylvia"
+      ],
+      "confidence": "medium",
+      "evidence": {
+        "hits": 39,
+        "works": 4,
+        "texts": 152,
+        "words": 182726
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "tos",
+      "name": "Korob",
+      "kind": "wizard / sorcerer",
+      "terms": [
+        "Korob"
+      ],
+      "confidence": "medium",
+      "evidence": {
+        "hits": 26,
+        "works": 2,
+        "texts": 152,
+        "words": 182726
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "tas",
+      "name": "Lucien",
+      "kind": "magical being claimed as Lucifer",
+      "terms": [
+        "Lucien",
+        "Lucifer"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 21,
+        "works": 2,
+        "texts": 44,
+        "words": 27212
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "tas",
+      "name": "Megans",
+      "kind": "race of real witches",
+      "terms": [
+        "Megans"
+      ],
+      "confidence": "medium",
+      "evidence": {
+        "hits": 16,
+        "works": 2,
+        "texts": 44,
+        "words": 27212
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "tas",
+      "name": "Kukulkan",
+      "kind": "god demanding worship",
+      "terms": [
+        "Kukulkan"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 38,
+        "works": 2,
+        "texts": 44,
+        "words": 27212
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "tas",
+      "name": "Soul of the Skorr",
+      "kind": "sacred relic",
+      "terms": [
+        "Soul of the Skorr"
+      ],
+      "confidence": "medium",
+      "evidence": {
+        "hits": 6,
+        "works": 2,
+        "texts": 44,
+        "words": 27212
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "tng",
+      "name": "Q",
+      "kind": "omnipotent trickster",
+      "terms": [
+        "Q"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 389,
+        "works": 19,
+        "texts": 340,
+        "words": 496674
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "tng",
+      "name": "Q Continuum",
+      "kind": "collective of omnipotent beings",
+      "terms": [
+        "Q Continuum"
+      ],
+      "confidence": "medium",
+      "evidence": {
+        "hits": 13,
+        "works": 9,
+        "texts": 340,
+        "words": 496674
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "tng",
+      "name": "Nagilum",
+      "kind": "non-corporeal cosmic intelligence",
+      "terms": [
+        "Nagilum"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 17,
+        "works": 2,
+        "texts": 340,
+        "words": 496674
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "tng",
+      "name": "Edo god",
+      "kind": "alien vessel worshipped as a god",
+      "terms": [
+        "Edo god",
+        "Edo's god"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 5,
+        "works": 2,
+        "texts": 340,
+        "words": 496674
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "tng",
+      "name": "Ardra",
+      "kind": "devil figure / false god",
+      "terms": [
+        "Ardra",
+        "Ardra's"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 64,
+        "works": 2,
+        "texts": 340,
+        "words": 496674
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "tng",
+      "name": "Armus",
+      "kind": "personification of evil",
+      "terms": [
+        "Armus"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 80,
+        "works": 5,
+        "texts": 340,
+        "words": 496674
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "tng",
+      "name": "Kevin Uxbridge",
+      "kind": "immortal energy being (Douwd)",
+      "terms": [
+        "Kevin Uxbridge",
+        "Douwd"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 3,
+        "works": 2,
+        "texts": 340,
+        "words": 496674
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "tng",
+      "name": "Amanda Rogers",
+      "kind": "human raised as an omnipotent Q",
+      "terms": [
+        "Amanda Rogers"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 4,
+        "works": 2,
+        "texts": 340,
+        "words": 496674
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "tng",
+      "name": "the Traveller",
+      "kind": "reality-bending non-corporeal being",
+      "terms": [
+        "Traveller",
+        "Traveler"
+      ],
+      "confidence": "high",
+      "caseSensitive": true,
+      "evidence": {
+        "hits": 38,
+        "works": 8,
+        "texts": 340,
+        "words": 496674
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "tng",
+      "name": "Kahless",
+      "kind": "messianic prophet / returned saviour",
+      "terms": [
+        "Kahless"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 81,
+        "works": 4,
+        "texts": 340,
+        "words": 496674
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "tng",
+      "name": "Ronin",
+      "kind": "ghost / spirit lover",
+      "terms": [
+        "Ronin"
+      ],
+      "confidence": "medium",
+      "evidence": {
+        "hits": 53,
+        "works": 2,
+        "texts": 340,
+        "words": 496674
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "tng",
+      "name": "Masaka",
+      "kind": "sun goddess of an ancient mythology",
+      "terms": [
+        "Masaka",
+        "Masaka's"
+      ],
+      "confidence": "medium",
+      "evidence": {
+        "hits": 42,
+        "works": 2,
+        "texts": 340,
+        "words": 496674
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "tng",
+      "name": "Korgano",
+      "kind": "moon god (mythological counterpart)",
+      "terms": [
+        "Korgano"
+      ],
+      "confidence": "low",
+      "evidence": {
+        "hits": 21,
+        "works": 2,
+        "texts": 340,
+        "words": 496674
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "tng",
+      "name": "Fek'lhr",
+      "kind": "Klingon devil of Gre'Thor",
+      "terms": [
+        "Fek'lhr"
+      ],
+      "confidence": "low",
+      "evidence": {
+        "hits": 4,
+        "works": 2,
+        "texts": 340,
+        "words": 496674
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "ds9",
+      "name": "the Prophets",
+      "kind": "non-corporeal wormhole aliens worshipped as gods",
+      "terms": [
+        "Prophets",
+        "Prophet",
+        "Bajoran Prophets",
+        "wormhole aliens",
+        "wormhole alien"
+      ],
+      "confidence": "high",
+      "caseSensitive": true,
+      "evidence": {
+        "hits": 271,
+        "works": 58,
+        "texts": 332,
+        "words": 470722
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "ds9",
+      "name": "the Pah-wraiths",
+      "kind": "demon-like rivals of the Prophets, worshipped by a cult",
+      "terms": [
+        "Pah-wraith",
+        "Pah-wraiths",
+        "Pah Wraith",
+        "Pah Wraiths"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 117,
+        "works": 24,
+        "texts": 332,
+        "words": 470722
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "ds9",
+      "name": "the Orbs of the Prophets",
+      "kind": "sacred relics that grant visions of the Prophets",
+      "terms": [
+        "Orb",
+        "Orbs",
+        "Orb of the Prophets",
+        "Orb of Prophecy",
+        "Orb of Time"
+      ],
+      "confidence": "high",
+      "caseSensitive": true,
+      "evidence": {
+        "hits": 96,
+        "works": 23,
+        "texts": 332,
+        "words": 470722
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "ds9",
+      "name": "the Celestial Temple",
+      "kind": "sacred otherworldly gateway, home of the Prophets",
+      "terms": [
+        "Celestial Temple"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 34,
+        "works": 14,
+        "texts": 332,
+        "words": 470722
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "ds9",
+      "name": "Kosst Amojan",
+      "kind": "the evil one, a banished Pah-wraith",
+      "terms": [
+        "Kosst Amojan"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 23,
+        "works": 9,
+        "texts": 332,
+        "words": 470722
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "ds9",
+      "name": "the Fire Caves",
+      "kind": "accursed sacred site, prison of the Pah-wraiths",
+      "terms": [
+        "Fire Caves"
+      ],
+      "confidence": "medium",
+      "caseSensitive": true,
+      "evidence": {
+        "hits": 21,
+        "works": 7,
+        "texts": 332,
+        "words": 470722
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "ds9",
+      "name": "Sto-vo-kor",
+      "kind": "Klingon afterlife",
+      "terms": [
+        "Sto-vo-kor",
+        "Sto'Vo'Kor",
+        "Sto-Vo-Kor"
+      ],
+      "confidence": "medium",
+      "evidence": {
+        "hits": 20,
+        "works": 12,
+        "texts": 332,
+        "words": 470722
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "ds9",
+      "name": "the Divine Treasury",
+      "kind": "Ferengi heaven, object of prayer",
+      "terms": [
+        "Divine Treasury",
+        "Blessed Exchequer"
+      ],
+      "confidence": "low",
+      "evidence": {
+        "hits": 5,
+        "works": 3,
+        "texts": 332,
+        "words": 470722
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "ds9",
+      "name": "the Klingon Gods",
+      "kind": "slain pantheon of Klingon deities",
+      "terms": [
+        "Klingon Gods"
+      ],
+      "confidence": "low",
+      "evidence": {
+        "hits": 2,
+        "works": 1,
+        "texts": 332,
+        "words": 470722
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "voy",
+      "name": "Q",
+      "kind": "omnipotent trickster and the Q Continuum",
+      "terms": [
+        "Q",
+        "Quinn",
+        "Q Continuum"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 380,
+        "works": 7,
+        "texts": 339,
+        "words": 527150
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "voy",
+      "name": "the Caretaker",
+      "kind": "super-powered non-corporeal guardian of the Ocampa",
+      "terms": [
+        "Caretaker",
+        "Nacene"
+      ],
+      "confidence": "medium",
+      "caseSensitive": true,
+      "evidence": {
+        "hits": 83,
+        "works": 13,
+        "texts": 339,
+        "words": 527150
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "voy",
+      "name": "Suspiria",
+      "kind": "godlike Nacene being, the Caretaker's mate",
+      "terms": [
+        "Suspiria"
+      ],
+      "confidence": "medium",
+      "evidence": {
+        "hits": 24,
+        "works": 2,
+        "texts": 339,
+        "words": 527150
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "voy",
+      "name": "the Sky Spirits",
+      "kind": "creator-spirits of Chakotay's people, reverenced in myth",
+      "terms": [
+        "Sky Spirits",
+        "Sky Spirit"
+      ],
+      "confidence": "medium",
+      "evidence": {
+        "hits": 12,
+        "works": 2,
+        "texts": 339,
+        "words": 527150
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "voy",
+      "name": "the Kuvah'magh",
+      "kind": "prophesied saviour of the Klingon people",
+      "terms": [
+        "Kuvah'magh"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 5,
+        "works": 2,
+        "texts": 339,
+        "words": 527150
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "voy",
+      "name": "the Holy Pilgrim",
+      "kind": "prophesied mythic figure who leads the Sages home",
+      "terms": [
+        "Holy Pilgrim"
+      ],
+      "confidence": "medium",
+      "evidence": {
+        "hits": 3,
+        "works": 2,
+        "texts": 339,
+        "words": 527150
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "voy",
+      "name": "the Great Sages",
+      "kind": "mythic visitors prophesied to come from the sky",
+      "terms": [
+        "Great Sages"
+      ],
+      "confidence": "low",
+      "evidence": {
+        "hits": 2,
+        "works": 1,
+        "texts": 339,
+        "words": 527150
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "voy",
+      "name": "the Komar",
+      "kind": "non-corporeal entity that feeds on neural energy",
+      "terms": [
+        "Komar"
+      ],
+      "confidence": "medium",
+      "evidence": {
+        "hits": 4,
+        "works": 2,
+        "texts": 339,
+        "words": 527150
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "ent",
+      "name": "the Sphere-Builders",
+      "kind": "trans-dimensional beings worshipped by the Xindi as 'the Guardians'",
+      "terms": [
+        "Sphere-Builders",
+        "Sphere-Builder"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 26,
+        "works": 6,
+        "texts": 192,
+        "words": 225361
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "ent",
+      "name": "the katra",
+      "kind": "Vulcan soul/spirit, transferable into an ark or another mind",
+      "terms": [
+        "katra",
+        "katras",
+        "katric ark"
+      ],
+      "confidence": "medium",
+      "evidence": {
+        "hits": 17,
+        "works": 7,
+        "texts": 192,
+        "words": 225361
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "ent",
+      "name": "the Kir'Shara",
+      "kind": "sacred Vulcan relic holding Surak's teachings",
+      "terms": [
+        "Kir'Shara"
+      ],
+      "confidence": "medium",
+      "evidence": {
+        "hits": 19,
+        "works": 6,
+        "texts": 192,
+        "words": 225361
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dis",
+      "name": "Red Angel",
+      "kind": "angelic time-travelling figure, treated as a divine messenger",
+      "terms": [
+        "Red Angel"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 51,
+        "works": 13,
+        "texts": 67,
+        "words": 217340
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dis",
+      "name": "Sphere",
+      "kind": "ancient non-corporeal data intelligence",
+      "terms": [
+        "Sphere"
+      ],
+      "confidence": "medium",
+      "caseSensitive": true,
+      "evidence": {
+        "hits": 52,
+        "works": 9,
+        "texts": 67,
+        "words": 217340
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dis",
+      "name": "Guardian of Forever (Carl)",
+      "kind": "cosmic time-gateway entity",
+      "terms": [
+        "Guardian of Forever"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 2,
+        "works": 2,
+        "texts": 67,
+        "words": 217340
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dis",
+      "name": "Molor",
+      "kind": "Klingon mythological figure, object of a shrine",
+      "terms": [
+        "Molor"
+      ],
+      "confidence": "medium",
+      "evidence": {
+        "hits": 2,
+        "works": 1,
+        "texts": 67,
+        "words": 217340
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dis",
+      "name": "Kahless",
+      "kind": "Klingon messiah/legendary founder figure",
+      "terms": [
+        "Kahless"
+      ],
+      "confidence": "medium",
+      "evidence": {
+        "hits": 9,
+        "works": 6,
+        "texts": 67,
+        "words": 217340
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dis",
+      "name": "Great Mother Compeer",
+      "kind": "legendary martyr-figure of Halem'nite religion",
+      "terms": [
+        "Great Mother Compeer",
+        "Mother Compeer"
+      ],
+      "confidence": "low",
+      "evidence": {
+        "hits": 7,
+        "works": 1,
+        "texts": 67,
+        "words": 217340
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "pic",
+      "name": "Q",
+      "kind": "omnipotent trickster",
+      "terms": [
+        "Q"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 138,
+        "works": 10,
+        "texts": 20,
+        "words": 77168
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "pic",
+      "name": "Seb-Cheneb (the Destroyer)",
+      "kind": "Romulan apocalyptic figure of prophecy",
+      "terms": [
+        "Seb-Cheneb",
+        "Cheneb"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 4,
+        "works": 3,
+        "texts": 20,
+        "words": 77168
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "pic",
+      "name": "Admonition",
+      "kind": "ancient mind-breaking synthetic revelation",
+      "terms": [
+        "Admonition"
+      ],
+      "confidence": "medium",
+      "evidence": {
+        "hits": 8,
+        "works": 3,
+        "texts": 20,
+        "words": 77168
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "ld",
+      "name": "Koala",
+      "kind": "god-like entity glimpsed in ascension/afterlife",
+      "terms": [
+        "Koala"
+      ],
+      "confidence": "high",
+      "caseSensitive": true,
+      "evidence": {
+        "hits": 1,
+        "works": 1,
+        "texts": 50,
+        "words": 157772
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "ld",
+      "name": "Black Mountain",
+      "kind": "mythic mountain in the ascension/afterlife vision",
+      "terms": [
+        "Black Mountain",
+        "black mountain"
+      ],
+      "confidence": "low",
+      "caseSensitive": true,
+      "evidence": {
+        "hits": 3,
+        "works": 3,
+        "texts": 50,
+        "words": 157772
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "ld",
+      "name": "Morgo",
+      "kind": "sentient volcano worshipped with sacrifices",
+      "terms": [
+        "Morgo"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 2,
+        "works": 1,
+        "texts": 50,
+        "words": 157772
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "ld",
+      "name": "Minooki",
+      "kind": "D'Arsay god; possessing mask",
+      "terms": [
+        "Minooki"
+      ],
+      "confidence": "medium",
+      "evidence": {
+        "hits": 1,
+        "works": 1,
+        "texts": 50,
+        "words": 157772
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "ld",
+      "name": "Landru",
+      "kind": "computer worshipped as a god",
+      "terms": [
+        "Landru"
+      ],
+      "confidence": "medium",
+      "evidence": {
+        "hits": 3,
+        "works": 1,
+        "texts": 50,
+        "words": 157772
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "ld",
+      "name": "Zeus",
+      "kind": "being presenting itself as the Greek god Zeus",
+      "terms": [
+        "Zeus"
+      ],
+      "confidence": "low",
+      "evidence": {
+        "hits": 2,
+        "works": 1,
+        "texts": 50,
+        "words": 157772
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "pro",
+      "name": "Loom",
+      "kind": "reality-devouring cosmic time-creatures",
+      "terms": [
+        "Loom"
+      ],
+      "confidence": "high",
+      "caseSensitive": true,
+      "evidence": {
+        "hits": 53,
+        "works": 8,
+        "texts": 39,
+        "words": 62401
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "pro",
+      "name": "Travelers",
+      "kind": "cosmic beings who manipulate space, time and thought",
+      "terms": [
+        "Traveler",
+        "Travelers"
+      ],
+      "confidence": "medium",
+      "caseSensitive": true,
+      "evidence": {
+        "hits": 21,
+        "works": 7,
+        "texts": 39,
+        "words": 62401
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "snw",
+      "name": "Vezda",
+      "kind": "non-corporeal possessing entity worshiped as gods",
+      "terms": [
+        "Vezda"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 23,
+        "works": 3,
+        "texts": 35,
+        "words": 127130
+      }
+    },
+    {
+      "axis": "fi",
+      "confidence": "medium",
+      "series": "st1",
+      "name": "V'Ger",
+      "kind": "god-like machine intelligence seeking its creator",
+      "terms": [
+        "V'Ger",
+        "VGer"
+      ],
+      "evidence": {
+        "hits": 59,
+        "works": 2,
+        "texts": 2,
+        "words": 7313
+      }
+    },
+    {
+      "axis": "fi",
+      "confidence": "medium",
+      "series": "st5",
+      "name": "the God of Sha Ka Ree",
+      "kind": "false god of the planet's Eden",
+      "terms": [
+        "Sha Ka Ree"
+      ],
+      "caseSensitive": true,
+      "evidence": {
+        "hits": 9,
+        "works": 2,
+        "texts": 2,
+        "words": 7490
+      }
+    },
+    {
+      "axis": "fi",
+      "confidence": "medium",
+      "series": "st7",
+      "name": "the Nexus",
+      "kind": "reality-bending energy ribbon of pure joy",
+      "terms": [
+        "Nexus"
+      ],
+      "caseSensitive": true,
+      "evidence": {
+        "hits": 28,
+        "works": 2,
+        "texts": 2,
+        "words": 8527
+      }
+    }
   ]
 }

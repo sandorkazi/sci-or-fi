@@ -110,6 +110,19 @@ def derived_dir(franchise_id: str, date: str) -> Path:
     return DATA / "derived" / franchise_id / date
 
 
+def latest_snapshot_date(franchise_id: str) -> str | None:
+    """Newest snapshot on disk, so re-scoring does not break at midnight.
+
+    A snapshot is dated, and the stages that read one default to *today*. That is
+    right for `ingest`, but it means `score`/`render`/`validate` fail on the day
+    after a build with a confusing "missing snapshot" for a date nobody asked for.
+    Falling back to the newest snapshot keeps the pipeline runnable and the date is
+    printed, so the substitution is visible rather than silent.
+    """
+    dates = sorted(p.stem for p in (DATA / "snapshots" / franchise_id).glob("*.json"))
+    return dates[-1] if dates else None
+
+
 # ----------------------------------------------------------------------- rubric
 def load_rubric(version: str = "rubric-v3") -> dict:
     path = RUBRIC_DIR / f"{version}.json"

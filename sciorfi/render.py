@@ -68,6 +68,11 @@ def _rubric_html(rubric: dict) -> str:
                 f"weight {s['weight']}, saturates at {s['saturation']}</li>"
             )
         blocks.append(f"<h3>{spec['label']}</h3><p>{spec['definition']}</p><ul>{''.join(items)}</ul>")
+        if spec.get("combine", "weighted") != "weighted":
+            blocks.append(
+                f"<p class='muted'><strong>This axis is combined by <code>{spec['combine']}</code>, "
+                f"not by a weighted mean.</strong> {spec.get('combineNotes', '')}</p>"
+            )
     reserved = rubric.get("reserved", {})
     reserved_list = ", ".join(
         f"<code>{s}</code>" for s in reserved.get("sci", []) + reserved.get("fi", [])
@@ -569,6 +574,13 @@ def render_all(franchise_id: str, date: str, rubric: dict) -> list[Path]:
     works = derived["series"]
     n_series = sum(1 for w in works if w.get("kind") != "film")
     n_films = sum(1 for w in works if w.get("kind") == "film")
+    # A series whose every work fell below the floor has no derived entry at all, so
+    # counting plotted works alone would quietly shrink the scope statement (Star
+    # Trek's Short Treks). Say "14 of 15" instead; the unmeasured note names the gap.
+    declared_series = len(franchise.get("series") or [])
+    series_txt = f"{n_series} of {declared_series}" if declared_series > n_series else f"{n_series}"
+    declared_films = len(franchise.get("films") or [])
+    films_txt = f"{n_films} of {declared_films}" if declared_films > n_films else f"{n_films}"
     n_seasons = sum(len(w["seasons"]) for w in works)
     entity_coded = sum(1 for w in works if w.get("entityCount"))
     min_words = int((rubric.get("measurement") or {}).get("minWords", 0))
@@ -590,14 +602,17 @@ def render_all(franchise_id: str, date: str, rubric: dict) -> list[Path]:
         f"episode text turns on technical and scientific vocabulary; <strong>Fi</strong> is how much it "
         f"turns on god-like power, prophecy and reality-bending. Scores are computed per episode from a "
         f"source scope, then averaged per season; bubble size is the measured 95% confidence interval of "
-        f"that average, never a hand-set value. Covers <code>{n_series}</code> series, "
-        f"<code>{n_films}</code> films and <code>{n_seasons}</code> seasons; "
+        f"that average, never a hand-set value. Covers <code>{series_txt}</code> series, "
+        f"<code>{films_txt}</code> films and <code>{n_seasons}</code> seasons; "
         f"<code>{len(sources)}</code> sources in scope ({' + '.join(sources)}) — toggle them on the right and "
         f"the chart recomputes. Films have no TVmaze entry and are plotted with a neutral marker; their "
         f"text comes from the same wiki sources, looked up by article title rather than search. Fi is a "
-        f"two-coder composite only where a franchise has a "
-        f"curated entity list ({entity_coded} of {len(works)} works); elsewhere it is lexicon-only, and the "
-        f"table says which. A source only contributes a score if it supplied at least "
+        f"two-coder composite: a mythic lexicon plus a curated named-entity list, coded per series and per "
+        f"film ({entity_coded} of {len(works)} works have a list; the rest are lexicon-only, and the "
+        f"<em>Fi coder</em> column says which). The two are combined by <code>max</code> rather than a mean, "
+        f"because the entity list is a <em>recovery</em> coder — it exists to see gods that plot summaries "
+        f"name rather than describe — and averaging its many zeros would pull down the lexicon's hits. "
+        f"A source only contributes a score if it supplied at least "
         f"<code>{min_words}</code> words of prose; the <em>text basis</em> column reads "
         f"<em>measured/covered·median words</em>, so a source that resolved most episodes with a 30-word "
         f"teaser is shown as covering them and measuring none of them. Scores are densities and densities "

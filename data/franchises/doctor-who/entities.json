@@ -1,0 +1,972 @@
+{
+  "franchise": "doctor-who",
+  "description": "Curated god-like, reality-bending or magic-equivalent entities, by series (and by film, since a film is a work too). This is a judgement list and is deliberately explicit: it is reviewed, versioned and diffable, unlike a number buried in a score. Every entry carries the hit count measured against the real plot text of its own series, so a name that does not occur cannot silently contribute nothing.",
+  "curatedBy": "hand-curated for the rubric-v2 entity coder (TOS); extended per series by review with LLM-assisted candidate mining (plot sentences co-occurring with mythic vocabulary) and term-level validation against the measured plot text",
+  "codebook": "Include a name only when the work treats it as mythic, divine, magical or reality-bending in itself: a god, demon, spirit, oracle, prophet, immortal, ascended or cosmic intelligence, a personified abstract force, a supernatural magician, an object or place of worship, or an artefact of reality-bending power. Exclude ordinary antagonists and villains however powerful (Davros, the Master, the Daleks), regulars, aliens and species as such, planets, ships, organisations, technology, real-world religion, and unpersonified abstract nouns. caseSensitive is set where the name is also a common noun, so 'the Beast' is not matched by 'a beast'.",
+  "entities": [
+    {
+      "axis": "fi",
+      "series": "dw63",
+      "name": "the Toymaker",
+      "kind": "immortal godlike gamester",
+      "terms": [
+        "Toymaker",
+        "Celestial Toymaker"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 56,
+        "works": 2,
+        "texts": 301,
+        "words": 506356
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw63",
+      "name": "Sutekh",
+      "kind": "Osiran god of death/destruction",
+      "terms": [
+        "Sutekh"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 44,
+        "works": 2,
+        "texts": 301,
+        "words": 506356
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw63",
+      "name": "the Osirans",
+      "kind": "god-race behind Egyptian mythology",
+      "terms": [
+        "Osiran",
+        "Osirans"
+      ],
+      "confidence": "medium",
+      "evidence": {
+        "hits": 4,
+        "works": 2,
+        "texts": 301,
+        "words": 506356
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw63",
+      "name": "Horus",
+      "kind": "Osiran deity, Sutekh's jailer",
+      "terms": [
+        "Horus"
+      ],
+      "confidence": "medium",
+      "evidence": {
+        "hits": 12,
+        "works": 2,
+        "texts": 301,
+        "words": 506356
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw63",
+      "name": "the Fendahl",
+      "kind": "cosmic death-entity and its servants",
+      "terms": [
+        "Fendahl",
+        "Fendahleen"
+      ],
+      "confidence": "medium",
+      "evidence": {
+        "hits": 32,
+        "works": 2,
+        "texts": 301,
+        "words": 506356
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw63",
+      "name": "the Great Intelligence",
+      "kind": "non-corporeal possessing intelligence",
+      "terms": [
+        "Great Intelligence"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 24,
+        "works": 5,
+        "texts": 301,
+        "words": 506356
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw63",
+      "name": "the White Guardian",
+      "kind": "cosmic guardian of order",
+      "terms": [
+        "White Guardian"
+      ],
+      "confidence": "medium",
+      "evidence": {
+        "hits": 16,
+        "works": 6,
+        "texts": 301,
+        "words": 506356
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw63",
+      "name": "the Black Guardian",
+      "kind": "cosmic guardian of chaos",
+      "terms": [
+        "Black Guardian"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 46,
+        "works": 15,
+        "texts": 301,
+        "words": 506356
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw63",
+      "name": "the Eternals",
+      "kind": "immortal super-beings",
+      "terms": [
+        "Eternals"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 9,
+        "works": 2,
+        "texts": 301,
+        "words": 506356
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw63",
+      "name": "Omega",
+      "kind": "legendary Time Lord of godlike power",
+      "terms": [
+        "Omega"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 85,
+        "works": 8,
+        "texts": 301,
+        "words": 506356
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw63",
+      "name": "Rassilon",
+      "kind": "mythic Time Lord founder",
+      "terms": [
+        "Rassilon"
+      ],
+      "confidence": "medium",
+      "evidence": {
+        "hits": 11,
+        "works": 7,
+        "texts": 301,
+        "words": 506356
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw63",
+      "name": "Azal",
+      "kind": "the Daemon, seen on Earth as the Devil",
+      "terms": [
+        "Azal"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 55,
+        "works": 2,
+        "texts": 301,
+        "words": 506356
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw63",
+      "name": "the Mandragora Helix",
+      "kind": "cosmic intelligence offering godlike power",
+      "terms": [
+        "Mandragora Helix",
+        "Mandragora"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 11,
+        "works": 2,
+        "texts": 301,
+        "words": 506356
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw63",
+      "name": "Hieronymous",
+      "kind": "ascended servant of the Helix",
+      "terms": [
+        "Hieronymous"
+      ],
+      "confidence": "low",
+      "evidence": {
+        "hits": 39,
+        "works": 2,
+        "texts": 301,
+        "words": 506356
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw63",
+      "name": "Xoanon",
+      "kind": "computer worshipped as a god",
+      "terms": [
+        "Xoanon"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 43,
+        "works": 2,
+        "texts": 301,
+        "words": 506356
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw63",
+      "name": "the Oracle",
+      "kind": "worshipped super-computer fed by sacrifice",
+      "terms": [
+        "Oracle"
+      ],
+      "confidence": "high",
+      "caseSensitive": true,
+      "evidence": {
+        "hits": 16,
+        "works": 2,
+        "texts": 301,
+        "words": 506356
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw63",
+      "name": "Kronos",
+      "kind": "Chronovore, godlike being of time",
+      "terms": [
+        "Kronos",
+        "Chronovore",
+        "Chronovores"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 38,
+        "works": 2,
+        "texts": 301,
+        "words": 506356
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw63",
+      "name": "the Cailleach",
+      "kind": "Celtic goddess of war and magic",
+      "terms": [
+        "Cailleach"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 3,
+        "works": 2,
+        "texts": 301,
+        "words": 506356
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw63",
+      "name": "the Mara",
+      "kind": "evil non-corporeal being of the subconscious",
+      "terms": [
+        "Mara"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 58,
+        "works": 6,
+        "texts": 301,
+        "words": 506356
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw63",
+      "name": "the Gods of Ragnarok",
+      "kind": "gods who feed on entertainment",
+      "terms": [
+        "Gods of Ragnarok"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 8,
+        "works": 2,
+        "texts": 301,
+        "words": 506356
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw63",
+      "name": "Fenric",
+      "kind": "ancient cosmic evil",
+      "terms": [
+        "Fenric"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 15,
+        "works": 2,
+        "texts": 301,
+        "words": 506356
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw63",
+      "name": "the Destroyer",
+      "kind": "demonic being summoned as an executioner",
+      "terms": [
+        "Destroyer"
+      ],
+      "confidence": "low",
+      "caseSensitive": true,
+      "evidence": {
+        "hits": 15,
+        "works": 2,
+        "texts": 301,
+        "words": 506356
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw63",
+      "name": "the Nestene Consciousness",
+      "kind": "non-corporeal cosmic hive intelligence",
+      "terms": [
+        "Nestene Consciousness",
+        "Nestene"
+      ],
+      "confidence": "medium",
+      "evidence": {
+        "hits": 15,
+        "works": 4,
+        "texts": 301,
+        "words": 506356
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw63",
+      "name": "the Great One",
+      "kind": "giant vampire worshipped by a cult",
+      "terms": [
+        "Great One"
+      ],
+      "confidence": "medium",
+      "caseSensitive": true,
+      "evidence": {
+        "hits": 25,
+        "works": 4,
+        "texts": 301,
+        "words": 506356
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw63",
+      "name": "Aggedor",
+      "kind": "royal beast worshipped as a spirit/curse",
+      "terms": [
+        "Aggedor"
+      ],
+      "confidence": "medium",
+      "evidence": {
+        "hits": 52,
+        "works": 4,
+        "texts": 301,
+        "words": 506356
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw63",
+      "name": "Kroll",
+      "kind": "giant creature worshipped as a god",
+      "terms": [
+        "Kroll"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 24,
+        "works": 2,
+        "texts": 301,
+        "words": 506356
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw63",
+      "name": "the Dodecahedron",
+      "kind": "idol object of worship",
+      "terms": [
+        "Dodecahedron"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 27,
+        "works": 2,
+        "texts": 301,
+        "words": 506356
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw63",
+      "name": "Amdo",
+      "kind": "god of the Atlantis priests",
+      "terms": [
+        "Amdo"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 9,
+        "works": 2,
+        "texts": 301,
+        "words": 506356
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw63",
+      "name": "Logar",
+      "kind": "god of a heretical-hunting village",
+      "terms": [
+        "Logar"
+      ],
+      "confidence": "medium",
+      "evidence": {
+        "hits": 12,
+        "works": 1,
+        "texts": 301,
+        "words": 506356
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw63",
+      "name": "Yetaxa",
+      "kind": "Aztec deity",
+      "terms": [
+        "Yetaxa"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 16,
+        "works": 2,
+        "texts": 301,
+        "words": 506356
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw63",
+      "name": "Zeus",
+      "kind": "Greek god",
+      "terms": [
+        "Zeus"
+      ],
+      "confidence": "medium",
+      "evidence": {
+        "hits": 26,
+        "works": 3,
+        "texts": 301,
+        "words": 506356
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw63",
+      "name": "Cassandra",
+      "kind": "cursed prophetess of Troy",
+      "terms": [
+        "Cassandra"
+      ],
+      "confidence": "medium",
+      "evidence": {
+        "hits": 16,
+        "works": 2,
+        "texts": 301,
+        "words": 506356
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw63",
+      "name": "the Key to Time",
+      "kind": "reality-controlling cosmic artefact",
+      "terms": [
+        "Key to Time"
+      ],
+      "confidence": "medium",
+      "evidence": {
+        "hits": 31,
+        "works": 12,
+        "texts": 301,
+        "words": 506356
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw63",
+      "name": "Weng-Chiang",
+      "kind": "god of the Tong, impersonated by Greel",
+      "terms": [
+        "Weng-Chiang"
+      ],
+      "confidence": "medium",
+      "evidence": {
+        "hits": 37,
+        "works": 2,
+        "texts": 301,
+        "words": 506356
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw63",
+      "name": "Morgaine",
+      "kind": "Arthurian sorceress",
+      "terms": [
+        "Morgaine"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 29,
+        "works": 2,
+        "texts": 301,
+        "words": 506356
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw63",
+      "name": "Excalibur",
+      "kind": "magic sword of legend",
+      "terms": [
+        "Excalibur"
+      ],
+      "confidence": "medium",
+      "evidence": {
+        "hits": 20,
+        "works": 2,
+        "texts": 301,
+        "words": 506356
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw63",
+      "name": "the Nimon",
+      "kind": "alien revered as a god",
+      "terms": [
+        "Nimon",
+        "Nimons"
+      ],
+      "confidence": "medium",
+      "evidence": {
+        "hits": 39,
+        "works": 2,
+        "texts": 301,
+        "words": 506356
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw63",
+      "name": "the Sacred Flame",
+      "kind": "sacred relic granting immortality",
+      "terms": [
+        "Sacred Flame"
+      ],
+      "confidence": "low",
+      "caseSensitive": true,
+      "evidence": {
+        "hits": 3,
+        "works": 1,
+        "texts": 301,
+        "words": 506356
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw05",
+      "name": "the Beast",
+      "kind": "the Devil, ancient godlike evil",
+      "terms": [
+        "the Beast"
+      ],
+      "confidence": "high",
+      "caseSensitive": true,
+      "evidence": {
+        "hits": 39,
+        "works": 8,
+        "texts": 292,
+        "words": 437742
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw05",
+      "name": "the Old God of Akhaten",
+      "kind": "soul-devouring god, 'Grandfather'",
+      "terms": [
+        "Old God",
+        "God of Akhaten"
+      ],
+      "confidence": "high",
+      "caseSensitive": true,
+      "evidence": {
+        "hits": 14,
+        "works": 2,
+        "texts": 292,
+        "words": 437742
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw05",
+      "name": "Zellin",
+      "kind": "immortal god who plays games with the universe",
+      "terms": [
+        "Zellin"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 15,
+        "works": 2,
+        "texts": 292,
+        "words": 437742
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw05",
+      "name": "Rakaya",
+      "kind": "immortal god",
+      "terms": [
+        "Rakaya"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 13,
+        "works": 2,
+        "texts": 292,
+        "words": 437742
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw05",
+      "name": "Lilith",
+      "kind": "Carrionite witch",
+      "terms": [
+        "Lilith"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 39,
+        "works": 2,
+        "texts": 292,
+        "words": 437742
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw05",
+      "name": "the Carrionites",
+      "kind": "witches whose magic is the power of words",
+      "terms": [
+        "Carrionite",
+        "Carrionites",
+        "Doomfinger",
+        "Bloodtide"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 49,
+        "works": 3,
+        "texts": 292,
+        "words": 437742
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw05",
+      "name": "the Dream Lord",
+      "kind": "godlike apparition of dreams",
+      "terms": [
+        "Dream Lord"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 31,
+        "works": 2,
+        "texts": 292,
+        "words": 437742
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw05",
+      "name": "the Minotaur",
+      "kind": "faith-devouring beast-god",
+      "terms": [
+        "Minotaur"
+      ],
+      "confidence": "medium",
+      "evidence": {
+        "hits": 23,
+        "works": 2,
+        "texts": 292,
+        "words": 437742
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw05",
+      "name": "Bad Wolf",
+      "kind": "apotheosised cosmic entity/force",
+      "terms": [
+        "Bad Wolf"
+      ],
+      "confidence": "medium",
+      "evidence": {
+        "hits": 25,
+        "works": 15,
+        "texts": 292,
+        "words": 437742
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw05",
+      "name": "Rassilon",
+      "kind": "mythic Time Lord founder",
+      "terms": [
+        "Rassilon"
+      ],
+      "confidence": "medium",
+      "evidence": {
+        "hits": 27,
+        "works": 4,
+        "texts": 292,
+        "words": 437742
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw05",
+      "name": "the Great Intelligence",
+      "kind": "non-corporeal possessing intelligence",
+      "terms": [
+        "Great Intelligence"
+      ],
+      "confidence": "medium",
+      "evidence": {
+        "hits": 14,
+        "works": 3,
+        "texts": 292,
+        "words": 437742
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw05",
+      "name": "Odin",
+      "kind": "Norse god impersonated by an alien",
+      "terms": [
+        "Odin"
+      ],
+      "confidence": "medium",
+      "evidence": {
+        "hits": 35,
+        "works": 2,
+        "texts": 292,
+        "words": 437742
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw05",
+      "name": "the Solitract",
+      "kind": "conscious universe",
+      "terms": [
+        "Solitract"
+      ],
+      "confidence": "medium",
+      "evidence": {
+        "hits": 25,
+        "works": 2,
+        "texts": 292,
+        "words": 437742
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw23",
+      "name": "the Toymaker",
+      "kind": "godlike gamester, Pantheon member",
+      "terms": [
+        "Toymaker"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 5,
+        "works": 3,
+        "texts": 32,
+        "words": 26471
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw23",
+      "name": "Maestro",
+      "kind": "god of music summoned by the devil's chord",
+      "terms": [
+        "Maestro"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 33,
+        "works": 3,
+        "texts": 32,
+        "words": 26471
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw23",
+      "name": "Sutekh",
+      "kind": "god of death, 'the One Who Waits'",
+      "terms": [
+        "Sutekh",
+        "the One Who Waits"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 59,
+        "works": 6,
+        "texts": 32,
+        "words": 26471
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw23",
+      "name": "the Pantheon of Discord",
+      "kind": "pantheon of gods",
+      "terms": [
+        "Pantheon of Discord"
+      ],
+      "confidence": "medium",
+      "evidence": {
+        "hits": 2,
+        "works": 2,
+        "texts": 32,
+        "words": 26471
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw23",
+      "name": "Desiderium",
+      "kind": "infant god who makes wishes real",
+      "terms": [
+        "Desiderium"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 6,
+        "works": 2,
+        "texts": 32,
+        "words": 26471
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw23",
+      "name": "Omega",
+      "kind": "legendary Time Lord, 'the Mad God'",
+      "terms": [
+        "Omega"
+      ],
+      "confidence": "high",
+      "evidence": {
+        "hits": 17,
+        "works": 3,
+        "texts": 32,
+        "words": 26471
+      }
+    },
+    {
+      "axis": "fi",
+      "series": "dw23",
+      "name": "Ring-a-Ding",
+      "kind": "Lux Imperator, God of Light, Pantheon member",
+      "terms": [
+        "Ring-a-Ding",
+        "Lux Imperator"
+      ],
+      "confidence": "medium",
+      "evidence": {
+        "hits": 6,
+        "works": 2,
+        "texts": 32,
+        "words": 26471
+      }
+    },
+    {
+      "axis": "fi",
+      "confidence": "medium",
+      "series": "dwm96",
+      "name": "the Eye of Harmony",
+      "kind": "Time Lord artefact of reality-bending power",
+      "terms": [
+        "Eye of Harmony"
+      ],
+      "evidence": {
+        "hits": 5,
+        "works": 2,
+        "texts": 2,
+        "words": 4566
+      }
+    }
+  ]
+}
