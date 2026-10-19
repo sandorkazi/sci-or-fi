@@ -210,7 +210,7 @@ code{font-size:.92em;background:rgba(127,127,127,.14);padding:1px 4px;border-rad
       <div class="card" style="margin-top:12px">
         <label class="chip"><input type="checkbox" id="pathToggle" checked style="accent-color:var(--accent)"> series paths</label>
         <p class="muted" style="margin:10px 0 0">Each series is joined in broadcast order from its first season
-        (marked with that season's number &mdash; a split era can start mid-run) to its latest, and the line fades in
+        (marked with a dark outline &mdash; a split era can start mid-run) to its latest, and the line fades in
         at the start so direction in time is visible. Turn paths off to compare seasons as a cloud; the tooltip still
         names the season.</p>
       </div>
@@ -254,6 +254,9 @@ const DATA = __DATA__;
 const RUBRIC = __RUBRIC_JS__;
 const BASELINE = __BASELINE__;
 const CARD = (getComputedStyle(document.documentElement).getPropertyValue('--card') || '#fff').trim();
+// Near-black ring on each series' first plotted season. Fixed rather than var(--text)
+// because the ring sits on a saturated bubble, where dark ink reads in both themes.
+const MARK = '#0b0b0b';
 
 const selected = new Set(DATA.scope.sources);
 const films = DATA.series.filter(s => s.kind === 'film');
@@ -305,9 +308,6 @@ const f2 = v => (v === undefined || v === null) ? '-' : v.toFixed(2);
 const yr = se => !se.year ? '-' : (se.yearEnd ? se.year + '\u2013' + String(se.yearEnd).slice(2) : String(se.year));
 
 let chart = null;
-// Where each series starts, so the start marker plugin knows which bubble is the
-// first season and what to call it. Rebuilt with every draw.
-let starts = [];
 
 // A season average is a point in time, but a series is a path: without the line the
 // chart is a cloud and "did this mellow or harden?" is unanswerable. Each series
@@ -316,7 +316,6 @@ let starts = [];
 // drawn between seasons that were actually measured.
 function build() {
   const datasets = [];
-  starts = [];
   // Two passes: every path, then every set of bubbles. Interleaving them would let a
   // later series' line cross over an earlier series' markers, which is exactly the
   // clutter the paths are meant to remove.
@@ -325,20 +324,18 @@ function build() {
     if (s.kind === 'film') continue;
     const pts = [];
     const path = [];
-    let firstSeason = null;
     for (const season of s.seasons) {
       const sci = combine(season, 'sci'), fi = combine(season, 'fi');
       if (!sci || !fi) continue;
-      if (firstSeason === null) firstSeason = season;
       pts.push({ x: sci.value, y: fi.value, r: normalised ? 6 : radius(ciOf(sci.ci, fi.ci)),
                  meta: { s, season, sci, fi } });
       path.push({ x: sci.value, y: fi.value });
     }
-    if (pts.length) series.push({ s, pts, path, firstSeason });
+    if (pts.length) series.push({ s, pts, path });
   }
   if (showPaths) {
     for (const { s, path } of series) {
-      // Fade along the path: faint at the first season (marked 1), solid at the latest.
+      // Fade along the path: faint at the first season (outlined), solid at the latest.
       // Without it a tangle of lines shows adjacency but not direction in time.
       datasets.push({ type: 'line', label: s.short + ' path', data: path,
                       borderColor: s.color, borderWidth: 1.3, pointRadius: 0,
@@ -352,10 +349,14 @@ function build() {
                       } });
     }
   }
-  for (const { s, pts, firstSeason } of series) {
-    starts.push({ dataset: datasets.length, season: firstSeason.season, color: s.color });
+  for (const { s, pts } of series) {
+    // The first plotted season carries a dark outline instead of a floating numeral:
+    // the path already says where it starts, and an outline cannot collide with
+    // neighbouring bubbles the way a number can.
     datasets.push({ label: s.short, data: pts, backgroundColor: s.color + 'd9',
-                    borderColor: CARD, borderWidth: 1.5, hidden: !on.has(s.id),
+                    borderColor: pts.map((_, i) => i === 0 ? MARK : CARD),
+                    borderWidth: pts.map((_, i) => i === 0 ? 2.5 : 1.5),
+                    hidden: !on.has(s.id),
                     hoverBorderColor: s.color, hoverBorderWidth: 2 });
   }
   // Films are one group, not 14 near-invisible series: a distinct neutral marker
@@ -417,41 +418,8 @@ const tip = {
   }
 };
 
-// The first season of each series carries its season number, so a path has a visible
-// origin: most read "1", and a series whose first season was below the floor starts at
-// the number it actually starts at. The trajectory then reads forward from there.
-const startMarkers = {
-  id: 'startMarkers',
-  afterDatasetsDraw(c) {
-    const ctx = c.ctx;
-    ctx.save();
-    ctx.font = '700 11px system-ui, -apple-system, sans-serif';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.lineJoin = 'round';
-    ctx.lineWidth = 3;
-    ctx.strokeStyle = 'rgba(255,255,255,0.92)';
-    for (const st of starts) {
-      const meta = c.getDatasetMeta(st.dataset);
-      if (!meta || meta.hidden || !meta.data || !meta.data.length) continue;
-      const el = meta.data[0];
-      // Zooming can push a series' start outside the view. Do not pin its numeral
-      // to the axis edge: that would claim the start is where the reader is looking.
-      if (el.x < c.chartArea.left || el.x > c.chartArea.right
-          || el.y < c.chartArea.top || el.y > c.chartArea.bottom) continue;
-      const r = (el.options && el.options.radius) || 6;
-      // Sit the numeral just outside the bubble: inside it, the label is lost on a
-      // crowded season, and a leader would need a second line to stay readable.
-      const above = el.y - (r + 7);
-      const x = el.x, y = above < c.chartArea.top + 7 ? el.y + r + 8 : above;
-      const label = String(st.season);
-      ctx.strokeText(label, x, y);
-      ctx.fillStyle = st.color;
-      ctx.fillText(label, x, y);
-    }
-    ctx.restore();
-  }
-};
+// The first season of each series carries a dark outline, added as per-point border
+// options in build(); nothing is drawn over the plot after the datasets.
 
 function visibleValues() {
   const xs = [], ys = [];
@@ -505,8 +473,7 @@ function draw() {
              title: { display: true, text: 'Fi — myth / magic / reality-bending' + (normalised ? '  (rank)' : ''), color: text2 } }
       },
       plugins: { legend: { display: false }, tooltip: tip }
-    },
-    plugins: [startMarkers]
+    }
   });
   updateHint();
 }
@@ -777,8 +744,8 @@ def render_all(franchise_id: str, date: str, rubric: dict) -> list[Path]:
         f"turns on god-like power, prophecy and reality-bending. Scores are computed per episode from a "
         f"source scope, then averaged per season; bubble size is the measured 95% confidence interval of "
         f"that average, never a hand-set value. Seasons of a series are joined in broadcast order, so "
-        f"each series is a path over the years: its first season is marked with its broadcast season "
-        f"number and the line fades in from there to the latest season. Covers <code>{series_txt}</code> series, "
+        f"each series is a path over the years: its first season carries a dark outline and the line "
+        f"fades in from there to the latest season. Covers <code>{series_txt}</code> series, "
         f"<code>{films_txt}</code> films and <code>{n_seasons}</code> seasons; "
         f"<code>{len(sources)}</code> sources in scope ({' + '.join(sources)}) — toggle them on the right and "
         f"the chart recomputes. Films have no TVmaze entry and are plotted with a neutral marker; their "

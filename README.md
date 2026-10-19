@@ -122,9 +122,8 @@ Sci and Fi are scored from disjoint term sets, per episode per source, as a dens
   either sees, because averaging the entity coder's zeros into the lexicon's hits would suppress real
   myth. Change the field to `"weighted"` for a mean; nothing else depends on the choice.
 - **Seasons are paths, not a cloud.** Each series is joined in broadcast order and its first season
-  is marked with that season's number (`1` for a show's first season, `4` for the Second Doctor's);
-  the line fades in at the start, so direction in time is visible without a third axis. The *series
-  paths* checkbox turns the lines off for a season-cloud view.
+  carries a dark outline; the line fades in at the start, so direction in time is visible without a
+  third axis. The *series paths* checkbox turns the lines off for a season-cloud view.
 - **Zoom and pan.** Scroll over the chart to zoom around the cursor, drag to pan, double-click (or
   the *reset* link under the chart) to return to 0–10. The view window is printed under the chart,
   and *fit axes to data* remains the one-click pre-fit for the crowded corner where the scores live.

@@ -52,7 +52,7 @@ code{font-size:.92em;background:rgba(127,127,127,.14);padding:1px 4px;border-rad
 <body>
 <div class="wrap">
   <h1>Doctor Who: Sci vs Fi, season by season</h1>
-  <p class="sub">Each season is scored on two independent axes. <strong>Sci</strong> is how much the episode text turns on technical and scientific vocabulary; <strong>Fi</strong> is how much it turns on god-like power, prophecy and reality-bending. Scores are computed per episode from a source scope, then averaged per season; bubble size is the measured 95% confidence interval of that average, never a hand-set value. Seasons of a series are joined in broadcast order, so each series is a path over the years: its first season is marked with its broadcast season number and the line fades in from there to the latest season. Covers <code>9</code> series, <code>3</code> films and <code>44</code> seasons; <code>3</code> sources in scope (tvmaze + wikipedia + tardis) — toggle them on the right and the chart recomputes. Films have no TVmaze entry and are plotted with a neutral marker; their text comes from the same wiki sources, looked up by article title rather than search. Fi is a two-coder composite: a mythic lexicon plus a curated named-entity list, coded per series and per film (9 of 12 works have a list; the rest are lexicon-only, and the <em>Fi coder</em> column says which). The two are combined by <code>max</code> rather than a mean, because the entity list is a <em>recovery</em> coder — it exists to see gods that plot summaries name rather than describe — and averaging its many zeros would pull down the lexicon's hits. A source only contributes a score if it supplied at least <code>200</code> words of prose; the <em>text basis</em> column reads <em>measured/covered·median words</em>, so a source that resolved most episodes with a 30-word teaser is shown as covering them and measuring none of them. Scores are densities and densities bunch, so the sidebar can switch the chart to a percentile <em>rank</em> scale that uses the full range — read the measured scale for how much science a work contains, the rank scale for where it stands.</p>
+  <p class="sub">Each season is scored on two independent axes. <strong>Sci</strong> is how much the episode text turns on technical and scientific vocabulary; <strong>Fi</strong> is how much it turns on god-like power, prophecy and reality-bending. Scores are computed per episode from a source scope, then averaged per season; bubble size is the measured 95% confidence interval of that average, never a hand-set value. Seasons of a series are joined in broadcast order, so each series is a path over the years: its first season carries a dark outline and the line fades in from there to the latest season. Covers <code>9</code> series, <code>3</code> films and <code>44</code> seasons; <code>3</code> sources in scope (tvmaze + wikipedia + tardis) — toggle them on the right and the chart recomputes. Films have no TVmaze entry and are plotted with a neutral marker; their text comes from the same wiki sources, looked up by article title rather than search. Fi is a two-coder composite: a mythic lexicon plus a curated named-entity list, coded per series and per film (9 of 12 works have a list; the rest are lexicon-only, and the <em>Fi coder</em> column says which). The two are combined by <code>max</code> rather than a mean, because the entity list is a <em>recovery</em> coder — it exists to see gods that plot summaries name rather than describe — and averaging its many zeros would pull down the lexicon's hits. A source only contributes a score if it supplied at least <code>200</code> words of prose; the <em>text basis</em> column reads <em>measured/covered·median words</em>, so a source that resolved most episodes with a 30-word teaser is shown as covering them and measuring none of them. Scores are densities and densities bunch, so the sidebar can switch the chart to a percentile <em>rank</em> scale that uses the full range — read the measured scale for how much science a work contains, the rank scale for where it stands.</p>
 
   <div class="layout">
     <div class="main card">
@@ -78,7 +78,7 @@ code{font-size:.92em;background:rgba(127,127,127,.14);padding:1px 4px;border-rad
       <div class="card" style="margin-top:12px">
         <label class="chip"><input type="checkbox" id="pathToggle" checked style="accent-color:var(--accent)"> series paths</label>
         <p class="muted" style="margin:10px 0 0">Each series is joined in broadcast order from its first season
-        (marked with that season's number &mdash; a split era can start mid-run) to its latest, and the line fades in
+        (marked with a dark outline &mdash; a split era can start mid-run) to its latest, and the line fades in
         at the start so direction in time is visible. Turn paths off to compare seasons as a cloud; the tooltip still
         names the season.</p>
       </div>
@@ -122,6 +122,9 @@ const DATA = {"franchise":"doctor-who","franchiseName":"Doctor Who","snapshotDat
 const RUBRIC = {"version":"rubric-v3","description":"rubric-v2's coders (technical lexicon on Sci, mythic lexicon + curated named entities on Fi) with two measurement changes. First, a validity floor: a source text shorter than measurement.minWords is still recorded as covering an episode but does not contribute a score, because a 33-word teaser with no lexicon hit is the absence of text rather than the absence of science. Second, saturations are calibrated on the whole measured corpus instead of on Star Trek: TOS alone, so the 0-10 scale is used end to end; see the 'calibration' block, which the `calibrate` stage regenerates. Fi is combined by max rather than a mean (see axes.fi.combineNotes).","measurement":{"minWords":200,"notes":"Minimum source-text length for a measurement. Below it a source still counts as covering an episode (published in the text basis) but contributes no score. TVmaze summaries have a 33-word median and 92% of them contain no lexicon term at all."},"scale":{"min":0,"max":10,"mapping":"per sub-signal: frac = min(1, value / saturation); axis score = max * sum(weight * frac) / sum(weight)","notes":"per sub-signal: frac = min(1, value / saturation); axis score = max * sum(weight * frac) / sum(weight). Saturation is the 95th percentile of that sub-signal's raw value over all valid measurements in the repository (`calibrate`), so a score of 10 is the top 5% of what has actually been measured rather than an extrapolation. Raw densities are always published alongside scores, and each season also carries a percentile `rank` so the chart can be read on a scale that cannot bunch."},"axes":{"sci":{"label":"Sci - scientific / engineering rigour","definition":"How much an episode's text turns on technical, scientific or engineering vocabulary, as opposed to being set dressing.","subsignals":[{"id":"technical-lexicon-density","coder":"lexicon","weight":1.0,"saturation":14.472,"calibration":"p95 of this sub-signal over 2289 valid measurements (>= 200 words of source text), all franchises and sources","patterns":["sensor","scanner","scan","detector","probe","telemetry","diagnostic","analysis","analyze","instrument","experiment","hypothesis","theory","calculation","measurement","equation","formula","physics","chemistry","biology","biological","astronomy","geology","engineer","engineering","repair","circuit","component","computer","program","subroutine","algorithm","database","radiation","frequency","modulation","subspace","tachyon","particle","warp","dilithium","antimatter","reactor","plasma","orbit","gravity","gravitational","magnetic","atmosphere","temperature","pressure","virus","bacteria","vaccine","transporter","phase","polarity"]}]},"fi":{"label":"Fi - myth / magic / reality-bending","combine":"max","combineNotes":"The Fi axis is one dense coder plus one sparse recovery coder. The entity list exists because plot summaries name gods rather than describing them mythically, so it recovers myth that the lexicon cannot see; it is not a second opinion about episodes the lexicon already scores. Averaging would let its many zeros pull down the lexicon's hits, so the axis takes the strongest evidence either coder sees. Set combine to \"weighted\" to average them instead.","definition":"How much an episode's text turns on god-like power, prophecy, magic-equivalent action or reality-breaking storytelling.","subsignals":[{"id":"mythic-lexicon-density","coder":"lexicon","weight":1.0,"saturation":5.097,"calibration":"p95 of this sub-signal over 2289 valid measurements (>= 200 words of source text), all franchises and sources","patterns":["god","gods","goddess","deity","divine","worship","worshipper","prayer","temple","altar","ritual","sacred","holy","prophet","prophecy","prophesy","messiah","oracle","destiny","fate","immortal","immortality","eternal","soul","spirit","spirits","ghost","afterlife","heaven","hell","demon","devil","angel","magic","magical","sorcery","witch","wizard","spell","curse","supernatural","miracle","myth","mythical","legend","psychic","telepath","telepathy","telekinetic","psionic","possess","possession","reincarnation","resurrection","cult","transcendent","omnipotent","illusion","hallucination"]},{"id":"numinous-entity","coder":"entity","weight":1.0,"saturation":12.285,"calibration":"p95 of this sub-signal over 2233 valid measurements (>= 200 words of source text), all franchises and sources","entitySource":"franchise:entities","notes":"Added in rubric-v2 precisely because rubric-v1's Fi lexicon was silent on episodes whose mythic content is nominal."}]}},"uncertainty":{"method":"ci95-mean","z":1.96,"thinSampleBelow":5,"thinSampleInflation":1.5,"notes":"ci95 = z * stdev(episode scores) / sqrt(n), inflated when n is below thinSampleBelow. Measured from the episode distribution, never asserted by hand."},"reserved":{"notes":"Judgement sub-signals that require a coding coder (human or LLM) rather than a lexicon. Declared now so rubric-v3 is an extension, not a rewrite.","sci":["resolution-mechanism","methodological-framing","internal-consistency","pseudoscience-handwave"],"fi":["prophecy-driven-plot","magic-equivalent-action","reality-or-format-bending","literal-afterlife","absurdist-tonal-break"]},"scope":{"categories":["plot-summary"],"sources":["tvmaze","wikipedia","memory-alpha","tardis"]},"calibration":{"method":"p95 of the sub-signal's raw value over valid measurements","minWords":200,"franchises":["doctor-who","star-trek"],"subsignals":{"technical-lexicon-density":{"n":2289,"p95":14.472,"was":14.472},"mythic-lexicon-density":{"n":2289,"p95":5.097,"was":5.097},"numinous-entity":{"n":2233,"p95":12.285,"was":23.654}},"generatedAt":"2026-10-18T11:29:18+00:00"}};
 const BASELINE = null;
 const CARD = (getComputedStyle(document.documentElement).getPropertyValue('--card') || '#fff').trim();
+// Near-black ring on each series' first plotted season. Fixed rather than var(--text)
+// because the ring sits on a saturated bubble, where dark ink reads in both themes.
+const MARK = '#0b0b0b';
 
 const selected = new Set(DATA.scope.sources);
 const films = DATA.series.filter(s => s.kind === 'film');
@@ -173,9 +176,6 @@ const f2 = v => (v === undefined || v === null) ? '-' : v.toFixed(2);
 const yr = se => !se.year ? '-' : (se.yearEnd ? se.year + '–' + String(se.yearEnd).slice(2) : String(se.year));
 
 let chart = null;
-// Where each series starts, so the start marker plugin knows which bubble is the
-// first season and what to call it. Rebuilt with every draw.
-let starts = [];
 
 // A season average is a point in time, but a series is a path: without the line the
 // chart is a cloud and "did this mellow or harden?" is unanswerable. Each series
@@ -184,7 +184,6 @@ let starts = [];
 // drawn between seasons that were actually measured.
 function build() {
   const datasets = [];
-  starts = [];
   // Two passes: every path, then every set of bubbles. Interleaving them would let a
   // later series' line cross over an earlier series' markers, which is exactly the
   // clutter the paths are meant to remove.
@@ -193,20 +192,18 @@ function build() {
     if (s.kind === 'film') continue;
     const pts = [];
     const path = [];
-    let firstSeason = null;
     for (const season of s.seasons) {
       const sci = combine(season, 'sci'), fi = combine(season, 'fi');
       if (!sci || !fi) continue;
-      if (firstSeason === null) firstSeason = season;
       pts.push({ x: sci.value, y: fi.value, r: normalised ? 6 : radius(ciOf(sci.ci, fi.ci)),
                  meta: { s, season, sci, fi } });
       path.push({ x: sci.value, y: fi.value });
     }
-    if (pts.length) series.push({ s, pts, path, firstSeason });
+    if (pts.length) series.push({ s, pts, path });
   }
   if (showPaths) {
     for (const { s, path } of series) {
-      // Fade along the path: faint at the first season (marked 1), solid at the latest.
+      // Fade along the path: faint at the first season (outlined), solid at the latest.
       // Without it a tangle of lines shows adjacency but not direction in time.
       datasets.push({ type: 'line', label: s.short + ' path', data: path,
                       borderColor: s.color, borderWidth: 1.3, pointRadius: 0,
@@ -220,10 +217,14 @@ function build() {
                       } });
     }
   }
-  for (const { s, pts, firstSeason } of series) {
-    starts.push({ dataset: datasets.length, season: firstSeason.season, color: s.color });
+  for (const { s, pts } of series) {
+    // The first plotted season carries a dark outline instead of a floating numeral:
+    // the path already says where it starts, and an outline cannot collide with
+    // neighbouring bubbles the way a number can.
     datasets.push({ label: s.short, data: pts, backgroundColor: s.color + 'd9',
-                    borderColor: CARD, borderWidth: 1.5, hidden: !on.has(s.id),
+                    borderColor: pts.map((_, i) => i === 0 ? MARK : CARD),
+                    borderWidth: pts.map((_, i) => i === 0 ? 2.5 : 1.5),
+                    hidden: !on.has(s.id),
                     hoverBorderColor: s.color, hoverBorderWidth: 2 });
   }
   // Films are one group, not 14 near-invisible series: a distinct neutral marker
@@ -285,41 +286,8 @@ const tip = {
   }
 };
 
-// The first season of each series carries its season number, so a path has a visible
-// origin: most read "1", and a series whose first season was below the floor starts at
-// the number it actually starts at. The trajectory then reads forward from there.
-const startMarkers = {
-  id: 'startMarkers',
-  afterDatasetsDraw(c) {
-    const ctx = c.ctx;
-    ctx.save();
-    ctx.font = '700 11px system-ui, -apple-system, sans-serif';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.lineJoin = 'round';
-    ctx.lineWidth = 3;
-    ctx.strokeStyle = 'rgba(255,255,255,0.92)';
-    for (const st of starts) {
-      const meta = c.getDatasetMeta(st.dataset);
-      if (!meta || meta.hidden || !meta.data || !meta.data.length) continue;
-      const el = meta.data[0];
-      // Zooming can push a series' start outside the view. Do not pin its numeral
-      // to the axis edge: that would claim the start is where the reader is looking.
-      if (el.x < c.chartArea.left || el.x > c.chartArea.right
-          || el.y < c.chartArea.top || el.y > c.chartArea.bottom) continue;
-      const r = (el.options && el.options.radius) || 6;
-      // Sit the numeral just outside the bubble: inside it, the label is lost on a
-      // crowded season, and a leader would need a second line to stay readable.
-      const above = el.y - (r + 7);
-      const x = el.x, y = above < c.chartArea.top + 7 ? el.y + r + 8 : above;
-      const label = String(st.season);
-      ctx.strokeText(label, x, y);
-      ctx.fillStyle = st.color;
-      ctx.fillText(label, x, y);
-    }
-    ctx.restore();
-  }
-};
+// The first season of each series carries a dark outline, added as per-point border
+// options in build(); nothing is drawn over the plot after the datasets.
 
 function visibleValues() {
   const xs = [], ys = [];
@@ -373,8 +341,7 @@ function draw() {
              title: { display: true, text: 'Fi — myth / magic / reality-bending' + (normalised ? '  (rank)' : ''), color: text2 } }
       },
       plugins: { legend: { display: false }, tooltip: tip }
-    },
-    plugins: [startMarkers]
+    }
   });
   updateHint();
 }
