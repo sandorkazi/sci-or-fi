@@ -54,6 +54,16 @@ into one work per serial (`unit: "serial"`), so a story is measured against a st
 a fifth of it. The original part count is kept per season as `partCount`. This one flag took classic
 Who from 35 of 700 works measured to **152 of 155**.
 
+A series can also declare a **split** into eras that are measured as separate works. Classic Who is
+one TVmaze catalogue (id 766) but seven lead actors, so `franchise.json` declares seven eras, each
+with an `id`, `short`, `color`, `doctor`, `years` and the `(season, serial)` where it starts. The
+partition is on the grouped **serial**, not the season, because two seasons straddle a regeneration:
+season 4 splits at *The Tenth Planet* / *The Power of the Daleks*, and season 21 at *The Caves of
+Androzani* / *The Twin Dilemma*. Each era inherits the container's TVmaze id, wiki hint and curated
+entity list (`entityGroup`), renumbers its own works from 1 within a season, and pins `expectedSerials`
+so a changed upstream boundary fails validation instead of silently moving. The eras are `DW1`–`DW7`
+(Hartnell → McCoy) and share the `dw63` entity list.
+
 Curated `entities.json` lists are **per series**, and hand-curated with LLM assistance: a fixed spec
 (universe-of-discourse figures only, each with evidence counts) is applied per series, then proposals
 are merged and pruned — dead strings, generic terms and ordinary characters do not survive. Every
@@ -112,8 +122,9 @@ Sci and Fi are scored from disjoint term sets, per episode per source, as a dens
   either sees, because averaging the entity coder's zeros into the lexicon's hits would suppress real
   myth. Change the field to `"weighted"` for a mean; nothing else depends on the choice.
 - **Seasons are paths, not a cloud.** Each series is joined in broadcast order and its first season
-  is marked `1`; the line fades in at the start, so direction in time is visible without a third
-  axis. The *series paths* checkbox turns the lines off for a season-cloud view.
+  is marked with that season's number (`1` for a show's first season, `4` for the Second Doctor's);
+  the line fades in at the start, so direction in time is visible without a third axis. The *series
+  paths* checkbox turns the lines off for a season-cloud view.
 - **Measured score, or rank.** Each season also carries a **percentile rank** per source, averaged
   over the selected sources exactly as the measured score is. The sidebar can switch the chart to it.
   The rank scale is uniform by construction, so it uses the full 0–10 range and cancels the

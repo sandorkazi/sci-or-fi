@@ -553,6 +553,57 @@ Fi remains a *text* measure, not a judgement coder: it counts how much the plot 
 and an episode whose myth is visual rather than narrated will still read low. That is the gap the
 judgement coder in open decision 4 is meant to close.
 
+## P6 status — classic Who split by Doctor, done
+
+The last scope question from P4 was whether 1963–1989 should stay one `dw63` series or be split by
+lead actor. It is now split. A season average over 26 years and seven leads answers "how mythic is
+classic Who?" but not "which Who?", and the show's relationship to its own science visibly changes
+with the actor and production team.
+
+The split lives in `franchise.json`, not in code. The `dw63` entry keeps the TVmaze id, wiki hint and
+entity list, and declares `split.eras`: seven entries, each with an `id`, `short`, `name`, `doctor`,
+`years`, pinned `color` and a `from: [season, serial]` start. Each era runs until the next era's
+start (half-open), and the container itself is metadata — it never appears in a snapshot or on the
+chart. Boundaries are on the **serial**, not the season: season 4 splits at *The Tenth Planet* /
+*The Power of the Daleks* and season 21 at *The Caves of Androzani* / *The Twin Dilemma*, so no story
+is attributed to the wrong Doctor. An era that begins mid-season renumbers its own works from 1, so
+every `(series, season)` still has a contiguous 1..n; the season label stays the broadcast number
+(the Second Doctor's path starts at S4). `expectedSerials` per era is checked by `validate`, so a
+changed upstream catalogue fails loudly instead of silently shifting a boundary.
+
+Eras inherit three things so that splitting changes *nothing else*: the TVmaze catalogue, the wiki
+search hint, and the curated `dw63` entity list (`entityGroup`). Fi therefore uses the same 38
+entities for every classic Doctor — the coder did not change, only the grouping. Colours are pinned
+per era and for `dw05`/`dw23` so the other series do not shift when the palette index moves.
+
+| era | Doctor | years | serials | seasons | Sci median | Fi median |
+|---|---|---|---|---|---|---|
+| DW1 | William Hartnell | 1963–1966 | 29 | 4 | 1.35 | 1.81 |
+| DW2 | Patrick Troughton | 1966–1969 | 21 | 3 | 1.31 | **1.19** |
+| DW3 | Jon Pertwee | 1970–1974 | 24 | 5 | 1.45 | 3.39 |
+| DW4 | Tom Baker | 1974–1981 | 42 | 7 | **2.36** | 3.00 |
+| DW5 | Peter Davison | 1982–1984 | 19 | 3 | 2.01 | 3.61 |
+| DW6 | Colin Baker | 1984–1986 | 8 | 2 | 1.03 | 0.89 |
+| DW7 | Sylvester McCoy | 1987–1989 | 12 | 3 | **0.68** | **4.88** |
+
+The split turns the aggregate into a reading of the show. McCoy's era is the most mythic and least
+technical by a wide margin (Fi 4.88, Sci 0.68): the late 1980s stories are explicitly about gods,
+ancient evil and the Doctor's own mythology (Fenric, the Gods of Ragnarok, the Caves of Androzani's
+aftermath), not about machines. Pertwee and Davison sit high on Fi too. Troughton's "base under
+siege" era is the least mythic (Fi 1.19), and Tom Baker's is the most technical (Sci 2.36) with
+individual seasons that swing hard — S14 Fi 5.59 (*The Masque of Mandragora*, *The Hand of Fear*,
+*The Deadly Assassin*) and S16 Fi 6.67 (the Key to Time arc) against S12 Fi 0.65.
+
+Two cautions. Each era has only 2–7 seasons, so these medians are descriptive, not estimates with
+useful precision; the per-season intervals on the page are the honest unit. And Colin Baker has only
+two measured seasons (S23, *The Trial of a Time Lord*, is one 14-part serial and is unmeasured), so
+DW6's 0.89 rests on thin evidence and is the one era where the number should not be quoted alone.
+
+The franchise totals barely move — Doctor Who Fi median 2.79 → 2.69, Sci 1.34 → 1.32 — because the
+split redistributes the same measurements. What changes is that the spread is now attributable: the
+44 "seasons" on the page are work-seasons, and the two boundary seasons (S4, S21) legitimately appear
+under both Doctors they contain.
+
 ## Open decisions
 
 1. **Scaling the Fi coder — closed by P5.** Entity lists now exist for every series with text in both
@@ -571,11 +622,9 @@ judgement coder in open decision 4 is meant to close.
 5. **Classic Doctor Who — closed by P4.** Grouping the parts into serials restored 152 of 155 classic
    stories to measured status on 1,000–2,400 words of Tardis plot. The alternative (fetch the serial
    article for each part) was rejected because it would give every part of a serial the same text and
-   so invent a per-part signal that does not exist. The question that remains is a scope one, not a
-   measurement one: whether 1963–1989 should stay a single `dw63` series of 25 broadcast seasons or
-   be split by Doctor (Hartnell … McCoy), which the data now supports.
-6. **Splitting the classic era by Doctor.** With serials as the unit, `dw63` is 25 seasons across
-   seven lead actors. The chart currently shows eras, which buries the fact that the show's
-   relationship to its own science changes with its lead. This is a small change (a `byEra` split at
-   ingest) and a judgement about what a "series" is.
+   so invent a per-part signal that does not exist.
+6. **Splitting the classic era by Doctor — closed by P6.** `dw63` is now seven works (`dw1`–`dw7`),
+   cut at serial boundaries so the two straddling seasons are attributed correctly, each with its own
+   path on the chart. The judgement about what a "series" is settled on: one lead actor, because that
+   is the unit in which the show's relationship to its own mythology visibly changes.
 

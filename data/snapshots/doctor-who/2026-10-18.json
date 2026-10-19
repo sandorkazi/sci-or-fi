@@ -4,10 +4,112 @@
   "provenance": [
     {
       "source": "tvmaze",
-      "series": "dw63",
+      "series": "dw1",
       "id": 766,
       "grouping": "serial",
-      "serials": 155
+      "serials": 29,
+      "splitFrom": "dw63",
+      "from": [
+        1,
+        1
+      ],
+      "until": [
+        4,
+        3
+      ]
+    },
+    {
+      "source": "tvmaze",
+      "series": "dw2",
+      "id": 766,
+      "grouping": "serial",
+      "serials": 21,
+      "splitFrom": "dw63",
+      "from": [
+        4,
+        3
+      ],
+      "until": [
+        7,
+        1
+      ]
+    },
+    {
+      "source": "tvmaze",
+      "series": "dw3",
+      "id": 766,
+      "grouping": "serial",
+      "serials": 24,
+      "splitFrom": "dw63",
+      "from": [
+        7,
+        1
+      ],
+      "until": [
+        12,
+        1
+      ]
+    },
+    {
+      "source": "tvmaze",
+      "series": "dw4",
+      "id": 766,
+      "grouping": "serial",
+      "serials": 42,
+      "splitFrom": "dw63",
+      "from": [
+        12,
+        1
+      ],
+      "until": [
+        19,
+        1
+      ]
+    },
+    {
+      "source": "tvmaze",
+      "series": "dw5",
+      "id": 766,
+      "grouping": "serial",
+      "serials": 19,
+      "splitFrom": "dw63",
+      "from": [
+        19,
+        1
+      ],
+      "until": [
+        21,
+        7
+      ]
+    },
+    {
+      "source": "tvmaze",
+      "series": "dw6",
+      "id": 766,
+      "grouping": "serial",
+      "serials": 8,
+      "splitFrom": "dw63",
+      "from": [
+        21,
+        7
+      ],
+      "until": [
+        24,
+        1
+      ]
+    },
+    {
+      "source": "tvmaze",
+      "series": "dw7",
+      "id": 766,
+      "grouping": "serial",
+      "serials": 12,
+      "splitFrom": "dw63",
+      "from": [
+        24,
+        1
+      ],
+      "until": null
     },
     {
       "source": "tvmaze",
@@ -2029,6 +2131,706 @@
       }
     },
     {
+      "id": "doctor-who:dw1:S01E01",
+      "series": "dw1",
+      "kind": "serial",
+      "season": 1,
+      "episode": 1,
+      "title": "An Unearthly Child",
+      "airDate": "1963-11-23",
+      "year": 1963,
+      "sourceIds": {
+        "tvmaze": 67360
+      },
+      "parts": 4
+    },
+    {
+      "id": "doctor-who:dw1:S01E02",
+      "series": "dw1",
+      "kind": "serial",
+      "season": 1,
+      "episode": 2,
+      "title": "The Daleks",
+      "airDate": "1963-12-21",
+      "year": 1963,
+      "sourceIds": {
+        "tvmaze": 67364
+      },
+      "parts": 7
+    },
+    {
+      "id": "doctor-who:dw1:S01E03",
+      "series": "dw1",
+      "kind": "serial",
+      "season": 1,
+      "episode": 3,
+      "title": "The Edge of Destruction",
+      "airDate": "1964-02-08",
+      "year": 1964,
+      "sourceIds": {
+        "tvmaze": 67371
+      },
+      "parts": 2
+    },
+    {
+      "id": "doctor-who:dw1:S01E04",
+      "series": "dw1",
+      "kind": "serial",
+      "season": 1,
+      "episode": 4,
+      "title": "Marco Polo",
+      "airDate": "1964-02-22",
+      "year": 1964,
+      "sourceIds": {
+        "tvmaze": 67373
+      },
+      "parts": 7
+    },
+    {
+      "id": "doctor-who:dw1:S01E05",
+      "series": "dw1",
+      "kind": "serial",
+      "season": 1,
+      "episode": 5,
+      "title": "The Keys of Marinus",
+      "airDate": "1964-04-11",
+      "year": 1964,
+      "sourceIds": {
+        "tvmaze": 67380
+      },
+      "parts": 6
+    },
+    {
+      "id": "doctor-who:dw1:S01E06",
+      "series": "dw1",
+      "kind": "serial",
+      "season": 1,
+      "episode": 6,
+      "title": "The Aztecs",
+      "airDate": "1964-05-23",
+      "year": 1964,
+      "sourceIds": {
+        "tvmaze": 67386
+      },
+      "parts": 4
+    },
+    {
+      "id": "doctor-who:dw1:S01E07",
+      "series": "dw1",
+      "kind": "serial",
+      "season": 1,
+      "episode": 7,
+      "title": "The Sensorites",
+      "airDate": "1964-06-20",
+      "year": 1964,
+      "sourceIds": {
+        "tvmaze": 67390
+      },
+      "parts": 6
+    },
+    {
+      "id": "doctor-who:dw1:S01E08",
+      "series": "dw1",
+      "kind": "serial",
+      "season": 1,
+      "episode": 8,
+      "title": "The Reign of Terror",
+      "airDate": "1964-08-08",
+      "year": 1964,
+      "sourceIds": {
+        "tvmaze": 67396
+      },
+      "parts": 6
+    },
+    {
+      "id": "doctor-who:dw1:S02E01",
+      "series": "dw1",
+      "kind": "serial",
+      "season": 2,
+      "episode": 1,
+      "title": "Planet of Giants",
+      "airDate": "1964-10-31",
+      "year": 1964,
+      "sourceIds": {
+        "tvmaze": 67402
+      },
+      "parts": 3
+    },
+    {
+      "id": "doctor-who:dw1:S02E02",
+      "series": "dw1",
+      "kind": "serial",
+      "season": 2,
+      "episode": 2,
+      "title": "The Dalek Invasion of Earth",
+      "airDate": "1964-11-21",
+      "year": 1964,
+      "sourceIds": {
+        "tvmaze": 67405
+      },
+      "parts": 6
+    },
+    {
+      "id": "doctor-who:dw1:S02E03",
+      "series": "dw1",
+      "kind": "serial",
+      "season": 2,
+      "episode": 3,
+      "title": "The Rescue",
+      "airDate": "1965-01-02",
+      "year": 1965,
+      "sourceIds": {
+        "tvmaze": 67411
+      },
+      "parts": 2
+    },
+    {
+      "id": "doctor-who:dw1:S02E04",
+      "series": "dw1",
+      "kind": "serial",
+      "season": 2,
+      "episode": 4,
+      "title": "The Romans",
+      "airDate": "1965-01-16",
+      "year": 1965,
+      "sourceIds": {
+        "tvmaze": 67413
+      },
+      "parts": 4
+    },
+    {
+      "id": "doctor-who:dw1:S02E05",
+      "series": "dw1",
+      "kind": "serial",
+      "season": 2,
+      "episode": 5,
+      "title": "The Web Planet",
+      "airDate": "1965-02-13",
+      "year": 1965,
+      "sourceIds": {
+        "tvmaze": 67417
+      },
+      "parts": 6
+    },
+    {
+      "id": "doctor-who:dw1:S02E06",
+      "series": "dw1",
+      "kind": "serial",
+      "season": 2,
+      "episode": 6,
+      "title": "The Crusade",
+      "airDate": "1965-03-27",
+      "year": 1965,
+      "sourceIds": {
+        "tvmaze": 67423
+      },
+      "parts": 4
+    },
+    {
+      "id": "doctor-who:dw1:S02E07",
+      "series": "dw1",
+      "kind": "serial",
+      "season": 2,
+      "episode": 7,
+      "title": "The Space Museum",
+      "airDate": "1965-04-24",
+      "year": 1965,
+      "sourceIds": {
+        "tvmaze": 67427
+      },
+      "parts": 4
+    },
+    {
+      "id": "doctor-who:dw1:S02E08",
+      "series": "dw1",
+      "kind": "serial",
+      "season": 2,
+      "episode": 8,
+      "title": "The Chase",
+      "airDate": "1965-05-22",
+      "year": 1965,
+      "sourceIds": {
+        "tvmaze": 67431
+      },
+      "parts": 6
+    },
+    {
+      "id": "doctor-who:dw1:S02E09",
+      "series": "dw1",
+      "kind": "serial",
+      "season": 2,
+      "episode": 9,
+      "title": "The Time Meddler",
+      "airDate": "1965-07-03",
+      "year": 1965,
+      "sourceIds": {
+        "tvmaze": 67437
+      },
+      "parts": 4
+    },
+    {
+      "id": "doctor-who:dw1:S03E01",
+      "series": "dw1",
+      "kind": "serial",
+      "season": 3,
+      "episode": 1,
+      "title": "Galaxy 4",
+      "airDate": "1965-09-11",
+      "year": 1965,
+      "sourceIds": {
+        "tvmaze": 67441
+      },
+      "parts": 4
+    },
+    {
+      "id": "doctor-who:dw1:S03E02",
+      "series": "dw1",
+      "kind": "serial",
+      "season": 3,
+      "episode": 2,
+      "title": "Mission to the Unknown",
+      "airDate": "1965-10-09",
+      "year": 1965,
+      "sourceIds": {
+        "tvmaze": 67445
+      },
+      "parts": 1
+    },
+    {
+      "id": "doctor-who:dw1:S03E03",
+      "series": "dw1",
+      "kind": "serial",
+      "season": 3,
+      "episode": 3,
+      "title": "The Myth Makers",
+      "airDate": "1965-10-16",
+      "year": 1965,
+      "sourceIds": {
+        "tvmaze": 67446
+      },
+      "parts": 4
+    },
+    {
+      "id": "doctor-who:dw1:S03E04",
+      "series": "dw1",
+      "kind": "serial",
+      "season": 3,
+      "episode": 4,
+      "title": "The Daleks' Master Plan",
+      "airDate": "1965-11-13",
+      "year": 1965,
+      "sourceIds": {
+        "tvmaze": 67450
+      },
+      "parts": 12
+    },
+    {
+      "id": "doctor-who:dw1:S03E05",
+      "series": "dw1",
+      "kind": "serial",
+      "season": 3,
+      "episode": 5,
+      "title": "The Massacre of St Bartholomew's Eve",
+      "airDate": "1966-02-05",
+      "year": 1966,
+      "sourceIds": {
+        "tvmaze": 67462
+      },
+      "parts": 4
+    },
+    {
+      "id": "doctor-who:dw1:S03E06",
+      "series": "dw1",
+      "kind": "serial",
+      "season": 3,
+      "episode": 6,
+      "title": "The Ark",
+      "airDate": "1966-03-05",
+      "year": 1966,
+      "sourceIds": {
+        "tvmaze": 67466
+      },
+      "parts": 4
+    },
+    {
+      "id": "doctor-who:dw1:S03E07",
+      "series": "dw1",
+      "kind": "serial",
+      "season": 3,
+      "episode": 7,
+      "title": "The Celestial Toymaker",
+      "airDate": "1966-04-02",
+      "year": 1966,
+      "sourceIds": {
+        "tvmaze": 67470
+      },
+      "parts": 4
+    },
+    {
+      "id": "doctor-who:dw1:S03E08",
+      "series": "dw1",
+      "kind": "serial",
+      "season": 3,
+      "episode": 8,
+      "title": "The Gunfighters",
+      "airDate": "1966-04-30",
+      "year": 1966,
+      "sourceIds": {
+        "tvmaze": 67474
+      },
+      "parts": 4
+    },
+    {
+      "id": "doctor-who:dw1:S03E09",
+      "series": "dw1",
+      "kind": "serial",
+      "season": 3,
+      "episode": 9,
+      "title": "The Savages",
+      "airDate": "1966-05-28",
+      "year": 1966,
+      "sourceIds": {
+        "tvmaze": 67478
+      },
+      "parts": 4
+    },
+    {
+      "id": "doctor-who:dw1:S03E10",
+      "series": "dw1",
+      "kind": "serial",
+      "season": 3,
+      "episode": 10,
+      "title": "The War Machines",
+      "airDate": "1966-06-25",
+      "year": 1966,
+      "sourceIds": {
+        "tvmaze": 67482
+      },
+      "parts": 4
+    },
+    {
+      "id": "doctor-who:dw1:S04E01",
+      "series": "dw1",
+      "kind": "serial",
+      "season": 4,
+      "episode": 1,
+      "title": "The Smugglers",
+      "airDate": "1966-09-10",
+      "year": 1966,
+      "sourceIds": {
+        "tvmaze": 67486
+      },
+      "parts": 4
+    },
+    {
+      "id": "doctor-who:dw1:S04E02",
+      "series": "dw1",
+      "kind": "serial",
+      "season": 4,
+      "episode": 2,
+      "title": "The Tenth Planet",
+      "airDate": "1966-10-08",
+      "year": 1966,
+      "sourceIds": {
+        "tvmaze": 67490
+      },
+      "parts": 4
+    },
+    {
+      "id": "doctor-who:dw2:S04E01",
+      "series": "dw2",
+      "kind": "serial",
+      "season": 4,
+      "episode": 1,
+      "title": "The Power of the Daleks",
+      "airDate": "1966-11-05",
+      "year": 1966,
+      "sourceIds": {
+        "tvmaze": 67494
+      },
+      "parts": 6
+    },
+    {
+      "id": "doctor-who:dw2:S04E02",
+      "series": "dw2",
+      "kind": "serial",
+      "season": 4,
+      "episode": 2,
+      "title": "The Highlanders",
+      "airDate": "1966-12-17",
+      "year": 1966,
+      "sourceIds": {
+        "tvmaze": 67500
+      },
+      "parts": 4
+    },
+    {
+      "id": "doctor-who:dw2:S04E03",
+      "series": "dw2",
+      "kind": "serial",
+      "season": 4,
+      "episode": 3,
+      "title": "The Underwater Menace",
+      "airDate": "1967-01-14",
+      "year": 1967,
+      "sourceIds": {
+        "tvmaze": 67504
+      },
+      "parts": 4
+    },
+    {
+      "id": "doctor-who:dw2:S04E04",
+      "series": "dw2",
+      "kind": "serial",
+      "season": 4,
+      "episode": 4,
+      "title": "The Moonbase",
+      "airDate": "1967-02-11",
+      "year": 1967,
+      "sourceIds": {
+        "tvmaze": 67508
+      },
+      "parts": 4
+    },
+    {
+      "id": "doctor-who:dw2:S04E05",
+      "series": "dw2",
+      "kind": "serial",
+      "season": 4,
+      "episode": 5,
+      "title": "The Macra Terror",
+      "airDate": "1967-03-11",
+      "year": 1967,
+      "sourceIds": {
+        "tvmaze": 67512
+      },
+      "parts": 4
+    },
+    {
+      "id": "doctor-who:dw2:S04E06",
+      "series": "dw2",
+      "kind": "serial",
+      "season": 4,
+      "episode": 6,
+      "title": "The Faceless Ones",
+      "airDate": "1967-04-08",
+      "year": 1967,
+      "sourceIds": {
+        "tvmaze": 67516
+      },
+      "parts": 6
+    },
+    {
+      "id": "doctor-who:dw2:S04E07",
+      "series": "dw2",
+      "kind": "serial",
+      "season": 4,
+      "episode": 7,
+      "title": "The Evil of the Daleks",
+      "airDate": "1967-05-20",
+      "year": 1967,
+      "sourceIds": {
+        "tvmaze": 67522
+      },
+      "parts": 7
+    },
+    {
+      "id": "doctor-who:dw2:S05E01",
+      "series": "dw2",
+      "kind": "serial",
+      "season": 5,
+      "episode": 1,
+      "title": "The Tomb of the Cybermen",
+      "airDate": "1967-09-02",
+      "year": 1967,
+      "sourceIds": {
+        "tvmaze": 67529
+      },
+      "parts": 4
+    },
+    {
+      "id": "doctor-who:dw2:S05E02",
+      "series": "dw2",
+      "kind": "serial",
+      "season": 5,
+      "episode": 2,
+      "title": "The Abominable Snowmen",
+      "airDate": "1967-09-30",
+      "year": 1967,
+      "sourceIds": {
+        "tvmaze": 67533
+      },
+      "parts": 6
+    },
+    {
+      "id": "doctor-who:dw2:S05E03",
+      "series": "dw2",
+      "kind": "serial",
+      "season": 5,
+      "episode": 3,
+      "title": "The Ice Warriors",
+      "airDate": "1967-11-11",
+      "year": 1967,
+      "sourceIds": {
+        "tvmaze": 67539
+      },
+      "parts": 6
+    },
+    {
+      "id": "doctor-who:dw2:S05E04",
+      "series": "dw2",
+      "kind": "serial",
+      "season": 5,
+      "episode": 4,
+      "title": "The Enemy of the World",
+      "airDate": "1967-12-23",
+      "year": 1967,
+      "sourceIds": {
+        "tvmaze": 67545
+      },
+      "parts": 6
+    },
+    {
+      "id": "doctor-who:dw2:S05E05",
+      "series": "dw2",
+      "kind": "serial",
+      "season": 5,
+      "episode": 5,
+      "title": "The Web of Fear",
+      "airDate": "1968-02-03",
+      "year": 1968,
+      "sourceIds": {
+        "tvmaze": 67551
+      },
+      "parts": 6
+    },
+    {
+      "id": "doctor-who:dw2:S05E06",
+      "series": "dw2",
+      "kind": "serial",
+      "season": 5,
+      "episode": 6,
+      "title": "Fury from the Deep",
+      "airDate": "1968-03-16",
+      "year": 1968,
+      "sourceIds": {
+        "tvmaze": 67557
+      },
+      "parts": 6
+    },
+    {
+      "id": "doctor-who:dw2:S05E07",
+      "series": "dw2",
+      "kind": "serial",
+      "season": 5,
+      "episode": 7,
+      "title": "The Wheel in Space",
+      "airDate": "1968-04-27",
+      "year": 1968,
+      "sourceIds": {
+        "tvmaze": 67563
+      },
+      "parts": 6
+    },
+    {
+      "id": "doctor-who:dw2:S06E01",
+      "series": "dw2",
+      "kind": "serial",
+      "season": 6,
+      "episode": 1,
+      "title": "The Dominators",
+      "airDate": "1968-08-10",
+      "year": 1968,
+      "sourceIds": {
+        "tvmaze": 67569
+      },
+      "parts": 5
+    },
+    {
+      "id": "doctor-who:dw2:S06E02",
+      "series": "dw2",
+      "kind": "serial",
+      "season": 6,
+      "episode": 2,
+      "title": "The Mind Robber",
+      "airDate": "1968-09-14",
+      "year": 1968,
+      "sourceIds": {
+        "tvmaze": 67574
+      },
+      "parts": 5
+    },
+    {
+      "id": "doctor-who:dw2:S06E03",
+      "series": "dw2",
+      "kind": "serial",
+      "season": 6,
+      "episode": 3,
+      "title": "The Invasion",
+      "airDate": "1968-11-02",
+      "year": 1968,
+      "sourceIds": {
+        "tvmaze": 67579
+      },
+      "parts": 8
+    },
+    {
+      "id": "doctor-who:dw2:S06E04",
+      "series": "dw2",
+      "kind": "serial",
+      "season": 6,
+      "episode": 4,
+      "title": "The Krotons",
+      "airDate": "1968-12-28",
+      "year": 1968,
+      "sourceIds": {
+        "tvmaze": 67587
+      },
+      "parts": 4
+    },
+    {
+      "id": "doctor-who:dw2:S06E05",
+      "series": "dw2",
+      "kind": "serial",
+      "season": 6,
+      "episode": 5,
+      "title": "The Seeds of Death",
+      "airDate": "1969-01-25",
+      "year": 1969,
+      "sourceIds": {
+        "tvmaze": 67591
+      },
+      "parts": 6
+    },
+    {
+      "id": "doctor-who:dw2:S06E06",
+      "series": "dw2",
+      "kind": "serial",
+      "season": 6,
+      "episode": 6,
+      "title": "The Space Pirates",
+      "airDate": "1969-03-08",
+      "year": 1969,
+      "sourceIds": {
+        "tvmaze": 67597
+      },
+      "parts": 6
+    },
+    {
+      "id": "doctor-who:dw2:S06E07",
+      "series": "dw2",
+      "kind": "serial",
+      "season": 6,
+      "episode": 7,
+      "title": "The War Games",
+      "airDate": "1969-04-19",
+      "year": 1969,
+      "sourceIds": {
+        "tvmaze": 67603
+      },
+      "parts": 10
+    },
+    {
       "id": "doctor-who:dw23:S01E01",
       "series": "dw23",
       "kind": "episode",
@@ -2237,708 +3039,8 @@
       }
     },
     {
-      "id": "doctor-who:dw63:S01E01",
-      "series": "dw63",
-      "kind": "serial",
-      "season": 1,
-      "episode": 1,
-      "title": "An Unearthly Child",
-      "airDate": "1963-11-23",
-      "year": 1963,
-      "sourceIds": {
-        "tvmaze": 67360
-      },
-      "parts": 4
-    },
-    {
-      "id": "doctor-who:dw63:S01E02",
-      "series": "dw63",
-      "kind": "serial",
-      "season": 1,
-      "episode": 2,
-      "title": "The Daleks",
-      "airDate": "1963-12-21",
-      "year": 1963,
-      "sourceIds": {
-        "tvmaze": 67364
-      },
-      "parts": 7
-    },
-    {
-      "id": "doctor-who:dw63:S01E03",
-      "series": "dw63",
-      "kind": "serial",
-      "season": 1,
-      "episode": 3,
-      "title": "The Edge of Destruction",
-      "airDate": "1964-02-08",
-      "year": 1964,
-      "sourceIds": {
-        "tvmaze": 67371
-      },
-      "parts": 2
-    },
-    {
-      "id": "doctor-who:dw63:S01E04",
-      "series": "dw63",
-      "kind": "serial",
-      "season": 1,
-      "episode": 4,
-      "title": "Marco Polo",
-      "airDate": "1964-02-22",
-      "year": 1964,
-      "sourceIds": {
-        "tvmaze": 67373
-      },
-      "parts": 7
-    },
-    {
-      "id": "doctor-who:dw63:S01E05",
-      "series": "dw63",
-      "kind": "serial",
-      "season": 1,
-      "episode": 5,
-      "title": "The Keys of Marinus",
-      "airDate": "1964-04-11",
-      "year": 1964,
-      "sourceIds": {
-        "tvmaze": 67380
-      },
-      "parts": 6
-    },
-    {
-      "id": "doctor-who:dw63:S01E06",
-      "series": "dw63",
-      "kind": "serial",
-      "season": 1,
-      "episode": 6,
-      "title": "The Aztecs",
-      "airDate": "1964-05-23",
-      "year": 1964,
-      "sourceIds": {
-        "tvmaze": 67386
-      },
-      "parts": 4
-    },
-    {
-      "id": "doctor-who:dw63:S01E07",
-      "series": "dw63",
-      "kind": "serial",
-      "season": 1,
-      "episode": 7,
-      "title": "The Sensorites",
-      "airDate": "1964-06-20",
-      "year": 1964,
-      "sourceIds": {
-        "tvmaze": 67390
-      },
-      "parts": 6
-    },
-    {
-      "id": "doctor-who:dw63:S01E08",
-      "series": "dw63",
-      "kind": "serial",
-      "season": 1,
-      "episode": 8,
-      "title": "The Reign of Terror",
-      "airDate": "1964-08-08",
-      "year": 1964,
-      "sourceIds": {
-        "tvmaze": 67396
-      },
-      "parts": 6
-    },
-    {
-      "id": "doctor-who:dw63:S02E01",
-      "series": "dw63",
-      "kind": "serial",
-      "season": 2,
-      "episode": 1,
-      "title": "Planet of Giants",
-      "airDate": "1964-10-31",
-      "year": 1964,
-      "sourceIds": {
-        "tvmaze": 67402
-      },
-      "parts": 3
-    },
-    {
-      "id": "doctor-who:dw63:S02E02",
-      "series": "dw63",
-      "kind": "serial",
-      "season": 2,
-      "episode": 2,
-      "title": "The Dalek Invasion of Earth",
-      "airDate": "1964-11-21",
-      "year": 1964,
-      "sourceIds": {
-        "tvmaze": 67405
-      },
-      "parts": 6
-    },
-    {
-      "id": "doctor-who:dw63:S02E03",
-      "series": "dw63",
-      "kind": "serial",
-      "season": 2,
-      "episode": 3,
-      "title": "The Rescue",
-      "airDate": "1965-01-02",
-      "year": 1965,
-      "sourceIds": {
-        "tvmaze": 67411
-      },
-      "parts": 2
-    },
-    {
-      "id": "doctor-who:dw63:S02E04",
-      "series": "dw63",
-      "kind": "serial",
-      "season": 2,
-      "episode": 4,
-      "title": "The Romans",
-      "airDate": "1965-01-16",
-      "year": 1965,
-      "sourceIds": {
-        "tvmaze": 67413
-      },
-      "parts": 4
-    },
-    {
-      "id": "doctor-who:dw63:S02E05",
-      "series": "dw63",
-      "kind": "serial",
-      "season": 2,
-      "episode": 5,
-      "title": "The Web Planet",
-      "airDate": "1965-02-13",
-      "year": 1965,
-      "sourceIds": {
-        "tvmaze": 67417
-      },
-      "parts": 6
-    },
-    {
-      "id": "doctor-who:dw63:S02E06",
-      "series": "dw63",
-      "kind": "serial",
-      "season": 2,
-      "episode": 6,
-      "title": "The Crusade",
-      "airDate": "1965-03-27",
-      "year": 1965,
-      "sourceIds": {
-        "tvmaze": 67423
-      },
-      "parts": 4
-    },
-    {
-      "id": "doctor-who:dw63:S02E07",
-      "series": "dw63",
-      "kind": "serial",
-      "season": 2,
-      "episode": 7,
-      "title": "The Space Museum",
-      "airDate": "1965-04-24",
-      "year": 1965,
-      "sourceIds": {
-        "tvmaze": 67427
-      },
-      "parts": 4
-    },
-    {
-      "id": "doctor-who:dw63:S02E08",
-      "series": "dw63",
-      "kind": "serial",
-      "season": 2,
-      "episode": 8,
-      "title": "The Chase",
-      "airDate": "1965-05-22",
-      "year": 1965,
-      "sourceIds": {
-        "tvmaze": 67431
-      },
-      "parts": 6
-    },
-    {
-      "id": "doctor-who:dw63:S02E09",
-      "series": "dw63",
-      "kind": "serial",
-      "season": 2,
-      "episode": 9,
-      "title": "The Time Meddler",
-      "airDate": "1965-07-03",
-      "year": 1965,
-      "sourceIds": {
-        "tvmaze": 67437
-      },
-      "parts": 4
-    },
-    {
-      "id": "doctor-who:dw63:S03E01",
-      "series": "dw63",
-      "kind": "serial",
-      "season": 3,
-      "episode": 1,
-      "title": "Galaxy 4",
-      "airDate": "1965-09-11",
-      "year": 1965,
-      "sourceIds": {
-        "tvmaze": 67441
-      },
-      "parts": 4
-    },
-    {
-      "id": "doctor-who:dw63:S03E02",
-      "series": "dw63",
-      "kind": "serial",
-      "season": 3,
-      "episode": 2,
-      "title": "Mission to the Unknown",
-      "airDate": "1965-10-09",
-      "year": 1965,
-      "sourceIds": {
-        "tvmaze": 67445
-      },
-      "parts": 1
-    },
-    {
-      "id": "doctor-who:dw63:S03E03",
-      "series": "dw63",
-      "kind": "serial",
-      "season": 3,
-      "episode": 3,
-      "title": "The Myth Makers",
-      "airDate": "1965-10-16",
-      "year": 1965,
-      "sourceIds": {
-        "tvmaze": 67446
-      },
-      "parts": 4
-    },
-    {
-      "id": "doctor-who:dw63:S03E04",
-      "series": "dw63",
-      "kind": "serial",
-      "season": 3,
-      "episode": 4,
-      "title": "The Daleks' Master Plan",
-      "airDate": "1965-11-13",
-      "year": 1965,
-      "sourceIds": {
-        "tvmaze": 67450
-      },
-      "parts": 12
-    },
-    {
-      "id": "doctor-who:dw63:S03E05",
-      "series": "dw63",
-      "kind": "serial",
-      "season": 3,
-      "episode": 5,
-      "title": "The Massacre of St Bartholomew's Eve",
-      "airDate": "1966-02-05",
-      "year": 1966,
-      "sourceIds": {
-        "tvmaze": 67462
-      },
-      "parts": 4
-    },
-    {
-      "id": "doctor-who:dw63:S03E06",
-      "series": "dw63",
-      "kind": "serial",
-      "season": 3,
-      "episode": 6,
-      "title": "The Ark",
-      "airDate": "1966-03-05",
-      "year": 1966,
-      "sourceIds": {
-        "tvmaze": 67466
-      },
-      "parts": 4
-    },
-    {
-      "id": "doctor-who:dw63:S03E07",
-      "series": "dw63",
-      "kind": "serial",
-      "season": 3,
-      "episode": 7,
-      "title": "The Celestial Toymaker",
-      "airDate": "1966-04-02",
-      "year": 1966,
-      "sourceIds": {
-        "tvmaze": 67470
-      },
-      "parts": 4
-    },
-    {
-      "id": "doctor-who:dw63:S03E08",
-      "series": "dw63",
-      "kind": "serial",
-      "season": 3,
-      "episode": 8,
-      "title": "The Gunfighters",
-      "airDate": "1966-04-30",
-      "year": 1966,
-      "sourceIds": {
-        "tvmaze": 67474
-      },
-      "parts": 4
-    },
-    {
-      "id": "doctor-who:dw63:S03E09",
-      "series": "dw63",
-      "kind": "serial",
-      "season": 3,
-      "episode": 9,
-      "title": "The Savages",
-      "airDate": "1966-05-28",
-      "year": 1966,
-      "sourceIds": {
-        "tvmaze": 67478
-      },
-      "parts": 4
-    },
-    {
-      "id": "doctor-who:dw63:S03E10",
-      "series": "dw63",
-      "kind": "serial",
-      "season": 3,
-      "episode": 10,
-      "title": "The War Machines",
-      "airDate": "1966-06-25",
-      "year": 1966,
-      "sourceIds": {
-        "tvmaze": 67482
-      },
-      "parts": 4
-    },
-    {
-      "id": "doctor-who:dw63:S04E01",
-      "series": "dw63",
-      "kind": "serial",
-      "season": 4,
-      "episode": 1,
-      "title": "The Smugglers",
-      "airDate": "1966-09-10",
-      "year": 1966,
-      "sourceIds": {
-        "tvmaze": 67486
-      },
-      "parts": 4
-    },
-    {
-      "id": "doctor-who:dw63:S04E02",
-      "series": "dw63",
-      "kind": "serial",
-      "season": 4,
-      "episode": 2,
-      "title": "The Tenth Planet",
-      "airDate": "1966-10-08",
-      "year": 1966,
-      "sourceIds": {
-        "tvmaze": 67490
-      },
-      "parts": 4
-    },
-    {
-      "id": "doctor-who:dw63:S04E03",
-      "series": "dw63",
-      "kind": "serial",
-      "season": 4,
-      "episode": 3,
-      "title": "The Power of the Daleks",
-      "airDate": "1966-11-05",
-      "year": 1966,
-      "sourceIds": {
-        "tvmaze": 67494
-      },
-      "parts": 6
-    },
-    {
-      "id": "doctor-who:dw63:S04E04",
-      "series": "dw63",
-      "kind": "serial",
-      "season": 4,
-      "episode": 4,
-      "title": "The Highlanders",
-      "airDate": "1966-12-17",
-      "year": 1966,
-      "sourceIds": {
-        "tvmaze": 67500
-      },
-      "parts": 4
-    },
-    {
-      "id": "doctor-who:dw63:S04E05",
-      "series": "dw63",
-      "kind": "serial",
-      "season": 4,
-      "episode": 5,
-      "title": "The Underwater Menace",
-      "airDate": "1967-01-14",
-      "year": 1967,
-      "sourceIds": {
-        "tvmaze": 67504
-      },
-      "parts": 4
-    },
-    {
-      "id": "doctor-who:dw63:S04E06",
-      "series": "dw63",
-      "kind": "serial",
-      "season": 4,
-      "episode": 6,
-      "title": "The Moonbase",
-      "airDate": "1967-02-11",
-      "year": 1967,
-      "sourceIds": {
-        "tvmaze": 67508
-      },
-      "parts": 4
-    },
-    {
-      "id": "doctor-who:dw63:S04E07",
-      "series": "dw63",
-      "kind": "serial",
-      "season": 4,
-      "episode": 7,
-      "title": "The Macra Terror",
-      "airDate": "1967-03-11",
-      "year": 1967,
-      "sourceIds": {
-        "tvmaze": 67512
-      },
-      "parts": 4
-    },
-    {
-      "id": "doctor-who:dw63:S04E08",
-      "series": "dw63",
-      "kind": "serial",
-      "season": 4,
-      "episode": 8,
-      "title": "The Faceless Ones",
-      "airDate": "1967-04-08",
-      "year": 1967,
-      "sourceIds": {
-        "tvmaze": 67516
-      },
-      "parts": 6
-    },
-    {
-      "id": "doctor-who:dw63:S04E09",
-      "series": "dw63",
-      "kind": "serial",
-      "season": 4,
-      "episode": 9,
-      "title": "The Evil of the Daleks",
-      "airDate": "1967-05-20",
-      "year": 1967,
-      "sourceIds": {
-        "tvmaze": 67522
-      },
-      "parts": 7
-    },
-    {
-      "id": "doctor-who:dw63:S05E01",
-      "series": "dw63",
-      "kind": "serial",
-      "season": 5,
-      "episode": 1,
-      "title": "The Tomb of the Cybermen",
-      "airDate": "1967-09-02",
-      "year": 1967,
-      "sourceIds": {
-        "tvmaze": 67529
-      },
-      "parts": 4
-    },
-    {
-      "id": "doctor-who:dw63:S05E02",
-      "series": "dw63",
-      "kind": "serial",
-      "season": 5,
-      "episode": 2,
-      "title": "The Abominable Snowmen",
-      "airDate": "1967-09-30",
-      "year": 1967,
-      "sourceIds": {
-        "tvmaze": 67533
-      },
-      "parts": 6
-    },
-    {
-      "id": "doctor-who:dw63:S05E03",
-      "series": "dw63",
-      "kind": "serial",
-      "season": 5,
-      "episode": 3,
-      "title": "The Ice Warriors",
-      "airDate": "1967-11-11",
-      "year": 1967,
-      "sourceIds": {
-        "tvmaze": 67539
-      },
-      "parts": 6
-    },
-    {
-      "id": "doctor-who:dw63:S05E04",
-      "series": "dw63",
-      "kind": "serial",
-      "season": 5,
-      "episode": 4,
-      "title": "The Enemy of the World",
-      "airDate": "1967-12-23",
-      "year": 1967,
-      "sourceIds": {
-        "tvmaze": 67545
-      },
-      "parts": 6
-    },
-    {
-      "id": "doctor-who:dw63:S05E05",
-      "series": "dw63",
-      "kind": "serial",
-      "season": 5,
-      "episode": 5,
-      "title": "The Web of Fear",
-      "airDate": "1968-02-03",
-      "year": 1968,
-      "sourceIds": {
-        "tvmaze": 67551
-      },
-      "parts": 6
-    },
-    {
-      "id": "doctor-who:dw63:S05E06",
-      "series": "dw63",
-      "kind": "serial",
-      "season": 5,
-      "episode": 6,
-      "title": "Fury from the Deep",
-      "airDate": "1968-03-16",
-      "year": 1968,
-      "sourceIds": {
-        "tvmaze": 67557
-      },
-      "parts": 6
-    },
-    {
-      "id": "doctor-who:dw63:S05E07",
-      "series": "dw63",
-      "kind": "serial",
-      "season": 5,
-      "episode": 7,
-      "title": "The Wheel in Space",
-      "airDate": "1968-04-27",
-      "year": 1968,
-      "sourceIds": {
-        "tvmaze": 67563
-      },
-      "parts": 6
-    },
-    {
-      "id": "doctor-who:dw63:S06E01",
-      "series": "dw63",
-      "kind": "serial",
-      "season": 6,
-      "episode": 1,
-      "title": "The Dominators",
-      "airDate": "1968-08-10",
-      "year": 1968,
-      "sourceIds": {
-        "tvmaze": 67569
-      },
-      "parts": 5
-    },
-    {
-      "id": "doctor-who:dw63:S06E02",
-      "series": "dw63",
-      "kind": "serial",
-      "season": 6,
-      "episode": 2,
-      "title": "The Mind Robber",
-      "airDate": "1968-09-14",
-      "year": 1968,
-      "sourceIds": {
-        "tvmaze": 67574
-      },
-      "parts": 5
-    },
-    {
-      "id": "doctor-who:dw63:S06E03",
-      "series": "dw63",
-      "kind": "serial",
-      "season": 6,
-      "episode": 3,
-      "title": "The Invasion",
-      "airDate": "1968-11-02",
-      "year": 1968,
-      "sourceIds": {
-        "tvmaze": 67579
-      },
-      "parts": 8
-    },
-    {
-      "id": "doctor-who:dw63:S06E04",
-      "series": "dw63",
-      "kind": "serial",
-      "season": 6,
-      "episode": 4,
-      "title": "The Krotons",
-      "airDate": "1968-12-28",
-      "year": 1968,
-      "sourceIds": {
-        "tvmaze": 67587
-      },
-      "parts": 4
-    },
-    {
-      "id": "doctor-who:dw63:S06E05",
-      "series": "dw63",
-      "kind": "serial",
-      "season": 6,
-      "episode": 5,
-      "title": "The Seeds of Death",
-      "airDate": "1969-01-25",
-      "year": 1969,
-      "sourceIds": {
-        "tvmaze": 67591
-      },
-      "parts": 6
-    },
-    {
-      "id": "doctor-who:dw63:S06E06",
-      "series": "dw63",
-      "kind": "serial",
-      "season": 6,
-      "episode": 6,
-      "title": "The Space Pirates",
-      "airDate": "1969-03-08",
-      "year": 1969,
-      "sourceIds": {
-        "tvmaze": 67597
-      },
-      "parts": 6
-    },
-    {
-      "id": "doctor-who:dw63:S06E07",
-      "series": "dw63",
-      "kind": "serial",
-      "season": 6,
-      "episode": 7,
-      "title": "The War Games",
-      "airDate": "1969-04-19",
-      "year": 1969,
-      "sourceIds": {
-        "tvmaze": 67603
-      },
-      "parts": 10
-    },
-    {
-      "id": "doctor-who:dw63:S07E01",
-      "series": "dw63",
+      "id": "doctor-who:dw3:S07E01",
+      "series": "dw3",
       "kind": "serial",
       "season": 7,
       "episode": 1,
@@ -2951,8 +3053,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S07E02",
-      "series": "dw63",
+      "id": "doctor-who:dw3:S07E02",
+      "series": "dw3",
       "kind": "serial",
       "season": 7,
       "episode": 2,
@@ -2965,8 +3067,8 @@
       "parts": 7
     },
     {
-      "id": "doctor-who:dw63:S07E03",
-      "series": "dw63",
+      "id": "doctor-who:dw3:S07E03",
+      "series": "dw3",
       "kind": "serial",
       "season": 7,
       "episode": 3,
@@ -2979,8 +3081,8 @@
       "parts": 7
     },
     {
-      "id": "doctor-who:dw63:S07E04",
-      "series": "dw63",
+      "id": "doctor-who:dw3:S07E04",
+      "series": "dw3",
       "kind": "serial",
       "season": 7,
       "episode": 4,
@@ -2993,8 +3095,8 @@
       "parts": 7
     },
     {
-      "id": "doctor-who:dw63:S08E01",
-      "series": "dw63",
+      "id": "doctor-who:dw3:S08E01",
+      "series": "dw3",
       "kind": "serial",
       "season": 8,
       "episode": 1,
@@ -3007,8 +3109,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S08E02",
-      "series": "dw63",
+      "id": "doctor-who:dw3:S08E02",
+      "series": "dw3",
       "kind": "serial",
       "season": 8,
       "episode": 2,
@@ -3021,8 +3123,8 @@
       "parts": 6
     },
     {
-      "id": "doctor-who:dw63:S08E03",
-      "series": "dw63",
+      "id": "doctor-who:dw3:S08E03",
+      "series": "dw3",
       "kind": "serial",
       "season": 8,
       "episode": 3,
@@ -3035,8 +3137,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S08E04",
-      "series": "dw63",
+      "id": "doctor-who:dw3:S08E04",
+      "series": "dw3",
       "kind": "serial",
       "season": 8,
       "episode": 4,
@@ -3049,8 +3151,8 @@
       "parts": 6
     },
     {
-      "id": "doctor-who:dw63:S08E05",
-      "series": "dw63",
+      "id": "doctor-who:dw3:S08E05",
+      "series": "dw3",
       "kind": "serial",
       "season": 8,
       "episode": 5,
@@ -3063,8 +3165,8 @@
       "parts": 5
     },
     {
-      "id": "doctor-who:dw63:S09E01",
-      "series": "dw63",
+      "id": "doctor-who:dw3:S09E01",
+      "series": "dw3",
       "kind": "serial",
       "season": 9,
       "episode": 1,
@@ -3077,8 +3179,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S09E02",
-      "series": "dw63",
+      "id": "doctor-who:dw3:S09E02",
+      "series": "dw3",
       "kind": "serial",
       "season": 9,
       "episode": 2,
@@ -3091,8 +3193,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S09E03",
-      "series": "dw63",
+      "id": "doctor-who:dw3:S09E03",
+      "series": "dw3",
       "kind": "serial",
       "season": 9,
       "episode": 3,
@@ -3105,8 +3207,8 @@
       "parts": 6
     },
     {
-      "id": "doctor-who:dw63:S09E04",
-      "series": "dw63",
+      "id": "doctor-who:dw3:S09E04",
+      "series": "dw3",
       "kind": "serial",
       "season": 9,
       "episode": 4,
@@ -3119,8 +3221,8 @@
       "parts": 6
     },
     {
-      "id": "doctor-who:dw63:S09E05",
-      "series": "dw63",
+      "id": "doctor-who:dw3:S09E05",
+      "series": "dw3",
       "kind": "serial",
       "season": 9,
       "episode": 5,
@@ -3133,8 +3235,8 @@
       "parts": 6
     },
     {
-      "id": "doctor-who:dw63:S10E01",
-      "series": "dw63",
+      "id": "doctor-who:dw3:S10E01",
+      "series": "dw3",
       "kind": "serial",
       "season": 10,
       "episode": 1,
@@ -3147,8 +3249,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S10E02",
-      "series": "dw63",
+      "id": "doctor-who:dw3:S10E02",
+      "series": "dw3",
       "kind": "serial",
       "season": 10,
       "episode": 2,
@@ -3161,8 +3263,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S10E03",
-      "series": "dw63",
+      "id": "doctor-who:dw3:S10E03",
+      "series": "dw3",
       "kind": "serial",
       "season": 10,
       "episode": 3,
@@ -3175,8 +3277,8 @@
       "parts": 6
     },
     {
-      "id": "doctor-who:dw63:S10E04",
-      "series": "dw63",
+      "id": "doctor-who:dw3:S10E04",
+      "series": "dw3",
       "kind": "serial",
       "season": 10,
       "episode": 4,
@@ -3189,8 +3291,8 @@
       "parts": 6
     },
     {
-      "id": "doctor-who:dw63:S10E05",
-      "series": "dw63",
+      "id": "doctor-who:dw3:S10E05",
+      "series": "dw3",
       "kind": "serial",
       "season": 10,
       "episode": 5,
@@ -3203,8 +3305,8 @@
       "parts": 6
     },
     {
-      "id": "doctor-who:dw63:S11E01",
-      "series": "dw63",
+      "id": "doctor-who:dw3:S11E01",
+      "series": "dw3",
       "kind": "serial",
       "season": 11,
       "episode": 1,
@@ -3217,8 +3319,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S11E02",
-      "series": "dw63",
+      "id": "doctor-who:dw3:S11E02",
+      "series": "dw3",
       "kind": "serial",
       "season": 11,
       "episode": 2,
@@ -3231,8 +3333,8 @@
       "parts": 6
     },
     {
-      "id": "doctor-who:dw63:S11E03",
-      "series": "dw63",
+      "id": "doctor-who:dw3:S11E03",
+      "series": "dw3",
       "kind": "serial",
       "season": 11,
       "episode": 3,
@@ -3245,8 +3347,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S11E04",
-      "series": "dw63",
+      "id": "doctor-who:dw3:S11E04",
+      "series": "dw3",
       "kind": "serial",
       "season": 11,
       "episode": 4,
@@ -3259,8 +3361,8 @@
       "parts": 6
     },
     {
-      "id": "doctor-who:dw63:S11E05",
-      "series": "dw63",
+      "id": "doctor-who:dw3:S11E05",
+      "series": "dw3",
       "kind": "serial",
       "season": 11,
       "episode": 5,
@@ -3273,8 +3375,8 @@
       "parts": 6
     },
     {
-      "id": "doctor-who:dw63:S12E01",
-      "series": "dw63",
+      "id": "doctor-who:dw4:S12E01",
+      "series": "dw4",
       "kind": "serial",
       "season": 12,
       "episode": 1,
@@ -3287,8 +3389,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S12E02",
-      "series": "dw63",
+      "id": "doctor-who:dw4:S12E02",
+      "series": "dw4",
       "kind": "serial",
       "season": 12,
       "episode": 2,
@@ -3301,8 +3403,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S12E03",
-      "series": "dw63",
+      "id": "doctor-who:dw4:S12E03",
+      "series": "dw4",
       "kind": "serial",
       "season": 12,
       "episode": 3,
@@ -3315,8 +3417,8 @@
       "parts": 2
     },
     {
-      "id": "doctor-who:dw63:S12E04",
-      "series": "dw63",
+      "id": "doctor-who:dw4:S12E04",
+      "series": "dw4",
       "kind": "serial",
       "season": 12,
       "episode": 4,
@@ -3329,8 +3431,8 @@
       "parts": 6
     },
     {
-      "id": "doctor-who:dw63:S12E05",
-      "series": "dw63",
+      "id": "doctor-who:dw4:S12E05",
+      "series": "dw4",
       "kind": "serial",
       "season": 12,
       "episode": 5,
@@ -3343,8 +3445,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S13E01",
-      "series": "dw63",
+      "id": "doctor-who:dw4:S13E01",
+      "series": "dw4",
       "kind": "serial",
       "season": 13,
       "episode": 1,
@@ -3357,8 +3459,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S13E02",
-      "series": "dw63",
+      "id": "doctor-who:dw4:S13E02",
+      "series": "dw4",
       "kind": "serial",
       "season": 13,
       "episode": 2,
@@ -3371,8 +3473,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S13E03",
-      "series": "dw63",
+      "id": "doctor-who:dw4:S13E03",
+      "series": "dw4",
       "kind": "serial",
       "season": 13,
       "episode": 3,
@@ -3385,8 +3487,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S13E04",
-      "series": "dw63",
+      "id": "doctor-who:dw4:S13E04",
+      "series": "dw4",
       "kind": "serial",
       "season": 13,
       "episode": 4,
@@ -3399,8 +3501,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S13E05",
-      "series": "dw63",
+      "id": "doctor-who:dw4:S13E05",
+      "series": "dw4",
       "kind": "serial",
       "season": 13,
       "episode": 5,
@@ -3413,8 +3515,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S13E06",
-      "series": "dw63",
+      "id": "doctor-who:dw4:S13E06",
+      "series": "dw4",
       "kind": "serial",
       "season": 13,
       "episode": 6,
@@ -3427,8 +3529,8 @@
       "parts": 6
     },
     {
-      "id": "doctor-who:dw63:S14E01",
-      "series": "dw63",
+      "id": "doctor-who:dw4:S14E01",
+      "series": "dw4",
       "kind": "serial",
       "season": 14,
       "episode": 1,
@@ -3441,8 +3543,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S14E02",
-      "series": "dw63",
+      "id": "doctor-who:dw4:S14E02",
+      "series": "dw4",
       "kind": "serial",
       "season": 14,
       "episode": 2,
@@ -3455,8 +3557,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S14E03",
-      "series": "dw63",
+      "id": "doctor-who:dw4:S14E03",
+      "series": "dw4",
       "kind": "serial",
       "season": 14,
       "episode": 3,
@@ -3469,8 +3571,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S14E04",
-      "series": "dw63",
+      "id": "doctor-who:dw4:S14E04",
+      "series": "dw4",
       "kind": "serial",
       "season": 14,
       "episode": 4,
@@ -3483,8 +3585,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S14E05",
-      "series": "dw63",
+      "id": "doctor-who:dw4:S14E05",
+      "series": "dw4",
       "kind": "serial",
       "season": 14,
       "episode": 5,
@@ -3497,8 +3599,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S14E06",
-      "series": "dw63",
+      "id": "doctor-who:dw4:S14E06",
+      "series": "dw4",
       "kind": "serial",
       "season": 14,
       "episode": 6,
@@ -3511,8 +3613,8 @@
       "parts": 6
     },
     {
-      "id": "doctor-who:dw63:S15E01",
-      "series": "dw63",
+      "id": "doctor-who:dw4:S15E01",
+      "series": "dw4",
       "kind": "serial",
       "season": 15,
       "episode": 1,
@@ -3525,8 +3627,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S15E02",
-      "series": "dw63",
+      "id": "doctor-who:dw4:S15E02",
+      "series": "dw4",
       "kind": "serial",
       "season": 15,
       "episode": 2,
@@ -3539,8 +3641,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S15E03",
-      "series": "dw63",
+      "id": "doctor-who:dw4:S15E03",
+      "series": "dw4",
       "kind": "serial",
       "season": 15,
       "episode": 3,
@@ -3553,8 +3655,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S15E04",
-      "series": "dw63",
+      "id": "doctor-who:dw4:S15E04",
+      "series": "dw4",
       "kind": "serial",
       "season": 15,
       "episode": 4,
@@ -3567,8 +3669,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S15E05",
-      "series": "dw63",
+      "id": "doctor-who:dw4:S15E05",
+      "series": "dw4",
       "kind": "serial",
       "season": 15,
       "episode": 5,
@@ -3581,8 +3683,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S15E06",
-      "series": "dw63",
+      "id": "doctor-who:dw4:S15E06",
+      "series": "dw4",
       "kind": "serial",
       "season": 15,
       "episode": 6,
@@ -3595,8 +3697,8 @@
       "parts": 6
     },
     {
-      "id": "doctor-who:dw63:S16E01",
-      "series": "dw63",
+      "id": "doctor-who:dw4:S16E01",
+      "series": "dw4",
       "kind": "serial",
       "season": 16,
       "episode": 1,
@@ -3609,8 +3711,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S16E02",
-      "series": "dw63",
+      "id": "doctor-who:dw4:S16E02",
+      "series": "dw4",
       "kind": "serial",
       "season": 16,
       "episode": 2,
@@ -3623,8 +3725,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S16E03",
-      "series": "dw63",
+      "id": "doctor-who:dw4:S16E03",
+      "series": "dw4",
       "kind": "serial",
       "season": 16,
       "episode": 3,
@@ -3637,8 +3739,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S16E04",
-      "series": "dw63",
+      "id": "doctor-who:dw4:S16E04",
+      "series": "dw4",
       "kind": "serial",
       "season": 16,
       "episode": 4,
@@ -3651,8 +3753,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S16E05",
-      "series": "dw63",
+      "id": "doctor-who:dw4:S16E05",
+      "series": "dw4",
       "kind": "serial",
       "season": 16,
       "episode": 5,
@@ -3665,8 +3767,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S16E06",
-      "series": "dw63",
+      "id": "doctor-who:dw4:S16E06",
+      "series": "dw4",
       "kind": "serial",
       "season": 16,
       "episode": 6,
@@ -3679,8 +3781,8 @@
       "parts": 6
     },
     {
-      "id": "doctor-who:dw63:S17E01",
-      "series": "dw63",
+      "id": "doctor-who:dw4:S17E01",
+      "series": "dw4",
       "kind": "serial",
       "season": 17,
       "episode": 1,
@@ -3693,8 +3795,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S17E02",
-      "series": "dw63",
+      "id": "doctor-who:dw4:S17E02",
+      "series": "dw4",
       "kind": "serial",
       "season": 17,
       "episode": 2,
@@ -3707,8 +3809,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S17E03",
-      "series": "dw63",
+      "id": "doctor-who:dw4:S17E03",
+      "series": "dw4",
       "kind": "serial",
       "season": 17,
       "episode": 3,
@@ -3721,8 +3823,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S17E04",
-      "series": "dw63",
+      "id": "doctor-who:dw4:S17E04",
+      "series": "dw4",
       "kind": "serial",
       "season": 17,
       "episode": 4,
@@ -3735,8 +3837,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S17E05",
-      "series": "dw63",
+      "id": "doctor-who:dw4:S17E05",
+      "series": "dw4",
       "kind": "serial",
       "season": 17,
       "episode": 5,
@@ -3749,8 +3851,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S17E06",
-      "series": "dw63",
+      "id": "doctor-who:dw4:S17E06",
+      "series": "dw4",
       "kind": "serial",
       "season": 17,
       "episode": 6,
@@ -3763,8 +3865,8 @@
       "parts": 6
     },
     {
-      "id": "doctor-who:dw63:S18E01",
-      "series": "dw63",
+      "id": "doctor-who:dw4:S18E01",
+      "series": "dw4",
       "kind": "serial",
       "season": 18,
       "episode": 1,
@@ -3777,8 +3879,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S18E02",
-      "series": "dw63",
+      "id": "doctor-who:dw4:S18E02",
+      "series": "dw4",
       "kind": "serial",
       "season": 18,
       "episode": 2,
@@ -3791,8 +3893,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S18E03",
-      "series": "dw63",
+      "id": "doctor-who:dw4:S18E03",
+      "series": "dw4",
       "kind": "serial",
       "season": 18,
       "episode": 3,
@@ -3805,8 +3907,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S18E04",
-      "series": "dw63",
+      "id": "doctor-who:dw4:S18E04",
+      "series": "dw4",
       "kind": "serial",
       "season": 18,
       "episode": 4,
@@ -3819,8 +3921,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S18E05",
-      "series": "dw63",
+      "id": "doctor-who:dw4:S18E05",
+      "series": "dw4",
       "kind": "serial",
       "season": 18,
       "episode": 5,
@@ -3833,8 +3935,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S18E06",
-      "series": "dw63",
+      "id": "doctor-who:dw4:S18E06",
+      "series": "dw4",
       "kind": "serial",
       "season": 18,
       "episode": 6,
@@ -3847,8 +3949,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S18E07",
-      "series": "dw63",
+      "id": "doctor-who:dw4:S18E07",
+      "series": "dw4",
       "kind": "serial",
       "season": 18,
       "episode": 7,
@@ -3861,8 +3963,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S19E01",
-      "series": "dw63",
+      "id": "doctor-who:dw5:S19E01",
+      "series": "dw5",
       "kind": "serial",
       "season": 19,
       "episode": 1,
@@ -3875,8 +3977,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S19E02",
-      "series": "dw63",
+      "id": "doctor-who:dw5:S19E02",
+      "series": "dw5",
       "kind": "serial",
       "season": 19,
       "episode": 2,
@@ -3889,8 +3991,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S19E03",
-      "series": "dw63",
+      "id": "doctor-who:dw5:S19E03",
+      "series": "dw5",
       "kind": "serial",
       "season": 19,
       "episode": 3,
@@ -3903,8 +4005,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S19E04",
-      "series": "dw63",
+      "id": "doctor-who:dw5:S19E04",
+      "series": "dw5",
       "kind": "serial",
       "season": 19,
       "episode": 4,
@@ -3917,8 +4019,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S19E05",
-      "series": "dw63",
+      "id": "doctor-who:dw5:S19E05",
+      "series": "dw5",
       "kind": "serial",
       "season": 19,
       "episode": 5,
@@ -3931,8 +4033,8 @@
       "parts": 2
     },
     {
-      "id": "doctor-who:dw63:S19E06",
-      "series": "dw63",
+      "id": "doctor-who:dw5:S19E06",
+      "series": "dw5",
       "kind": "serial",
       "season": 19,
       "episode": 6,
@@ -3945,8 +4047,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S19E07",
-      "series": "dw63",
+      "id": "doctor-who:dw5:S19E07",
+      "series": "dw5",
       "kind": "serial",
       "season": 19,
       "episode": 7,
@@ -3959,8 +4061,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S20E01",
-      "series": "dw63",
+      "id": "doctor-who:dw5:S20E01",
+      "series": "dw5",
       "kind": "serial",
       "season": 20,
       "episode": 1,
@@ -3973,8 +4075,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S20E02",
-      "series": "dw63",
+      "id": "doctor-who:dw5:S20E02",
+      "series": "dw5",
       "kind": "serial",
       "season": 20,
       "episode": 2,
@@ -3987,8 +4089,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S20E03",
-      "series": "dw63",
+      "id": "doctor-who:dw5:S20E03",
+      "series": "dw5",
       "kind": "serial",
       "season": 20,
       "episode": 3,
@@ -4001,8 +4103,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S20E04",
-      "series": "dw63",
+      "id": "doctor-who:dw5:S20E04",
+      "series": "dw5",
       "kind": "serial",
       "season": 20,
       "episode": 4,
@@ -4015,8 +4117,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S20E05",
-      "series": "dw63",
+      "id": "doctor-who:dw5:S20E05",
+      "series": "dw5",
       "kind": "serial",
       "season": 20,
       "episode": 5,
@@ -4029,8 +4131,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S20E06",
-      "series": "dw63",
+      "id": "doctor-who:dw5:S20E06",
+      "series": "dw5",
       "kind": "serial",
       "season": 20,
       "episode": 6,
@@ -4043,8 +4145,8 @@
       "parts": 2
     },
     {
-      "id": "doctor-who:dw63:S21E01",
-      "series": "dw63",
+      "id": "doctor-who:dw5:S21E01",
+      "series": "dw5",
       "kind": "serial",
       "season": 21,
       "episode": 1,
@@ -4057,8 +4159,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S21E02",
-      "series": "dw63",
+      "id": "doctor-who:dw5:S21E02",
+      "series": "dw5",
       "kind": "serial",
       "season": 21,
       "episode": 2,
@@ -4071,8 +4173,8 @@
       "parts": 2
     },
     {
-      "id": "doctor-who:dw63:S21E03",
-      "series": "dw63",
+      "id": "doctor-who:dw5:S21E03",
+      "series": "dw5",
       "kind": "serial",
       "season": 21,
       "episode": 3,
@@ -4085,8 +4187,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S21E04",
-      "series": "dw63",
+      "id": "doctor-who:dw5:S21E04",
+      "series": "dw5",
       "kind": "serial",
       "season": 21,
       "episode": 4,
@@ -4099,8 +4201,8 @@
       "parts": 2
     },
     {
-      "id": "doctor-who:dw63:S21E05",
-      "series": "dw63",
+      "id": "doctor-who:dw5:S21E05",
+      "series": "dw5",
       "kind": "serial",
       "season": 21,
       "episode": 5,
@@ -4113,8 +4215,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S21E06",
-      "series": "dw63",
+      "id": "doctor-who:dw5:S21E06",
+      "series": "dw5",
       "kind": "serial",
       "season": 21,
       "episode": 6,
@@ -4127,11 +4229,11 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S21E07",
-      "series": "dw63",
+      "id": "doctor-who:dw6:S21E01",
+      "series": "dw6",
       "kind": "serial",
       "season": 21,
-      "episode": 7,
+      "episode": 1,
       "title": "The Twin Dilemma",
       "airDate": "1984-03-22",
       "year": 1984,
@@ -4141,8 +4243,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S22E01",
-      "series": "dw63",
+      "id": "doctor-who:dw6:S22E01",
+      "series": "dw6",
       "kind": "serial",
       "season": 22,
       "episode": 1,
@@ -4155,8 +4257,8 @@
       "parts": 2
     },
     {
-      "id": "doctor-who:dw63:S22E02",
-      "series": "dw63",
+      "id": "doctor-who:dw6:S22E02",
+      "series": "dw6",
       "kind": "serial",
       "season": 22,
       "episode": 2,
@@ -4169,8 +4271,8 @@
       "parts": 2
     },
     {
-      "id": "doctor-who:dw63:S22E03",
-      "series": "dw63",
+      "id": "doctor-who:dw6:S22E03",
+      "series": "dw6",
       "kind": "serial",
       "season": 22,
       "episode": 3,
@@ -4183,8 +4285,8 @@
       "parts": 2
     },
     {
-      "id": "doctor-who:dw63:S22E04",
-      "series": "dw63",
+      "id": "doctor-who:dw6:S22E04",
+      "series": "dw6",
       "kind": "serial",
       "season": 22,
       "episode": 4,
@@ -4197,8 +4299,8 @@
       "parts": 3
     },
     {
-      "id": "doctor-who:dw63:S22E05",
-      "series": "dw63",
+      "id": "doctor-who:dw6:S22E05",
+      "series": "dw6",
       "kind": "serial",
       "season": 22,
       "episode": 5,
@@ -4211,8 +4313,8 @@
       "parts": 2
     },
     {
-      "id": "doctor-who:dw63:S22E06",
-      "series": "dw63",
+      "id": "doctor-who:dw6:S22E06",
+      "series": "dw6",
       "kind": "serial",
       "season": 22,
       "episode": 6,
@@ -4225,8 +4327,8 @@
       "parts": 2
     },
     {
-      "id": "doctor-who:dw63:S23E01",
-      "series": "dw63",
+      "id": "doctor-who:dw6:S23E01",
+      "series": "dw6",
       "kind": "serial",
       "season": 23,
       "episode": 1,
@@ -4239,8 +4341,8 @@
       "parts": 14
     },
     {
-      "id": "doctor-who:dw63:S24E01",
-      "series": "dw63",
+      "id": "doctor-who:dw7:S24E01",
+      "series": "dw7",
       "kind": "serial",
       "season": 24,
       "episode": 1,
@@ -4253,8 +4355,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S24E02",
-      "series": "dw63",
+      "id": "doctor-who:dw7:S24E02",
+      "series": "dw7",
       "kind": "serial",
       "season": 24,
       "episode": 2,
@@ -4267,8 +4369,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S24E03",
-      "series": "dw63",
+      "id": "doctor-who:dw7:S24E03",
+      "series": "dw7",
       "kind": "serial",
       "season": 24,
       "episode": 3,
@@ -4281,8 +4383,8 @@
       "parts": 3
     },
     {
-      "id": "doctor-who:dw63:S24E04",
-      "series": "dw63",
+      "id": "doctor-who:dw7:S24E04",
+      "series": "dw7",
       "kind": "serial",
       "season": 24,
       "episode": 4,
@@ -4295,8 +4397,8 @@
       "parts": 3
     },
     {
-      "id": "doctor-who:dw63:S25E01",
-      "series": "dw63",
+      "id": "doctor-who:dw7:S25E01",
+      "series": "dw7",
       "kind": "serial",
       "season": 25,
       "episode": 1,
@@ -4309,8 +4411,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S25E02",
-      "series": "dw63",
+      "id": "doctor-who:dw7:S25E02",
+      "series": "dw7",
       "kind": "serial",
       "season": 25,
       "episode": 2,
@@ -4323,8 +4425,8 @@
       "parts": 3
     },
     {
-      "id": "doctor-who:dw63:S25E03",
-      "series": "dw63",
+      "id": "doctor-who:dw7:S25E03",
+      "series": "dw7",
       "kind": "serial",
       "season": 25,
       "episode": 3,
@@ -4337,8 +4439,8 @@
       "parts": 3
     },
     {
-      "id": "doctor-who:dw63:S25E04",
-      "series": "dw63",
+      "id": "doctor-who:dw7:S25E04",
+      "series": "dw7",
       "kind": "serial",
       "season": 25,
       "episode": 4,
@@ -4351,8 +4453,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S26E01",
-      "series": "dw63",
+      "id": "doctor-who:dw7:S26E01",
+      "series": "dw7",
       "kind": "serial",
       "season": 26,
       "episode": 1,
@@ -4365,8 +4467,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S26E02",
-      "series": "dw63",
+      "id": "doctor-who:dw7:S26E02",
+      "series": "dw7",
       "kind": "serial",
       "season": 26,
       "episode": 2,
@@ -4379,8 +4481,8 @@
       "parts": 3
     },
     {
-      "id": "doctor-who:dw63:S26E03",
-      "series": "dw63",
+      "id": "doctor-who:dw7:S26E03",
+      "series": "dw7",
       "kind": "serial",
       "season": 26,
       "episode": 3,
@@ -4393,8 +4495,8 @@
       "parts": 4
     },
     {
-      "id": "doctor-who:dw63:S26E04",
-      "series": "dw63",
+      "id": "doctor-who:dw7:S26E04",
+      "series": "dw7",
       "kind": "serial",
       "season": 26,
       "episode": 4,

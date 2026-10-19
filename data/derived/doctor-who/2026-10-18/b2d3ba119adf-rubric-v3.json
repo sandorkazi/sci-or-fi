@@ -13,7 +13,13 @@
       "tardis"
     ],
     "series": [
-      "dw63",
+      "dw1",
+      "dw2",
+      "dw3",
+      "dw4",
+      "dw5",
+      "dw6",
+      "dw7",
       "dw05",
       "dw23",
       "dwf65",
@@ -21,15 +27,17 @@
       "dwm96"
     ]
   },
-  "scopeHash": "448ad092cd5e",
-  "generatedAt": "2026-10-19T17:59:17+00:00",
+  "scopeHash": "b2d3ba119adf",
+  "generatedAt": "2026-10-19T19:34:07+00:00",
   "unmeasured": {
     "works": 9,
     "of": 327,
     "minWords": 200,
     "bySeries": {
       "dw05": 6,
-      "dw63": 3
+      "dw1": 1,
+      "dw3": 1,
+      "dw6": 1
     }
   },
   "coverageGaps": [
@@ -50,32 +58,32 @@
   ],
   "series": [
     {
-      "id": "dw63",
-      "name": "Doctor Who (1963-1989)",
-      "short": "DW63",
+      "id": "dw1",
+      "name": "Doctor Who - First Doctor (1963-1966)",
+      "short": "DW1",
       "kind": "series",
       "unit": "serial",
-      "color": "#378ADD",
+      "color": "#1F4E79",
       "ageRating": 7,
       "entityCount": 38,
       "textBasis": {
-        "episodes": 155,
+        "episodes": 29,
         "minWords": 200,
         "sources": {
           "tvmaze": {
-            "covered": 150,
-            "medianWords": 40,
-            "measured": 2
+            "covered": 28,
+            "medianWords": 70,
+            "measured": 0
           },
           "wikipedia": {
-            "covered": 149,
-            "medianWords": 417,
-            "measured": 147
+            "covered": 28,
+            "medianWords": 398,
+            "measured": 27
           },
           "tardis": {
-            "covered": 152,
-            "medianWords": 2434,
-            "measured": 152
+            "covered": 28,
+            "medianWords": 3122,
+            "measured": 28
           }
         }
       },
@@ -93,14 +101,14 @@
                 "mean": 1.032,
                 "density": 1.493,
                 "ci95": 0.881,
-                "rank": 4.167
+                "rank": 3.977
               },
               "wikipedia": {
                 "n": 7,
                 "mean": 1.976,
                 "density": 2.86,
                 "ci95": 2.387,
-                "rank": 7.024
+                "rank": 6.932
               }
             },
             "year": null,
@@ -108,7 +116,7 @@
             "mean": 1.473,
             "density": 2.131,
             "ci95": 1.209,
-            "rank": 5.5
+            "rank": 5.356
           },
           "fi": {
             "perSource": {
@@ -117,14 +125,14 @@
                 "mean": 2.389,
                 "density": 1.218,
                 "ci95": 2.285,
-                "rank": 4.643
+                "rank": 4.432
               },
               "wikipedia": {
                 "n": 7,
                 "mean": 2.126,
                 "density": 1.113,
                 "ci95": 2.904,
-                "rank": 3.452
+                "rank": 3.523
               }
             },
             "year": null,
@@ -132,7 +140,7 @@
             "mean": 2.266,
             "density": 1.169,
             "ci95": 1.823,
-            "rank": 4.087
+            "rank": 4.008
           }
         },
         {
@@ -148,14 +156,14 @@
                 "mean": 0.527,
                 "density": 0.763,
                 "ci95": 0.377,
-                "rank": 0.119
+                "rank": 0.114
               },
               "wikipedia": {
                 "n": 9,
                 "mean": 0.609,
                 "density": 0.881,
                 "ci95": 0.605,
-                "rank": 1.071
+                "rank": 1.25
               }
             },
             "year": null,
@@ -163,7 +171,7 @@
             "mean": 0.568,
             "density": 0.822,
             "ci95": 0.356,
-            "rank": 0.595
+            "rank": 0.682
           },
           "fi": {
             "perSource": {
@@ -172,14 +180,14 @@
                 "mean": 0.801,
                 "density": 0.408,
                 "ci95": 0.875,
-                "rank": 1.31
+                "rank": 1.25
               },
               "wikipedia": {
                 "n": 9,
                 "mean": 0.604,
                 "density": 0.308,
                 "ci95": 1.184,
-                "rank": 1.071
+                "rank": 1.477
               }
             },
             "year": null,
@@ -187,7 +195,7 @@
             "mean": 0.703,
             "density": 0.358,
             "ci95": 0.736,
-            "rank": 1.191
+            "rank": 1.363
           }
         },
         {
@@ -203,14 +211,14 @@
                 "mean": 1.026,
                 "density": 1.485,
                 "ci95": 0.44,
-                "rank": 3.69
+                "rank": 3.523
               },
               "wikipedia": {
                 "n": 9,
                 "mean": 1.414,
                 "density": 2.047,
                 "ci95": 1.134,
-                "rank": 4.643
+                "rank": 4.886
               }
             },
             "year": null,
@@ -218,7 +226,7 @@
             "mean": 1.22,
             "density": 1.766,
             "ci95": 0.608,
-            "rank": 4.167
+            "rank": 4.205
           },
           "fi": {
             "perSource": {
@@ -227,14 +235,14 @@
                 "mean": 2.5,
                 "density": 0.817,
                 "ci95": 2.723,
-                "rank": 4.881
+                "rank": 4.886
               },
               "wikipedia": {
                 "n": 9,
                 "mean": 2.687,
                 "density": 1.369,
                 "ci95": 2.853,
-                "rank": 4.167
+                "rank": 4.432
               }
             },
             "year": null,
@@ -242,62 +250,150 @@
             "mean": 2.594,
             "density": 1.093,
             "ci95": 1.972,
-            "rank": 4.524
+            "rank": 4.659
           }
         },
         {
           "season": 4,
           "year": 1966,
-          "yearEnd": 1967,
-          "episodeCount": 9,
-          "partCount": 43,
+          "yearEnd": null,
+          "episodeCount": 2,
+          "partCount": 8,
           "sci": {
             "perSource": {
               "tardis": {
-                "n": 9,
-                "mean": 1.183,
-                "density": 1.711,
-                "ci95": 0.682,
-                "rank": 5.119
+                "n": 2,
+                "mean": 1.064,
+                "density": 1.54,
+                "ci95": 2.408,
+                "rank": 4.659
               },
               "wikipedia": {
-                "n": 9,
-                "mean": 1.858,
-                "density": 2.689,
-                "ci95": 1.403,
-                "rank": 6.786
+                "n": 2,
+                "mean": 3.455,
+                "density": 5.0,
+                "ci95": 10.158,
+                "rank": 9.205
               }
             },
             "year": null,
-            "n": 18,
-            "mean": 1.52,
-            "density": 2.2,
-            "ci95": 0.78,
-            "rank": 5.952
+            "n": 4,
+            "mean": 2.26,
+            "density": 3.27,
+            "ci95": 5.22,
+            "rank": 6.932
           },
           "fi": {
             "perSource": {
               "tardis": {
-                "n": 9,
-                "mean": 1.957,
-                "density": 0.859,
-                "ci95": 2.196,
-                "rank": 3.452
+                "n": 2,
+                "mean": 2.724,
+                "density": 0.177,
+                "ci95": 5.965,
+                "rank": 5.568
               },
               "wikipedia": {
-                "n": 9,
-                "mean": 1.664,
-                "density": 1.416,
-                "ci95": 2.308,
-                "rank": 2.976
+                "n": 2,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": 0.0,
+                "rank": 0.682
               }
             },
             "year": null,
-            "n": 18,
-            "mean": 1.81,
-            "density": 1.138,
-            "ci95": 1.593,
-            "rank": 3.214
+            "n": 4,
+            "mean": 1.362,
+            "density": 0.088,
+            "ci95": 2.982,
+            "rank": 3.125
+          }
+        }
+      ]
+    },
+    {
+      "id": "dw2",
+      "name": "Doctor Who - Second Doctor (1966-1969)",
+      "short": "DW2",
+      "kind": "series",
+      "unit": "serial",
+      "color": "#2E75B6",
+      "ageRating": 7,
+      "entityCount": 38,
+      "textBasis": {
+        "episodes": 21,
+        "minWords": 200,
+        "sources": {
+          "tvmaze": {
+            "covered": 21,
+            "medianWords": 28,
+            "measured": 0
+          },
+          "wikipedia": {
+            "covered": 21,
+            "medianWords": 397,
+            "measured": 21
+          },
+          "tardis": {
+            "covered": 21,
+            "medianWords": 4767,
+            "measured": 21
+          }
+        }
+      },
+      "seasons": [
+        {
+          "season": 4,
+          "year": 1966,
+          "yearEnd": 1967,
+          "episodeCount": 7,
+          "partCount": 35,
+          "sci": {
+            "perSource": {
+              "tardis": {
+                "n": 7,
+                "mean": 1.216,
+                "density": 1.76,
+                "ci95": 0.82,
+                "rank": 5.114
+              },
+              "wikipedia": {
+                "n": 7,
+                "mean": 1.402,
+                "density": 2.029,
+                "ci95": 0.769,
+                "rank": 4.659
+              }
+            },
+            "year": null,
+            "n": 14,
+            "mean": 1.309,
+            "density": 1.895,
+            "ci95": 0.562,
+            "rank": 4.886
+          },
+          "fi": {
+            "perSource": {
+              "tardis": {
+                "n": 7,
+                "mean": 1.738,
+                "density": 1.053,
+                "ci95": 2.715,
+                "rank": 3.068
+              },
+              "wikipedia": {
+                "n": 7,
+                "mean": 2.14,
+                "density": 1.82,
+                "ci95": 2.912,
+                "rank": 3.75
+              }
+            },
+            "year": null,
+            "n": 14,
+            "mean": 1.939,
+            "density": 1.437,
+            "ci95": 1.991,
+            "rank": 3.409
           }
         },
         {
@@ -313,14 +409,14 @@
                 "mean": 1.838,
                 "density": 2.66,
                 "ci95": 1.177,
-                "rank": 7.976
+                "rank": 7.841
               },
               "wikipedia": {
                 "n": 7,
                 "mean": 2.17,
                 "density": 3.14,
                 "ci95": 2.587,
-                "rank": 7.738
+                "rank": 7.614
               }
             },
             "year": null,
@@ -328,7 +424,7 @@
             "mean": 2.004,
             "density": 2.9,
             "ci95": 1.421,
-            "rank": 7.857
+            "rank": 7.728
           },
           "fi": {
             "perSource": {
@@ -337,14 +433,14 @@
                 "mean": 1.06,
                 "density": 0.51,
                 "ci95": 0.876,
-                "rank": 2.262
+                "rank": 2.159
               },
               "wikipedia": {
                 "n": 7,
                 "mean": 1.32,
                 "density": 0.374,
                 "ci95": 1.684,
-                "rank": 2.5
+                "rank": 2.841
               }
             },
             "year": null,
@@ -352,7 +448,7 @@
             "mean": 1.19,
             "density": 0.442,
             "ci95": 0.949,
-            "rank": 2.381
+            "rank": 2.5
           }
         },
         {
@@ -368,14 +464,14 @@
                 "mean": 1.438,
                 "density": 2.081,
                 "ci95": 0.376,
-                "rank": 6.31
+                "rank": 6.25
               },
               "wikipedia": {
                 "n": 7,
                 "mean": 0.849,
                 "density": 1.229,
                 "ci95": 0.929,
-                "rank": 2.024
+                "rank": 2.159
               }
             },
             "year": null,
@@ -383,7 +479,7 @@
             "mean": 1.143,
             "density": 1.655,
             "ci95": 0.501,
-            "rank": 4.167
+            "rank": 4.205
           },
           "fi": {
             "perSource": {
@@ -392,14 +488,14 @@
                 "mean": 0.555,
                 "density": 0.283,
                 "ci95": 0.235,
-                "rank": 1.071
+                "rank": 1.023
               },
               "wikipedia": {
                 "n": 7,
                 "mean": 0.0,
                 "density": 0.0,
                 "ci95": 0.0,
-                "rank": 0.476
+                "rank": 0.682
               }
             },
             "year": null,
@@ -407,9 +503,42 @@
             "mean": 0.278,
             "density": 0.141,
             "ci95": 0.118,
-            "rank": 0.774
+            "rank": 0.852
           }
-        },
+        }
+      ]
+    },
+    {
+      "id": "dw3",
+      "name": "Doctor Who - Third Doctor (1970-1974)",
+      "short": "DW3",
+      "kind": "series",
+      "unit": "serial",
+      "color": "#3F97C0",
+      "ageRating": 7,
+      "entityCount": 38,
+      "textBasis": {
+        "episodes": 24,
+        "minWords": 200,
+        "sources": {
+          "tvmaze": {
+            "covered": 24,
+            "medianWords": 28,
+            "measured": 0
+          },
+          "wikipedia": {
+            "covered": 22,
+            "medianWords": 446,
+            "measured": 22
+          },
+          "tardis": {
+            "covered": 23,
+            "medianWords": 3478,
+            "measured": 23
+          }
+        }
+      },
+      "seasons": [
         {
           "season": 7,
           "year": 1970,
@@ -423,14 +552,14 @@
                 "mean": 2.625,
                 "density": 3.798,
                 "ci95": 2.898,
-                "rank": 9.405
+                "rank": 9.432
               },
               "wikipedia": {
                 "n": 3,
                 "mean": 4.485,
                 "density": 7.064,
                 "ci95": 8.11,
-                "rank": 9.643
+                "rank": 9.659
               }
             },
             "year": null,
@@ -438,7 +567,7 @@
             "mean": 3.555,
             "density": 5.431,
             "ci95": 4.306,
-            "rank": 9.524
+            "rank": 9.546
           },
           "fi": {
             "perSource": {
@@ -447,14 +576,14 @@
                 "mean": 0.5,
                 "density": 0.161,
                 "ci95": 0.106,
-                "rank": 0.595
+                "rank": 0.568
               },
               "wikipedia": {
                 "n": 3,
                 "mean": 1.897,
                 "density": 0.0,
                 "ci95": 5.578,
-                "rank": 3.214
+                "rank": 3.295
               }
             },
             "year": null,
@@ -462,7 +591,7 @@
             "mean": 1.198,
             "density": 0.081,
             "ci95": 2.79,
-            "rank": 1.904
+            "rank": 1.931
           }
         },
         {
@@ -478,14 +607,14 @@
                 "mean": 1.665,
                 "density": 2.41,
                 "ci95": 0.777,
-                "rank": 7.5
+                "rank": 7.386
               },
               "wikipedia": {
                 "n": 5,
                 "mean": 3.067,
                 "density": 4.439,
                 "ci95": 1.064,
-                "rank": 8.929
+                "rank": 8.75
               }
             },
             "year": null,
@@ -493,7 +622,7 @@
             "mean": 2.366,
             "density": 3.425,
             "ci95": 0.659,
-            "rank": 8.215
+            "rank": 8.068
           },
           "fi": {
             "perSource": {
@@ -502,14 +631,14 @@
                 "mean": 2.722,
                 "density": 1.893,
                 "ci95": 3.62,
-                "rank": 5.357
+                "rank": 5.341
               },
               "wikipedia": {
                 "n": 5,
                 "mean": 4.33,
                 "density": 3.511,
                 "ci95": 3.776,
-                "rank": 7.738
+                "rank": 7.841
               }
             },
             "year": null,
@@ -517,7 +646,7 @@
             "mean": 3.526,
             "density": 2.702,
             "ci95": 2.615,
-            "rank": 6.548
+            "rank": 6.591
           }
         },
         {
@@ -533,14 +662,14 @@
                 "mean": 1.749,
                 "density": 2.532,
                 "ci95": 1.398,
-                "rank": 7.738
+                "rank": 7.614
               },
               "wikipedia": {
                 "n": 5,
                 "mean": 0.895,
                 "density": 1.295,
                 "ci95": 1.295,
-                "rank": 2.262
+                "rank": 2.386
               }
             },
             "year": null,
@@ -557,14 +686,14 @@
                 "mean": 4.429,
                 "density": 1.415,
                 "ci95": 3.113,
-                "rank": 8.69
+                "rank": 8.75
               },
               "wikipedia": {
                 "n": 5,
                 "mean": 7.812,
                 "density": 2.76,
                 "ci95": 2.146,
-                "rank": 9.881
+                "rank": 9.886
               }
             },
             "year": null,
@@ -572,7 +701,7 @@
             "mean": 6.121,
             "density": 2.087,
             "ci95": 1.891,
-            "rank": 9.285
+            "rank": 9.318
           }
         },
         {
@@ -588,14 +717,14 @@
                 "mean": 1.974,
                 "density": 2.857,
                 "ci95": 0.789,
-                "rank": 8.214
+                "rank": 8.295
               },
               "wikipedia": {
                 "n": 4,
                 "mean": 0.788,
                 "density": 1.141,
                 "ci95": 1.351,
-                "rank": 1.786
+                "rank": 1.932
               }
             },
             "year": null,
@@ -603,7 +732,7 @@
             "mean": 1.447,
             "density": 2.094,
             "ci95": 0.743,
-            "rank": 5.357
+            "rank": 5.467
           },
           "fi": {
             "perSource": {
@@ -612,14 +741,14 @@
                 "mean": 1.984,
                 "density": 0.37,
                 "ci95": 2.767,
-                "rank": 4.167
+                "rank": 3.977
               },
               "wikipedia": {
                 "n": 4,
                 "mean": 1.229,
                 "density": 0.626,
                 "ci95": 3.614,
-                "rank": 2.024
+                "rank": 2.386
               }
             },
             "year": null,
@@ -627,7 +756,7 @@
             "mean": 1.648,
             "density": 0.484,
             "ci95": 2.223,
-            "rank": 3.215
+            "rank": 3.27
           }
         },
         {
@@ -643,14 +772,14 @@
                 "mean": 0.829,
                 "density": 1.2,
                 "ci95": 0.415,
-                "rank": 2.024
+                "rank": 1.932
               },
               "wikipedia": {
                 "n": 5,
                 "mean": 1.782,
                 "density": 2.579,
                 "ci95": 1.376,
-                "rank": 6.31
+                "rank": 6.477
               }
             },
             "year": null,
@@ -658,7 +787,7 @@
             "mean": 1.305,
             "density": 1.89,
             "ci95": 0.719,
-            "rank": 4.167
+            "rank": 4.205
           },
           "fi": {
             "perSource": {
@@ -667,14 +796,14 @@
                 "mean": 3.358,
                 "density": 1.424,
                 "ci95": 1.932,
-                "rank": 6.31
+                "rank": 6.477
               },
               "wikipedia": {
                 "n": 5,
                 "mean": 3.43,
                 "density": 0.76,
                 "ci95": 2.816,
-                "rank": 5.833
+                "rank": 5.795
               }
             },
             "year": null,
@@ -682,9 +811,42 @@
             "mean": 3.394,
             "density": 1.092,
             "ci95": 1.708,
-            "rank": 6.071
+            "rank": 6.136
           }
-        },
+        }
+      ]
+    },
+    {
+      "id": "dw4",
+      "name": "Doctor Who - Fourth Doctor (1974-1981)",
+      "short": "DW4",
+      "kind": "series",
+      "unit": "serial",
+      "color": "#2E8B8B",
+      "ageRating": 7,
+      "entityCount": 38,
+      "textBasis": {
+        "episodes": 42,
+        "minWords": 200,
+        "sources": {
+          "tvmaze": {
+            "covered": 42,
+            "medianWords": 43,
+            "measured": 2
+          },
+          "wikipedia": {
+            "covered": 41,
+            "medianWords": 471,
+            "measured": 40
+          },
+          "tardis": {
+            "covered": 42,
+            "medianWords": 1733,
+            "measured": 42
+          }
+        }
+      },
+      "seasons": [
         {
           "season": 12,
           "year": 1974,
@@ -698,14 +860,14 @@
                 "mean": 1.643,
                 "density": 2.377,
                 "ci95": 1.311,
-                "rank": 7.262
+                "rank": 7.159
               },
               "wikipedia": {
                 "n": 5,
                 "mean": 3.072,
                 "density": 4.446,
                 "ci95": 1.962,
-                "rank": 9.167
+                "rank": 8.977
               }
             },
             "year": null,
@@ -713,7 +875,7 @@
             "mean": 2.357,
             "density": 3.411,
             "ci95": 1.18,
-            "rank": 8.214
+            "rank": 8.068
           },
           "fi": {
             "perSource": {
@@ -722,14 +884,14 @@
                 "mean": 0.527,
                 "density": 0.269,
                 "ci95": 0.463,
-                "rank": 0.833
+                "rank": 0.795
               },
               "wikipedia": {
                 "n": 5,
                 "mean": 0.773,
                 "density": 0.394,
                 "ci95": 1.514,
-                "rank": 1.31
+                "rank": 1.705
               }
             },
             "year": null,
@@ -737,7 +899,7 @@
             "mean": 0.65,
             "density": 0.332,
             "ci95": 0.792,
-            "rank": 1.071
+            "rank": 1.25
           }
         },
         {
@@ -753,14 +915,14 @@
                 "mean": 2.389,
                 "density": 3.457,
                 "ci95": 1.956,
-                "rank": 9.167
+                "rank": 8.977
               },
               "wikipedia": {
                 "n": 6,
                 "mean": 2.122,
                 "density": 3.876,
                 "ci95": 3.21,
-                "rank": 7.5
+                "rank": 7.386
               }
             },
             "year": null,
@@ -768,7 +930,7 @@
             "mean": 2.256,
             "density": 3.666,
             "ci95": 1.879,
-            "rank": 8.333
+            "rank": 8.181
           },
           "fi": {
             "perSource": {
@@ -777,14 +939,14 @@
                 "mean": 2.767,
                 "density": 0.561,
                 "ci95": 3.362,
-                "rank": 5.595
+                "rank": 5.795
               },
               "wikipedia": {
                 "n": 6,
                 "mean": 2.476,
                 "density": 0.413,
                 "ci95": 3.334,
-                "rank": 3.69
+                "rank": 3.977
               }
             },
             "year": null,
@@ -792,7 +954,7 @@
             "mean": 2.621,
             "density": 0.487,
             "ci95": 2.367,
-            "rank": 4.643
+            "rank": 4.886
           }
         },
         {
@@ -808,14 +970,14 @@
                 "mean": 2.781,
                 "density": 4.024,
                 "ci95": 2.477,
-                "rank": 9.643
+                "rank": 9.659
               },
               "wikipedia": {
                 "n": 6,
                 "mean": 3.975,
                 "density": 5.752,
                 "ci95": 3.53,
-                "rank": 9.405
+                "rank": 9.432
               }
             },
             "year": null,
@@ -823,7 +985,7 @@
             "mean": 3.378,
             "density": 4.888,
             "ci95": 2.156,
-            "rank": 9.524
+            "rank": 9.546
           },
           "fi": {
             "perSource": {
@@ -832,14 +994,14 @@
                 "mean": 5.873,
                 "density": 3.319,
                 "ci95": 3.286,
-                "rank": 9.643
+                "rank": 9.659
               },
               "wikipedia": {
                 "n": 6,
                 "mean": 5.299,
                 "density": 5.486,
                 "ci95": 3.786,
-                "rank": 8.69
+                "rank": 8.75
               }
             },
             "year": null,
@@ -847,7 +1009,7 @@
             "mean": 5.586,
             "density": 4.402,
             "ci95": 2.507,
-            "rank": 9.167
+            "rank": 9.205
           }
         },
         {
@@ -863,14 +1025,14 @@
                 "mean": 2.951,
                 "density": 4.271,
                 "ci95": 2.718,
-                "rank": 9.881
+                "rank": 9.886
               },
               "wikipedia": {
                 "n": 5,
                 "mean": 3.038,
                 "density": 4.396,
                 "ci95": 1.695,
-                "rank": 8.69
+                "rank": 8.523
               }
             },
             "year": null,
@@ -878,7 +1040,7 @@
             "mean": 2.991,
             "density": 4.328,
             "ci95": 1.671,
-            "rank": 9.34
+            "rank": 9.266
           },
           "fi": {
             "perSource": {
@@ -887,14 +1049,14 @@
                 "mean": 3.542,
                 "density": 3.068,
                 "ci95": 4.009,
-                "rank": 6.786
+                "rank": 6.932
               },
               "wikipedia": {
                 "n": 5,
                 "mean": 4.0,
                 "density": 5.026,
                 "ci95": 4.801,
-                "rank": 7.262
+                "rank": 7.386
               }
             },
             "year": null,
@@ -902,7 +1064,7 @@
             "mean": 3.75,
             "density": 3.958,
             "ci95": 3.089,
-            "rank": 7.002
+            "rank": 7.138
           }
         },
         {
@@ -918,14 +1080,14 @@
                 "mean": 0.705,
                 "density": 1.02,
                 "ci95": 0.409,
-                "rank": 1.548
+                "rank": 1.477
               },
               "wikipedia": {
                 "n": 5,
                 "mean": 1.065,
                 "density": 1.541,
                 "ci95": 0.571,
-                "rank": 3.452
+                "rank": 3.523
               }
             },
             "year": null,
@@ -933,7 +1095,7 @@
             "mean": 0.869,
             "density": 1.257,
             "ci95": 0.342,
-            "rank": 2.413
+            "rank": 2.407
           },
           "fi": {
             "perSource": {
@@ -942,14 +1104,14 @@
                 "mean": 5.764,
                 "density": 2.432,
                 "ci95": 2.4,
-                "rank": 9.405
+                "rank": 9.432
               },
               "wikipedia": {
                 "n": 5,
                 "mean": 7.758,
                 "density": 2.12,
                 "ci95": 2.207,
-                "rank": 9.643
+                "rank": 9.659
               }
             },
             "year": null,
@@ -957,7 +1119,7 @@
             "mean": 6.67,
             "density": 2.29,
             "ci95": 1.649,
-            "rank": 9.513
+            "rank": 9.535
           }
         },
         {
@@ -973,14 +1135,14 @@
                 "mean": 1.395,
                 "density": 2.019,
                 "ci95": 0.42,
-                "rank": 6.071
+                "rank": 6.023
               },
               "wikipedia": {
                 "n": 6,
                 "mean": 1.625,
                 "density": 2.351,
                 "ci95": 1.314,
-                "rank": 5.595
+                "rank": 5.795
               },
               "tvmaze": {
                 "n": 1,
@@ -995,7 +1157,7 @@
             "mean": 1.394,
             "density": 2.017,
             "ci95": null,
-            "rank": 5.577
+            "rank": 5.647
           },
           "fi": {
             "perSource": {
@@ -1004,14 +1166,14 @@
                 "mean": 1.947,
                 "density": 0.237,
                 "ci95": 3.169,
-                "rank": 3.214
+                "rank": 3.295
               },
               "wikipedia": {
                 "n": 6,
                 "mean": 3.333,
                 "density": 1.413,
                 "ci95": 4.132,
-                "rank": 5.357
+                "rank": 5.568
               },
               "tvmaze": {
                 "n": 1,
@@ -1026,7 +1188,7 @@
             "mean": 3.002,
             "density": 1.05,
             "ci95": null,
-            "rank": 4.533
+            "rank": 4.668
           }
         },
         {
@@ -1042,14 +1204,14 @@
                 "mean": 2.335,
                 "density": 3.379,
                 "ci95": 1.063,
-                "rank": 8.929
+                "rank": 8.75
               },
               "wikipedia": {
                 "n": 7,
                 "mean": 2.966,
                 "density": 4.292,
                 "ci95": 1.857,
-                "rank": 8.452
+                "rank": 8.295
               },
               "tvmaze": {
                 "n": 1,
@@ -1064,7 +1226,7 @@
             "mean": 2.858,
             "density": 4.135,
             "ci95": null,
-            "rank": 8.611
+            "rank": 8.454
           },
           "fi": {
             "perSource": {
@@ -1073,14 +1235,14 @@
                 "mean": 2.101,
                 "density": 0.501,
                 "ci95": 2.579,
-                "rank": 4.405
+                "rank": 4.205
               },
               "wikipedia": {
                 "n": 7,
                 "mean": 2.576,
                 "density": 0.792,
                 "ci95": 2.356,
-                "rank": 3.929
+                "rank": 4.205
               },
               "tvmaze": {
                 "n": 1,
@@ -1095,9 +1257,42 @@
             "mean": 2.183,
             "density": 0.603,
             "ci95": null,
-            "rank": 4.056
+            "rank": 4.091
           }
-        },
+        }
+      ]
+    },
+    {
+      "id": "dw5",
+      "name": "Doctor Who - Fifth Doctor (1982-1984)",
+      "short": "DW5",
+      "kind": "series",
+      "unit": "serial",
+      "color": "#5F6FBF",
+      "ageRating": 7,
+      "entityCount": 38,
+      "textBasis": {
+        "episodes": 19,
+        "minWords": 200,
+        "sources": {
+          "tvmaze": {
+            "covered": 19,
+            "medianWords": 39,
+            "measured": 0
+          },
+          "wikipedia": {
+            "covered": 19,
+            "medianWords": 404,
+            "measured": 19
+          },
+          "tardis": {
+            "covered": 19,
+            "medianWords": 1735,
+            "measured": 19
+          }
+        }
+      },
+      "seasons": [
         {
           "season": 19,
           "year": 1982,
@@ -1111,14 +1306,14 @@
                 "mean": 1.375,
                 "density": 1.99,
                 "ci95": 0.806,
-                "rank": 5.833
+                "rank": 5.795
               },
               "wikipedia": {
                 "n": 7,
                 "mean": 1.632,
                 "density": 2.361,
                 "ci95": 1.288,
-                "rank": 5.833
+                "rank": 6.023
               }
             },
             "year": null,
@@ -1126,7 +1321,7 @@
             "mean": 1.504,
             "density": 2.175,
             "ci95": 0.76,
-            "rank": 5.833
+            "rank": 5.909
           },
           "fi": {
             "perSource": {
@@ -1135,14 +1330,14 @@
                 "mean": 1.972,
                 "density": 0.96,
                 "ci95": 1.514,
-                "rank": 3.929
+                "rank": 3.75
               },
               "wikipedia": {
                 "n": 7,
                 "mean": 3.551,
                 "density": 1.424,
                 "ci95": 3.518,
-                "rank": 6.31
+                "rank": 6.25
               }
             },
             "year": null,
@@ -1150,7 +1345,7 @@
             "mean": 2.762,
             "density": 1.192,
             "ci95": 1.915,
-            "rank": 5.12
+            "rank": 5.0
           }
         },
         {
@@ -1166,14 +1361,14 @@
                 "mean": 1.318,
                 "density": 1.907,
                 "ci95": 1.294,
-                "rank": 5.357
+                "rank": 5.341
               },
               "wikipedia": {
                 "n": 6,
                 "mean": 2.704,
                 "density": 3.914,
                 "ci95": 3.039,
-                "rank": 8.214
+                "rank": 7.841
               }
             },
             "year": null,
@@ -1181,7 +1376,7 @@
             "mean": 2.011,
             "density": 2.911,
             "ci95": 1.652,
-            "rank": 6.786
+            "rank": 6.591
           },
           "fi": {
             "perSource": {
@@ -1190,14 +1385,14 @@
                 "mean": 6.355,
                 "density": 0.824,
                 "ci95": 3.476,
-                "rank": 9.881
+                "rank": 9.886
               },
               "wikipedia": {
                 "n": 6,
                 "mean": 6.3,
                 "density": 1.087,
                 "ci95": 3.439,
-                "rank": 9.405
+                "rank": 9.432
               }
             },
             "year": null,
@@ -1205,62 +1400,150 @@
             "mean": 6.328,
             "density": 0.956,
             "ci95": 2.445,
-            "rank": 9.643
+            "rank": 9.659
           }
         },
         {
           "season": 21,
           "year": 1984,
           "yearEnd": null,
-          "episodeCount": 7,
-          "partCount": 24,
+          "episodeCount": 6,
+          "partCount": 20,
           "sci": {
             "perSource": {
               "tardis": {
-                "n": 7,
-                "mean": 2.059,
-                "density": 2.98,
-                "ci95": 1.177,
-                "rank": 8.452
+                "n": 6,
+                "mean": 1.972,
+                "density": 2.854,
+                "ci95": 1.377,
+                "rank": 8.068
               },
               "wikipedia": {
-                "n": 7,
-                "mean": 2.357,
-                "density": 3.41,
-                "ci95": 2.562,
-                "rank": 7.976
+                "n": 6,
+                "mean": 2.749,
+                "density": 3.979,
+                "ci95": 2.891,
+                "rank": 8.068
               }
             },
             "year": null,
-            "n": 14,
-            "mean": 2.208,
-            "density": 3.195,
-            "ci95": 1.41,
-            "rank": 8.214
+            "n": 12,
+            "mean": 2.361,
+            "density": 3.417,
+            "ci95": 1.601,
+            "rank": 8.068
           },
           "fi": {
             "perSource": {
               "tardis": {
-                "n": 7,
-                "mean": 3.192,
-                "density": 1.959,
-                "ci95": 2.757,
-                "rank": 6.071
+                "n": 6,
+                "mean": 3.316,
+                "density": 2.077,
+                "ci95": 3.249,
+                "rank": 6.25
               },
               "wikipedia": {
-                "n": 7,
-                "mean": 3.344,
-                "density": 2.398,
-                "ci95": 3.256,
-                "rank": 5.595
+                "n": 6,
+                "mean": 3.901,
+                "density": 2.797,
+                "ci95": 3.63,
+                "rank": 6.932
               }
             },
             "year": null,
-            "n": 14,
-            "mean": 3.268,
-            "density": 2.179,
-            "ci95": 2.133,
-            "rank": 5.833
+            "n": 12,
+            "mean": 3.608,
+            "density": 2.437,
+            "ci95": 2.436,
+            "rank": 6.591
+          }
+        }
+      ]
+    },
+    {
+      "id": "dw6",
+      "name": "Doctor Who - Sixth Doctor (1984-1986)",
+      "short": "DW6",
+      "kind": "series",
+      "unit": "serial",
+      "color": "#7E62B8",
+      "ageRating": 7,
+      "entityCount": 38,
+      "textBasis": {
+        "episodes": 8,
+        "minWords": 200,
+        "sources": {
+          "tvmaze": {
+            "covered": 5,
+            "medianWords": 42,
+            "measured": 0
+          },
+          "wikipedia": {
+            "covered": 6,
+            "medianWords": 383,
+            "measured": 6
+          },
+          "tardis": {
+            "covered": 7,
+            "medianWords": 1554,
+            "measured": 7
+          }
+        }
+      },
+      "seasons": [
+        {
+          "season": 21,
+          "year": 1984,
+          "yearEnd": null,
+          "episodeCount": 1,
+          "partCount": 4,
+          "sci": {
+            "perSource": {
+              "tardis": {
+                "n": 1,
+                "mean": 2.585,
+                "density": 3.741,
+                "ci95": null,
+                "rank": 9.205
+              },
+              "wikipedia": {
+                "n": 1,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": null,
+                "rank": 0.341
+              }
+            },
+            "year": null,
+            "n": 2,
+            "mean": 1.292,
+            "density": 1.871,
+            "ci95": null,
+            "rank": 4.773
+          },
+          "fi": {
+            "perSource": {
+              "tardis": {
+                "n": 1,
+                "mean": 2.447,
+                "density": 1.247,
+                "ci95": null,
+                "rank": 4.659
+              },
+              "wikipedia": {
+                "n": 1,
+                "mean": 0.0,
+                "density": 0.0,
+                "ci95": null,
+                "rank": 0.682
+              }
+            },
+            "year": null,
+            "n": 2,
+            "mean": 1.224,
+            "density": 0.624,
+            "ci95": null,
+            "rank": 2.671
           }
         },
         {
@@ -1276,14 +1559,14 @@
                 "mean": 0.871,
                 "density": 1.26,
                 "ci95": 0.465,
-                "rank": 2.5
+                "rank": 2.386
               },
               "wikipedia": {
                 "n": 5,
                 "mean": 0.644,
                 "density": 0.932,
                 "ci95": 0.857,
-                "rank": 1.31
+                "rank": 1.477
               }
             },
             "year": null,
@@ -1291,7 +1574,7 @@
             "mean": 0.768,
             "density": 1.111,
             "ci95": 0.465,
-            "rank": 1.959
+            "rank": 1.973
           },
           "fi": {
             "perSource": {
@@ -1300,14 +1583,14 @@
                 "mean": 1.002,
                 "density": 0.511,
                 "ci95": 1.028,
-                "rank": 2.024
+                "rank": 1.932
               },
               "wikipedia": {
                 "n": 5,
                 "mean": 0.0,
                 "density": 0.0,
                 "ci95": 0.0,
-                "rank": 0.476
+                "rank": 0.682
               }
             },
             "year": null,
@@ -1315,9 +1598,42 @@
             "mean": 0.547,
             "density": 0.279,
             "ci95": 0.561,
-            "rank": 1.32
+            "rank": 1.364
           }
-        },
+        }
+      ]
+    },
+    {
+      "id": "dw7",
+      "name": "Doctor Who - Seventh Doctor (1987-1989)",
+      "short": "DW7",
+      "kind": "series",
+      "unit": "serial",
+      "color": "#A65BA6",
+      "ageRating": 7,
+      "entityCount": 38,
+      "textBasis": {
+        "episodes": 12,
+        "minWords": 200,
+        "sources": {
+          "tvmaze": {
+            "covered": 11,
+            "medianWords": 31,
+            "measured": 0
+          },
+          "wikipedia": {
+            "covered": 12,
+            "medianWords": 463,
+            "measured": 12
+          },
+          "tardis": {
+            "covered": 12,
+            "medianWords": 1982,
+            "measured": 12
+          }
+        }
+      },
+      "seasons": [
         {
           "season": 24,
           "year": 1987,
@@ -1331,14 +1647,14 @@
                 "mean": 1.043,
                 "density": 1.51,
                 "ci95": 1.039,
-                "rank": 4.643
+                "rank": 4.432
               },
               "wikipedia": {
                 "n": 4,
                 "mean": 0.309,
                 "density": 0.448,
                 "ci95": 0.91,
-                "rank": 0.595
+                "rank": 0.795
               }
             },
             "year": null,
@@ -1346,7 +1662,7 @@
             "mean": 0.676,
             "density": 0.979,
             "ci95": 0.691,
-            "rank": 2.619
+            "rank": 2.614
           },
           "fi": {
             "perSource": {
@@ -1355,14 +1671,14 @@
                 "mean": 0.341,
                 "density": 0.173,
                 "ci95": 1.001,
-                "rank": 0.357
+                "rank": 0.341
               },
               "wikipedia": {
                 "n": 4,
                 "mean": 0.936,
                 "density": 0.477,
                 "ci95": 2.751,
-                "rank": 1.548
+                "rank": 1.932
               }
             },
             "year": null,
@@ -1370,7 +1686,7 @@
             "mean": 0.639,
             "density": 0.325,
             "ci95": 1.464,
-            "rank": 0.953
+            "rank": 1.137
           }
         },
         {
@@ -1386,14 +1702,14 @@
                 "mean": 0.696,
                 "density": 1.007,
                 "ci95": 0.998,
-                "rank": 1.31
+                "rank": 1.25
               },
               "wikipedia": {
                 "n": 4,
                 "mean": 1.611,
                 "density": 2.332,
                 "ci95": 3.388,
-                "rank": 5.357
+                "rank": 5.568
               }
             },
             "year": null,
@@ -1401,7 +1717,7 @@
             "mean": 1.153,
             "density": 1.669,
             "ci95": 1.766,
-            "rank": 3.333
+            "rank": 3.409
           },
           "fi": {
             "perSource": {
@@ -1410,14 +1726,14 @@
                 "mean": 4.281,
                 "density": 1.993,
                 "ci95": 6.744,
-                "rank": 7.738
+                "rank": 7.841
               },
               "wikipedia": {
                 "n": 4,
                 "mean": 5.48,
                 "density": 4.65,
                 "ci95": 7.759,
-                "rank": 8.929
+                "rank": 8.977
               }
             },
             "year": null,
@@ -1425,7 +1741,7 @@
             "mean": 4.88,
             "density": 3.322,
             "ci95": 5.14,
-            "rank": 8.334
+            "rank": 8.409
           }
         },
         {
@@ -1441,14 +1757,14 @@
                 "mean": 0.581,
                 "density": 0.841,
                 "ci95": 1.376,
-                "rank": 0.357
+                "rank": 0.341
               },
               "wikipedia": {
                 "n": 4,
                 "mean": 0.0,
                 "density": 0.0,
                 "ci95": 0.0,
-                "rank": 0.238
+                "rank": 0.341
               }
             },
             "year": null,
@@ -1456,7 +1772,7 @@
             "mean": 0.29,
             "density": 0.42,
             "ci95": 0.688,
-            "rank": 0.297
+            "rank": 0.341
           },
           "fi": {
             "perSource": {
@@ -1465,14 +1781,14 @@
                 "mean": 5.153,
                 "density": 0.893,
                 "ci95": 7.294,
-                "rank": 9.167
+                "rank": 9.205
               },
               "wikipedia": {
                 "n": 4,
                 "mean": 5.0,
                 "density": 2.255,
                 "ci95": 8.487,
-                "rank": 8.452
+                "rank": 8.523
               }
             },
             "year": null,
@@ -1480,7 +1796,7 @@
             "mean": 5.076,
             "density": 1.574,
             "ci95": 5.595,
-            "rank": 8.809
+            "rank": 8.864
           }
         }
       ]
@@ -1529,14 +1845,14 @@
                 "mean": 0.848,
                 "density": 1.227,
                 "ci95": 0.266,
-                "rank": 2.262
+                "rank": 2.159
               },
               "wikipedia": {
                 "n": 13,
                 "mean": 0.948,
                 "density": 1.371,
                 "ci95": 0.92,
-                "rank": 2.5
+                "rank": 2.614
               }
             },
             "year": null,
@@ -1544,7 +1860,7 @@
             "mean": 0.898,
             "density": 1.299,
             "ci95": 0.479,
-            "rank": 2.381
+            "rank": 2.386
           },
           "fi": {
             "perSource": {
@@ -1553,14 +1869,14 @@
                 "mean": 1.587,
                 "density": 0.701,
                 "ci95": 0.833,
-                "rank": 2.5
+                "rank": 2.386
               },
               "wikipedia": {
                 "n": 13,
                 "mean": 1.3,
                 "density": 0.593,
                 "ci95": 1.616,
-                "rank": 2.262
+                "rank": 2.614
               }
             },
             "year": null,
@@ -1568,7 +1884,7 @@
             "mean": 1.444,
             "density": 0.647,
             "ci95": 0.909,
-            "rank": 2.381
+            "rank": 2.5
           }
         },
         {
@@ -1584,14 +1900,14 @@
                 "mean": 0.89,
                 "density": 1.288,
                 "ci95": 0.615,
-                "rank": 2.738
+                "rank": 2.614
               },
               "wikipedia": {
                 "n": 13,
                 "mean": 1.42,
                 "density": 2.056,
                 "ci95": 0.953,
-                "rank": 4.881
+                "rank": 5.114
               }
             },
             "year": null,
@@ -1599,7 +1915,7 @@
             "mean": 1.155,
             "density": 1.672,
             "ci95": 0.567,
-            "rank": 3.809
+            "rank": 3.864
           },
           "fi": {
             "perSource": {
@@ -1608,14 +1924,14 @@
                 "mean": 4.407,
                 "density": 2.626,
                 "ci95": 1.806,
-                "rank": 8.452
+                "rank": 8.523
               },
               "wikipedia": {
                 "n": 13,
                 "mean": 3.195,
                 "density": 0.776,
                 "ci95": 2.313,
-                "rank": 4.881
+                "rank": 5.114
               }
             },
             "year": null,
@@ -1623,7 +1939,7 @@
             "mean": 3.801,
             "density": 1.701,
             "ci95": 1.467,
-            "rank": 6.667
+            "rank": 6.819
           }
         },
         {
@@ -1639,14 +1955,14 @@
                 "mean": 1.086,
                 "density": 1.572,
                 "ci95": 0.574,
-                "rank": 4.881
+                "rank": 4.886
               },
               "wikipedia": {
                 "n": 13,
                 "mean": 2.105,
                 "density": 3.046,
                 "ci95": 1.232,
-                "rank": 7.262
+                "rank": 7.159
               }
             },
             "year": null,
@@ -1654,7 +1970,7 @@
             "mean": 1.595,
             "density": 2.309,
             "ci95": 0.68,
-            "rank": 6.071
+            "rank": 6.022
           },
           "fi": {
             "perSource": {
@@ -1663,14 +1979,14 @@
                 "mean": 3.647,
                 "density": 1.833,
                 "ci95": 1.813,
-                "rank": 7.024
+                "rank": 7.159
               },
               "wikipedia": {
                 "n": 13,
                 "mean": 4.703,
                 "density": 2.309,
                 "ci95": 1.862,
-                "rank": 7.976
+                "rank": 8.068
               }
             },
             "year": null,
@@ -1678,7 +1994,7 @@
             "mean": 4.175,
             "density": 2.071,
             "ci95": 1.299,
-            "rank": 7.5
+            "rank": 7.614
           }
         },
         {
@@ -1694,14 +2010,14 @@
                 "mean": 1.038,
                 "density": 1.502,
                 "ci95": 0.386,
-                "rank": 4.405
+                "rank": 4.205
               },
               "wikipedia": {
                 "n": 13,
                 "mean": 1.66,
                 "density": 2.583,
                 "ci95": 1.667,
-                "rank": 6.071
+                "rank": 6.25
               }
             },
             "year": null,
@@ -1709,7 +2025,7 @@
             "mean": 1.349,
             "density": 2.042,
             "ci95": 0.856,
-            "rank": 5.238
+            "rank": 5.228
           },
           "fi": {
             "perSource": {
@@ -1718,14 +2034,14 @@
                 "mean": 2.704,
                 "density": 1.639,
                 "ci95": 1.486,
-                "rank": 5.119
+                "rank": 5.114
               },
               "wikipedia": {
                 "n": 13,
                 "mean": 1.592,
                 "density": 0.576,
                 "ci95": 1.219,
-                "rank": 2.738
+                "rank": 3.068
               }
             },
             "year": null,
@@ -1733,7 +2049,7 @@
             "mean": 2.148,
             "density": 1.107,
             "ci95": 0.961,
-            "rank": 3.928
+            "rank": 4.091
           }
         },
         {
@@ -1749,14 +2065,14 @@
                 "mean": 0.942,
                 "density": 1.363,
                 "ci95": 0.513,
-                "rank": 3.214
+                "rank": 3.068
               },
               "wikipedia": {
                 "n": 13,
                 "mean": 1.341,
                 "density": 1.941,
                 "ci95": 1.066,
-                "rank": 4.167
+                "rank": 4.205
               }
             },
             "year": null,
@@ -1764,7 +2080,7 @@
             "mean": 1.149,
             "density": 1.664,
             "ci95": 0.607,
-            "rank": 3.71
+            "rank": 3.659
           },
           "fi": {
             "perSource": {
@@ -1773,14 +2089,14 @@
                 "mean": 3.366,
                 "density": 1.954,
                 "ci95": 2.148,
-                "rank": 6.548
+                "rank": 6.705
               },
               "wikipedia": {
                 "n": 13,
                 "mean": 2.723,
                 "density": 2.807,
                 "ci95": 2.394,
-                "rank": 4.405
+                "rank": 4.659
               }
             },
             "year": null,
@@ -1788,7 +2104,7 @@
             "mean": 3.032,
             "density": 2.398,
             "ci95": 1.616,
-            "rank": 5.434
+            "rank": 5.641
           }
         },
         {
@@ -1804,14 +2120,14 @@
                 "mean": 0.629,
                 "density": 0.911,
                 "ci95": 0.291,
-                "rank": 0.595
+                "rank": 0.568
               },
               "wikipedia": {
                 "n": 13,
                 "mean": 0.527,
                 "density": 0.762,
                 "ci95": 0.405,
-                "rank": 0.833
+                "rank": 1.023
               }
             },
             "year": null,
@@ -1819,7 +2135,7 @@
             "mean": 0.578,
             "density": 0.837,
             "ci95": 0.249,
-            "rank": 0.714
+            "rank": 0.795
           },
           "fi": {
             "perSource": {
@@ -1828,14 +2144,14 @@
                 "mean": 3.15,
                 "density": 1.447,
                 "ci95": 1.402,
-                "rank": 5.833
+                "rank": 6.023
               },
               "wikipedia": {
                 "n": 13,
                 "mean": 4.017,
                 "density": 2.047,
                 "ci95": 1.879,
-                "rank": 7.5
+                "rank": 7.614
               }
             },
             "year": null,
@@ -1843,7 +2159,7 @@
             "mean": 3.583,
             "density": 1.747,
             "ci95": 1.172,
-            "rank": 6.667
+            "rank": 6.819
           }
         },
         {
@@ -1859,14 +2175,14 @@
                 "mean": 0.912,
                 "density": 1.32,
                 "ci95": 0.362,
-                "rank": 2.976
+                "rank": 2.841
               },
               "wikipedia": {
                 "n": 12,
                 "mean": 1.035,
                 "density": 1.497,
                 "ci95": 0.676,
-                "rank": 3.214
+                "rank": 3.295
               }
             },
             "year": null,
@@ -1874,7 +2190,7 @@
             "mean": 0.971,
             "density": 1.405,
             "ci95": 0.375,
-            "rank": 3.09
+            "rank": 3.059
           },
           "fi": {
             "perSource": {
@@ -1883,14 +2199,14 @@
                 "mean": 3.775,
                 "density": 3.138,
                 "ci95": 1.983,
-                "rank": 7.262
+                "rank": 7.386
               },
               "wikipedia": {
                 "n": 12,
                 "mean": 3.903,
                 "density": 2.931,
                 "ci95": 2.264,
-                "rank": 7.024
+                "rank": 7.159
               }
             },
             "year": null,
@@ -1898,7 +2214,7 @@
             "mean": 3.836,
             "density": 3.039,
             "ci95": 1.498,
-            "rank": 7.148
+            "rank": 7.277
           }
         },
         {
@@ -1914,14 +2230,14 @@
                 "mean": 1.031,
                 "density": 1.492,
                 "ci95": 0.721,
-                "rank": 3.929
+                "rank": 3.75
               },
               "wikipedia": {
                 "n": 12,
                 "mean": 1.828,
                 "density": 2.646,
                 "ci95": 1.264,
-                "rank": 6.548
+                "rank": 6.705
               }
             },
             "year": null,
@@ -1929,7 +2245,7 @@
             "mean": 1.429,
             "density": 2.069,
             "ci95": 0.728,
-            "rank": 5.238
+            "rank": 5.228
           },
           "fi": {
             "perSource": {
@@ -1938,14 +2254,14 @@
                 "mean": 1.959,
                 "density": 0.998,
                 "ci95": 0.675,
-                "rank": 3.69
+                "rank": 3.523
               },
               "wikipedia": {
                 "n": 12,
                 "mean": 3.692,
                 "density": 1.946,
                 "ci95": 2.342,
-                "rank": 6.548
+                "rank": 6.477
               }
             },
             "year": null,
@@ -1953,7 +2269,7 @@
             "mean": 2.826,
             "density": 1.472,
             "ci95": 1.219,
-            "rank": 5.119
+            "rank": 5.0
           }
         },
         {
@@ -1969,14 +2285,14 @@
                 "mean": 0.659,
                 "density": 0.954,
                 "ci95": 0.335,
-                "rank": 0.833
+                "rank": 0.795
               },
               "wikipedia": {
                 "n": 12,
                 "mean": 1.317,
                 "density": 1.906,
                 "ci95": 1.019,
-                "rank": 3.929
+                "rank": 3.977
               }
             },
             "year": null,
@@ -1984,7 +2300,7 @@
             "mean": 0.988,
             "density": 1.43,
             "ci95": 0.536,
-            "rank": 2.381
+            "rank": 2.386
           },
           "fi": {
             "perSource": {
@@ -1993,14 +2309,14 @@
                 "mean": 4.655,
                 "density": 2.272,
                 "ci95": 2.256,
-                "rank": 8.929
+                "rank": 8.977
               },
               "wikipedia": {
                 "n": 12,
                 "mean": 5.549,
                 "density": 4.322,
                 "ci95": 2.203,
-                "rank": 9.167
+                "rank": 9.205
               }
             },
             "year": null,
@@ -2008,7 +2324,7 @@
             "mean": 5.102,
             "density": 3.297,
             "ci95": 1.577,
-            "rank": 9.048
+            "rank": 9.091
           }
         },
         {
@@ -2024,14 +2340,14 @@
                 "mean": 0.959,
                 "density": 1.388,
                 "ci95": 0.686,
-                "rank": 3.452
+                "rank": 3.295
               },
               "wikipedia": {
                 "n": 12,
                 "mean": 1.388,
                 "density": 2.008,
                 "ci95": 1.059,
-                "rank": 4.405
+                "rank": 4.432
               }
             },
             "year": null,
@@ -2039,7 +2355,7 @@
             "mean": 1.173,
             "density": 1.698,
             "ci95": 0.631,
-            "rank": 3.928
+            "rank": 3.864
           },
           "fi": {
             "perSource": {
@@ -2048,14 +2364,14 @@
                 "mean": 1.735,
                 "density": 0.861,
                 "ci95": 0.927,
-                "rank": 2.976
+                "rank": 2.841
               },
               "wikipedia": {
                 "n": 12,
                 "mean": 3.449,
                 "density": 1.758,
                 "ci95": 1.895,
-                "rank": 6.071
+                "rank": 6.023
               }
             },
             "year": null,
@@ -2063,7 +2379,7 @@
             "mean": 2.592,
             "density": 1.31,
             "ci95": 1.055,
-            "rank": 4.524
+            "rank": 4.432
           }
         },
         {
@@ -2079,14 +2395,14 @@
                 "mean": 0.685,
                 "density": 0.991,
                 "ci95": 0.403,
-                "rank": 1.071
+                "rank": 1.023
               },
               "wikipedia": {
                 "n": 10,
                 "mean": 0.703,
                 "density": 1.017,
                 "ci95": 0.777,
-                "rank": 1.548
+                "rank": 1.705
               }
             },
             "year": null,
@@ -2094,7 +2410,7 @@
             "mean": 0.694,
             "density": 1.004,
             "ci95": 0.438,
-            "rank": 1.309
+            "rank": 1.364
           },
           "fi": {
             "perSource": {
@@ -2103,14 +2419,14 @@
                 "mean": 4.397,
                 "density": 2.978,
                 "ci95": 2.609,
-                "rank": 8.214
+                "rank": 8.295
               },
               "wikipedia": {
                 "n": 10,
                 "mean": 3.325,
                 "density": 1.952,
                 "ci95": 2.522,
-                "rank": 5.119
+                "rank": 5.341
               }
             },
             "year": null,
@@ -2118,7 +2434,7 @@
             "mean": 3.861,
             "density": 2.465,
             "ci95": 1.814,
-            "rank": 6.666
+            "rank": 6.818
           }
         },
         {
@@ -2134,14 +2450,14 @@
                 "mean": 1.454,
                 "density": 2.104,
                 "ci95": 0.742,
-                "rank": 6.548
+                "rank": 6.477
               },
               "wikipedia": {
                 "n": 10,
                 "mean": 1.586,
                 "density": 2.295,
                 "ci95": 1.263,
-                "rank": 5.119
+                "rank": 5.341
               }
             },
             "year": null,
@@ -2149,7 +2465,7 @@
             "mean": 1.52,
             "density": 2.199,
             "ci95": 0.732,
-            "rank": 5.833
+            "rank": 5.909
           },
           "fi": {
             "perSource": {
@@ -2158,14 +2474,14 @@
                 "mean": 1.733,
                 "density": 0.676,
                 "ci95": 1.525,
-                "rank": 2.738
+                "rank": 2.614
               },
               "wikipedia": {
                 "n": 10,
                 "mean": 2.846,
                 "density": 2.594,
                 "ci95": 2.482,
-                "rank": 4.643
+                "rank": 4.886
               }
             },
             "year": null,
@@ -2173,7 +2489,7 @@
             "mean": 2.29,
             "density": 1.635,
             "ci95": 1.457,
-            "rank": 3.691
+            "rank": 3.75
           }
         }
       ]
@@ -2222,14 +2538,14 @@
                 "mean": 1.342,
                 "density": 1.943,
                 "ci95": 1.06,
-                "rank": 5.595
+                "rank": 5.568
               },
               "wikipedia": {
                 "n": 8,
                 "mean": 1.248,
                 "density": 1.806,
                 "ci95": 1.202,
-                "rank": 3.69
+                "rank": 3.75
               }
             },
             "year": null,
@@ -2237,7 +2553,7 @@
             "mean": 1.295,
             "density": 1.875,
             "ci95": 0.801,
-            "rank": 4.643
+            "rank": 4.659
           },
           "fi": {
             "perSource": {
@@ -2246,14 +2562,14 @@
                 "mean": 4.16,
                 "density": 1.544,
                 "ci95": 2.895,
-                "rank": 7.5
+                "rank": 7.614
               },
               "wikipedia": {
                 "n": 8,
                 "mean": 3.899,
                 "density": 1.248,
                 "ci95": 3.119,
-                "rank": 6.786
+                "rank": 6.705
               }
             },
             "year": null,
@@ -2261,7 +2577,7 @@
             "mean": 4.03,
             "density": 1.396,
             "ci95": 2.128,
-            "rank": 7.143
+            "rank": 7.159
           }
         },
         {
@@ -2277,14 +2593,14 @@
                 "mean": 0.728,
                 "density": 1.054,
                 "ci95": 0.952,
-                "rank": 1.786
+                "rank": 1.705
               },
               "wikipedia": {
                 "n": 8,
                 "mean": 0.0,
                 "density": 0.0,
                 "ci95": 0.0,
-                "rank": 0.238
+                "rank": 0.341
               }
             },
             "year": null,
@@ -2292,7 +2608,7 @@
             "mean": 0.243,
             "density": 0.351,
             "ci95": 0.317,
-            "rank": 0.754
+            "rank": 0.796
           },
           "fi": {
             "perSource": {
@@ -2301,14 +2617,14 @@
                 "mean": 4.291,
                 "density": 1.189,
                 "ci95": 3.787,
-                "rank": 7.976
+                "rank": 8.068
               },
               "wikipedia": {
                 "n": 8,
                 "mean": 4.757,
                 "density": 2.209,
                 "ci95": 2.968,
-                "rank": 8.214
+                "rank": 8.295
               }
             },
             "year": null,
@@ -2316,7 +2632,7 @@
             "mean": 4.602,
             "density": 1.869,
             "ci95": 2.347,
-            "rank": 8.135
+            "rank": 8.219
           }
         }
       ]
@@ -2327,7 +2643,7 @@
       "short": "DWD",
       "kind": "film",
       "unit": "film",
-      "color": "#7F77DD",
+      "color": "#E24B4A",
       "ageRating": null,
       "entityCount": 0,
       "textBasis": {
@@ -2365,14 +2681,14 @@
                 "mean": 1.497,
                 "density": 2.167,
                 "ci95": null,
-                "rank": 6.786
+                "rank": 6.705
               },
               "wikipedia": {
                 "n": 1,
                 "mean": 10.0,
                 "density": 14.472,
                 "ci95": null,
-                "rank": 9.881
+                "rank": 9.886
               }
             },
             "year": null,
@@ -2380,7 +2696,7 @@
             "mean": 5.748,
             "density": 8.319,
             "ci95": null,
-            "rank": 8.334
+            "rank": 8.296
           },
           "fi": {
             "perSource": {
@@ -2389,14 +2705,14 @@
                 "mean": 0.0,
                 "density": 0.0,
                 "ci95": null,
-                "rank": 0.119
+                "rank": 0.114
               },
               "wikipedia": {
                 "n": 1,
                 "mean": 0.0,
                 "density": 0.0,
                 "ci95": null,
-                "rank": 0.476
+                "rank": 0.682
               }
             },
             "year": null,
@@ -2404,7 +2720,7 @@
             "mean": 0.0,
             "density": 0.0,
             "ci95": null,
-            "rank": 0.297
+            "rank": 0.398
           }
         }
       ]
@@ -2415,7 +2731,7 @@
       "short": "DIE",
       "kind": "film",
       "unit": "film",
-      "color": "#EF9F27",
+      "color": "#85B7EB",
       "ageRating": null,
       "entityCount": 0,
       "textBasis": {
@@ -2453,14 +2769,14 @@
                 "mean": 2.169,
                 "density": 3.139,
                 "ci95": null,
-                "rank": 8.69
+                "rank": 8.523
               },
               "wikipedia": {
                 "n": 1,
                 "mean": 0.993,
                 "density": 1.437,
                 "ci95": null,
-                "rank": 2.738
+                "rank": 2.841
               }
             },
             "year": null,
@@ -2468,7 +2784,7 @@
             "mean": 1.581,
             "density": 2.288,
             "ci95": null,
-            "rank": 5.714
+            "rank": 5.682
           },
           "fi": {
             "perSource": {
@@ -2477,14 +2793,14 @@
                 "mean": 0.879,
                 "density": 0.448,
                 "ci95": null,
-                "rank": 1.786
+                "rank": 1.705
               },
               "wikipedia": {
                 "n": 1,
                 "mean": 0.0,
                 "density": 0.0,
                 "ci95": null,
-                "rank": 0.476
+                "rank": 0.682
               }
             },
             "year": null,
@@ -2492,7 +2808,7 @@
             "mean": 0.44,
             "density": 0.224,
             "ci95": null,
-            "rank": 1.131
+            "rank": 1.194
           }
         }
       ]
@@ -2503,9 +2819,9 @@
       "short": "DWM",
       "kind": "film",
       "unit": "film",
-      "color": "#D4537E",
+      "color": "#F0997B",
       "ageRating": null,
-      "entityCount": 1,
+      "entityCount": 0,
       "textBasis": {
         "episodes": 1,
         "minWords": 200,
@@ -2541,14 +2857,14 @@
                 "mean": 1.59,
                 "density": 2.301,
                 "ci95": null,
-                "rank": 7.024
+                "rank": 6.932
               },
               "wikipedia": {
                 "n": 1,
                 "mean": 1.018,
                 "density": 1.473,
                 "ci95": null,
-                "rank": 2.976
+                "rank": 3.068
               }
             },
             "year": null,
@@ -2565,14 +2881,14 @@
                 "mean": 0.833,
                 "density": 0.256,
                 "ci95": null,
-                "rank": 1.548
+                "rank": 1.477
               },
               "wikipedia": {
                 "n": 1,
                 "mean": 1.199,
                 "density": 0.0,
                 "ci95": null,
-                "rank": 1.786
+                "rank": 2.159
               }
             },
             "year": null,
@@ -2580,7 +2896,7 @@
             "mean": 1.016,
             "density": 0.128,
             "ci95": null,
-            "rank": 1.667
+            "rank": 1.818
           }
         }
       ]

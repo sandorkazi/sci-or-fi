@@ -209,8 +209,9 @@ code{font-size:.92em;background:rgba(127,127,127,.14);padding:1px 4px;border-rad
       <div class="card" style="margin-top:12px">
         <label class="chip"><input type="checkbox" id="pathToggle" checked style="accent-color:var(--accent)"> series paths</label>
         <p class="muted" style="margin:10px 0 0">Each series is joined in broadcast order from its first season
-        (marked <code>1</code>) to its latest, and the line fades in at the start so direction in time is visible.
-        Turn paths off to compare seasons as a cloud; the tooltip still names the season.</p>
+        (marked with that season's number, so the Second Doctor's path starts at <code>4</code>) to its latest,
+        and the line fades in at the start so direction in time is visible. Turn paths off to compare seasons as
+        a cloud; the tooltip still names the season.</p>
       </div>
       <div class="card" style="margin-top:12px">
         <label class="chip"><input type="checkbox" id="normToggle" style="accent-color:var(--accent)"> normalised (rank) scale</label>
@@ -659,7 +660,7 @@ def render_all(franchise_id: str, date: str, rubric: dict) -> list[Path]:
     # A series whose every work fell below the floor has no derived entry at all, so
     # counting plotted works alone would quietly shrink the scope statement (Star
     # Trek's Short Treks). Say "14 of 15" instead; the unmeasured note names the gap.
-    declared_series = len(franchise.get("series") or [])
+    declared_series = len(config.series_entries(franchise))
     series_txt = f"{n_series} of {declared_series}" if declared_series > n_series else f"{n_series}"
     declared_films = len(franchise.get("films") or [])
     films_txt = f"{n_films} of {declared_films}" if declared_films > n_films else f"{n_films}"
@@ -685,8 +686,8 @@ def render_all(franchise_id: str, date: str, rubric: dict) -> list[Path]:
         f"turns on god-like power, prophecy and reality-bending. Scores are computed per episode from a "
         f"source scope, then averaged per season; bubble size is the measured 95% confidence interval of "
         f"that average, never a hand-set value. Seasons of a series are joined in broadcast order, so "
-        f"each series is a path over the years: the first season is marked <code>1</code> and the line "
-        f"fades in from there to the latest season. Covers <code>{series_txt}</code> series, "
+        f"each series is a path over the years: its first season is marked with its broadcast season "
+        f"number and the line fades in from there to the latest season. Covers <code>{series_txt}</code> series, "
         f"<code>{films_txt}</code> films and <code>{n_seasons}</code> seasons; "
         f"<code>{len(sources)}</code> sources in scope ({' + '.join(sources)}) — toggle them on the right and "
         f"the chart recomputes. Films have no TVmaze entry and are plotted with a neutral marker; their "

@@ -77,6 +77,37 @@ def franchise_meta(franchise_id: str) -> dict:
     return read_json(path)
 
 
+def series_entries(meta: dict) -> list[dict]:
+    """Declared work-series, expanding a ``split`` container into its eras.
+
+    A split container is one broadcast catalogue that should be measured as several
+    works: classic Doctor Who is one TVmaze show but seven lead actors. Each era
+    inherits the container's source ids, wiki hint and age rating, adds its own name,
+    short code and colour, and states the ``(season, serial)`` where it starts.
+    ``until`` is the next era's start, so the ingest partition is a half-open
+    interval and no serial can fall between eras. The container itself is metadata,
+    never a work, and never appears in a snapshot or the chart.
+    """
+    out: list[dict] = []
+    for series in meta.get("series", []):
+        eras = (series.get("split") or {}).get("eras") or []
+        if not eras:
+            out.append(series)
+            continue
+        starts = [tuple(era["from"]) for era in eras]
+        if starts != sorted(starts):
+            raise SystemExit(f"{series['id']}: split eras are not in broadcast order")
+        for i, era in enumerate(eras):
+            merged = {k: v for k, v in series.items() if k != "split"}
+            merged.update(era)
+            merged.setdefault("entityGroup", series["id"])
+            merged["from"] = starts[i]
+            merged["until"] = starts[i + 1] if i + 1 < len(starts) else None
+            merged["splitFrom"] = series["id"]
+            out.append(merged)
+    return out
+
+
 def franchise_entities(franchise_id: str) -> list[dict]:
     """Curated named entities used by the ``entity`` coder (may be empty)."""
     path = franchise_dir(franchise_id) / "entities.json"

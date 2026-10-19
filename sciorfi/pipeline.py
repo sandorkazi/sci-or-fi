@@ -106,13 +106,32 @@ def group_parts_into_serials(parts: list[dict]) -> list[dict]:
     return serials
 
 
+def _split_era(raw: list[dict], series: dict) -> list[dict]:
+    """Keep the works in one era's half-open ``(season, serial)`` range.
+
+    Eras cut across broadcast seasons: Hartnell's last serial and Troughton's first
+    share season 4, and Davison's last and Colin Baker's first share season 21. The
+    partition is therefore on the grouped serial, never on the season. An era that
+    starts mid-season renumbers its own works from 1, so every (series, season) still
+    has a contiguous 1..n and the chart's season label stays the broadcast season.
+    """
+    start, until = series["from"], series["until"]
+    kept = [w for w in raw if (w["season"], w["episode"]) >= start and (until is None or (w["season"], w["episode"]) < until)]
+    position: dict[int, int] = {}
+    out = []
+    for work in kept:
+        position[work["season"]] = position.get(work["season"], 0) + 1
+        out.append({**work, "episode": position[work["season"]]})
+    return out
+
+
 # ------------------------------------------------------------------- ingest
 def build_snapshot(franchise_id: str, date: str, *, refresh: bool = False) -> dict:
     meta = config.franchise_meta(franchise_id)
     episodes: list[dict] = []
     provenance: list[dict] = []
 
-    for series in meta["series"]:
+    for series in config.series_entries(meta):
         sid = series["id"]
         tvmaze_id = series.get("sourceIds", {}).get("tvmaze")
         if tvmaze_id is None:
@@ -122,6 +141,9 @@ def build_snapshot(franchise_id: str, date: str, *, refresh: bool = False) -> di
         grouping = series.get("grouping")
         if grouping == "serial":
             raw = group_parts_into_serials(raw)
+        if series.get("from"):
+            raw = _split_era(raw, series)
+        if grouping == "serial":
             provenance.append(
                 {
                     "source": "tvmaze",
@@ -129,6 +151,12 @@ def build_snapshot(franchise_id: str, date: str, *, refresh: bool = False) -> di
                     "id": tvmaze_id,
                     "grouping": "serial",
                     "serials": len(raw),
+                    **(
+                        {"splitFrom": series["splitFrom"], "from": list(series["from"]),
+                         "until": list(series["until"]) if series.get("until") else None}
+                        if series.get("splitFrom")
+                        else {}
+                    ),
                 }
             )
         else:
@@ -222,16 +250,21 @@ def extract_signals(
     for entity in all_entities:
         if entity.get("series"):
             by_series.setdefault(entity["series"], []).append(entity)
-    work_ids = {s["id"] for s in meta["series"]} | {f["id"] for f in meta.get("films", [])}
+    work_series = config.series_entries(meta)
+    work_ids = {s["id"] for s in work_series} | {f["id"] for f in meta.get("films", [])}
+    # An era inherits its container's curated list: every classic Doctor is coded
+    # against the same 38 entities, so splitting the era does not change Fi's coder.
+    entity_key = {s["id"]: s.get("entityGroup") or s["id"] for s in work_series}
     compiled_entities_by_series = {
-        sid: lexicon.compile_entities(by_series.get(sid, []) + shared_entities) for sid in work_ids
+        sid: lexicon.compile_entities(by_series.get(entity_key.get(sid, sid), []) + shared_entities)
+        for sid in work_ids
     }
     scope_sources = config.effective_sources(franchise_id, rubric)
     declared_sources = meta.get("sources", {})
 
     # Source text is fetched here and held in memory only: it is never committed.
     texts: dict[str, dict[str, dict]] = {}
-    for series in meta["series"]:
+    for series in work_series:
         sid = series["id"]
         group = [e for e in episodes if e["series"] == sid]
         if not group:
@@ -418,8 +451,9 @@ def score_scope(
     rows = config.read_jsonl(config.signals_path(franchise_id, date))
     meta = config.franchise_meta(franchise_id)
     scope_sources = scope_sources or config.effective_sources(franchise_id, rubric)
+    work_series = config.series_entries(meta)
     if scope_series is None:
-        scope_series = [s["id"] for s in meta["series"]] + [f["id"] for f in meta.get("films", [])]
+        scope_series = [s["id"] for s in work_series] + [f["id"] for f in meta.get("films", [])]
 
     # A density is only a measurement if there was enough prose to measure. TVmaze
     # "summaries" have a 33-word median and 92% of them contain none of the lexicon
@@ -509,17 +543,21 @@ def score_scope(
 
     # Works = series + films, kept in declaration order so the chart and the
     # legend are stable across runs.
-    works = [{**s, "kind": s.get("kind", "series"), "order": i} for i, s in enumerate(meta["series"])]
+    works = [{**s, "kind": s.get("kind", "series"), "order": i} for i, s in enumerate(work_series)]
     works += [
-        {**f, "kind": "film", "order": len(meta["series"]) + j}
+        {**f, "kind": "film", "order": len(work_series) + j}
         for j, f in enumerate(meta.get("films", []))
     ]
     by_id = {w["id"]: w for w in works}
-    entity_counts: dict[str, int] = {}
+    entity_counts_by_key: dict[str, int] = {}
     for ent in config.franchise_entities(franchise_id):
         series_key = ent.get("series")
         if series_key:
-            entity_counts[series_key] = entity_counts.get(series_key, 0) + 1
+            entity_counts_by_key[series_key] = entity_counts_by_key.get(series_key, 0) + 1
+    entity_counts = {
+        s["id"]: entity_counts_by_key.get(s.get("entityGroup") or s["id"], 0)
+        for s in work_series
+    }
 
     # Text basis: how much evidence each work actually rests on. A franchise can
     # have an episode count and still be measured almost entirely on 30-word

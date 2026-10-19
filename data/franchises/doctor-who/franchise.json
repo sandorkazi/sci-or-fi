@@ -21,6 +21,82 @@
       "sourceIds": {
         "tvmaze": 766,
         "wikidata": "Q34316"
+      },
+      "split": {
+        "by": "lead",
+        "note": "One broadcast catalogue, seven lead actors. Eras start at a (season, serial) in broadcast order; boundary seasons are cut per serial, not per season.",
+        "eras": [
+          {
+            "id": "dw1",
+            "name": "Doctor Who - First Doctor (1963-1966)",
+            "short": "DW1",
+            "doctor": "William Hartnell",
+            "color": "#1F4E79",
+            "years": [1963, 1966],
+            "from": [1, 1],
+            "expectedSerials": 29
+          },
+          {
+            "id": "dw2",
+            "name": "Doctor Who - Second Doctor (1966-1969)",
+            "short": "DW2",
+            "doctor": "Patrick Troughton",
+            "color": "#2E75B6",
+            "years": [1966, 1969],
+            "from": [4, 3],
+            "expectedSerials": 21
+          },
+          {
+            "id": "dw3",
+            "name": "Doctor Who - Third Doctor (1970-1974)",
+            "short": "DW3",
+            "doctor": "Jon Pertwee",
+            "color": "#3F97C0",
+            "years": [1970, 1974],
+            "from": [7, 1],
+            "expectedSerials": 24
+          },
+          {
+            "id": "dw4",
+            "name": "Doctor Who - Fourth Doctor (1974-1981)",
+            "short": "DW4",
+            "doctor": "Tom Baker",
+            "color": "#2E8B8B",
+            "years": [1974, 1981],
+            "from": [12, 1],
+            "expectedSerials": 42
+          },
+          {
+            "id": "dw5",
+            "name": "Doctor Who - Fifth Doctor (1982-1984)",
+            "short": "DW5",
+            "doctor": "Peter Davison",
+            "color": "#5F6FBF",
+            "years": [1982, 1984],
+            "from": [19, 1],
+            "expectedSerials": 19
+          },
+          {
+            "id": "dw6",
+            "name": "Doctor Who - Sixth Doctor (1984-1986)",
+            "short": "DW6",
+            "doctor": "Colin Baker",
+            "color": "#7E62B8",
+            "years": [1984, 1986],
+            "from": [21, 7],
+            "expectedSerials": 8
+          },
+          {
+            "id": "dw7",
+            "name": "Doctor Who - Seventh Doctor (1987-1989)",
+            "short": "DW7",
+            "doctor": "Sylvester McCoy",
+            "color": "#A65BA6",
+            "years": [1987, 1989],
+            "from": [24, 1],
+            "expectedSerials": 12
+          }
+        ]
       }
     },
     {
@@ -28,6 +104,7 @@
       "name": "Doctor Who (2005-2022)",
       "short": "DW05",
       "wikiHint": "Doctor Who episode",
+      "color": "#D85A30",
       "years": [
         2005,
         2022
@@ -42,6 +119,7 @@
       "name": "Doctor Who (2023- )",
       "short": "DW23",
       "wikiHint": "Doctor Who episode",
+      "color": "#1D9E75",
       "years": [
         2023,
         null
@@ -80,7 +158,8 @@
   ],
   "notes": [
     "TVmaze lists the 1963-1989 era as individual 25-minute parts rather than serials, and its episode summaries there are very thin (median ~31 words). Wikipedia plot sections are the primary measurement for this franchise.",
-    "Doctor Who has no curated entity list yet, so the Fi axis is lexicon-only here; TOS is the only series with a curated list."
+    "The 1963-1989 run is one TVmaze catalogue split into seven works, one per lead actor (dw1..dw7). Eras are cut at (season, serial) boundaries because two seasons straddle a regeneration: season 4 splits at The Tenth Planet / The Power of the Daleks and season 21 at The Caves of Androzani / The Twin Dilemma.",
+    "Every classic era inherits the curated dw63 entity list, so splitting the run does not change the Fi coder."
   ],
   "sources": {
     "tvmaze": {

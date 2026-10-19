@@ -39,6 +39,30 @@ def run(franchise_id: str, date: str, rubric: dict) -> list[str]:
             if numbers != expected:
                 problems.append(f"{series_id} S{season}: episode numbers {numbers} are not contiguous from 1")
 
+    # --- split eras -----------------------------------------------------
+    # A split container (classic Who by lead) must hand every serial to exactly one
+    # era. The expected count per era is pinned in franchise.json: if TVmaze adds or
+    # renumbers a story, the boundary silently moves and this catches it.
+    declared = config.series_entries(config.franchise_meta(franchise_id))
+    declared_ids = {e["id"] for e in declared} | {f["id"] for f in config.franchise_meta(franchise_id).get("films", [])}
+    unknown = sorted({e["series"] for e in episodes} - declared_ids)
+    if unknown:
+        problems.append(f"snapshot contains series not declared in franchise.json: {unknown}")
+    serials_by_series: dict[str, int] = {}
+    for ep in episodes:
+        if ep.get("kind") == "serial":
+            serials_by_series[ep["series"]] = serials_by_series.get(ep["series"], 0) + 1
+    for entry in declared:
+        want = entry.get("expectedSerials")
+        if want is not None and serials_by_series.get(entry["id"], 0) != want:
+            problems.append(
+                f"{entry['id']}: {serials_by_series.get(entry['id'], 0)} serials in snapshot, "
+                f"expected {want} (check the era's from boundary)"
+            )
+    containers = {s.get("splitFrom") for s in declared if s.get("splitFrom")}
+    if containers & declared_ids:
+        problems.append(f"split container leaked into the work list: {sorted(containers & declared_ids)}")
+
     # --- signals --------------------------------------------------------
     signals_file = config.signals_path(franchise_id, date)
     if not signals_file.exists():
