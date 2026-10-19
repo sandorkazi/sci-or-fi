@@ -1,8 +1,11 @@
 name: Deploy static content to Pages
 
+# The github-pages environment only permits the default branch (``develop``) to
+# deploy; a run from ``main`` is denied by its branch policy. ``main`` is kept in
+# sync, but publishing happens from the branch the environment actually allows.
 on:
   push:
-    branches: ["main"]
+    branches: ["develop"]
   workflow_dispatch:
 
 permissions:
