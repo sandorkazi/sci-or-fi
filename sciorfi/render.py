@@ -216,9 +216,9 @@ code{font-size:.92em;background:rgba(127,127,127,.14);padding:1px 4px;border-rad
       </div>
       <div class="card" style="margin-top:12px">
         <label class="chip"><input type="checkbox" id="normToggle" style="accent-color:var(--accent)"> normalised (rank) scale</label>
-        <p class="muted" style="margin:10px 0 0">Measured scores are densities, and densities bunch: half of all works
-        sit under 2.5 of 10, so the top of a 0&ndash;10 axis is empty. The normalised view ranks each work within
-        the corpus <em>per source</em> and plots that, which guarantees the full range and cancels the level
+        <p class="muted" style="margin:10px 0 0">The measured scale is already standardised per source and log-mapped, so it
+        uses its range without being rescaled per corpus. The normalised view goes further: it ranks each work within the
+        corpus <em>per source</em> and plots that, which is uniform by construction and cancels any remaining level
         differences between sources &mdash; but a rank says where a work sits, not how much science it contains.
         The <code>baseline-v1</code> overlay is hidden here: those are hand-scored integers, and an integer 6 is
         not the same quantity as a rank of 6.</p>
@@ -758,10 +758,12 @@ def render_all(franchise_id: str, date: str, rubric: dict) -> list[Path]:
         f"A source only contributes a score if it supplied at least "
         f"<code>{min_words}</code> words of prose; the <em>text basis</em> column reads "
         f"<em>measured/covered·median words</em>, so a source that resolved most episodes with a 30-word "
-        f"teaser is shown as covering them and measuring none of them. Scores are densities and densities "
-        f"bunch, so the sidebar can switch the chart to a percentile <em>rank</em> scale that uses the full "
-        f"range — read the measured scale for how much science a work contains, the rank scale for where it "
-        f"stands."
+        f"teaser is shown as covering them and measuring none of them. Each source's density is first put on its "
+        f"franchise's common source scale (quantile-per-source), so a work's score does not depend on which sources "
+        f"resolved it, and then mapped to 0&ndash;10 with a log curve, because densities are heavy-tailed and a linear "
+        f"map left the top of the axis empty. Saturation remains a global p95, so a franchise comparison stays honest. "
+        f"The sidebar can still switch the chart to a percentile <em>rank</em> scale; read the measured scale for how "
+        f"much science a work contains, the rank scale for where it stands."
     )
     baseline_note = (
         f"Overlay of <code>baseline-v1</code> — the original whole-season hand-scored integers, frozen before "

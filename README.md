@@ -106,13 +106,32 @@ ignore.
 ## Scoring and scales
 
 Sci and Fi are scored from disjoint term sets, per episode per source, as a density
-(hits per 1,000 words), then mapped to 0–10 with `frac = min(1, density / saturation)`.
+(hits per 1,000 words), then mapped to 0–10. `rubric-v4` first puts each source's density on its
+franchise's common source scale and then applies a logarithmic map (see below); earlier rubrics
+mapped the raw density linearly as `frac = min(1, density / saturation)`.
 
 - **Saturation is calibrated, not asserted.** `python3 -m sciorfi calibrate` recomputes each
   sub-signal's saturation as the 95th percentile of its own value across every valid measurement in
   the repository, and writes a named rubric file. It is a separate re-runnable stage, never something
   `score` does on the fly: a score must be a function of a named rubric, and re-calibrating must be a
-  reviewable event.
+  reviewable event. Saturation stays a **global** p95, so a franchise comparison stays honest —
+  Doctor Who's Sci reads below Star Trek's because its densities are lower, not because each
+  franchise is rescaled to fill the frame.
+- **Sources are put on one scale (`scale.standardise: quantile-per-source`).** A density is measured
+  *per source*, and sources are not on one scale: Wikipedia's plot sections are terser and
+  zero-heavy where Memory Alpha's summaries are fuller, so a season measured mostly on one source
+  read lower than the same season measured mostly on the other (up to ~1.6 points on the real data,
+  e.g. *Starfleet Academy* S1). `calibrate` therefore writes a per-(franchise, source, sub-signal)
+  quantile map back onto the franchise's pooled distribution, so a work's score no longer depends on
+  which sources resolved it. It is per **franchise**, because the sources are nested: Tardis only
+  ever measures Doctor Who, so pooling it with Star-Trek-heavy Memory Alpha would erase a real
+  difference between the franchises.
+- **The measured map is logarithmic (`scale.transform: "log"`).** Densities are heavy-tailed, so a
+  linear map leaves the top of a 0–10 axis permanently empty — the median of a sub-signal sits near
+  a fifth of saturation, which reads as "nothing is scientific". `frac = min(1, ln(1+d)/ln(1+saturation))`
+  spreads the body of the distribution upward while keeping saturation at exactly 10 (the top 5%
+  stays the top 5%). Where the emptiness is the finding rather than an artifact — the Fi axis, where
+  most episodes contain no myth at all — it stays low on purpose.
 - **Uncertainty is measured.** A season's 95% interval comes from the dispersion of its episode-level
   measurements and is what the bubble size encodes. A season measured on a single episode has no
   estimable interval: it is published as `n/a` and drawn at a fixed large size, never as `±0.00`. A
@@ -129,9 +148,9 @@ Sci and Fi are scored from disjoint term sets, per episode per source, as a dens
   and *fit axes to data* remains the one-click pre-fit for the crowded corner where the scores live.
 - **Measured score, or rank.** Each season also carries a **percentile rank** per source, averaged
   over the selected sources exactly as the measured score is. The sidebar can switch the chart to it.
-  The rank scale is uniform by construction, so it uses the full 0–10 range and cancels the
-  systematic level differences between sources — but a rank says where a work *sits*, not how much
-  science it contains. The measured scale is the default; rank is opt-in.
+  The rank scale is uniform by construction, so it is the purest "where does this sit" view and is
+  insensitive to any remaining level difference — but a rank says where a work *sits*, not how much
+  science it contains, so the standardised, log-mapped measured scale is the default; rank is opt-in.
 
 ## Stages
 
@@ -141,7 +160,7 @@ Sci and Fi are scored from disjoint term sets, per episode per source, as a dens
 | `signals` | snapshot + sources | `data/signals/<franchise>/<date>.jsonl` |
 | `score` | signals + rubric | `data/derived/<franchise>/<date>/<scope>-<rubric>.json` |
 | `render` | derived | `output/` + root `index.html` |
-| `calibrate` | signals | a new `rubric/<name>.json` with corpus-measured saturations |
+| `calibrate` | signals | a new `rubric/<name>.json` with corpus-measured saturations + source scales |
 | `validate` | all of the above | exit code |
 
 Each stage reads the previous stage's committed output, so changing a **rubric** or a **scope**

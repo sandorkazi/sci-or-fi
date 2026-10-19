@@ -1,6 +1,6 @@
 FRANCHISE ?= star-trek
 DATE      ?= $(shell date +%F)
-RUBRIC    ?= rubric-v3
+RUBRIC    ?= rubric-v4
 
 .PHONY: help build ingest signals score render calibrate validate clean tree
 
@@ -8,7 +8,7 @@ help:
 	@echo "make build                  ingest -> signals -> score -> render -> validate"
 	@echo "make FRANCHISE=star-trek score"
 	@echo "make RUBRIC=rubric-v2 score   compare rubric versions against the same measurements"
-	@echo "make RUBRIC=rubric-v3 calibrate   re-measure saturations from the corpus into the rubric file"
+	@echo "make RUBRIC=rubric-v4 calibrate   re-measure saturations and source scales from the corpus into the rubric file"
 
 build: ingest signals score render validate
 

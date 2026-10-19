@@ -7,7 +7,7 @@ import sys
 from . import config, pipeline, validate
 
 STAGES = ("ingest", "signals", "score", "render", "validate", "calibrate", "all")
-DEFAULT_RUBRIC = "rubric-v3"
+DEFAULT_RUBRIC = "rubric-v4"
 
 
 def build_parser() -> argparse.ArgumentParser:

@@ -5,6 +5,7 @@ scope can be changed without re-hitting a network source.
 """
 from __future__ import annotations
 
+import bisect
 import math
 import re
 import statistics
@@ -362,7 +363,84 @@ def extract_signals(
 
 
 # -------------------------------------------------------------------- score
-def map_score(subsignals: list[dict], axis: str, rubric: dict) -> tuple[float, list[str]]:
+def _interp_grid(points: list[float], p: float) -> float:
+    """Value at position ``p`` in [0,1] on a piecewise-linear quantile grid."""
+    n = len(points)
+    if n == 1:
+        return float(points[0])
+    x = p * (n - 1)
+    i = int(x)
+    f = x - i
+    j = min(i + 1, n - 1)
+    return points[i] * (1 - f) + points[j] * f
+
+
+def _percentile_of(points: list[float], value: float) -> float:
+    """Inverse of :func:`_interp_grid`: the position in [0,1] whose value is ``value``.
+
+    A quantile grid has flat runs wherever the sample has ties (and a mythic
+    lexicon has many zeros), so a value that equals a run of grid points maps to
+    the *midpoint* of that run rather than to an arbitrary end of it.
+    """
+    n = len(points)
+    if n == 1:
+        return 0.5
+    if value <= points[0]:
+        j = 0
+        while j + 1 < n and points[j + 1] == points[0]:
+            j += 1
+        return (j / 2) / (n - 1)
+    if value >= points[-1]:
+        i = n - 1
+        while i - 1 >= 0 and points[i - 1] == points[-1]:
+            i -= 1
+        return ((i + n - 1) / 2) / (n - 1)
+    i = bisect.bisect_left(points, value)
+    if points[i] == value:
+        k = i
+        while k + 1 < n and points[k + 1] == value:
+            k += 1
+        return ((i + k) / 2) / (n - 1)
+    lo, hi = points[i - 1], points[i]
+    f = (value - lo) / (hi - lo)
+    return ((i - 1) + f) / (n - 1)
+
+
+def standardise_density(density: float, rubric: dict, franchise: str, source: str, sub_id: str) -> float:
+    """Put a source's density on the franchise's common scale (quantile normalisation).
+
+    A density is measured per source, and sources are not on the same scale:
+    Wikipedia plot sections are terser and zero-heavy where Memory Alpha's
+    summaries are fuller, so a season measured mostly on one source reads lower
+    than the same season measured mostly on the other. Source coverage is a
+    property of the source, not of the work, so it must not move the score. Each
+    source's within-source percentile is therefore read back off the *franchise's
+    pooled* density distribution, which makes every source in a franchise share one
+    scale. Standardisation is per franchise rather than global on purpose: the two
+    wikis that carry Doctor Who never measure Star Trek, so folding Tardis into a
+    Star-Trek-dominated pool would assert that Who is as technical as Trek, which
+    is the opposite of a finding. A source with no calibration passes through
+    unchanged, and the covered values shown on the page are always the raw ones.
+    """
+    block = ((rubric.get("calibration") or {}).get("standardisation") or {})
+    grid = block.get("byFranchise", {}).get(franchise)
+    if not grid or (rubric.get("scale") or {}).get("standardise") != "quantile-per-source":
+        return density
+    source_points = ((grid.get("perSource") or {}).get(source) or {}).get(sub_id)
+    pooled_points = (grid.get("pooled") or {}).get(sub_id)
+    if not source_points or not pooled_points:
+        return density
+    return _interp_grid(pooled_points, _percentile_of(source_points, density))
+
+
+def map_score(
+    subsignals: list[dict],
+    axis: str,
+    rubric: dict,
+    *,
+    franchise: str | None = None,
+    source: str | None = None,
+) -> tuple[float, list[str]]:
     """Apply a rubric's mapping to stored measurements.
 
     Signals hold *measurements* (densities); the rubric holds the *mapping*
@@ -377,11 +455,25 @@ def map_score(subsignals: list[dict], axis: str, rubric: dict) -> tuple[float, l
     A mean would let the sparse coder's zeros pull down the dense coder's hits, so
     the axis takes the strongest evidence either coder sees. The rule lives in the
     rubric, so it is versioned and reviewable like everything else.
+
+    Two optional mapping rules, both declared in ``scale`` and calibrated into the
+    rubric, turn the raw density into the plotted score:
+
+    - ``standardise: "quantile-per-source"`` first puts the source's density on the
+      franchise's common scale (see :func:`standardise_density`), so a work's score
+      no longer depends on which sources happened to resolve it.
+    - ``transform: "log"`` maps that value with ``ln(1+d)/ln(1+saturation)`` instead
+      of ``d/saturation``. Densities are heavy-tailed, so a linear map leaves the
+      top half of 0–10 permanently empty (the median sits at ~0.2× saturation); the
+      log map spreads the body of the distribution over the scale while still
+      putting saturation — the top 5% of what has been measured — at exactly 10.
     """
     spec = {s["id"]: s for s in rubric["axes"][axis]["subsignals"]}
     present = {d["id"] for d in subsignals}
     missing = [sid for sid in spec if sid not in present]
     combine = rubric["axes"][axis].get("combine", "weighted")
+    scale = rubric["scale"]
+    transform = scale.get("transform", "linear")
     weighted = 0.0
     weight_sum = 0.0
     best = 0.0
@@ -391,14 +483,21 @@ def map_score(subsignals: list[dict], axis: str, rubric: dict) -> tuple[float, l
             continue  # a measurement this rubric does not use
         saturation = float(sub["saturation"])
         weight = float(sub.get("weight", 1.0))
-        frac = min(1.0, item["density"] / saturation) if saturation else 0.0
+        density = item["density"]
+        if franchise and source:
+            density = standardise_density(density, rubric, franchise, source, item["id"])
+        if not saturation:
+            frac = 0.0
+        elif transform == "log":
+            frac = min(1.0, math.log1p(max(0.0, density)) / math.log1p(saturation))
+        else:
+            frac = min(1.0, density / saturation)
         weighted += weight * frac
         weight_sum += weight
         best = max(best, frac)
     if not weight_sum:
         return 0.0, missing
     frac = best if combine == "max" else weighted / weight_sum
-    scale = rubric["scale"]
     return round(scale["min"] + (scale["max"] - scale["min"]) * frac, 3), missing
 
 
@@ -471,7 +570,10 @@ def score_scope(
             continue
         if row["words"] < min_words:
             continue
-        score, missing = map_score(row.get("subsignals") or [], row["axis"], rubric)
+        score, missing = map_score(
+            row.get("subsignals") or [], row["axis"], rubric,
+            franchise=franchise_id, source=row["source"],
+        )
         if missing:
             coverage_gaps.setdefault((row["series"], row["axis"]), set()).update(missing)
         key = (row["series"], row["season"], row["axis"], row["source"])

@@ -604,6 +604,69 @@ split redistributes the same measurements. What changes is that the spread is no
 44 "seasons" on the page are work-seasons, and the two boundary seasons (S4, S21) legitimately appear
 under both Doctors they contain.
 
+## P7 status — the scale made usable and source-proof, done
+
+Two complaints, both checked against the data before anything was changed: the plotted score moved
+with *which sources resolved a work* (so series were not comparable), and the top of the 0–10 axis
+was still unused (so the scale did not read as a scale). They are two different failures with two
+different fixes, and both are now declared in `rubric-v4`.
+
+**The source-mix confound is real, and the headline example proves it.** `Starfleet Academy` S1
+scored Sci 2.95 — level with `Strange New Worlds` — but it was measured on 10 Wikipedia articles and
+7 Memory Alpha summaries, and those two sources disagree about the *same episodes*:
+
+| work | source | Sci | per-source rank | n |
+|---|---|---|---|---|
+| SFA S1 | memory-alpha | **4.13** | 5.83 | 7 |
+| SFA S1 | wikipedia | **2.13** | 1.98 | 10 |
+| SFA S1 | *combined* | 2.95 | 3.57 | 17 |
+| SNW S1 | memory-alpha | 3.18 | 3.11 | 9 |
+
+SNW is almost entirely Memory Alpha; SFA is half Wikipedia, and Wikipedia's terse, zero-heavy plot
+sections pulled it down. It is not one series: across 96 multi-source Star Trek works the median
+per-source spread is **0.83** and it runs to **5.66** (`Generations`: Memory Alpha 4.34, Wikipedia
+10.00). A density is measured *per source*, and sources are not on one scale, so a raw mean across
+sources silently rewards or punishes a work for its coverage.
+
+**Fix 1 — `scale.standardise: "quantile-per-source"`.** Before a density is scored, its
+within-source percentile is read back off the **franchise's pooled** density distribution, so every
+source in a franchise shares one scale and a work's figure no longer depends on its source mix.
+`calibrate` writes the 21-point quantile grid per (franchise, source, sub-signal) alongside each
+sub-signal's saturation, so the score is still a pure function of the named rubric. It is
+**per-franchise, not global**, and that is a deliberate design call: Tardis only ever measures Doctor
+Who, so folding it into a Star-Trek-dominated pool would assert that Who is as technical as Trek —
+inverting P5's finding. Standardising within a franchise removes the source effect and keeps the
+franchise difference.
+
+**Fix 2 — `scale.transform: "log"`.** Saturation is the p95 of a heavy-tailed density, so the
+median of a sub-signal sits near a fifth of saturation and a *linear* map leaves the top of the axis
+empty — an artifact that reads as "nothing is scientific". The map is now
+`frac = min(1, ln(1 + d) / ln(1 + saturation))`: order-preserving, saturation still exactly 10 (the
+top 5% stays the top 5%), but the body of the distribution spreads upward. Saturation stays a
+**global** p95 on purpose — it is what keeps `Doctor Who`'s Sci below `Star Trek`'s.
+
+**Result (season level, full source scope, v3 → v4).**
+
+| | axis | median | p90 | above 5 | seasons |
+|---|---|---|---|---|---|
+| Star Trek | Sci | 3.92 → **6.18** | 5.49 → **7.86** | 18% → **74%** | 66 |
+| Star Trek | Fi | 1.93 → **2.38** | 3.89 → **5.64** | 3% → **11%** | 66 |
+| Doctor Who | Sci | 1.32 → **3.00** | 2.86 → **4.98** | 2% → **9%** | 44 |
+| Doctor Who | Fi | 2.76 → **3.47** | 5.10 → **5.96** | 14% → **23%** | 44 |
+
+The Sci axis now uses its range and the franchise difference survives (Who Sci 3.00 vs Trek 6.18).
+**Fi deliberately stays low**: most episodes contain no myth at all, so a full Fi axis would claim
+the median episode is half-mythic, which is false. Filling a scale is only right where the emptiness
+is an artifact of the mapping, not where it is the finding.
+
+**What this did *not* fix, and should not pretend to.** SFA still reads ~1 point under SNW
+(4.82 vs 5.79). Standardisation cannot fix genuine disagreement between sources — only systematic
+level differences. SFA's Memory Alpha articles are ~1,300 words against SNW's ~4,600, and its
+Wikipedia coverage is 10 thin articles (574-word median, 40% containing no rubric term). That is a
+**coverage/quality** gap, not a scaling one: the lever is transcripts (open decision 3) or a
+per-source reliability weight, not another constant. The per-source spreads are now visible in the
+`text basis` column, so the fragility is stated rather than hidden under a smoothed number.
+
 ## Open decisions
 
 1. **Scaling the Fi coder — closed by P5.** Entity lists now exist for every series with text in both
